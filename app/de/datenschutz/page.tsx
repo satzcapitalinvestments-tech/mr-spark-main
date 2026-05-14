@@ -1,11 +1,1 @@
-export default function Page() {
-  return (
-    <main className="section py-16">
-      <h1 className="text-4xl font-bold capitalize">datenschutz</h1>
-      <div className="card mt-8 space-y-3 text-slate-300">
-        <p>Mr Spark bietet professionelle Leistungen rund um Elektriker, Elektroinstallation, Sicherungskasten, Steckdosen und Lichtinstallation.</p>
-        <p>Unser Team hilft dabei, jede elektrische Störung schnell zu beheben. Für akute Fälle ist unser 24h Elektro-Notdienst erreichbar.</p>
-      </div>
-    </main>
-  );
-}
+export default function Page(){return <main className="section py-14 space-y-8"><h1 className="text-4xl font-black">Datenschutz</h1><section className="card"><p className="font-semibold">Hinweis: Diese Datenschutzseite ist eine strukturierte Vorlage und muss juristisch freigegeben werden.</p></section><section className="card"><h2 className="text-2xl font-bold">Verarbeitete Daten</h2><p>Kontakt- und Anfragedaten aus Formular/WhatsApp, soweit zur Bearbeitung erforderlich.</p></section><section className="card"><h2 className="text-2xl font-bold">Zweck</h2><p>Terminierung, Rückruf und Angebots-/Serviceabwicklung.</p></section><section className="card"><h2 className="text-2xl font-bold">Betroffenenrechte</h2><p>Auskunft, Berichtigung, Löschung und weitere Rechte gemäß DSGVO.</p></section></main>}

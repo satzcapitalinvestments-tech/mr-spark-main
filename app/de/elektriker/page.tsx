@@ -1,11 +1,1 @@
-export default function Page() {
-  return (
-    <main className="section py-16">
-      <h1 className="text-4xl font-bold capitalize">elektriker</h1>
-      <div className="card mt-8 space-y-3 text-slate-300">
-        <p>Mr Spark bietet professionelle Leistungen rund um Elektriker, Elektroinstallation, Sicherungskasten, Steckdosen und Lichtinstallation.</p>
-        <p>Unser Team hilft dabei, jede elektrische Störung schnell zu beheben. Für akute Fälle ist unser 24h Elektro-Notdienst erreichbar.</p>
-      </div>
-    </main>
-  );
-}
+export default function Page(){return <main className="section py-14 space-y-8"><h1 className="text-4xl font-black">Elektriker buchen in Ihrer Region</h1><section className="card"><h2 className="text-2xl font-bold">Reparatur & Fehlerdiagnose</h2><p className="mt-2">Wir analysieren Ausfälle, prüfen Stromkreise und beheben elektrische Störungen sicher.</p></section><section className="card"><h2 className="text-2xl font-bold">Prüfung & Sicherheit</h2><p className="mt-2">Sichtprüfung, Messung und klare Handlungsempfehlungen für sichere Anlagen.</p></section><section className="card"><h2 className="text-2xl font-bold">Terminservice</h2><p className="mt-2">Flexible Terminvergabe, transparente Kommunikation und saubere Ausführung.</p></section><section className="card"><h2 className="text-2xl font-bold">Kontakt</h2><p className="mt-2">Jetzt Anfrage senden und Rückruf erhalten.</p></section></main>}

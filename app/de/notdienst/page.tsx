@@ -1,11 +1,5 @@
-export default function Page() {
-  return (
-    <main className="section py-16">
-      <h1 className="text-4xl font-bold capitalize">notdienst</h1>
-      <div className="card mt-8 space-y-3 text-slate-300">
-        <p>Mr Spark bietet professionelle Leistungen rund um Elektriker, Elektroinstallation, Sicherungskasten, Steckdosen und Lichtinstallation.</p>
-        <p>Unser Team hilft dabei, jede elektrische Störung schnell zu beheben. Für akute Fälle ist unser 24h Elektro-Notdienst erreichbar.</p>
-      </div>
-    </main>
-  );
-}
+import MascotHero from "@/components/MascotHero";
+import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
+import Faq from "@/components/Faq";
+
+export default function Page(){return <main className="gradient"><section className="section grid gap-8 py-14 md:grid-cols-2"><div><h1 className="text-4xl font-black">Elektro-Notdienst rund um die Uhr</h1><p className="mt-4 text-slate-700">Schnelle Hilfe bei Stromausfall, Kurzschluss und gefährlichen Elektro-Störungen.</p><p className="mt-4 rounded-2xl bg-amber-50 p-4 font-medium">Bei Brandgeruch oder Funkenbildung sofort Stromkreis abschalten und Notruf/Feuerwehr bei akuter Gefahr kontaktieren.</p></div><MascotHero /></section><section className="section py-10"><div className="grid gap-3 md:grid-cols-3">{["Stromausfall","Kurzschluss","FI-Schalter löst aus","Sicherungskasten defekt","Steckdose gefährlich","Lichtausfall","Brandgeruch / verschmorte Leitung"].map(i=><div key={i} className="card">{i}</div>)}</div></section><section className="section py-10"><h2 className="text-3xl font-bold">Ablauf im Notfall</h2><ol className="mt-4 grid gap-3 md:grid-cols-4">{["Anfrage","Sicherheitscheck","Rückruf / Termin","Elektriker kommt"].map(s=><li key={s} className="card">{s}</li>)}</ol></section><section className="section py-10"><h2 className="text-3xl font-bold">Preis-Transparenz</h2><p className="mt-3 text-slate-700">Wir erklären vorab Anfahrt, Diagnose, Arbeitszeit und Material. Keine verdeckten Positionen.</p></section><section className="section py-12 grid gap-6 md:grid-cols-2"><WhatsAppLeadForm sourcePage="/de/notdienst" /><MascotHero /></section><Faq items={[{q:"Ist nachts Hilfe möglich?",a:"Ja, unser Notdienst ist 24h erreichbar."},{q:"Was soll ich zuerst tun?",a:"Bei Gefahr absichern, Stromkreis abschalten und uns sofort kontaktieren."}]} /></main>}
