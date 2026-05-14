@@ -6,7 +6,22 @@ import {
   SectionHeading,
 } from "@/components/MarketingSections";
 
-type T = { title: string; lead: string; services: string[] };
+type T = {
+  title: string;
+  lead: string;
+  eyebrow: string;
+  services: string[];
+  points: string[];
+  servicesEyebrow: string;
+  servicesTitle: string;
+  servicesDescription: string;
+  serviceCardDescription: string;
+  primaryCtaLabel: string;
+  secondaryCtaLabel: string;
+  leadTitle: string;
+  leadDescription: string;
+  checklist: string[];
+};
 
 export function LocalizedPage({
   t,
@@ -20,41 +35,33 @@ export function LocalizedPage({
   return (
     <main dir={dir}>
       <HeroSection
-        eyebrow={`Mr Spark · ${locale.toUpperCase()}`}
+        eyebrow={`${t.eyebrow} · ${locale.toUpperCase()}`}
         title={t.title}
         description={t.lead}
-        points={[
-          "Mehrsprachige Erstinformationen mit identischem Leadflow",
-          "Die deutsche Conversion-Architektur bleibt die gemeinsame Basis",
-        ]}
-        primaryCta={{ href: `/${locale}/kontakt`, label: "Kontakt aufnehmen" }}
-        secondaryCta={{ href: `/${locale}/notdienst`, label: "Notdienst öffnen", variant: "ghost" }}
+        points={t.points}
+        primaryCta={{ href: `/${locale}/kontakt`, label: t.primaryCtaLabel }}
+        secondaryCta={{ href: `/${locale}/notdienst`, label: t.secondaryCtaLabel, variant: "ghost" }}
       />
 
       <PageSection>
         <SectionHeading
-          eyebrow="Leistungsübersicht"
-          title="Relevante Elektrothemen auf einen Blick"
-          description="Die internationalen Seiten bleiben bewusst kompakter, nutzen aber dieselben Layout- und Conversion-Seams wie der deutsche Hauptauftritt."
+          eyebrow={t.servicesEyebrow}
+          title={t.servicesTitle}
+          description={t.servicesDescription}
         />
         <FeatureGrid
           items={t.services.map((service) => ({
             title: service,
-            description:
-              "Mr Spark koordiniert passende Elektrohilfe abhängig von Art des Problems und Region.",
+            description: t.serviceCardDescription,
           }))}
         />
       </PageSection>
 
       <LeadCaptureSection
-        title="Anfrage strukturiert übermitteln"
-        description="Name, Kontakt, Stadt, Service und Dringlichkeit gehen auch auf den Sprachrouten in dieselbe servergestützte Intake-Strecke."
+        title={t.leadTitle}
+        description={t.leadDescription}
         sourcePage={`/${locale}`}
-        checklist={[
-          "Stadt und Problem kurz nennen",
-          "Dringlichkeit passend markieren",
-          "Telegram oder Rueckruf erreichbar halten",
-        ]}
+        checklist={t.checklist}
       />
     </main>
   );

@@ -18,6 +18,9 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Soforthilfe bei Stromausfall, Kurzschluss, FI-Problemen und gefaehrlichen Elektrostoerungen mit priorisierter Rueckmeldung.",
   pathname: "/de/notdienst",
+  locale: "de",
+  localizedSlug: "notdienst",
+  includeLocaleAlternates: true,
   keywords: ["24h Elektro-Notdienst", "Stromausfall Hilfe", "Kurzschluss Elektriker"],
 });
 

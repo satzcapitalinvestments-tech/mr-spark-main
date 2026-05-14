@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components/SiteChrome";
 import StructuredData from "@/components/StructuredData";
+import { defaultLocale, getLocaleDirection, isLocale } from "@/lib/i18n";
 import { buildLocalBusinessStructuredData } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
@@ -40,9 +42,17 @@ export const metadata: Metadata = {
     : undefined,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const requestHeaders = await headers();
+  const localeHeader = requestHeaders.get("x-locale");
+  const locale = localeHeader && isLocale(localeHeader) ? localeHeader : defaultLocale;
+
   return (
-    <html lang="de" className={`${headingFont.variable} ${bodyFont.variable}`}>
+    <html
+      lang={locale}
+      dir={getLocaleDirection(locale)}
+      className={`${headingFont.variable} ${bodyFont.variable}`}
+    >
       <body>
         <StructuredData data={buildLocalBusinessStructuredData()} />
         <Header />

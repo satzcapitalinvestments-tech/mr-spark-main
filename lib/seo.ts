@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { LocaleCode } from "@/data/i18n/languages";
+import { buildLocaleAlternates, defaultLocale, getOpenGraphLocale } from "@/lib/i18n";
 import { buildSiteUrl, siteConfig } from "@/lib/site-config";
 
 type PageMetadataInput = {
@@ -7,6 +9,9 @@ type PageMetadataInput = {
   pathname: string;
   keywords?: string[];
   noIndex?: boolean;
+  locale?: LocaleCode;
+  localizedSlug?: string;
+  includeLocaleAlternates?: boolean;
 };
 
 export function buildPageMetadata({
@@ -15,8 +20,14 @@ export function buildPageMetadata({
   pathname,
   keywords = [],
   noIndex = false,
+  locale = defaultLocale,
+  localizedSlug,
+  includeLocaleAlternates = false,
 }: PageMetadataInput): Metadata {
   const canonical = buildSiteUrl(pathname);
+  const languageAlternates = includeLocaleAlternates
+    ? buildLocaleAlternates(localizedSlug)
+    : undefined;
 
   return {
     title,
@@ -24,10 +35,11 @@ export function buildPageMetadata({
     keywords,
     alternates: {
       canonical,
+      languages: languageAlternates,
     },
     openGraph: {
       type: "website",
-      locale: "de_DE",
+      locale: getOpenGraphLocale(locale),
       siteName: siteConfig.brandName,
       title,
       description,
@@ -40,6 +52,32 @@ export function buildPageMetadata({
         }
       : undefined,
   };
+}
+
+export function buildLocalizedPageMetadata({
+  locale,
+  title,
+  description,
+  slug,
+  keywords = [],
+}: {
+  locale: LocaleCode;
+  title: string;
+  description: string;
+  slug?: string;
+  keywords?: string[];
+}) {
+  const pathname = slug ? `/${locale}/${slug}` : `/${locale}`;
+
+  return buildPageMetadata({
+    title,
+    description,
+    pathname,
+    keywords,
+    locale,
+    localizedSlug: slug,
+    includeLocaleAlternates: true,
+  });
 }
 
 export function buildLocalBusinessStructuredData() {

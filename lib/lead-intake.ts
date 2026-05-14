@@ -98,6 +98,10 @@ function assertRateLimit(ipAddress: string) {
   const windowStart = now - siteConfig.leadRateLimitWindowMs;
   const active = (leadRateBuckets.get(key) ?? []).filter((timestamp) => timestamp >= windowStart);
 
+  if (active.length === 0) {
+    leadRateBuckets.delete(key);
+  }
+
   if (active.length >= siteConfig.leadRateLimitMax) {
     leadRateBuckets.set(key, active);
     throw new LeadRateLimitError("Zu viele Anfragen in kurzer Zeit. Bitte in einigen Minuten erneut versuchen.");

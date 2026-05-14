@@ -20,6 +20,9 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Mr Spark koordiniert Elektroinstallation, Stoerungsbehebung und 24h Elektro-Notdienst fuer Anfragen in Deutschland.",
   pathname: "/de",
+  locale: "de",
+  localizedSlug: "",
+  includeLocaleAlternates: true,
   keywords: [
     "Elektriker Deutschland",
     "Elektro-Notdienst",

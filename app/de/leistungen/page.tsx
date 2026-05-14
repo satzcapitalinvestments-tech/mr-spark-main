@@ -14,6 +14,9 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Elektroinstallation, Fehlersuche, Sicherungskasten, Steckdosen, Licht und Elektro-Notdienst in einer konsistenten Seitenarchitektur.",
   pathname: "/de/leistungen",
+  locale: "de",
+  localizedSlug: "leistungen",
+  includeLocaleAlternates: true,
   keywords: ["Elektriker Leistungen", "Elektroinstallation", "Fehlersuche", "Notdienst"],
 });
 

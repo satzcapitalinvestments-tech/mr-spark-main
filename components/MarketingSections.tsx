@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import MascotHero from "@/components/MascotHero";
-import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
+import TelegramLeadForm from "@/components/TelegramLeadForm";
 
 type Cta = {
   href: string;
@@ -286,7 +286,7 @@ export function LeadCaptureSection({
           <MascotHero compact className="hidden lg:block" />
         </div>
 
-        <WhatsAppLeadForm sourcePage={sourcePage} />
+        <TelegramLeadForm sourcePage={sourcePage} />
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ type LeadFormState = {
   website: string;
 };
 
-export default function WhatsAppLeadForm({ sourcePage }: { sourcePage: string }) {
+export default function TelegramLeadForm({ sourcePage }: { sourcePage: string }) {
   const [startedAt, setStartedAt] = useState(() => Date.now());
   const [form, setForm] = useState<LeadFormState>({
     name: "",
@@ -29,6 +29,7 @@ export default function WhatsAppLeadForm({ sourcePage }: { sourcePage: string })
     event.preventDefault();
     setIsSubmitting(true);
     setFeedback(null);
+    const telegramWindow = typeof window !== "undefined" ? window.open("", "_blank") : null;
 
     try {
       const response = await fetch("/api/leads", {
@@ -64,12 +65,19 @@ export default function WhatsAppLeadForm({ sourcePage }: { sourcePage: string })
           leadMethod: payload.tracking?.method || "telegram",
           sourcePage: payload.tracking?.sourcePage || sourcePage,
         });
-        window.open(payload.contactUrl, "_blank", "noopener,noreferrer");
+
+        if (telegramWindow) {
+          telegramWindow.opener = null;
+          telegramWindow.location.href = payload.contactUrl;
+        } else {
+          window.location.assign(payload.contactUrl);
+        }
       }
 
       setFeedback("Anfrage vorbereitet. Telegram wurde in einem neuen Tab geoeffnet.");
       setStartedAt(Date.now());
     } catch (error) {
+      telegramWindow?.close();
       setFeedback(error instanceof Error ? error.message : "Bitte erneut versuchen.");
     } finally {
       setIsSubmitting(false);

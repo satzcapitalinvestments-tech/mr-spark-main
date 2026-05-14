@@ -14,6 +14,9 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Preisstruktur für Anfahrt, Diagnose, Arbeitszeit, Material und Notdienstzuschläge nachvollziehbar erklärt.",
   pathname: "/de/preise",
+  locale: "de",
+  localizedSlug: "preise",
+  includeLocaleAlternates: true,
   keywords: ["Elektriker Preise", "Notdienst Kosten", "Elektroinstallation Preis"],
 });
 

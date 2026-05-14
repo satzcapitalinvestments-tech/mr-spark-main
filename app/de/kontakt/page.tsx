@@ -15,6 +15,9 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Kontakt fuer Elektroanfragen, Rueckrufwunsch und Notdienstkoordination ueber den servergestuetzten Telegram-Leadflow.",
   pathname: "/de/kontakt",
+  locale: "de",
+  localizedSlug: "kontakt",
+  includeLocaleAlternates: true,
   keywords: ["Elektriker Kontakt", "Telegram Elektriker", "Elektro Anfrage"],
 });
 
