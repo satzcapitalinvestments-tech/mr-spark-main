@@ -1,70 +1,87 @@
+import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
 import Faq from "@/components/Faq";
-import MascotHero from "@/components/MascotHero";
-import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
+import {
+  FeatureGrid,
+  HeroSection,
+  LeadCaptureSection,
+  NoticeCard,
+  PageSection,
+  SectionHeading,
+  StepGrid,
+} from "@/components/MarketingSections";
+import { emergencyPageContent } from "@/data/page-content/de";
+import { buildEmergencyServiceStructuredData, buildPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "24h Elektro-Notdienst",
+  description:
+    "Soforthilfe bei Stromausfall, Kurzschluss, FI-Problemen und gefaehrlichen Elektrostoerungen mit priorisierter Rueckmeldung.",
+  pathname: "/de/notdienst",
+  keywords: ["24h Elektro-Notdienst", "Stromausfall Hilfe", "Kurzschluss Elektriker"],
+});
 
 export default function Page() {
   return (
     <main className="gradient">
-      <section className="section grid gap-8 py-14 md:grid-cols-2">
-        <div>
-          <h1 className="text-4xl font-black">Elektro-Notdienst rund um die Uhr</h1>
-          <p className="mt-4 text-slate-700">
-            Hilfe bei Stromausfall, Kurzschluss, FI-Schalter löst aus, Sicherungskasten defekt,
-            Steckdose gefährlich, Lichtausfall und Brandgeruch / verschmorte Leitung.
-          </p>
-          <p className="mt-4 rounded-2xl bg-amber-50 p-4 font-medium">
-            Bei Brandgeruch, Funkenbildung oder akuter Gefahr sofort den Stromkreis abschalten und bei Gefahr Feuerwehr/Notruf kontaktieren.
-          </p>
-        </div>
-        <MascotHero compact />
-      </section>
+      <StructuredData data={buildEmergencyServiceStructuredData()} />
 
-      <section className="section py-10">
-        <div className="grid gap-3 md:grid-cols-3">
-          {[
-            "Stromausfall",
-            "Kurzschluss",
-            "FI-Schalter löst aus",
-            "Sicherungskasten defekt",
-            "Steckdose gefährlich",
-            "Lichtausfall",
-            "Brandgeruch / verschmorte Leitung",
-          ].map((item) => (
-            <div key={item} className="card">
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
+      <HeroSection
+        eyebrow={emergencyPageContent.hero.eyebrow}
+        title={emergencyPageContent.hero.title}
+        description={emergencyPageContent.hero.description}
+        points={emergencyPageContent.hero.points}
+        primaryCta={{ href: "/de/kontakt", label: "Notfall jetzt melden" }}
+        secondaryCta={{ href: "/de/preise", label: "Preislogik ansehen", variant: "ghost" }}
+      />
 
-      <section className="section py-10">
-        <h2 className="text-3xl font-bold">Ablauf im Notfall</h2>
-        <ol className="mt-4 grid gap-3 md:grid-cols-4">
-          {["Anfrage", "Sicherheitscheck", "Rückruf / Termin", "Elektriker kommt"].map((step) => (
-            <li key={step} className="card">
-              {step}
-            </li>
-          ))}
-        </ol>
-      </section>
+      <PageSection>
+        <NoticeCard
+          tone="warning"
+          title="Sicherheitsregel vor jeder Anfrage"
+          description="Bei Brandgeruch, Rauch, Funkenbildung oder unmittelbarer Gefahr den betroffenen Stromkreis abschalten, Personen absichern und im Ernstfall zusaetzlich Feuerwehr oder Notruf kontaktieren."
+        />
+      </PageSection>
 
-      <section className="section py-10">
-        <h2 className="text-3xl font-bold">Preis-Transparenz</h2>
-        <p className="mt-3 text-slate-700">
-          Wir erklären vorab Anfahrt, Diagnose, Arbeitszeit und Material. Keine verdeckten Positionen.
-        </p>
-      </section>
+      <PageSection>
+        <SectionHeading
+          eyebrow="Typische Notfälle"
+          title="Diese Stoerungen sollten im Notdienstkontext sofort sichtbar einordenbar sein."
+          description="Die Seite reduziert kognitive Last und lässt Nutzer nicht erst durch generische Marketingblöcke suchen."
+        />
+        <FeatureGrid items={emergencyPageContent.symptoms} columns={2} />
+      </PageSection>
 
-      <section className="section grid gap-6 py-12 md:grid-cols-2">
-        <WhatsAppLeadForm sourcePage="/de/notdienst" />
-        <MascotHero compact />
-      </section>
+      <PageSection surface>
+        <SectionHeading
+          eyebrow="Ablauf"
+          title="Von der Gefahrensituation zur Rueckmeldung in vier klaren Schritten."
+          description="Die Seitensemantik spiegelt die operative Reihenfolge wider: absichern, beschreiben, Rueckmeldung vorbereiten, Einsatz koordinieren."
+        />
+        <StepGrid steps={emergencyPageContent.steps} />
+      </PageSection>
 
-      <Faq
-        items={[
-          { q: "Ist nachts Hilfe möglich?", a: "Ja, unser Notdienst ist 24h erreichbar." },
-          { q: "Was soll ich zuerst tun?", a: "Bei Gefahr absichern, Stromkreis abschalten und uns sofort kontaktieren." },
+      <PageSection>
+        <SectionHeading
+          eyebrow="Preistransparenz"
+          title="Auch im Notfall bleibt die Kostenlogik nachvollziehbar."
+          description="Die UI vermeidet Billigsignale und erklärt stattdessen, welche Preisbausteine einen Soforteinsatz beeinflussen."
+        />
+        <FeatureGrid items={emergencyPageContent.pricing} />
+      </PageSection>
+
+      <Faq items={emergencyPageContent.faq} />
+
+      <LeadCaptureSection
+        title="Notdienstanfrage servergestützt vorbereiten"
+        description="Der Leadflow uebergibt Quellseite und Dringlichkeit an den bestehenden Backend-Endpoint, bevor Telegram geoeffnet wird."
+        sourcePage="/de/notdienst"
+        checklist={[
+          "Stadt und Fehlerbild angeben",
+          "Dringlichkeit korrekt markieren",
+          "Rueckruf möglich halten",
         ]}
+        emergencyNote="Technisches Risiko: Ohne bestätigte Rufnummern- und Bereitschaftslogik bleibt diese Seite conversion-stark, operativ aber weiter auf manuelle Bearbeitung angewiesen."
       />
     </main>
   );

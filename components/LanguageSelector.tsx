@@ -6,8 +6,24 @@ import { switchLocalePath } from "@/lib/i18n";
 export default function LanguageSelector() {
   const pathname = usePathname() || "/de";
   return (
-    <select className="rounded-full border px-3 py-2 text-sm" value={(pathname.split('/')[1]||'de')} onChange={(e)=>{window.location.href=switchLocalePath(pathname,e.target.value as LocaleCode);}}>
-      {languages.map((l)=><option key={l.code} value={l.code}>{l.short} · {l.label}</option>)}
-    </select>
+    <>
+      <label className="sr-only" htmlFor="language-selector">
+        Sprache wählen
+      </label>
+      <select
+        id="language-selector"
+        className="rounded-full border border-white/10 bg-white/8 px-3 py-2 text-sm text-white outline-none transition focus:border-white/30"
+        value={pathname.split("/")[1] || "de"}
+        onChange={(event) => {
+          window.location.href = switchLocalePath(pathname, event.target.value as LocaleCode);
+        }}
+      >
+        {languages.map((language) => (
+          <option key={language.code} value={language.code} className="text-slate-900">
+            {language.short} · {language.label}
+          </option>
+        ))}
+      </select>
+    </>
   );
 }

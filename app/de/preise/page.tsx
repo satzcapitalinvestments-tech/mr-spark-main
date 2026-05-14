@@ -1,1 +1,66 @@
-export default function Page(){return <main className="section py-14 space-y-8"><h1 className="text-4xl font-black">Preise & transparente Abrechnung</h1><section className="card"><h2 className="text-2xl font-bold">So setzen sich Kosten zusammen</h2><ul className="mt-2 list-disc pl-5"><li>Anfahrt</li><li>Diagnose</li><li>Arbeitszeit</li><li>Material</li></ul></section><section className="card"><h2 className="text-2xl font-bold">Beispielkalkulationen</h2><p className="mt-2">Orientierungswerte je nach Aufwand – keine pauschalen Lockpreise ohne Besichtigung.</p></section><section className="card"><h2 className="text-2xl font-bold">Notdienst-Hinweis</h2><p className="mt-2">Bei Nacht-/Feiertagseinsätzen gelten gesonderte Zuschläge, vorab transparent kommuniziert.</p></section><section className="card"><h2 className="text-2xl font-bold">Klarheit vor Start</h2><p className="mt-2">Sie erhalten vor Arbeitsbeginn eine verständliche Kostenübersicht.</p></section></main>}
+import type { Metadata } from "next";
+import {
+  FeatureGrid,
+  HeroSection,
+  LeadCaptureSection,
+  PageSection,
+  SectionHeading,
+} from "@/components/MarketingSections";
+import { pricingPageContent } from "@/data/page-content/de";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Preise und transparente Abrechnung",
+  description:
+    "Preisstruktur für Anfahrt, Diagnose, Arbeitszeit, Material und Notdienstzuschläge nachvollziehbar erklärt.",
+  pathname: "/de/preise",
+  keywords: ["Elektriker Preise", "Notdienst Kosten", "Elektroinstallation Preis"],
+});
+
+export default function Page() {
+  return (
+    <main className="gradient">
+      <HeroSection
+        eyebrow="Preise und Transparenz"
+        title="Eine Preis-Seite, die Erwartungssteuerung leistet statt mit fiktiven Pauschalen zu arbeiten."
+        description="Die Seite schafft Vertrauen über Kostenlogik, Beispielkontexte und sichtbare Sonderfälle wie Notdienstzuschläge."
+        points={[
+          "Preisblöcke bleiben voneinander getrennt",
+          "Notdienstkosten werden nicht versteckt",
+          "Die Conversion bleibt auch auf der Preisroute präsent",
+        ]}
+        primaryCta={{ href: "/de/kontakt", label: "Preisrelevante Anfrage stellen" }}
+        secondaryCta={{ href: "/de/notdienst", label: "Notdienst anfragen", variant: "ghost" }}
+      />
+
+      <PageSection>
+        <SectionHeading
+          eyebrow="Kostenbausteine"
+          title="Die Preisarchitektur erklärt, wofür Nutzer tatsächlich bezahlen."
+          description="Das senkt Rückfragen und verhindert, dass der Leadflow mit Preisunsicherheit abbricht."
+        />
+        <FeatureGrid items={pricingPageContent.pillars} columns={2} />
+      </PageSection>
+
+      <PageSection surface>
+        <SectionHeading
+          eyebrow="Einordnung"
+          title="Beispielszenarien helfen bei der Erwartungsbildung, ohne falsche Preisgarantien auszusprechen."
+          description="Die Inhalte bleiben bewusst qualitativ, bis das Unternehmen belastbare Preisspannen freigibt."
+        />
+        <FeatureGrid items={pricingPageContent.examples} columns={3} />
+      </PageSection>
+
+      <LeadCaptureSection
+        title="Kostenrelevante Anfrage mit Kontext starten"
+        description="Wer die Preisroute besucht, kann direkt mit Stadt, Leistungsbild und Dringlichkeit in den bestehenden Leadflow einsteigen."
+        sourcePage="/de/preise"
+        checklist={[
+          "Leistungsart nennen",
+          "Einsatzort angeben",
+          "Falls relevant Dringlichkeit markieren",
+        ]}
+      />
+    </main>
+  );
+}

@@ -13,7 +13,7 @@ export default function MascotHero({ compact = false, className = "" }: MascotHe
 
   return (
     <div className={`relative mx-auto w-full ${compact ? "max-w-xs" : "max-w-md"} ${className}`}>
-      <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-sky-200 via-cyan-100 to-amber-100 blur-2xl" />
+      <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-[color:var(--brand-soft)] via-white to-[color:var(--accent-soft)] blur-2xl" />
       <Image
         src={src}
         onError={() => setSrc("/brand/mr-spark-mascot.svg")}
@@ -21,7 +21,7 @@ export default function MascotHero({ compact = false, className = "" }: MascotHe
         width={compact ? 320 : 520}
         height={compact ? 320 : 520}
         priority
-        className="h-auto w-full rounded-3xl border border-sky-100 bg-white object-contain"
+        className="h-auto w-full rounded-[2rem] border border-[color:var(--line-strong)] bg-white/92 object-contain p-4 shadow-[var(--shadow-soft)]"
       />
     </div>
   );
