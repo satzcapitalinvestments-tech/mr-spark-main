@@ -1,0 +1,49 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mr Spark Mascot</title>
+  <desc id="desc">Friendly static lightning electrician mascot for Mr Spark.</desc>
+  <rect width="720" height="720" rx="72" fill="url(#bg)"/>
+  <circle cx="360" cy="360" r="265" fill="white" fill-opacity="0.72"/>
+  <circle cx="560" cy="140" r="58" fill="#BAE6FD" fill-opacity="0.75"/>
+  <circle cx="140" cy="590" r="82" fill="#FDE68A" fill-opacity="0.7"/>
+  <path d="M361 70L214 283H323L270 468L507 234H390L444 70H361Z" fill="url(#bolt)" stroke="#F59E0B" stroke-width="8" stroke-linejoin="round"/>
+  <ellipse cx="321" cy="237" rx="29" ry="35" fill="white"/>
+  <ellipse cx="414" cy="237" rx="29" ry="35" fill="white"/>
+  <circle cx="329" cy="244" r="14" fill="#0284C7"/>
+  <circle cx="422" cy="244" r="14" fill="#0284C7"/>
+  <circle cx="334" cy="238" r="5" fill="white"/>
+  <circle cx="427" cy="238" r="5" fill="white"/>
+  <path d="M307 190C326 176 343 179 355 191" stroke="#1E293B" stroke-width="11" stroke-linecap="round"/>
+  <path d="M397 191C414 177 433 177 447 191" stroke="#1E293B" stroke-width="11" stroke-linecap="round"/>
+  <path d="M327 304C349 329 392 330 417 304" stroke="#7C2D12" stroke-width="14" stroke-linecap="round"/>
+  <path d="M249 402C249 360 283 326 325 326H412C454 326 488 360 488 402V552H249V402Z" fill="url(#jacket)" stroke="#0369A1" stroke-width="8"/>
+  <path d="M326 333H411L391 554H346L326 333Z" fill="white"/>
+  <path d="M370 378L342 448H371L351 517L429 424H391L413 378H370Z" fill="#FACC15" stroke="#F59E0B" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M249 425C204 432 178 461 170 509" stroke="#0EA5E9" stroke-width="34" stroke-linecap="round"/>
+  <path d="M488 425C535 433 563 463 570 510" stroke="#0EA5E9" stroke-width="34" stroke-linecap="round"/>
+  <circle cx="166" cy="519" r="29" fill="white" stroke="#CBD5E1" stroke-width="6"/>
+  <circle cx="575" cy="519" r="29" fill="white" stroke="#CBD5E1" stroke-width="6"/>
+  <path d="M575 520C606 524 628 546 632 577" stroke="#0284C7" stroke-width="12" stroke-linecap="round"/>
+  <path d="M632 577C636 606 620 626 594 629" stroke="#0284C7" stroke-width="12" stroke-linecap="round"/>
+  <path d="M594 629C566 632 546 616 543 589" stroke="#0284C7" stroke-width="12" stroke-linecap="round"/>
+  <rect x="268" y="545" width="195" height="48" rx="16" fill="#0F172A"/>
+  <rect x="346" y="536" width="48" height="60" rx="12" fill="#FACC15" stroke="#0F172A" stroke-width="6"/>
+  <path d="M373 546L358 573H374L364 590L392 562H377L386 546H373Z" fill="#0F172A"/>
+  <path d="M284 591H345V660H257V618C257 603 269 591 284 591Z" fill="#1E3A8A"/>
+  <path d="M410 591H471C486 591 498 603 498 618V660H410V591Z" fill="#1E3A8A"/>
+  <rect x="246" y="646" width="109" height="31" rx="15.5" fill="white"/>
+  <rect x="401" y="646" width="109" height="31" rx="15.5" fill="white"/>
+  <path d="M280 629H333" stroke="#38BDF8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M426 629H479" stroke="#38BDF8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M143 487C115 462 108 427 129 399C145 378 176 377 192 399C207 421 196 451 170 466" stroke="#0F172A" stroke-width="13" stroke-linecap="round"/>
+  <rect x="105" y="354" width="69" height="82" rx="18" fill="#1E293B"/>
+  <path d="M124 351V323" stroke="#94A3B8" stroke-width="9" stroke-linecap="round"/>
+  <path d="M155 351V323" stroke="#94A3B8" stroke-width="9" stroke-linecap="round"/>
+  <path d="M144 375L130 402H148L138 424L168 390H151L160 375H144Z" fill="#FACC15"/>
+  <rect x="233" y="504" width="82" height="86" rx="14" fill="#0F172A"/>
+  <path d="M275 519L256 555H278L263 584L306 543H284L296 519H275Z" fill="#FACC15"/>
+  <rect x="245" y="485" width="16" height="40" rx="8" fill="#F97316"/>
+  <rect x="275" y="480" width="16" height="45" rx="8" fill="#EF4444"/>
+  <rect x="295" y="54" width="210" height="54" rx="27" fill="white" stroke="#E0F2FE" stroke-width="4"/>
+  <text x="400" y="89" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#0369A1">MR SPARK</text>
+  <defs><linearGradient id="bg" x1="69" y1="56" x2="649" y2="682" gradientUnits="userSpaceOnUse"><stop stop-color="#ECFEFF"/><stop offset="0.38" stop-color="#F8FAFC"/><stop offset="0.72" stop-color="#FFF7ED"/><stop offset="1" stop-color="#FEF3C7"/></linearGradient><linearGradient id="bolt" x1="288" y1="73" x2="437" y2="447" gradientUnits="userSpaceOnUse"><stop stop-color="#FEF08A"/><stop offset="0.35" stop-color="#FACC15"/><stop offset="1" stop-color="#F59E0B"/></linearGradient><linearGradient id="jacket" x1="252" y1="330" x2="490" y2="552" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset="0.42" stop-color="#0EA5E9"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+</svg>
