@@ -1,0 +1,5 @@
+import { germanStates } from "@/data/germany/states";
+import { germanCities } from "@/data/germany/cities";
+import Link from "next/link";
+
+export default function Page(){return <main className="section py-14"><h1 className="text-4xl font-black">Einsatzgebiet – alle Städte & Orte</h1><p className="mt-4 text-slate-700">Wir nehmen Anfragen aus diesen Regionen entgegen und koordinieren passende Elektro-Hilfe je nach Verfügbarkeit. Verfügbarkeit, Anfahrt und Termin werden vorab bestätigt.</p><section className="mt-8 card"><h2 className="text-2xl font-bold">Bundesländer</h2><div className="mt-4 flex flex-wrap gap-2">{germanStates.map(s=><span className="rounded-full bg-sky-100 px-3 py-1 text-sm" key={s}>{s}</span>)}</div></section><section className="mt-8 card"><h2 className="text-2xl font-bold">Städte & Orte</h2><div className="mt-4 grid gap-2 md:grid-cols-3">{germanCities.map(c=><Link href="/de/kontakt" key={c} className="rounded-xl border p-2 hover:bg-sky-50">{c}</Link>)}</div></section></main>}
