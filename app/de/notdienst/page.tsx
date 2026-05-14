@@ -1,0 +1,4 @@
+import MascotHero from "@/components/MascotHero";
+import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
+
+export default function Page(){return <main className="gradient"><section className="section grid gap-8 py-14 md:grid-cols-2"><div><h1 className="text-4xl font-black">Elektro-Notdienst rund um die Uhr</h1><p className="mt-4 text-slate-700">Hilfe bei Stromausfall, Kurzschluss, FI-Schalter löst aus, Sicherungskasten defekt, Steckdose gefährlich, Lichtausfall und Brandgeruch / verschmorte Leitung.</p><p className="mt-4 rounded-2xl bg-amber-50 p-4 font-medium">Bei Brandgeruch, Funkenbildung oder akuter Gefahr sofort den Stromkreis abschalten und bei Gefahr Feuerwehr/Notruf kontaktieren.</p></div><MascotHero compact /></section><section className="section py-12"><WhatsAppLeadForm sourcePage="/de/notdienst" /></section></main>}
