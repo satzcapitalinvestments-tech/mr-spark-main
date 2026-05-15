@@ -5,6 +5,7 @@ import {
   FeatureGrid,
   HeroSection,
   LeadCaptureSection,
+  NoticeCard,
   PageSection,
   SectionHeading,
 } from "@/components/MarketingSections";
@@ -14,7 +15,7 @@ import { buildContactPageStructuredData, buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Kontakt und Anfrage",
   description:
-    "Kontakt fuer Elektroanfragen, Rueckrufwunsch und Notdienst mit Telegram-first CTA und kundenfreundlicher Anfragefuehrung.",
+    "Kontakt fuer Elektroanfragen, Rueckruf, Notdienst und planbare Elektroarbeiten ueber einen klaren Telegram-Kontaktweg.",
   pathname: "/de/kontakt",
   locale: "de",
   localizedSlug: "kontakt",
@@ -29,23 +30,23 @@ export default function Page() {
 
       <HeroSection
         eyebrow="Kontakt und Anfrage"
-        title="Anfrage direkt an Mr Spark senden"
-        description="Ob Stoerung, Notdienst oder planbare Elektroarbeit: Auf der Kontaktseite senden Sie die wichtigsten Angaben sofort mit und starten den Telegram-Kontakt ohne Umwege."
+        title="Kontakt aufnehmen und Elektrohilfe direkt anfragen."
+        description="Ob Stoerung, Notdienst oder planbare Arbeit: Ueber die Kontaktseite senden Sie die wichtigsten Einsatzdaten direkt mit und starten die weitere Abstimmung ueber Telegram."
         points={[
-          "Telegram-first CTA fuer schnelle Rueckmeldung",
-          "Name, Kontaktmethode, Stadt, Service und Dringlichkeit direkt erfassen",
-          "Akute Faelle bleiben sichtbar priorisiert",
+          "Name, Stadt, Service und Dringlichkeit schnell uebermitteln",
+          "Telegram bleibt der sichtbare Hauptkontakt fuer die weitere Abstimmung",
+          "Akute Faelle und planbare Arbeiten nutzen denselben klaren Einstieg",
         ]}
-        primaryCta={{ href: "#lead-form", label: "Ueber Telegram anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "Zum Notdienst", variant: "ghost" }}
+        primaryCta={{ href: "#lead-form", label: "Jetzt ueber Telegram anfragen" }}
+        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
         aside={<ElectricalPhotoShowcase variant="contact" />}
       />
 
       <PageSection>
         <SectionHeading
-          eyebrow="Kontakt mit Klarheit"
-          title="Die Kontaktseite zeigt sofort, welche Angaben fuer eine schnelle Rueckmeldung wirklich helfen."
-          description="Statt langer Einleitungstexte sehen Sie direkt, was fuer Rueckruf, Termin oder Notdienst wichtig ist."
+          eyebrow="Was fuer eine schnelle Rueckmeldung hilft"
+          title="Die Kontaktseite zeigt direkt, welche Angaben wirklich wichtig sind."
+          description="Statt technischer Erklaerungen sehen Nutzer sofort, wie sie die Anfrage klar und vollstaendig absenden."
         />
         <FeatureGrid items={contactPageContent.cards} />
       </PageSection>
@@ -58,11 +59,19 @@ export default function Page() {
         checklist={contactPageContent.checklist}
       />
 
+      <PageSection>
+        <NoticeCard
+          tone="warning"
+          title="Bei akuter Gefahr zuerst absichern"
+          description="Bei Brandgeruch, Funkenbildung oder sichtbaren Schaeden den betroffenen Stromkreis abschalten und bei Gefahr Feuerwehr oder Notruf kontaktieren."
+        />
+      </PageSection>
+
       <PageSection surface>
         <SectionHeading
           eyebrow="Nach Ihrer Anfrage"
           title="So geht es nach dem Absenden weiter."
-          description="Nach dem Absenden starten Telegram oder Rueckmeldung mit den wichtigsten Angaben, damit Termin, Notdienst oder weitere Fragen schneller abgestimmt werden koennen."
+          description="Mr Spark bereitet die Rueckmeldung vor, klaert Verfuegbarkeit und stimmt mit Ihnen die naechsten Schritte fuer Notdienst oder planbare Arbeit ab."
         />
       </PageSection>
     </main>

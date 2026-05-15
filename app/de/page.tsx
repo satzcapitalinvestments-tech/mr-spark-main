@@ -12,56 +12,15 @@ import {
   StatsBand,
   StepGrid,
 } from "@/components/MarketingSections";
+import { germanStates } from "@/data/germany/states";
 import { homePageContent } from "@/data/page-content/de";
 import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
-const urgentActionCards = [
-  {
-    badge: "Sofort Hilfe",
-    title: "24h Notdienst anfragen",
-    description:
-      "Bei Stromausfall, Brandgeruch, Kurzschluss oder gefaehrlichen Steckdosen sehen Sie sofort den richtigen Kontaktweg.",
-  },
-  {
-    badge: "Direkter Kontakt",
-    title: "Telegram starten",
-    description:
-      "Beschreiben Sie Ihr Elektroproblem kurz und starten Sie die Abstimmung mit vorbereiteten Angaben direkt ueber Telegram.",
-  },
-  {
-    badge: "Planbare Arbeiten",
-    title: "Preise und Leistungen prüfen",
-    description:
-      "Auch Lichtinstallation, Sicherungskasten, Steckdosen oder Modernisierung bleiben klar strukturiert sichtbar.",
-  },
-];
-
-const coverageTeaserCards = [
-  {
-    badge: "Deutschlandweit",
-    title: "Einsatzgebiet klar erklaert",
-    description:
-      "Mr Spark nimmt Anfragen aus Deutschland entgegen und bestaetigt Verfuegbarkeit, Anfahrt und Termin immer vorab.",
-  },
-  {
-    badge: "Wohnungen & Gewerbe",
-    title: "Fuer private und gewerbliche Elektroarbeiten",
-    description:
-      "Vom kleinen Defekt bis zur planbaren Installation bleibt der naechste Schritt fuer Wohn- und Gewerbeobjekte sauber erkennbar.",
-  },
-  {
-    badge: "Transparent",
-    title: "Rueckmeldung ohne Ratespiel",
-    description:
-      "Stadt, Dringlichkeit und Problem werden frueh genannt, damit Kosten und weitere Schritte besser abgestimmt werden koennen.",
-  },
-];
-
 export const metadata: Metadata = buildPageMetadata({
   title: "Elektriker & Elektro-Notdienst in Deutschland",
   description:
-    "Mr Spark begleitet Elektroinstallation, Fehlersuche und 24h Elektro-Notdienst fuer Wohnungen, Haeuser und Gewerbeobjekte in Deutschland.",
+    "Mr Spark hilft bei Stromausfall, Kurzschluss, FI-Problemen, Sicherungskasten, Steckdosen, Lichtinstallation und planbaren Elektroarbeiten.",
   pathname: "/de",
   locale: "de",
   localizedSlug: "",
@@ -73,6 +32,54 @@ export const metadata: Metadata = buildPageMetadata({
     "Stromausfall Hilfe",
   ],
 });
+
+const emergencyHighlights = [
+  {
+    badge: "Notfall",
+    title: "24h Elektro-Notdienst",
+    description:
+      "Stromausfall, Kurzschluss, FI-Ausloesung, Brandgeruch und gefaehrliche Steckdosen sofort sichtbar anfragen.",
+  },
+  {
+    badge: "Sicherheit",
+    title: "Sicherungskasten & Fehlersuche",
+    description:
+      "Defekte Automaten, Unterverteilungen und wiederkehrende Stoerungen mit klarer Einordnung fuer den naechsten Schritt.",
+  },
+  {
+    badge: "Kontakt",
+    title: "Telegram direkt starten",
+    description:
+      "Kontaktweg und Rueckmeldung bleiben oben auf der Seite praesent, damit die Anfrage ohne Umwege beginnt.",
+  },
+  {
+    badge: "Leistung",
+    title: "Planbare Elektroarbeiten",
+    description:
+      "Steckdosen, Schalter, Licht und Modernisierung stehen neben dem Notdienst gleichwertig und verstaendlich im Angebot.",
+  },
+];
+
+const coverageHighlights = [
+  {
+    badge: "Region",
+    title: "Deutschlandweite Anfrageannahme",
+    description:
+      "Mr Spark nimmt Elektroanfragen aus vielen Regionen entgegen und bestaetigt Verfuegbarkeit, Anfahrt und Termin vorab.",
+  },
+  {
+    badge: "Wohnung & Gewerbe",
+    title: "Einsaetze fuer Privat und Gewerbe",
+    description:
+      "Vom Wohnungsnotfall bis zur planbaren Gewerbeinstallation bleibt der Einstieg klar und kundenfreundlich.",
+  },
+  {
+    badge: "Telegram",
+    title: "Kontaktweg ohne Umwege",
+    description:
+      "Stadt, Service und Dringlichkeit koennen direkt mitgeschickt werden, damit Rueckfragen nicht bei null beginnen.",
+  },
+];
 
 export default function Page() {
   const websiteStructuredData = {
@@ -93,10 +100,10 @@ export default function Page() {
         description={homePageContent.hero.description}
         points={homePageContent.hero.points}
         primaryCta={{ href: "/de/notdienst", label: "Notdienst anfragen" }}
-        secondaryCta={{ href: siteConfig.telegramUrl, label: "Telegram starten", variant: "ghost" }}
+        secondaryCta={{ href: "/de/kontakt#lead-form", label: "Telegram starten", variant: "ghost" }}
         supportingCtas={[
-          { href: "/de/preise", label: "Preise ansehen" },
-          { href: "/de/einsatzgebiet", label: "Einsatzgebiet pruefen" },
+          { href: "/de/preise", label: "Preise ansehen", variant: "secondary" },
+          { href: "/de/einsatzgebiet", label: "Einsatzgebiet pruefen", variant: "secondary" },
         ]}
         stats={homePageContent.hero.stats}
         aside={<ElectricalPhotoShowcase variant="home" />}
@@ -106,44 +113,56 @@ export default function Page() {
 
       <PageSection>
         <SectionHeading
-          eyebrow="Schnell den richtigen Weg finden"
-          title="Notdienst, Telegram und planbare Elektroarbeiten liegen direkt im ersten Sichtbereich bereit."
-          description="Mr Spark fuehrt akute Stoerungen und geplante Leistungen sichtbar zusammen, ohne dass Sie erst lange suchen muessen."
+          eyebrow="Leistungen im Ueberblick"
+          title="Von Notdienst bis Neuinstallation finden Sie schnell die passende Elektrohilfe."
+          description="Die Startseite bleibt klar, hell und sofort verstaendlich: Was macht Mr Spark, fuer wen ist der Service gedacht und wie starten Sie die Anfrage?"
         />
-        <FeatureGrid items={urgentActionCards} columns={3} />
+        <FeatureGrid items={homePageContent.services} />
       </PageSection>
 
       <PageSection surface>
         <SectionHeading
-          eyebrow="Leistungen im Überblick"
-          title="Von Notdienst bis Neuinstallation finden Sie schnell den passenden Elektroservice."
-          description="Die Startseite zeigt akute Hilfe, geplante Elektroarbeiten und wichtige Preisfragen in einer klaren, kundenfreundlichen Reihenfolge."
+          eyebrow="Schnelle Orientierung"
+          title="Akute Stoerungen, Kontaktweg und wichtige Leistungen sind ohne langes Scrollen sichtbar."
+          description="So wirkt die Startseite wie eine starke Service-Landingpage statt wie ein interner Projektentwurf."
         />
-        <FeatureGrid items={homePageContent.services} />
+        <FeatureGrid items={emergencyHighlights} columns={2} />
       </PageSection>
 
       <PageSection>
         <NoticeCard
           tone="warning"
-          title="Bei Gefahr immer zuerst absichern"
-          description="Bei Brandgeruch, Funkenbildung oder einem kritischen Sicherungskasten moeglichst den betroffenen Stromkreis abschalten, Personen schuetzen und anschliessend den Notdienst anfragen."
+          title="Bei akuter Gefahr zuerst absichern"
+          description="Bei Brandgeruch, Funkenbildung oder einem beschaedigten Sicherungskasten moeglichst den betroffenen Stromkreis abschalten und Personen schuetzen. Danach den Elektro-Notdienst anfragen."
         />
       </PageSection>
 
+      <LeadCaptureSection
+        id="lead-form"
+        title="Anfrage direkt an Mr Spark senden"
+        description="Beschreiben Sie kurz Ihr Elektroproblem. Wir bereiten eine schnelle Rueckmeldung vor und leiten Ihre Anfrage ueber Telegram weiter."
+        sourcePage="/de"
+        checklist={[
+          "Name und Kontaktmoeglichkeit angeben",
+          "Stadt, Service und Dringlichkeit auswaehlen",
+          "Problem oder Arbeit kurz beschreiben",
+        ]}
+      />
+
       <PageSection surface>
         <SectionHeading
-          eyebrow="So läuft die Anfrage ab"
-          title="Von der ersten Beschreibung bis zur Rueckmeldung bleibt der Ablauf klar und gut erklaert."
-          description="Sie sehen sofort, welche Angaben fuer Notfall, Rueckruf oder planbare Arbeit wichtig sind und wie der Kontakt weitergeht."
+          eyebrow="So funktioniert es"
+          title="Vom ersten Kontakt bis zum abgestimmten Einsatz in vier klaren Schritten."
+          description="Ob Notdienst oder planbare Elektroarbeit: Die naechsten Schritte bleiben nachvollziehbar und kundenfreundlich."
         />
         <StepGrid steps={homePageContent.steps} />
       </PageSection>
 
       <PageSection>
         <SectionHeading
-          eyebrow="Preise verständlich erklärt"
-          title="Transparenz entsteht durch klare Kostenbloecke statt durch unrealistische Lockpreise."
-          description="Auf der Startseite sehen Sie die Grundlogik. Die Detailseite erklaert Anfahrt, Diagnose, Arbeitszeit und Notdienstzuschlaege genauer."
+          eyebrow="Preise & Transparenz"
+          title="Anfahrt, Diagnose, Arbeitszeit und Material werden offen erklaert."
+          description="Statt unrealistischer Lockpreise sehen Sie direkt, aus welchen Bausteinen sich ein Einsatz zusammensetzt."
         />
         <FeatureGrid items={homePageContent.pricingCards} />
       </PageSection>
@@ -151,24 +170,23 @@ export default function Page() {
       <PageSection surface>
         <SectionHeading
           eyebrow="Einsatzgebiet"
-          title="Anfragen aus Deutschland werden sauber regional eingeordnet."
-          description="Ob Grossstadt, Umland oder Gewerbestandort: Verfuegbarkeit, Anfahrt und Termin werden vorab bestaetigt, statt vorschnell versprochen zu werden."
+          title="Elektroanfragen aus Deutschland lassen sich direkt vorbereiten."
+          description="Verfuegbarkeit, Anfahrt und Termin werden vorab bestaetigt. Das gilt fuer Grossstaedte genauso wie fuer Umland und Gewerbestandorte."
         />
-        <FeatureGrid items={coverageTeaserCards} />
+        <FeatureGrid items={coverageHighlights} />
+        <div className="mt-8 flex flex-wrap gap-2">
+          {germanStates.slice(0, 10).map((state) => (
+            <span
+              key={state}
+              className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-[color:var(--ink)]"
+            >
+              {state}
+            </span>
+          ))}
+        </div>
       </PageSection>
 
       <Faq items={homePageContent.faq} />
-
-      <LeadCaptureSection
-        title="Anfrage direkt an Mr Spark senden"
-        description="Beschreiben Sie kurz Ihr Elektroproblem. Wir bereiten eine schnelle Rueckmeldung vor und leiten Ihre Anfrage ueber Telegram weiter."
-        sourcePage="/de"
-        checklist={[
-          "Stadt, Service und Dringlichkeit direkt angeben",
-          "Telefon, E-Mail oder Telegram erreichbar halten",
-          "Bei Notfall das Fehlerbild moeglichst konkret beschreiben",
-        ]}
-      />
     </main>
   );
 }

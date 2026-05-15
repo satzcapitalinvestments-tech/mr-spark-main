@@ -15,9 +15,9 @@ import { emergencyPageContent } from "@/data/page-content/de";
 import { buildEmergencyServiceStructuredData, buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "24h Elektro-Notdienst",
+  title: "Elektro-Notdienst rund um die Uhr",
   description:
-    "Soforthilfe bei Stromausfall, Kurzschluss, FI-Problemen und gefaehrlichen Elektrostoerungen mit 24h Elektro-Notdienst.",
+    "Soforthilfe bei Stromausfall, Kurzschluss, FI-Problemen, gefaehrlichen Steckdosen und defekten Sicherungskasten-Komponenten.",
   pathname: "/de/notdienst",
   locale: "de",
   localizedSlug: "notdienst",
@@ -35,7 +35,7 @@ export default function Page() {
         title={emergencyPageContent.hero.title}
         description={emergencyPageContent.hero.description}
         points={emergencyPageContent.hero.points}
-        primaryCta={{ href: "/de/kontakt", label: "Notdienst anfragen" }}
+        primaryCta={{ href: "/de/kontakt#lead-form", label: "Notdienst anfragen" }}
         secondaryCta={{ href: "/de/preise", label: "Preise ansehen", variant: "ghost" }}
         aside={<ElectricalPhotoShowcase variant="emergency" />}
       />
@@ -43,25 +43,25 @@ export default function Page() {
       <PageSection>
         <NoticeCard
           tone="warning"
-          title="Sicherheitsregel vor jeder Anfrage"
+          title="Sicherheitswarnung"
           description="Bei Brandgeruch, Funkenbildung oder akuter Gefahr sofort den Stromkreis abschalten und bei Gefahr Feuerwehr/Notruf kontaktieren."
         />
       </PageSection>
 
       <PageSection>
         <SectionHeading
-          eyebrow="Typische Notfälle"
-          title="Diese Stoerungen sollten im Notdienst sofort erkennbar und benennbar sein."
-          description="Sie muessen bei einem Notfall nicht erst suchen, wie Sie das Problem beschreiben sollen. Die haeufigsten Faelle sind hier direkt sichtbar."
+          eyebrow="Typische Notfaelle"
+          title="Diese Situationen sollten Sie im Elektro-Notdienst direkt benennen."
+          description="Je klarer das Fehlerbild, desto schneller laesst sich der naechste Schritt fuer Rueckmeldung und Einsatz abstimmen."
         />
         <FeatureGrid items={emergencyPageContent.symptoms} columns={2} />
       </PageSection>
 
       <PageSection surface>
         <SectionHeading
-          eyebrow="Ablauf"
-          title="Von der Gefahrensituation bis zur Rueckmeldung in vier klaren Schritten."
-          description="Erst absichern, dann kurz beschreiben, anschliessend Kontakt starten und den Einsatz abstimmen."
+          eyebrow="Ablauf im Notfall"
+          title="Von der Gefahrensituation bis zur abgestimmten Hilfe in vier klaren Schritten."
+          description="Der Kontaktweg bleibt auch in dringlichen Situationen einfach, direkt und gut erklaert."
         />
         <StepGrid steps={emergencyPageContent.steps} />
       </PageSection>
@@ -69,8 +69,8 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Preistransparenz"
-          title="Auch im Notfall bleiben Anfahrt, Diagnose und Zuschlaege nachvollziehbar."
-          description="Die Seite vermeidet Lockpreise und erklaert stattdessen, welche Faktoren einen Soforteinsatz beeinflussen."
+          title="Auch im Notdienst bleiben Kostenbausteine nachvollziehbar."
+          description="Anfahrt, Diagnose, Arbeitszeit und moegliche Zuschlaege werden offen erklaert, bevor Arbeiten starten."
         />
         <FeatureGrid items={emergencyPageContent.pricing} />
       </PageSection>
@@ -78,13 +78,14 @@ export default function Page() {
       <Faq items={emergencyPageContent.faq} />
 
       <LeadCaptureSection
-        title="Notdienstanfrage jetzt direkt vorbereiten"
-        description="Senden Sie Stadt, Fehlerbild und Dringlichkeit direkt mit. Danach startet Telegram fuer die schnelle weitere Abstimmung."
+        id="lead-form"
+        title="Notdienstanfrage direkt an Mr Spark senden"
+        description="Beschreiben Sie kurz, wo das Problem liegt und wie dringend Hilfe benoetigt wird. Wir bereiten die schnelle Rueckmeldung ueber Telegram vor."
         sourcePage="/de/notdienst"
         checklist={[
           "Stadt und Fehlerbild angeben",
           "Dringlichkeit korrekt markieren",
-          "Rueckruf möglich halten",
+          "Telefon oder Telegram erreichbar halten",
         ]}
         emergencyNote="Bei Brandgeruch, Funkenbildung oder akuter Gefahr sofort den Stromkreis abschalten und bei Gefahr Feuerwehr/Notruf kontaktieren."
       />

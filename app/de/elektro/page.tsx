@@ -12,7 +12,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Elektroinstallation und Modernisierung",
   description:
-    "Elektroinstallation, Modernisierung, Sicherungskasten, Steckdosen und Lichtarbeiten fuer Wohnungen und Gewerbe.",
+    "Elektroinstallation, Modernisierung, neue Stromkreise, Sicherungskasten und Lichtarbeiten fuer Wohn- und Gewerbeobjekte.",
   pathname: "/de/elektro",
   locale: "de",
   localizedSlug: "elektro",
@@ -22,19 +22,22 @@ export const metadata: Metadata = buildPageMetadata({
 
 const cards = [
   {
+    badge: "Installation",
     title: "Neuinstallation und Erweiterung",
     description:
-      "Leitungen, Steckdosen, Lichtpunkte und neue Stromkreise werden als planbare Elektroarbeiten sauber differenziert.",
+      "Leitungen, Steckdosen, Lichtpunkte und neue Stromkreise koennen als planbare Elektroarbeiten sauber beschrieben werden.",
   },
   {
+    badge: "Bestand",
     title: "Sicherungskasten und Verteilung",
     description:
-      "Verteiler, Schutzorgane und Modernisierungsbedarf bleiben sichtbar, weil sie kaufentscheidend und sicherheitsrelevant sind.",
+      "Verteiler, Schutzorgane und Modernisierungsbedarf bleiben sichtbar, weil sie sicherheitsrelevant und oft entscheidend fuer das Projekt sind.",
   },
   {
+    badge: "Modernisierung",
     title: "Nachruestung im Bestand",
     description:
-      "Bestehende Raeume, zusaetzliche Anschluesse und Umruestungen lassen sich sauber fuer Wohnung, Haus oder Gewerbe anfragen.",
+      "Zusaetzliche Anschluesse, neue Schalterprogramme, Smart-Home-Vorbereitung und Lichtkonzepte lassen sich direkt anfragen.",
   },
 ];
 
@@ -43,14 +46,14 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Elektroarbeiten und Modernisierung"
-        title="Elektroinstallation, Modernisierung und Nachruestung klar erklaert."
-        description="Mr Spark begleitet neue Stromkreise, Leitungen, Sicherungskasten, Beleuchtung und technische Modernisierung fuer Wohn- und Gewerbeobjekte."
+        title="Elektroinstallation, Modernisierung und saubere Nachruestung."
+        description="Planbare Elektroarbeiten brauchen klare Leistungsbeschreibung, sichere Ausfuehrung und einen direkten Kontaktweg. Genau darauf ist diese Seite ausgerichtet."
         points={[
           "Planbare Leistungen werden konkret benannt",
           "Sicherheitsrelevante Themen bleiben auffindbar",
-          "Kontakt, Preise und Telegram bleiben direkt erreichbar",
+          "Telegram-Kontakt fuehrt ohne Umwege zur passenden Rueckmeldung",
         ]}
-        primaryCta={{ href: "/de/kontakt", label: "Elektroarbeit anfragen" }}
+        primaryCta={{ href: "/de/kontakt#lead-form", label: "Elektroarbeit anfragen" }}
         secondaryCta={{ href: "/de/preise", label: "Preise ansehen", variant: "ghost" }}
         aside={<ElectricalPhotoShowcase variant="services" />}
       />
@@ -58,20 +61,20 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Leistungseinordnung"
-          title="Die Route verbindet klaren Leistungsumfang mit schnellem Kontakt."
-          description="Nutzer mit konkretem Installationsbedarf sollen sich schnell wiederfinden, ohne dass die Seite in unstrukturierte Leistungslisten kippt."
+          title="Diese Elektroarbeiten koennen Sie direkt vorbereiten."
+          description="Die Route bleibt konkret, modern und auf echte Kundenanfragen ausgerichtet."
         />
         <FeatureGrid items={cards} />
       </PageSection>
 
       <LeadCaptureSection
         title="Geplante Elektroarbeit jetzt anfragen"
-        description="Teilen Sie uns Ort, Art der Arbeit und Dringlichkeit direkt mit und starten Sie die weitere Abstimmung ueber Telegram."
+        description="Nennen Sie Ort, Art der Arbeit und gewuenschten Zeitraum. So kann Mr Spark Rueckmeldung, Termin oder Vor-Ort-Termin passend vorbereiten."
         sourcePage="/de/elektro"
         checklist={[
           "Ort und Art der Arbeit nennen",
           "Bestand oder Neuinstallation kurz einordnen",
-          "Wenn noetig Rueckrufwunsch ergaenzen",
+          "Bei Bedarf Dringlichkeit oder Terminwunsch ergaenzen",
         ]}
       />
     </main>

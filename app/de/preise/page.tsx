@@ -13,7 +13,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Preise und transparente Abrechnung",
   description:
-    "Preisstruktur für Anfahrt, Diagnose, Arbeitszeit, Material und Notdienstzuschläge nachvollziehbar erklärt.",
+    "Preisstruktur fuer Anfahrt, Diagnose, Arbeitszeit, Material und Notdienstzuschlaege nachvollziehbar erklaert.",
   pathname: "/de/preise",
   locale: "de",
   localizedSlug: "preise",
@@ -26,14 +26,14 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Preise und Transparenz"
-        title="Preise und transparente Abrechnung fuer Elektroarbeiten."
-        description="Die Preis-Seite erklaert Anfahrt, Diagnose, Arbeitszeit, Material und Notdienstzuschlaege nachvollziehbar, ohne mit fiktiven Festpreisen zu werben."
+        title="Preise fuer Elektriker, Notdienst und planbare Elektroarbeiten."
+        description="Mr Spark arbeitet mit klar erklaerten Kostenbausteinen statt mit unrealistischen Lockpreisen. So lassen sich Anfahrt, Diagnose, Arbeitszeit und Material fair einordnen."
         points={[
-          "Preisbloecke bleiben sauber voneinander getrennt",
-          "Notdienstkosten werden offen benannt",
-          "Rueckfragen zu Aufwand und Einsatzart lassen sich besser vorbereiten",
+          "Anfahrt und Einsatzzeit bleiben sichtbar",
+          "Diagnose, Arbeitszeit und Material werden getrennt erklaert",
+          "Notdienstzuschlaege werden offen benannt",
         ]}
-        primaryCta={{ href: "/de/kontakt", label: "Preisrelevante Anfrage stellen" }}
+        primaryCta={{ href: "/de/kontakt#lead-form", label: "Preisrelevante Anfrage senden" }}
         secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
         aside={<ElectricalPhotoShowcase variant="pricing" />}
       />
@@ -41,8 +41,8 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Kostenbausteine"
-          title="Diese Kostenpunkte beeinflussen die Elektrorechnung."
-          description="So sehen Sie direkt, welche Bausteine bei Notdienst, Diagnose, Arbeitszeit und Material fuer die Preisabsprache relevant sind."
+          title="So setzt sich ein Angebot fuer Elektroarbeiten zusammen."
+          description="Die Preisroute schafft Vertrauen, weil sie nicht mit Fantasiepreisen arbeitet, sondern mit nachvollziehbaren Leistungsbausteinen."
         />
         <FeatureGrid items={pricingPageContent.pillars} columns={2} />
       </PageSection>
@@ -50,15 +50,15 @@ export default function Page() {
       <PageSection surface>
         <SectionHeading
           eyebrow="Einordnung"
-          title="Beispielszenarien helfen bei der Einordnung, ohne falsche Preisgarantien zu geben."
-          description="Die Inhalte bleiben bewusst qualitativ, bis belastbare Preisspannen fuer einzelne Leistungen freigegeben sind."
+          title="Beispielszenarien helfen bei der Erwartungsbildung."
+          description="Die Beispiele bleiben bewusst allgemein, bis belastbare Preisspannen durch den Inhaber freigegeben sind."
         />
         <FeatureGrid items={pricingPageContent.examples} columns={3} />
       </PageSection>
 
       <LeadCaptureSection
-        title="Preisrelevante Anfrage mit Kontext starten"
-        description="Wenn Sie Preisfragen haben, beschreiben Sie Einsatzort, Leistung und Dringlichkeit direkt hier und starten Sie die weitere Abstimmung ueber Telegram."
+        title="Kostenrelevante Anfrage mit Kontext starten"
+        description="Teilen Sie Stadt, Leistungsbild und Dringlichkeit direkt mit. So laesst sich schneller klaeren, welcher Einsatzumfang und welche Kostenbausteine relevant sind."
         sourcePage="/de/preise"
         checklist={[
           "Leistungsart nennen",

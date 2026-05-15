@@ -7,7 +7,7 @@ const legalReady = hasPublishedLegalDetails();
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Impressum",
-  description: "Anbieterkennzeichnung und rechtliche Pflichtangaben fuer Mr Spark.",
+  description: "Anbieterkennzeichnung fuer Mr Spark. Rechtliche Angaben bleiben bis zur Freigabe als Platzhalter markiert.",
   pathname: "/de/impressum",
   locale: "de",
   localizedSlug: "impressum",
@@ -15,61 +15,67 @@ export const metadata: Metadata = buildPageMetadata({
   noIndex: !legalReady,
 });
 
+function legalValue(value?: string | null) {
+  return value || "Erfordert Inhaber- oder Rechtsfreigabe";
+}
+
 export default function Page() {
   return (
     <main className="gradient">
       <HeroSection
-        eyebrow="Rechtliche Angaben"
-        title="Impressum"
-        description="Diese Seite enthaelt die Anbieterkennzeichnung fuer Mr Spark. Fehlende Angaben bleiben bis zur Freigabe bewusst als Platzhalter markiert."
+        eyebrow="Rechtliche Pflichtangaben"
+        title="Impressum in rechtlicher Pruefung"
+        description="Die finalen Impressumsangaben werden vor Veroeffentlichung durch Inhaber oder Rechtsberatung freigegeben. Bis dahin bleiben fehlende Angaben bewusst als Platzhalter markiert."
         points={[
-          "Keine erfundenen Registerdaten oder Adressen",
-          "Freigabe durch Inhaber oder Rechtsberatung erforderlich",
-          "Bis zur finalen Pruefung bleibt die Seite no-index",
+          "Keine erfundenen Register- oder Steuerdaten",
+          "No-index bleibt bis zur finalen Freigabe aktiv",
+          "Kontakt und Datenschutz sind trotzdem direkt erreichbar",
         ]}
-        primaryCta={{ href: "/de/kontakt", label: "Kontaktseite öffnen" }}
+        primaryCta={{ href: "/de/kontakt#lead-form", label: "Kontakt oeffnen" }}
         secondaryCta={{ href: "/de/datenschutz", label: "Datenschutz ansehen", variant: "ghost" }}
       />
 
-      <PageSection>
-        <div className="rounded-[2rem] border border-amber-300/80 bg-amber-50 px-6 py-6 text-amber-950 shadow-[var(--shadow-soft)]">
-          <p className="font-semibold">
-            Rechtshinweis: Unternehmensdaten, Vertretung, Registerangaben und steuerliche Informationen duerfen nur nach Inhaber- oder Rechtsfreigabe veroeffentlicht werden.
-          </p>
-        </div>
-      </PageSection>
+      {!legalReady ? (
+        <PageSection>
+          <div className="rounded-[2rem] border border-amber-300/80 bg-amber-50 px-6 py-6 text-amber-950 shadow-[var(--shadow-soft)]">
+            <p className="font-semibold">
+              Hinweis: Dieses Impressum bleibt bis zur finalen Unternehmens- und Rechtsfreigabe bewusst unvollstaendig und wird nicht indexiert.
+            </p>
+          </div>
+        </PageSection>
+      ) : null}
 
       <PageSection>
         <SectionHeading
-          eyebrow="Platzhalter zur Pruefung"
-          title="Rechtliche Pflichtangaben werden erst nach Freigabe vollstaendig ausgegeben."
-          description="Bis zur finalen Freigabe werden keine erfundenen Handelsregisterdaten, Umsatzsteuer-IDs oder Adressen eingetragen."
+          eyebrow="Pflichtangaben"
+          title="Rechtliche Angaben vor der finalen Freigabe"
+          description="Fehlende Angaben werden offen als Platzhalter markiert. Es werden keine Register-, Umsatzsteuer- oder Adressdaten erfunden."
         />
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           <section className="feature-card">
             <h2 className="text-2xl font-semibold text-[color:var(--ink)]">Anbieter</h2>
-            <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">{siteConfig.legal.companyName}</p>
+            <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">{legalValue(siteConfig.legal.companyName)}</p>
           </section>
           <section className="feature-card">
             <h2 className="text-2xl font-semibold text-[color:var(--ink)]">Vertreten durch</h2>
             <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">
-              {siteConfig.legal.representative || "Ausstehend - Inhaberfreigabe erforderlich"}
+              {legalValue(siteConfig.legal.representative)}
             </p>
           </section>
           <section className="feature-card">
-            <h2 className="text-2xl font-semibold text-[color:var(--ink)]">Kontakt</h2>
-            <div className="mt-3 space-y-1 text-sm leading-7 text-[color:var(--muted)]">
-              <p>{siteConfig.phoneDisplay}</p>
-              <p>{siteConfig.contactEmail}</p>
-              <p>{siteConfig.legal.streetAddress || "Adresse ausstehend - Rechtsfreigabe erforderlich"}</p>
-            </div>
+            <h2 className="text-2xl font-semibold text-[color:var(--ink)]">Anschrift</h2>
+            <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">
+              {siteConfig.legal.streetAddress
+                ? `${siteConfig.legal.streetAddress}, ${siteConfig.legal.postalCode || ""} ${siteConfig.legal.city || ""}`.trim()
+                : "Erfordert Inhaber- oder Rechtsfreigabe"}
+            </p>
           </section>
           <section className="feature-card">
-            <h2 className="text-2xl font-semibold text-[color:var(--ink)]">Register- und Steuerdaten</h2>
+            <h2 className="text-2xl font-semibold text-[color:var(--ink)]">Register und Steuerdaten</h2>
             <div className="mt-3 space-y-1 text-sm leading-7 text-[color:var(--muted)]">
-              <p>Handelsregister: {siteConfig.legal.tradeRegister || "Ausstehend"}</p>
-              <p>Registernummer: {siteConfig.legal.tradeRegisterNumber || "Ausstehend"}</p>
-              <p>USt-IdNr.: {siteConfig.legal.vatId || "Ausstehend"}</p>
+              <p>Handelsregister: {legalValue(siteConfig.legal.tradeRegister)}</p>
+              <p>Registernummer: {legalValue(siteConfig.legal.tradeRegisterNumber)}</p>
+              <p>USt-IdNr.: {legalValue(siteConfig.legal.vatId)}</p>
             </div>
           </section>
         </div>

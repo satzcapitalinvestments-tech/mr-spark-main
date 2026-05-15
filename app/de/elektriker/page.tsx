@@ -10,9 +10,9 @@ import {
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Elektriker buchen",
+  title: "Elektriker anfragen",
   description:
-    "Elektriker fuer Fehlersuche, Reparatur, Sicherheitspruefung und Elektroservice in Deutschland.",
+    "Elektriker fuer Reparaturen, Fehlersuche, Steckdosen, Licht, Sicherungskasten und schnelle Hilfe bei Stoerungen.",
   pathname: "/de/elektriker",
   locale: "de",
   localizedSlug: "elektriker",
@@ -22,19 +22,22 @@ export const metadata: Metadata = buildPageMetadata({
 
 const cards = [
   {
+    badge: "Reparatur",
     title: "Fehlersuche und Reparatur",
     description:
-      "Ausfaelle, FI-Probleme und unsichere Stromkreise werden als konkrete Diagnose- und Reparaturfaelle sichtbar gemacht.",
+      "Ausfaelle, FI-Probleme und unsichere Stromkreise koennen direkt als Diagnose- und Reparaturfall beschrieben werden.",
   },
   {
+    badge: "Pruefung",
     title: "Sicherheitspruefung",
     description:
-      "Sichtpruefung, Messung und klare Handlungsempfehlungen bleiben fuer Wohnungen, Haeuser und Gewerbe gut auffindbar.",
+      "Sichtpruefung, Messung und technische Einordnung helfen dabei, Risiken im Sicherungskasten oder an Leitungen frueh zu erkennen.",
   },
   {
-    title: "Steckdosen, Licht und Sicherungskasten",
+    badge: "Service",
+    title: "Steckdosen, Schalter und Licht",
     description:
-      "Auch klassische Elektriker-Arbeiten wie Steckdosen, Lichtinstallation oder Sicherungskasten bleiben direkt anfragbar.",
+      "Kleinere Elektroarbeiten bleiben auffindbar und lassen sich genauso einfach anfragen wie groessere Reparaturen.",
   },
 ];
 
@@ -43,35 +46,35 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Elektriker anfragen"
-        title="Elektriker fuer Reparatur, Fehlersuche und sichere Elektroarbeiten."
-        description="Mr Spark hilft bei Reparaturen, Diagnosen, Steckdosen, Schaltern, Lichtinstallation und pruefbaren Sicherheitsfragen fuer Wohnungen, Haeuser und Gewerbeobjekte."
+        title="Elektriker fuer Reparaturen, Fehlersuche und sichere Elektroarbeiten."
+        description="Diese Seite richtet sich an Kunden, die schnell einen Elektriker fuer Reparatur, Pruefung, Steckdosen, Schalter oder einen defekten Sicherungskasten anfragen moechten."
         points={[
           "Fehlersuche und Sicherheit klar benannt",
-          "Reparatur und Standardarbeiten gleich gut sichtbar",
-          "24h Notdienst bei dringenden Stoerungen direkt erreichbar",
+          "Wohnungen, Haeuser und Gewerbe im selben Servicebild",
+          "Bei dringenden Faellen ist der Weg zum Notdienst sofort sichtbar",
         ]}
-        primaryCta={{ href: "/de/kontakt", label: "Elektriker anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
+        primaryCta={{ href: "/de/kontakt#lead-form", label: "Elektriker anfragen" }}
+        secondaryCta={{ href: "/de/notdienst", label: "Zum Notdienst", variant: "ghost" }}
         aside={<ElectricalPhotoShowcase variant="services" />}
       />
 
       <PageSection>
         <SectionHeading
           eyebrow="Leistungsfokus"
-          title="Typische Elektriker-Anliegen bleiben schnell einordenbar."
-          description="Die Seite hilft bei konkreter Suchintention, ohne sich in allgemeinen Handwerker-Floskeln zu verlieren."
+          title="Typische Elektriker-Anliegen schnell einordnen."
+          description="So bleibt die Route klar, hilfreich und konkret fuer Nutzer mit direkter Kaufabsicht."
         />
         <FeatureGrid items={cards} />
       </PageSection>
 
       <LeadCaptureSection
         title="Elektriker-Einsatz direkt vorbereiten"
-        description="Beschreiben Sie Aufgabe, Ort und Dringlichkeit direkt hier und starten Sie die weitere Abstimmung ueber Telegram."
+        description="Nennen Sie Ort, Aufgabe oder Fehlerbild und die passende Dringlichkeit. So kann die Anfrage schneller zur richtigen Rueckmeldung fuehren."
         sourcePage="/de/elektriker"
         checklist={[
           "Ort oder Stadt nennen",
           "Fehler oder Aufgabe knapp beschreiben",
-          "Rueckruf oder Telegram erreichbar halten",
+          "Telefon oder Telegram erreichbar halten",
         ]}
       />
     </main>
