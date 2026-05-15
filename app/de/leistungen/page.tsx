@@ -12,9 +12,9 @@ import { servicesPageContent } from "@/data/page-content/de";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Leistungen im Ueberblick",
+  title: "Leistungen im Überblick",
   description:
-    "Elektroinstallation, Fehlersuche, Sicherungskasten, Steckdosen, Licht und Elektro-Notdienst uebersichtlich auf einer Seite.",
+    "Elektroinstallation, Fehlersuche, Sicherungskasten, Steckdosen, Licht und Elektro-Notdienst übersichtlich auf einer Seite.",
   pathname: "/de/leistungen",
   locale: "de",
   localizedSlug: "leistungen",
@@ -26,9 +26,9 @@ export default function Page() {
   return (
     <main className="gradient">
       <HeroSection
-        eyebrow="Leistungen im Ueberblick"
-        title="Elektrohilfe fuer Notdienst, Reparatur, Installation und Modernisierung."
-        description="Von der schnellen Fehlersuche bis zur planbaren Elektroinstallation sehen Sie auf einen Blick, welche Leistungen Mr Spark fuer Wohn- und Gewerbeobjekte anbietet."
+        eyebrow="Leistungen im Überblick"
+        title="Elektrohilfe für Notdienst, Reparatur, Installation und Modernisierung."
+        description="Von der schnellen Fehlersuche bis zur planbaren Elektroinstallation sehen Sie auf einen Blick, welche Leistungen Mr Spark für Wohn- und Gewerbeobjekte anbietet."
         points={[
           "Kernleistungen bleiben klar und scanbar",
           "Notdienst und planbare Arbeiten stehen gleichwertig im Blick",
@@ -42,22 +42,22 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Leistungskategorien"
-          title="Elektroarbeiten, die Nutzer schnell einordnen koennen."
-          description="So bleibt das Leistungsangebot klar, vertrauenswuerdig und leicht vergleichbar."
+          title="Elektroarbeiten, die Nutzer schnell einordnen können."
+          description="So bleibt das Leistungsangebot klar, vertrauenswürdig und leicht vergleichbar."
         />
         <FeatureGrid items={servicesPageContent.categories} />
       </PageSection>
 
       <VisualDepthSection
         eyebrow="Bildsprache"
-        title="Leistungen brauchen sichtbare Elektro-Motive statt nur ruhige Textflaechen."
-        description="Messung, Verteilung und Montage bleiben ueber die ganze Seite sichtbar und staerken den Serviceeindruck."
+        title="Leistungen brauchen sichtbare Elektro-Motive statt nur ruhige Textflächen."
+        description="Messung, Verteilung und Montage bleiben über die ganze Seite sichtbar und stärken den Serviceeindruck."
         variant="services"
       />
 
       <LeadCaptureSection
         title="Passende Elektrohilfe direkt anfragen"
-        description="Nennen Sie kurz Ort, gewuenschte Leistung und Dringlichkeit. So kann Mr Spark die passende Rueckmeldung schnell vorbereiten."
+        description="Nennen Sie kurz Ort, gewünschte Leistung und Dringlichkeit. So kann Mr Spark die passende Rückmeldung schnell vorbereiten."
         sourcePage="/de/leistungen"
         checklist={["Service konkret benennen", "Stadt angeben", "Dringlichkeit markieren"]}
       />

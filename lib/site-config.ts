@@ -1,5 +1,5 @@
 const DEFAULT_SITE_URL = "https://mr-spark-main.vercel.app";
-const DEFAULT_TELEGRAM_URL = "#";
+const DEFAULT_TELEGRAM_URL = "https://t.me/share/url";
 const DEFAULT_PHONE_DISPLAY = "+49 123 4567890";
 const DEFAULT_CONTACT_EMAIL = "kontakt@mr-spark.de";
 
@@ -37,13 +37,15 @@ const siteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 const brandName = process.env.NEXT_PUBLIC_BRAND_NAME?.trim() || "Mr Spark";
 const legalCompanyName = process.env.LEGAL_COMPANY_NAME?.trim() || brandName;
 const legalPublishReady = process.env.LEGAL_PUBLISH_READY === "true";
-const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL?.trim() || DEFAULT_TELEGRAM_URL;
+const directTelegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_URL?.trim();
+const telegramUrl = directTelegramUrl || DEFAULT_TELEGRAM_URL;
+const hasDirectTelegramContact = Boolean(directTelegramUrl);
 const phoneDisplay = process.env.CONTACT_PHONE_DISPLAY?.trim() || DEFAULT_PHONE_DISPLAY;
 const contactEmail = process.env.CONTACT_EMAIL?.trim() || DEFAULT_CONTACT_EMAIL;
 const serviceAreas = splitCsv(process.env.SERVICE_AREAS);
 const indexingEnabled = process.env.SITE_INDEXING_ENABLED === "true";
 const usesPlaceholderContactData =
-  telegramUrl === DEFAULT_TELEGRAM_URL ||
+  !hasDirectTelegramContact ||
   phoneDisplay === DEFAULT_PHONE_DISPLAY ||
   contactEmail === DEFAULT_CONTACT_EMAIL;
 
@@ -53,6 +55,7 @@ export const siteConfig = {
   siteUrl,
   indexingEnabled,
   telegramUrl,
+  hasDirectTelegramContact,
   phoneDisplay,
   phoneHref: normalizePhoneHref(process.env.CONTACT_PHONE_E164 || process.env.CONTACT_PHONE_DISPLAY || DEFAULT_PHONE_DISPLAY),
   contactEmail,

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.brandName}`,
   },
   description:
-    "Elektriker, Elektroinstallation, Stoerung beheben und 24h Elektro-Notdienst fuer den deutschen Markt.",
+    "Elektriker, Elektroinstallation, Störung beheben und 24h Elektro-Notdienst für den deutschen Markt.",
   keywords: [
     "Elektriker",
     "Elektroinstallation",

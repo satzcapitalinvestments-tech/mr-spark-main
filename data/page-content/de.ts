@@ -3,42 +3,42 @@ export const homePageContent = {
     eyebrow: "Elektriker · Notdienst · Installation",
     title: "Mr Spark — Elektriker & Elektro-Notdienst",
     description:
-      "Schnelle Hilfe bei Stromausfall, Kurzschluss, FI-Schalter-Problemen, Sicherungskasten, Steckdosen, Lichtinstallation und planbaren Elektroarbeiten. Anfrage senden, Rueckmeldung erhalten und transparent klaeren lassen, was als Naechstes passiert.",
+      "Schnelle Hilfe bei Stromausfall, Kurzschluss, FI-Schalter-Problemen, Sicherungskasten, Steckdosen, Lichtinstallation und planbaren Elektroarbeiten. Anfrage senden, Rückmeldung erhalten und transparent klären lassen, was als Nächstes passiert.",
     points: [
-      "24h Notdienst fuer gefaehrliche Stoerungen und ploetzlichen Stromausfall",
-      "Wohnungen, Haeuser, Buero und Gewerbe mit klarer Leistungsuebersicht",
-      "Telegram-Anfrage oder Rueckruf starten und die naechsten Schritte direkt klaeren",
+      "24h Notdienst für gefährliche Störungen und plötzlichen Stromausfall",
+      "Wohnungen, Häuser, Büro und Gewerbe mit klarer Leistungsübersicht",
+      "Telegram-Anfrage oder Rückruf starten und die nächsten Schritte direkt klären",
     ],
     stats: [
       { value: "24h", label: "Notdienst erreichbar" },
       { value: "DE", label: "Einsatzanfragen in Deutschland" },
-      { value: "1 Kontaktweg", label: "Telegram und Rueckmeldung" },
+      { value: "1 Kontaktweg", label: "Telegram und Rückmeldung" },
     ],
   },
   trustBadges: [
     "Schnelle Einordnung bei Stromausfall, Kurzschluss und FI-Problemen",
     "Transparente Hinweise zu Anfahrt, Diagnose, Arbeitszeit und Material",
-    "Saubere Elektroarbeiten fuer Wohnungen, Haeuser und Gewerbe",
-    "Direkter Telegram-Kontakt und klare Rueckmeldung ohne Umwege",
+    "Saubere Elektroarbeiten für Wohnungen, Häuser und Gewerbe",
+    "Direkter Telegram-Kontakt und klare Rückmeldung ohne Umwege",
   ],
   services: [
     {
       badge: "Installation",
       title: "Elektroinstallation",
       description:
-        "Neue Stromkreise, Leitungen, Steckdosen, Schalter und Lichtpunkte fuer Wohn- und Gewerbeobjekte.",
+        "Neue Stromkreise, Leitungen, Steckdosen, Schalter und Lichtpunkte für Wohn- und Gewerbeobjekte.",
     },
     {
       badge: "Diagnose",
       title: "Fehlersuche",
       description:
-        "Pruefung von FI-Schaltern, Sicherungen, flackerndem Licht und unklaren Ausfaellen mit sauberer Einordnung.",
+        "Prüfung von FI-Schaltern, Sicherungen, flackerndem Licht und unklaren Ausfällen mit sauberer Einordnung.",
     },
     {
       badge: "Notdienst",
       title: "Elektro-Notdienst",
       description:
-        "Akute Stoerungen, Brandgeruch, Stromausfall oder gefaehrliche Steckdosen schnell melden und priorisieren.",
+        "Akute Störungen, Brandgeruch, Stromausfall oder gefährliche Steckdosen schnell melden und priorisieren.",
     },
     {
       badge: "Sicherheit",
@@ -50,31 +50,31 @@ export const homePageContent = {
       badge: "Innenraum",
       title: "Steckdosen, Schalter & Licht",
       description:
-        "Nachruestung, Austausch und Reparatur von Schaltern, Leuchten, Steckdosen und einzelnen Strompunkten.",
+        "Nachrüstung, Austausch und Reparatur von Schaltern, Leuchten, Steckdosen und einzelnen Strompunkten.",
     },
     {
       badge: "Modernisierung",
-      title: "Smart Home & Nachruestung",
+      title: "Smart Home & Nachrüstung",
       description:
-        "Modernisierung von Bestandsanlagen, zusaetzliche Anschluesse und Vorbereitung fuer zeitgemaesse Elektroloesungen.",
+        "Modernisierung von Bestandsanlagen, zusätzliche Anschlüsse und Vorbereitung für zeitgemäße Elektrolösungen.",
     },
   ],
   steps: [
     {
       title: "Problem oder Arbeit nennen",
-      description: "Sie beschreiben kurz Stoerung, Wunschleistung, Ort und Dringlichkeit.",
+      description: "Sie beschreiben kurz Störung, Wunschleistung, Ort und Dringlichkeit.",
     },
     {
-      title: "Rueckmeldung vorbereiten",
+      title: "Rückmeldung vorbereiten",
       description: "Mr Spark ordnet den Fall ein und bereitet die passende Kontaktaufnahme vor.",
     },
     {
       title: "Termin oder Notdienst abstimmen",
-      description: "Verfuegbarkeit, Anfahrt und der weitere Ablauf werden transparent besprochen.",
+      description: "Verfügbarkeit, Anfahrt und der weitere Ablauf werden transparent besprochen.",
     },
     {
       title: "Elektrohilfe sicher umsetzen",
-      description: "Von Fehlersuche bis Installation bleibt der naechste Schritt nachvollziehbar.",
+      description: "Von Fehlersuche bis Installation bleibt der nächste Schritt nachvollziehbar.",
     },
   ],
   pricingCards: [
@@ -97,15 +97,15 @@ export const homePageContent = {
   faq: [
     {
       q: "Wie schnell reagiert Mr Spark auf Notfaelle?",
-      a: "Akute Elektroprobleme werden direkt als Notdienst eingeordnet. Rueckmeldung, Verfuegbarkeit und das weitere Vorgehen werden so schnell wie moeglich abgestimmt.",
+      a: "Akute Elektroprobleme werden direkt als Notdienst eingeordnet. Rückmeldung, Verfügbarkeit und das weitere Vorgehen werden so schnell wie möglich abgestimmt.",
     },
     {
-      q: "Welche Angaben helfen fuer eine schnelle Rueckmeldung?",
-      a: "Name, Stadt, Erreichbarkeit, gewuenschter Service, Dringlichkeit und eine kurze Beschreibung des Problems reichen fuer den ersten Kontakt aus.",
+      q: "Welche Angaben helfen für eine schnelle Rückmeldung?",
+      a: "Name, Stadt, Erreichbarkeit, gewünschter Service, Dringlichkeit und eine kurze Beschreibung des Problems reichen für den ersten Kontakt aus.",
     },
     {
       q: "Kann ich auch planbare Elektroarbeiten anfragen?",
-      a: "Ja. Neben Notfaellen koennen Sie auch Installationen, Modernisierungen, Steckdosen, Licht oder Arbeiten am Sicherungskasten anfragen.",
+      a: "Ja. Neben Notfällen können Sie auch Installationen, Modernisierungen, Steckdosen, Licht oder Arbeiten am Sicherungskasten anfragen.",
     },
   ],
 };
@@ -115,25 +115,25 @@ export const emergencyPageContent = {
     eyebrow: "24h Elektro-Notdienst",
     title: "Elektro-Notdienst rund um die Uhr",
     description:
-      "Schnelle Hilfe bei Stromausfall, Kurzschluss, FI-Schalter-Problemen, defekten Sicherungen, gefaehrlichen Steckdosen und verschmorten Leitungen. Beschreiben Sie die Lage kurz und starten Sie direkt den Kontaktweg fuer die weitere Abstimmung.",
+      "Schnelle Hilfe bei Stromausfall, Kurzschluss, FI-Schalter-Problemen, defekten Sicherungen, gefährlichen Steckdosen und verschmorten Leitungen. Beschreiben Sie die Lage kurz und starten Sie direkt den Kontaktweg für die weitere Abstimmung.",
     points: [
       "Stromausfall, Kurzschluss und FI-Ausloesung sofort sichtbar eingeordnet",
-      "Brandgeruch, Funkenbildung und gefaehrliche Steckdosen direkt benennen",
+      "Brandgeruch, Funkenbildung und gefährliche Steckdosen direkt benennen",
       "Telegram-Kontakt und Preistransparenz bleiben auch im Notfall klar erkennbar",
     ],
   },
   symptoms: [
     {
       title: "Stromausfall oder Teil-Ausfall",
-      description: "Wohnung, Haus, Buero oder einzelne Stromkreise ploetzlich ohne Versorgung.",
+      description: "Wohnung, Haus, Büro oder einzelne Stromkreise plötzlich ohne Versorgung.",
     },
     {
       title: "Kurzschluss und FI-Ausloesung",
-      description: "Wiederkehrende Abschaltungen, knisternde Stellen oder ploetzliche Ausfaelle im Betrieb.",
+      description: "Wiederkehrende Abschaltungen, knisternde Stellen oder plötzliche Ausfälle im Betrieb.",
     },
     {
       title: "Sicherungskasten defekt",
-      description: "Defekte Automaten, verschmorte Gerueche oder sichtbare Schaeden an Verteilung und Absicherung.",
+      description: "Defekte Automaten, verschmorte Gerüche oder sichtbare Schäden an Verteilung und Absicherung.",
     },
     {
       title: "Gefaehrliche Steckdosen oder Leitungen",
@@ -143,19 +143,19 @@ export const emergencyPageContent = {
   steps: [
     {
       title: "Gefahr absichern",
-      description: "Wenn moeglich den betroffenen Stromkreis abschalten und Personen aus dem Gefahrenbereich bringen.",
+      description: "Wenn möglich den betroffenen Stromkreis abschalten und Personen aus dem Gefahrenbereich bringen.",
     },
     {
       title: "Notfall kurz beschreiben",
       description: "Ort, Fehlerbild und Dringlichkeit helfen bei der schnellen ersten Einordnung.",
     },
     {
-      title: "Rueckmeldung erhalten",
-      description: "Telegram oder Rueckruf werden fuer die weitere Abstimmung vorbereitet.",
+      title: "Rückmeldung erhalten",
+      description: "Telegram oder Rückruf werden für die weitere Abstimmung vorbereitet.",
     },
     {
       title: "Einsatz abstimmen",
-      description: "Verfuegbarkeit, Anfahrt und die notwendigen naechsten Schritte werden direkt geklaert.",
+      description: "Verfügbarkeit, Anfahrt und die notwendigen nächsten Schritte werden direkt geklärt.",
     },
   ],
   pricing: [
@@ -165,7 +165,7 @@ export const emergencyPageContent = {
     },
     {
       title: "Diagnose",
-      description: "Fehlersuche, Sicherheitspruefung und erste Einordnung werden transparent benannt.",
+      description: "Fehlersuche, Sicherheitsprüfung und erste Einordnung werden transparent benannt.",
     },
     {
       title: "Notdienstzuschlag",
@@ -175,15 +175,15 @@ export const emergencyPageContent = {
   faq: [
     {
       q: "Wann sollte ich den Elektro-Notdienst anfragen?",
-      a: "Bei Stromausfall, Kurzschluss, FI-Ausloesung, Brandgeruch, gefaehrlichen Steckdosen oder sichtbaren Schaeden an Sicherungskasten und Leitungen.",
+      a: "Bei Stromausfall, Kurzschluss, FI-Auslösung, Brandgeruch, gefährlichen Steckdosen oder sichtbaren Schäden an Sicherungskasten und Leitungen.",
     },
     {
       q: "Was soll ich bei akuter Gefahr zuerst tun?",
-      a: "Wenn gefahrlos moeglich den betroffenen Stromkreis abschalten. Bei Rauch, Feuer oder unmittelbarer Gefahr zusaetzlich Feuerwehr oder Notruf kontaktieren.",
+      a: "Wenn gefahrlos möglich den betroffenen Stromkreis abschalten. Bei Rauch, Feuer oder unmittelbarer Gefahr zusätzlich Feuerwehr oder Notruf kontaktieren.",
     },
     {
-      q: "Werden Kosten vorab erklaert?",
-      a: "Ja. Anfahrt, Diagnose, Arbeitszeit, Material und moegliche Notdienstzuschlaege werden vor Arbeitsbeginn nachvollziehbar besprochen.",
+      q: "Werden Kosten vorab erklärt?",
+      a: "Ja. Anfahrt, Diagnose, Arbeitszeit, Material und mögliche Notdienstzuschläge werden vor Arbeitsbeginn nachvollziehbar besprochen.",
     },
   ],
 };
@@ -192,15 +192,15 @@ export const contactPageContent = {
   cards: [
     {
       title: "Schneller Kontaktweg",
-      description: "Telegram bleibt der direkte Hauptkanal fuer Rueckfragen, Terminabstimmung und Notdienstanfragen.",
+      description: "Telegram bleibt der direkte Hauptkanal für Rückfragen, Terminabstimmung und Notdienstanfragen.",
     },
     {
       title: "Klare Einsatzdaten",
       description: "Name, Kontakt, Stadt, Service und Dringlichkeit helfen dabei, Ihre Anfrage sofort richtig einzuordnen.",
     },
     {
-      title: "Schnelle Rueckmeldung",
-      description: "Akute Stoerungen und planbare Elektroarbeiten koennen ohne langes Suchen direkt beschrieben werden.",
+      title: "Schnelle Rückmeldung",
+      description: "Akute Störungen und planbare Elektroarbeiten können ohne langes Suchen direkt beschrieben werden.",
     },
   ],
   checklist: [
@@ -216,17 +216,17 @@ export const servicesPageContent = {
     {
       badge: "Kernleistung",
       title: "Elektroinstallation",
-      description: "Neue Stromkreise, Erweiterungen, Licht, Steckdosen und klassische Elektroarbeiten fuer Wohn- und Gewerbeobjekte.",
+      description: "Neue Stromkreise, Erweiterungen, Licht, Steckdosen und klassische Elektroarbeiten für Wohn- und Gewerbeobjekte.",
     },
     {
       badge: "Kernleistung",
       title: "Fehlersuche",
-      description: "Analyse wiederkehrender Ausfaelle, FI-Probleme, flackernder Beleuchtung und unklarer Defekte.",
+      description: "Analyse wiederkehrender Ausfälle, FI-Probleme, flackernder Beleuchtung und unklarer Defekte.",
     },
     {
       badge: "Kernleistung",
       title: "Elektro-Notdienst",
-      description: "Akute Stoerungen wie Stromausfall, Brandgeruch oder Kurzschluss schnell einordnen und melden.",
+      description: "Akute Störungen wie Stromausfall, Brandgeruch oder Kurzschluss schnell einordnen und melden.",
     },
     {
       badge: "Anlage",
@@ -240,8 +240,8 @@ export const servicesPageContent = {
     },
     {
       badge: "Modernisierung",
-      title: "Smart Home & Nachruestung",
-      description: "Vorbereitung fuer moderne Elektroloesungen, zusaetzliche Anschluesse und Bestandsmodernisierung.",
+      title: "Smart Home & Nachrüstung",
+      description: "Vorbereitung für moderne Elektrolösungen, zusätzliche Anschlüsse und Bestandsmodernisierung.",
     },
   ],
 };
@@ -256,31 +256,31 @@ export const pricingPageContent = {
     {
       badge: "Kostenbaustein",
       title: "Diagnose und Arbeitszeit",
-      description: "Fehlersuche, Sicherheitspruefung und Arbeitszeit bleiben als klar erkennbare Leistungsbausteine sichtbar.",
+      description: "Fehlersuche, Sicherheitsprüfung und Arbeitszeit bleiben als klar erkennbare Leistungsbausteine sichtbar.",
     },
     {
       badge: "Kostenbaustein",
       title: "Material",
-      description: "Ersatzteile und neue Komponenten werden als eigener Preisblock nachvollziehbar erklaert.",
+      description: "Ersatzteile und neue Komponenten werden als eigener Preisblock nachvollziehbar erklärt.",
     },
     {
       badge: "Sonderfall",
-      title: "Notdienstzuschlaege",
+      title: "Notdienstzuschläge",
       description: "Nacht, Feiertag oder Soforteinsatz werden offen als Sonderbedingungen benannt.",
     },
   ],
   examples: [
     {
-      title: "Kurzdiagnose bei Stoerung",
+      title: "Kurzdiagnose bei Störung",
       description: "Sinnvoll, wenn ein Fehler zuerst sicher eingeordnet werden muss, bevor weitere Arbeiten abgestimmt werden.",
     },
     {
       title: "Kleinere Standardarbeiten",
-      description: "Steckdosen, Schalter, Leuchten oder einzelne Nachruestungen profitieren von klar beschriebenen Kostenbausteinen.",
+      description: "Steckdosen, Schalter, Leuchten oder einzelne Nachrüstungen profitieren von klar beschriebenen Kostenbausteinen.",
     },
     {
-      title: "Akute Notfalleinsaetze",
-      description: "Bei dringlichen Einsaetzen bleiben Anfahrt, Diagnose, Arbeitszeit und moegliche Zuschlaege nachvollziehbar.",
+      title: "Akute Notfalleinsätze",
+      description: "Bei dringlichen Einsätzen bleiben Anfahrt, Diagnose, Arbeitszeit und mögliche Zuschläge nachvollziehbar.",
     },
   ],
 };

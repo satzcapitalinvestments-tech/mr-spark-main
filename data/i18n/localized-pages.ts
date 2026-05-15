@@ -146,7 +146,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
   en: {
     title: "Mr Spark — Electrician & Emergency Electrical Service",
     lead: "Electrician, electrical installation, emergency response, fuse box work, sockets, lighting and power outage support across Germany.",
-    eyebrow: "Electrician · Installations · Emergency support",
+    eyebrow: "Electrician · Installation · Emergency support",
     services: [
       "Electrical installation",
       "Fault diagnosis",
@@ -161,9 +161,9 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     servicesEyebrow: "Service overview",
     servicesTitle: "Electrical help stays clear, urgent and easy to compare.",
-    servicesDescription: "Installations, diagnostics, pricing, and contact options are presented in a direct service-first format.",
+    servicesDescription: "Installation, diagnostics, pricing, and contact options are presented in a direct service-first format.",
     serviceCardDescription: "Mr Spark coordinates suitable electrical support depending on the issue, urgency and region.",
-    primaryCtaLabel: "Start Telegram",
+    primaryCtaLabel: "Open Telegram",
     secondaryCtaLabel: "24h Emergency",
     leadTitle: "Send a structured request",
     leadDescription: "Name, city, service and urgency are prepared before Telegram opens, so the request starts with the right details.",

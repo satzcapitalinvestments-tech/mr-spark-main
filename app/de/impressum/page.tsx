@@ -7,7 +7,7 @@ const legalReady = hasPublishedLegalDetails();
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Impressum",
-  description: "Anbieterkennzeichnung fuer Mr Spark. Rechtliche Angaben bleiben bis zur Freigabe als Platzhalter markiert.",
+  description: "Anbieterkennzeichnung für Mr Spark. Rechtliche Angaben bleiben bis zur Freigabe als Platzhalter markiert.",
   pathname: "/de/impressum",
   locale: "de",
   localizedSlug: "impressum",
@@ -24,14 +24,14 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Rechtliche Pflichtangaben"
-        title="Impressum in rechtlicher Pruefung"
-        description="Die finalen Impressumsangaben werden vor Veroeffentlichung durch Inhaber oder Rechtsberatung freigegeben. Bis dahin bleiben fehlende Angaben bewusst als Platzhalter markiert."
+        title="Impressum in rechtlicher Prüfung"
+        description="Die finalen Impressumsangaben werden vor Veröffentlichung durch Inhaber oder Rechtsberatung freigegeben. Bis dahin bleiben fehlende Angaben bewusst als Platzhalter markiert."
         points={[
           "Keine erfundenen Register- oder Steuerdaten",
           "No-index bleibt bis zur finalen Freigabe aktiv",
           "Kontakt und Datenschutz sind trotzdem direkt erreichbar",
         ]}
-        primaryCta={{ href: "/de/kontakt#lead-form", label: "Kontakt oeffnen" }}
+        primaryCta={{ href: "/de/kontakt#lead-form", label: "Kontakt öffnen" }}
         secondaryCta={{ href: "/de/datenschutz", label: "Datenschutz ansehen", variant: "ghost" }}
       />
 
@@ -39,7 +39,7 @@ export default function Page() {
         <PageSection>
           <div className="rounded-[2rem] border border-amber-300/80 bg-amber-50 px-6 py-6 text-amber-950 shadow-[var(--shadow-soft)]">
             <p className="font-semibold">
-              Hinweis: Dieses Impressum bleibt bis zur finalen Unternehmens- und Rechtsfreigabe bewusst unvollstaendig und wird nicht indexiert.
+              Hinweis: Dieses Impressum bleibt bis zur finalen Unternehmens- und Rechtsfreigabe bewusst unvollständig und wird nicht indexiert.
             </p>
           </div>
         </PageSection>

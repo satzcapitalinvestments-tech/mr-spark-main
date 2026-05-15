@@ -15,10 +15,10 @@ export default function VisualDepthSection({
   variant,
 }: VisualDepthSectionProps) {
   return (
-    <PageSection surface>
+    <PageSection>
       <div className="grid gap-8 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:items-center">
         <SectionHeading eyebrow={eyebrow} title={title} description={description} />
-        <ElectricalPhotoShowcase variant={variant} />
+        <ElectricalPhotoShowcase variant={variant} emphasis="section" />
       </div>
     </PageSection>
   );

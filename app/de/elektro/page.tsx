@@ -13,7 +13,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Elektroinstallation und Modernisierung",
   description:
-    "Elektroinstallation, Modernisierung, neue Stromkreise, Sicherungskasten und Lichtarbeiten fuer Wohn- und Gewerbeobjekte.",
+    "Elektroinstallation, Modernisierung, neue Stromkreise, Sicherungskasten und Lichtarbeiten für Wohn- und Gewerbeobjekte.",
   pathname: "/de/elektro",
   locale: "de",
   localizedSlug: "elektro",
@@ -26,19 +26,19 @@ const cards = [
     badge: "Installation",
     title: "Neuinstallation und Erweiterung",
     description:
-      "Leitungen, Steckdosen, Lichtpunkte und neue Stromkreise koennen als planbare Elektroarbeiten sauber beschrieben werden.",
+      "Leitungen, Steckdosen, Lichtpunkte und neue Stromkreise können als planbare Elektroarbeiten sauber beschrieben werden.",
   },
   {
     badge: "Bestand",
     title: "Sicherungskasten und Verteilung",
     description:
-      "Verteiler, Schutzorgane und Modernisierungsbedarf bleiben sichtbar, weil sie sicherheitsrelevant und oft entscheidend fuer das Projekt sind.",
+      "Verteiler, Schutzorgane und Modernisierungsbedarf bleiben sichtbar, weil sie sicherheitsrelevant und oft entscheidend für das Projekt sind.",
   },
   {
     badge: "Modernisierung",
-    title: "Nachruestung im Bestand",
+    title: "Nachrüstung im Bestand",
     description:
-      "Zusaetzliche Anschluesse, neue Schalterprogramme, Smart-Home-Vorbereitung und Lichtkonzepte lassen sich direkt anfragen.",
+      "Zusätzliche Anschlüsse, neue Schalterprogramme, Smart-Home-Vorbereitung und Lichtkonzepte lassen sich direkt anfragen.",
   },
 ];
 
@@ -47,12 +47,12 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Elektroarbeiten und Modernisierung"
-        title="Elektroinstallation, Modernisierung und saubere Nachruestung."
-        description="Planbare Elektroarbeiten brauchen klare Leistungsbeschreibung, sichere Ausfuehrung und einen direkten Kontaktweg. Genau darauf ist diese Seite ausgerichtet."
+        title="Elektroinstallation, Modernisierung und saubere Nachrüstung."
+        description="Planbare Elektroarbeiten brauchen klare Leistungsbeschreibung, sichere Ausführung und einen direkten Kontaktweg. Genau darauf ist diese Seite ausgerichtet."
         points={[
           "Planbare Leistungen werden konkret benannt",
           "Sicherheitsrelevante Themen bleiben auffindbar",
-          "Telegram-Kontakt fuehrt ohne Umwege zur passenden Rueckmeldung",
+          "Telegram-Kontakt führt ohne Umwege zur passenden Rückmeldung",
         ]}
         primaryCta={{ href: "/de/kontakt#lead-form", label: "Elektroarbeit anfragen" }}
         secondaryCta={{ href: "/de/preise", label: "Preise ansehen", variant: "secondary" }}
@@ -62,27 +62,27 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Leistungseinordnung"
-          title="Diese Elektroarbeiten koennen Sie direkt vorbereiten."
-          description="Leistungen fuer Installation, Erweiterung und Nachruestung bleiben schnell erfassbar."
+          title="Diese Elektroarbeiten können Sie direkt vorbereiten."
+          description="Leistungen für Installation, Erweiterung und Nachrüstung bleiben schnell erfassbar."
         />
         <FeatureGrid items={cards} />
       </PageSection>
 
       <VisualDepthSection
         eyebrow="Modernisierung sichtbar"
-        title="Installation und Nachruestung sollen sofort wie saubere Elektroarbeit wirken."
+        title="Installation und Nachrüstung sollen sofort wie saubere Elektroarbeit wirken."
         description="Schaltschrank, Messung und Montage bleiben sichtbar und geben der Seite mehr Vertrauen und Tiefe."
         variant="services"
       />
 
       <LeadCaptureSection
         title="Geplante Elektroarbeit jetzt anfragen"
-        description="Nennen Sie Ort, Art der Arbeit und gewuenschten Zeitraum. So kann Mr Spark Rueckmeldung, Termin oder Vor-Ort-Termin passend vorbereiten."
+        description="Nennen Sie Ort, Art der Arbeit und gewünschten Zeitraum. So kann Mr Spark Rückmeldung, Termin oder Vor-Ort-Termin passend vorbereiten."
         sourcePage="/de/elektro"
         checklist={[
           "Ort und Art der Arbeit nennen",
           "Bestand oder Neuinstallation kurz einordnen",
-          "Bei Bedarf Dringlichkeit oder Terminwunsch ergaenzen",
+          "Bei Bedarf Dringlichkeit oder Terminwunsch ergänzen",
         ]}
       />
     </main>

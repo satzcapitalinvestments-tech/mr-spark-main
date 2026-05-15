@@ -16,7 +16,7 @@ import { buildContactPageStructuredData, buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Kontakt und Anfrage",
   description:
-    "Kontakt fuer Elektroanfragen, Rueckruf, Notdienst und planbare Elektroarbeiten ueber einen klaren Telegram-Kontaktweg.",
+    "Kontakt für Elektroanfragen, Rückruf, Notdienst und planbare Elektroarbeiten über einen klaren Telegram-Kontaktweg.",
   pathname: "/de/kontakt",
   locale: "de",
   localizedSlug: "kontakt",
@@ -32,29 +32,29 @@ export default function Page() {
       <HeroSection
         eyebrow="Kontakt und Anfrage"
         title="Kontakt aufnehmen und Elektrohilfe direkt anfragen."
-        description="Ob Stoerung, Notdienst oder planbare Arbeit: Ueber die Kontaktseite senden Sie die wichtigsten Einsatzdaten direkt mit und starten die weitere Abstimmung ueber Telegram."
+        description="Ob Störung, Notdienst oder planbare Arbeit: Über die Kontaktseite senden Sie die wichtigsten Einsatzdaten direkt mit und starten die weitere Abstimmung über Telegram."
         points={[
-          "Name, Stadt, Service und Dringlichkeit schnell uebermitteln",
-          "Telegram bleibt der sichtbare Hauptkontakt fuer die weitere Abstimmung",
-          "Akute Faelle und planbare Arbeiten nutzen denselben klaren Einstieg",
+          "Name, Stadt, Service und Dringlichkeit schnell übermitteln",
+          "Telegram bleibt der sichtbare Hauptkontakt für die weitere Abstimmung",
+          "Akute Fälle und planbare Arbeiten nutzen denselben klaren Einstieg",
         ]}
-        primaryCta={{ href: "#lead-form", label: "Jetzt ueber Telegram anfragen" }}
+        primaryCta={{ href: "#lead-form", label: "Jetzt über Telegram anfragen" }}
         secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "secondary" }}
         aside={<ElectricalPhotoShowcase variant="contact" />}
       />
 
       <PageSection>
         <SectionHeading
-          eyebrow="Was fuer eine schnelle Rueckmeldung hilft"
+          eyebrow="Was für eine schnelle Rückmeldung hilft"
           title="Die Kontaktseite zeigt direkt, welche Angaben wirklich wichtig sind."
-          description="Statt technischer Erklaerungen sehen Nutzer sofort, wie sie die Anfrage klar und vollstaendig absenden."
+          description="Statt technischer Erklärungen sehen Nutzer sofort, wie sie die Anfrage klar und vollständig absenden."
         />
         <FeatureGrid items={contactPageContent.cards} />
       </PageSection>
 
       <VisualDepthSection
         eyebrow="Kontakt mit Substanz"
-        title="Kontakt, Telegram und Vor-Ort-Eindruck sollen sich wie eine echte Marke anfuehlen."
+        title="Kontakt, Telegram und Vor-Ort-Eindruck sollen sich wie eine echte Marke anfühlen."
         description="Der Formularbereich wird von echten Elektro-Motiven getragen, damit der Kontaktweg nicht wie eine isolierte Technikbox wirkt."
         variant="contact"
       />
@@ -62,7 +62,7 @@ export default function Page() {
       <LeadCaptureSection
         id="lead-form"
         title="Anfrage direkt an Mr Spark senden"
-        description="Beschreiben Sie kurz Ihr Elektroproblem. Wir bereiten eine schnelle Rueckmeldung vor und leiten Ihre Anfrage ueber Telegram weiter."
+        description="Beschreiben Sie kurz Ihr Elektroproblem. Wir bereiten eine schnelle Rückmeldung vor und leiten Ihre Anfrage über Telegram weiter."
         sourcePage="/de/kontakt"
         checklist={contactPageContent.checklist}
       />
@@ -71,7 +71,7 @@ export default function Page() {
         <NoticeCard
           tone="warning"
           title="Bei akuter Gefahr zuerst absichern"
-          description="Bei Brandgeruch, Funkenbildung oder sichtbaren Schaeden den betroffenen Stromkreis abschalten und bei Gefahr Feuerwehr oder Notruf kontaktieren."
+          description="Bei Brandgeruch, Funkenbildung oder sichtbaren Schäden den betroffenen Stromkreis abschalten und bei Gefahr Feuerwehr oder Notruf kontaktieren."
         />
       </PageSection>
 
@@ -79,7 +79,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Nach Ihrer Anfrage"
           title="So geht es nach dem Absenden weiter."
-          description="Mr Spark bereitet die Rueckmeldung vor, klaert Verfuegbarkeit und stimmt mit Ihnen die naechsten Schritte fuer Notdienst oder planbare Arbeit ab."
+          description="Mr Spark bereitet die Rückmeldung vor, klärt Verfügbarkeit und stimmt mit Ihnen die nächsten Schritte für Notdienst oder planbare Arbeit ab."
         />
       </PageSection>
     </main>

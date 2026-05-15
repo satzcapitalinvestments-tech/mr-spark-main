@@ -18,7 +18,7 @@ import { buildEmergencyServiceStructuredData, buildPageMetadata } from "@/lib/se
 export const metadata: Metadata = buildPageMetadata({
   title: "Elektro-Notdienst rund um die Uhr",
   description:
-    "Soforthilfe bei Stromausfall, Kurzschluss, FI-Problemen, gefaehrlichen Steckdosen und defekten Sicherungskasten-Komponenten.",
+    "Soforthilfe bei Stromausfall, Kurzschluss, FI-Problemen, gefährlichen Steckdosen und defekten Sicherungskasten-Komponenten.",
   pathname: "/de/notdienst",
   locale: "de",
   localizedSlug: "notdienst",
@@ -51,17 +51,17 @@ export default function Page() {
 
       <PageSection>
         <SectionHeading
-          eyebrow="Typische Notfaelle"
+          eyebrow="Typische Notfälle"
           title="Diese Situationen sollten Sie im Elektro-Notdienst direkt benennen."
-          description="Je klarer das Fehlerbild, desto schneller laesst sich der naechste Schritt fuer Rueckmeldung und Einsatz abstimmen."
+          description="Je klarer das Fehlerbild, desto schneller lässt sich der nächste Schritt für Rückmeldung und Einsatz abstimmen."
         />
         <FeatureGrid items={emergencyPageContent.symptoms} columns={2} />
       </PageSection>
 
       <VisualDepthSection
         eyebrow="Vor Ort sichtbar"
-        title="Notdienst, Diagnose und Absicherung muessen sofort glaubwuerdig wirken."
-        description="Die Bildsprache staerkt das Vertrauen, ohne den Sicherheitsfokus oder die direkte Kontaktmoeglichkeit zu verlieren."
+        title="Notdienst, Diagnose und Absicherung müssen sofort glaubwürdig wirken."
+        description="Die Bildsprache stärkt das Vertrauen, ohne den Sicherheitsfokus oder die direkte Kontaktmöglichkeit zu verlieren."
         variant="emergency"
       />
 
@@ -69,7 +69,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Ablauf im Notfall"
           title="Von der Gefahrensituation bis zur abgestimmten Hilfe in vier klaren Schritten."
-          description="Der Kontaktweg bleibt auch in dringlichen Situationen einfach, direkt und gut erklaert."
+          description="Der Kontaktweg bleibt auch in dringlichen Situationen einfach, direkt und gut erklärt."
         />
         <StepGrid steps={emergencyPageContent.steps} />
       </PageSection>
@@ -78,7 +78,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Preistransparenz"
           title="Auch im Notdienst bleiben Kostenbausteine nachvollziehbar."
-          description="Anfahrt, Diagnose, Arbeitszeit und moegliche Zuschlaege werden offen erklaert, bevor Arbeiten starten."
+          description="Anfahrt, Diagnose, Arbeitszeit und mögliche Zuschläge werden offen erklärt, bevor Arbeiten starten."
         />
         <FeatureGrid items={emergencyPageContent.pricing} />
       </PageSection>
@@ -88,7 +88,7 @@ export default function Page() {
       <LeadCaptureSection
         id="lead-form"
         title="Notdienstanfrage direkt an Mr Spark senden"
-        description="Beschreiben Sie kurz, wo das Problem liegt und wie dringend Hilfe benoetigt wird. Wir bereiten die schnelle Rueckmeldung ueber Telegram vor."
+        description="Beschreiben Sie kurz, wo das Problem liegt und wie dringend Hilfe benötigt wird. Wir bereiten die schnelle Rückmeldung über Telegram vor."
         sourcePage="/de/notdienst"
         checklist={[
           "Stadt und Fehlerbild angeben",

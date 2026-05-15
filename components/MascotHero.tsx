@@ -29,7 +29,7 @@ export default function MascotHero({ compact = false, className = "" }: MascotHe
   const locale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
 
   return (
-    <div className={`relative mx-auto w-full ${compact ? "max-w-[10rem]" : "max-w-[19rem]"} ${className}`}>
+    <div className={`relative mx-auto w-full ${compact ? "max-w-[13rem]" : "max-w-[22rem]"} ${className}`}>
       <div className="rounded-[1.75rem] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,245,249,0.96))] p-3 shadow-[var(--shadow-soft)]">
         <Image
           src={src}

@@ -10,26 +10,26 @@ import {
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Ueber Mr Spark",
+  title: "Über Mr Spark",
   description:
-    "Warum Kunden Mr Spark fuer Elektroarbeiten, Notdienst und transparente Rueckmeldungen anfragen.",
+    "Warum Kunden Mr Spark für Elektroarbeiten, Notdienst und transparente Rückmeldungen anfragen.",
   pathname: "/de/ueber-uns",
   locale: "de",
   localizedSlug: "ueber-uns",
   includeLocaleAlternates: true,
-  keywords: ["Ueber Mr Spark", "Elektriker Vertrauen", "Elektro Qualitaet"],
+  keywords: ["Über Mr Spark", "Elektriker Vertrauen", "Elektro Qualität"],
 });
 
 const cards = [
   {
-    badge: "Verlaesslichkeit",
+    badge: "Verlässlichkeit",
     title: "Klare Kommunikation",
     description:
-      "Kunden sollen schnell verstehen, welche Hilfe moeglich ist und wie Rueckmeldung, Termin oder Notdienst weiter abgestimmt werden.",
+      "Kunden sollen schnell verstehen, welche Hilfe möglich ist und wie Rückmeldung, Termin oder Notdienst weiter abgestimmt werden.",
   },
   {
-    badge: "Qualitaet",
-    title: "Saubere Ausfuehrung",
+    badge: "Qualität",
+    title: "Saubere Ausführung",
     description:
       "Elektroarbeiten, Diagnose und Sicherungstechnik brauchen Sorgfalt, Nachvollziehbarkeit und einen professionellen Auftritt.",
   },
@@ -45,12 +45,12 @@ export default function Page() {
   return (
     <main className="gradient">
       <HeroSection
-        eyebrow="Ueber Mr Spark"
-        title="Warum Kunden Mr Spark fuer Elektroarbeiten und Notfaelle anfragen."
-        description="Mr Spark steht fuer einen klaren Kontaktweg, saubere Elektroarbeit und einen Auftritt, der Vertrauen schafft statt Fragen offen zu lassen."
+        eyebrow="Über Mr Spark"
+        title="Warum Kunden Mr Spark für Elektroarbeiten und Notfälle anfragen."
+        description="Mr Spark steht für einen klaren Kontaktweg, saubere Elektroarbeit und einen Auftritt, der Vertrauen schafft statt Fragen offen zu lassen."
         points={[
-          "Verlaesslicher Service fuer Wohnungen, Haeuser und Gewerbe",
-          "Transparente Rueckmeldung statt unklarer Versprechen",
+          "Verlässlicher Service für Wohnungen, Häuser und Gewerbe",
+          "Transparente Rückmeldung statt unklarer Versprechen",
           "Direkter Weg zu Kontakt, Notdienst und Leistungen",
         ]}
         primaryCta={{ href: "/de/kontakt#lead-form", label: "Kontakt aufnehmen" }}
@@ -60,16 +60,16 @@ export default function Page() {
 
       <PageSection>
         <SectionHeading
-          eyebrow="Wofuer Mr Spark steht"
+          eyebrow="Wofür Mr Spark steht"
           title="Vertrauen entsteht durch Klarheit, Erreichbarkeit und einen professionellen Serviceauftritt."
-          description="Gerade bei Elektroarbeiten erwarten Kunden Sicherheit, zuegige Rueckmeldung und einen Service, der auf den Punkt kommt."
+          description="Gerade bei Elektroarbeiten erwarten Kunden Sicherheit, zügige Rückmeldung und einen Service, der auf den Punkt kommt."
         />
         <FeatureGrid items={cards} />
       </PageSection>
 
       <LeadCaptureSection
         title="Direkten Kontakt direkt offenhalten"
-        description="Auch von der Ueber-uns-Seite aus bleibt der Kontaktweg klar sichtbar, damit Vertrauen direkt in eine konkrete Anfrage uebergehen kann."
+        description="Auch von der Über-uns-Seite aus bleibt der Kontaktweg klar sichtbar, damit Vertrauen direkt in eine konkrete Anfrage übergehen kann."
         sourcePage="/de/ueber-uns"
         checklist={[
           "Anliegen kurz benennen",

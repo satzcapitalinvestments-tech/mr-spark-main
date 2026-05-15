@@ -84,7 +84,7 @@ export function buildLocalBusinessStructuredData() {
   const sameAs = [siteConfig.siteUrl];
   const hasVerifiedPublicContactData = !siteConfig.usesPlaceholderContactData;
 
-  if (hasVerifiedPublicContactData && siteConfig.telegramUrl !== "#") {
+  if (hasVerifiedPublicContactData && siteConfig.hasDirectTelegramContact) {
     sameAs.push(siteConfig.telegramUrl);
   }
 
@@ -135,7 +135,7 @@ export function buildContactPageStructuredData() {
             telephone: siteConfig.phoneDisplay,
             email: siteConfig.contactEmail,
             hoursAvailable: siteConfig.emergencyHours,
-            ...(siteConfig.telegramUrl !== "#" ? { url: siteConfig.telegramUrl } : {}),
+            ...(siteConfig.hasDirectTelegramContact ? { url: siteConfig.telegramUrl } : {}),
           }
         : {}),
     },

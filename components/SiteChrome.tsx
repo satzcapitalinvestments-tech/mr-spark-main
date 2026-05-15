@@ -60,7 +60,7 @@ const shellCopy: Record<
     brandEyebrow: "Elektriker & Notdienst",
     footerTitle: "Schnelle Elektrohilfe, klare Preise und ein direkter Kontaktweg.",
     footerDescription:
-      "Mr Spark begleitet Stromausfall, Fehlersuche, Sicherungskasten, Steckdosen, Lichtinstallation und planbare Elektroarbeiten fuer Kunden in Deutschland.",
+      "Mr Spark begleitet Stromausfall, Fehlersuche, Sicherungskasten, Steckdosen, Lichtinstallation und planbare Elektroarbeiten für Kunden in Deutschland.",
     footerServices: "Leistungen",
     footerConversion: "Kontakt",
     footerLegal: "Rechtliches",
@@ -68,7 +68,7 @@ const shellCopy: Record<
     footerConversionItems: [
       "Telegram direkt aus dem Header oder Formular starten",
       "Notdienst und planbare Arbeiten klar unterscheiden",
-      "Rueckmeldung, Anfahrt und naechste Schritte transparent abstimmen",
+      "Rückmeldung, Anfahrt und nächste Schritte transparent abstimmen",
     ],
     legalNotice: "Impressum",
     privacyNotice: "Datenschutz",
@@ -88,7 +88,7 @@ const shellCopy: Record<
     },
     toggleOpen: "Open navigation",
     toggleClose: "Close navigation",
-    primaryCta: "Start Telegram",
+    primaryCta: "Open Telegram",
     emergencyCta: "24h Emergency",
     brandEyebrow: "Electrician & emergency",
     footerTitle: "Fast electrical help, clear pricing, and a direct contact path.",
@@ -99,7 +99,7 @@ const shellCopy: Record<
     footerLegal: "Legal",
     footerServiceItems: ["Electrical installation", "Emergency service", "Fuse box and diagnostics"],
     footerConversionItems: [
-      "Start Telegram directly from the header or form",
+      "Open Telegram directly from the header or form",
       "Keep emergency and planned work clearly separated",
       "Clarify response time, travel, and next steps upfront",
     ],
@@ -317,7 +317,7 @@ const contactActionCopy: Record<
   }
 > = {
   de: { contactPage: "Kontaktseite", call: "Anrufen", email: "E-Mail", hours: "Erreichbarkeit" },
-  en: { contactPage: "Contact page", call: "Call", email: "Email", hours: "Availability" },
+  en: { contactPage: "Telegram contact", call: "Call", email: "Email", hours: "Availability" },
   tr: { contactPage: "Iletisim sayfasi", call: "Ara", email: "E-posta", hours: "Ulasilabilirlik" },
   ar: { contactPage: "صفحة التواصل", call: "اتصال", email: "بريد إلكتروني", hours: "ساعات التوفر" },
   ru: { contactPage: "Страница контакта", call: "Позвонить", email: "E-mail", hours: "Доступность" },
@@ -336,13 +336,11 @@ export function Header() {
   const localeSegment = pathname.split("/")[1];
   const currentLocale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
   const copy = shellCopy[currentLocale];
-  const actions = contactActionCopy[currentLocale];
-  const hasTelegram = Boolean(siteConfig.telegramUrl && siteConfig.telegramUrl !== "#");
   const hasPhone = Boolean(siteConfig.phoneHref && siteConfig.phoneDisplay !== "+49 123 4567890");
-  const telegramHref = hasTelegram
+  const telegramHref = siteConfig.hasDirectTelegramContact
     ? siteConfig.telegramUrl
-    : buildLocalizedPath(currentLocale, "kontakt");
-  const telegramIsExternal = hasTelegram;
+    : `${buildLocalizedPath(currentLocale, "kontakt")}#lead-form`;
+  const telegramIsExternal = siteConfig.hasDirectTelegramContact;
   const localizedLinks = links.map(([label, slug]) => ({
     label: copy.nav[label],
     href: buildLocalizedPath(currentLocale, slug || undefined),
@@ -413,15 +411,11 @@ export function Header() {
           </Link>
           <a
             href={telegramHref}
-            className={`btn-base btn-small ${
-              hasTelegram
-                ? "border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] shadow-[0_16px_36px_rgba(255,212,0,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
-                : "border border-[color:var(--brand)] bg-white text-[color:var(--brand)] shadow-[0_14px_30px_rgba(7,26,51,0.12)] hover:border-[color:var(--brand-strong)] hover:text-[color:var(--brand-strong)]"
-            }`}
+            className="btn-base btn-small border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] shadow-[0_16px_36px_rgba(255,212,0,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
             target={telegramIsExternal ? "_blank" : undefined}
             rel={telegramIsExternal ? "noreferrer" : undefined}
           >
-            {hasTelegram ? copy.primaryCta : actions.contactPage}
+            {copy.primaryCta}
           </a>
         </div>
       </div>
@@ -457,15 +451,11 @@ export function Header() {
               </Link>
               <a
                 href={telegramHref}
-                className={`btn-base btn-small justify-center ${
-                  hasTelegram
-                    ? "border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
-                    : "border border-[color:var(--brand)] bg-white text-[color:var(--brand)] hover:border-[color:var(--brand-strong)] hover:text-[color:var(--brand-strong)]"
-                }`}
+                className="btn-base btn-small justify-center border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
                 target={telegramIsExternal ? "_blank" : undefined}
                 rel={telegramIsExternal ? "noreferrer" : undefined}
               >
-                {hasTelegram ? copy.primaryCta : actions.contactPage}
+                {copy.primaryCta}
               </a>
             </div>
           </nav>
@@ -481,13 +471,12 @@ export function Footer() {
   const currentLocale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
   const copy = shellCopy[currentLocale];
   const actions = contactActionCopy[currentLocale];
-  const hasTelegram = Boolean(siteConfig.telegramUrl && siteConfig.telegramUrl !== "#");
   const hasPhone = Boolean(siteConfig.phoneHref && siteConfig.phoneDisplay !== "+49 123 4567890");
   const hasEmail = siteConfig.contactEmail !== "kontakt@mr-spark.de";
-  const telegramHref = hasTelegram
+  const telegramHref = siteConfig.hasDirectTelegramContact
     ? siteConfig.telegramUrl
-    : buildLocalizedPath(currentLocale, "kontakt");
-  const telegramIsExternal = hasTelegram;
+    : `${buildLocalizedPath(currentLocale, "kontakt")}#lead-form`;
+  const telegramIsExternal = siteConfig.hasDirectTelegramContact;
 
   return (
     <footer className="border-t border-[color:var(--line)] bg-[color:var(--surface-strong)]">
@@ -516,15 +505,11 @@ export function Footer() {
           <div className="mt-3 flex flex-col gap-3">
             <a
               href={telegramHref}
-              className={`btn-base btn-small justify-center ${
-                hasTelegram
-                  ? "border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
-                  : "border border-white/80 bg-white text-[color:var(--brand)] hover:border-[color:var(--brand)] hover:text-[color:var(--brand-strong)]"
-              }`}
+              className="btn-base btn-small justify-center border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
               target={telegramIsExternal ? "_blank" : undefined}
               rel={telegramIsExternal ? "noreferrer" : undefined}
             >
-              {hasTelegram ? copy.primaryCta : actions.contactPage}
+              {copy.primaryCta}
             </a>
             {hasPhone ? (
               <a
