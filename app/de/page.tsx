@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MascotHero from "@/components/MascotHero";
-import { ProcessSteps, TrustStrip } from "@/components/SectionBlocks";
-import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
+import { TrustStrip } from "@/components/SectionBlocks";
+import TelegramLeadForm from "@/components/TelegramLeadForm";
 import Faq from "@/components/Faq";
 
 export default function Page() {
@@ -11,18 +11,17 @@ export default function Page() {
         <div>
           <h1 className="text-4xl font-black md:text-6xl">Mr Spark — Elektriker & Elektro-Notdienst</h1>
           <p className="mt-4 text-lg text-slate-700">
-            Elektriker für Elektroinstallation, Sicherungskasten, Steckdosen, Lichtinstallation,
-            Stromausfall, Kurzschluss und FI-Schalter-Probleme – inklusive 24h Notdienst.
+            Schnelle Hilfe bei Stromausfall, Kurzschluss, FI-Schalter-Problemen, Sicherungskasten, Steckdosen, Lichtinstallation und planbaren Elektroarbeiten. Anfrage senden, Rückmeldung erhalten und transparent klären lassen, was als Nächstes passiert.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/de/notdienst" className="rounded-full bg-sky-600 px-5 py-3 font-semibold text-white">
               Notdienst anfragen
             </Link>
             <Link href="/de/kontakt" className="rounded-full bg-amber-300 px-5 py-3 font-semibold">
-              WhatsApp starten
+              Telegram starten
             </Link>
             <Link href="/de/einsatzgebiet" className="rounded-full border border-sky-300 px-5 py-3 font-semibold">
-              Einsatzgebiet
+              Einsatzgebiet prüfen
             </Link>
             <Link href="/de/preise" className="rounded-full border border-sky-300 px-5 py-3 font-semibold">
               Preise ansehen
@@ -55,7 +54,6 @@ export default function Page() {
         </div>
       </section>
 
-      <ProcessSteps />
 
       <section className="section py-10">
         <div className="rounded-3xl bg-rose-50 p-6">
@@ -88,9 +86,9 @@ export default function Page() {
       />
 
       <section className="section py-12">
-        <h2 className="text-3xl font-bold">Kontakt per WhatsApp</h2>
+        <h2 className="text-3xl font-bold">Kontakt per Telegram</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <WhatsAppLeadForm sourcePage="/de" />
+          <TelegramLeadForm sourcePage="/de" />
           <MascotHero compact />
         </div>
       </section>

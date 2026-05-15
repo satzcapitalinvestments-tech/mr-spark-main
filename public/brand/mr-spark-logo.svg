@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 140" role="img" aria-labelledby="title">
+  <title id="title">Mr Spark</title>
+  <rect width="760" height="140" fill="none"/>
+  <g transform="translate(0 6)">
+    <circle cx="64" cy="64" r="58" fill="#0b2a63"/>
+    <path d="M64 14 39 67h21l-8 47 37-56H67l11-44Z" fill="#facc15"/>
+    <path d="M88 79c10 2 17 7 23 16" stroke="#38bdf8" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="140" y="78" font-size="70" font-family="Inter, Arial, sans-serif" font-weight="800" fill="#0b2a63">Mr Spark</text>
+  <text x="142" y="118" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="600" letter-spacing="1" fill="#1e3a8a">Elektriker &amp; Elektro-Notdienst</text>
+</svg>

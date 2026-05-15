@@ -1,5 +1,5 @@
 import MascotHero from "@/components/MascotHero";
-import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
+import TelegramLeadForm from "@/components/TelegramLeadForm";
 
 export default function Page() {
   return (
@@ -12,7 +12,7 @@ export default function Page() {
       </section>
 
       <section className="section grid gap-6 pb-14 md:grid-cols-2">
-        <WhatsAppLeadForm sourcePage="/de/kontakt" />
+        <TelegramLeadForm sourcePage="/de/kontakt" />
 
         <div className="space-y-4">
           <MascotHero compact />
