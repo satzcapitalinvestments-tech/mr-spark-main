@@ -9,7 +9,6 @@ import {
 } from "@/components/MarketingSections";
 import type { LocaleCode } from "@/data/i18n/languages";
 import { localizedSlugLabels } from "@/data/i18n/localized-pages";
-import VisualDepthSection from "@/components/VisualDepthSection";
 
 type T = {
   title: string;
@@ -48,7 +47,7 @@ export function LocalizedPage({
         title={t.title}
         description={t.lead}
         points={t.points}
-        primaryCta={{ href: `/${locale}/kontakt`, label: t.primaryCtaLabel }}
+        primaryCta={{ href: "#lead-form", label: t.primaryCtaLabel }}
         secondaryCta={{ href: `/${locale}/notdienst`, label: t.secondaryCtaLabel, variant: "secondary" }}
         supportingCtas={
           routeLabels
@@ -77,14 +76,8 @@ export function LocalizedPage({
         />
       </PageSection>
 
-      <VisualDepthSection
-        eyebrow={t.servicesEyebrow}
-        title={t.servicesTitle}
-        description={t.servicesDescription}
-        variant="services"
-      />
-
       <LeadCaptureSection
+        id="lead-form"
         title={t.leadTitle}
         description={t.leadDescription}
         sourcePage={`/${locale}`}

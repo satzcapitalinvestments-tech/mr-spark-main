@@ -22,7 +22,7 @@ function getCtaClassName(variant: Cta["variant"] = "primary") {
   }
 
   if (variant === "ghost") {
-    return "border border-white/72 bg-white text-[color:var(--ink)] shadow-[0_14px_30px_rgba(7,26,51,0.12)] hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]";
+    return "border border-white/88 bg-white text-[color:var(--ink)] shadow-[0_14px_30px_rgba(7,26,51,0.12)] hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]";
   }
 
   return "border border-[color:var(--brand)] bg-[color:var(--brand)] text-white shadow-[0_18px_42px_rgba(0,119,217,0.24)] hover:border-[color:var(--brand-strong)] hover:bg-[color:var(--brand-strong)]";
@@ -59,14 +59,16 @@ export function HeroSection({
               <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-white md:text-6xl xl:text-[4.15rem]">
                 {title}
               </h1>
-              <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-white/86">{description}</p>
+              <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-[color:var(--dark-surface-muted)]">
+                {description}
+              </p>
 
               {points.length > 0 ? (
-                <ul className="mt-8 grid gap-3 text-sm text-white/84 md:grid-cols-2">
+                <ul className="mt-8 grid gap-3 text-sm text-[color:var(--dark-surface-muted)] md:grid-cols-2">
                   {points.map((point) => (
                     <li
                       key={point}
-                    className="rounded-2xl border border-white/12 bg-white/10 px-4 py-3 backdrop-blur"
+                      className="rounded-2xl border border-[color:var(--dark-surface-line)] bg-[color:var(--dark-surface-card)] px-4 py-3 backdrop-blur"
                     >
                       {point}
                     </li>
@@ -107,10 +109,12 @@ export function HeroSection({
                   {stats.map((stat) => (
                     <div
                       key={stat.label}
-                      className="rounded-3xl border border-white/12 bg-white/10 px-5 py-4 backdrop-blur"
+                      className="rounded-3xl border border-[color:var(--dark-surface-line)] bg-[color:var(--dark-surface-card)] px-5 py-4 backdrop-blur"
                     >
-                      <dt className="text-sm text-white/60">{stat.label}</dt>
-                      <dd className="mt-1 text-2xl font-semibold text-white">{stat.value}</dd>
+                      <dt className="text-sm text-[color:var(--dark-surface-soft)]">{stat.label}</dt>
+                      <dd className="mt-1 text-2xl font-semibold text-[color:var(--dark-surface-text)]">
+                        {stat.value}
+                      </dd>
                     </div>
                   ))}
                 </dl>
@@ -280,7 +284,7 @@ export function LeadCaptureSection({
             <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-white md:text-4xl">
               {title}
             </h2>
-            <p className="mt-4 max-w-2xl text-pretty text-base leading-7 text-white/78 md:text-lg">
+            <p className="mt-4 max-w-2xl text-pretty text-base leading-7 text-[color:var(--dark-surface-muted)] md:text-lg">
               {description}
             </p>
           </div>
@@ -290,7 +294,7 @@ export function LeadCaptureSection({
               {checklist.map((item) => (
                 <li
                   key={item}
-                  className="rounded-2xl border border-white/12 bg-white/8 px-4 py-3 text-sm text-white/84"
+                  className="rounded-2xl border border-[color:var(--dark-surface-line)] bg-[color:var(--dark-surface-card)] px-4 py-3 text-sm text-[color:var(--dark-surface-muted)]"
                 >
                   {item}
                 </li>
@@ -299,7 +303,7 @@ export function LeadCaptureSection({
           ) : null}
 
           {emergencyNote ? (
-            <div className="rounded-2xl border border-amber-300/30 bg-amber-300/10 px-4 py-4 text-sm text-white/86">
+            <div className="rounded-2xl border border-amber-300/70 bg-amber-300/12 px-4 py-4 text-sm text-[color:var(--dark-surface-text)]">
               {emergencyNote}
             </div>
           ) : null}

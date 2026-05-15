@@ -183,11 +183,11 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "Acil elektrik servisi",
       "Sigorta kutusu ve dağıtım panosu işleri",
       "Priz, anahtar ve aydınlatma",
-      "Talep koordinasyonu ve geri dönüş",
+      "Telegram ile iletisim ve net sonraki adimlar",
     ],
     points: [
       "Acil talepler görünür kalır, planlı işler kaybolmaz",
-      "Tüm sayfalar aynı net iletişim ve geri dönüş düzenini korur",
+      "Tum sayfalar ayni net iletisim yolunu ve musteri icin sonraki adimlari korur",
     ],
     servicesEyebrow: "Hizmet özeti",
     servicesTitle: "Önemli elektrik konuları her dilde hızlıca taranabilir kalır.",
@@ -196,7 +196,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Telegram baslat",
     secondaryCtaLabel: "7/24 Acil",
     leadTitle: "Yapılandırılmış talep gönder",
-    leadDescription: "İsim, şehir, hizmet ve aciliyet Telegram açılmadan önce hazırlanır, böylece geri dönüş doğru bilgilerle başlar.",
+    leadDescription: "Isim, sehir, hizmet ve aciliyet Telegram acilmadan once hazirlanir, boylece talep dogru bilgilerle baslar.",
     checklist: [
       "Şehri ve sorunu yazın",
       "Aciliyeti doğru işaretleyin",
@@ -213,11 +213,11 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "خدمة طوارئ كهربائية",
       "أعمال لوحة الكهرباء والتوزيع",
       "المقابس والمفاتيح والإنارة",
-      "تنسيق الطلبات والمتابعة",
+      "التواصل عبر تيليجرام والخطوات التالية الواضحة",
     ],
     points: [
       "تبقى طلبات الطوارئ واضحة من دون إخفاء الأعمال الكهربائية المخطط لها",
-      "تحافظ جميع الصفحات على نفس طريق التواصل الواضح ونفس أسلوب المتابعة",
+      "تحافظ جميع الصفحات على نفس طريق التواصل الواضح ونفس الخطوات التالية للعميل",
     ],
     servicesEyebrow: "نظرة على الخدمات",
     servicesTitle: "تبقى موضوعات الكهرباء المهمة سهلة المسح في كل لغة.",
@@ -226,7 +226,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "ابدأ تيليجرام",
     secondaryCtaLabel: "طوارئ 24 ساعة",
     leadTitle: "أرسل طلبًا منظمًا",
-    leadDescription: "يتم تجهيز الاسم والمدينة ونوع الخدمة ودرجة الاستعجال قبل فتح تيليجرام حتى تبدأ المتابعة بالمعلومات الصحيحة.",
+    leadDescription: "يتم تجهيز الاسم والمدينة ونوع الخدمة ودرجة الاستعجال قبل فتح تيليجرام حتى يبدأ الطلب بالمعلومات الصحيحة.",
     checklist: [
       "اذكر المدينة والمشكلة",
       "حدد درجة الاستعجال بدقة",
@@ -243,11 +243,11 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "Аварийная электрослужба",
       "Щиты и распределение",
       "Розетки, выключатели и освещение",
-      "Координация заявки и обратной связи",
+      "Контакт в Telegram и понятные следующие шаги",
     ],
     points: [
       "Экстренные обращения заметны, но плановые работы не теряются",
-      "Все страницы сохраняют один и тот же понятный контактный путь и ритм обратной связи",
+      "Все страницы сохраняют один и тот же понятный контактный путь и следующие шаги для клиента",
     ],
     servicesEyebrow: "Обзор услуг",
     servicesTitle: "Ключевые электротехнические темы легко просматривать на любом языке.",
@@ -256,7 +256,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Открыть Telegram",
     secondaryCtaLabel: "24ч аварийно",
     leadTitle: "Отправить структурированный запрос",
-    leadDescription: "Имя, город, услуга и срочность подготавливаются до открытия Telegram, чтобы согласование начиналось с нужных деталей.",
+    leadDescription: "Имя, город, услуга и срочность подготавливаются до открытия Telegram, чтобы заявка начиналась с нужных деталей.",
     checklist: [
       "Укажите город и проблему",
       "Корректно отметьте срочность",
@@ -273,11 +273,11 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "Pogotowie elektryczne",
       "Rozdzielnie i zabezpieczenia",
       "Gniazdka, włączniki i oświetlenie",
-      "Koordynacja zgłoszeń i kontakt zwrotny",
+      "Kontakt przez Telegram i jasne kolejne kroki",
     ],
     points: [
       "Pilne zgłoszenia pozostają widoczne bez ukrywania prac planowanych",
-      "Każda strona zachowuje ten sam czytelny kontakt i rytm dalszej obsługi",
+      "Każda strona zachowuje ten sam czytelny kontakt i jasne kolejne kroki dla klienta",
     ],
     servicesEyebrow: "Przegląd usług",
     servicesTitle: "Najważniejsze tematy elektryczne pozostają czytelne w każdym języku.",
@@ -303,11 +303,11 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "Аварійна електрослужба",
       "Щити та розподіл",
       "Розетки, вимикачі й освітлення",
-      "Координація звернення та зворотного зв'язку",
+      "Контакт у Telegram і зрозумілі наступні кроки",
     ],
     points: [
       "Термінові звернення залишаються видимими без приховування планових робіт",
-      "Усі сторінки зберігають один і той самий зрозумілий контактний шлях і ритм подальшої відповіді",
+      "Усі сторінки зберігають однаково зрозумілий контактний шлях і наступні кроки для клієнта",
     ],
     servicesEyebrow: "Огляд послуг",
     servicesTitle: "Ключові електротехнічні теми легко переглядати будь-якою мовою.",
@@ -316,7 +316,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Відкрити Telegram",
     secondaryCtaLabel: "24г аварійно",
     leadTitle: "Надіслати структурований запит",
-    leadDescription: "Ім'я, місто, послуга та терміновість готуються до відкриття Telegram, щоб подальший контакт починався з правильними деталями.",
+    leadDescription: "Ім'я, місто, послуга та терміновість готуються до відкриття Telegram, щоб запит починався з правильних деталей.",
     checklist: [
       "Вкажіть місто та проблему",
       "Правильно позначте терміновість",
@@ -333,11 +333,11 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "Serviciu electric de urgență",
       "Tablouri și distribuție",
       "Prize, întrerupătoare și iluminat",
-      "Coordonarea solicitarii si raspuns rapid",
+      "Contact pe Telegram si pasi urmatori clari",
     ],
     points: [
       "Solicitările urgente rămân vizibile fără a ascunde lucrările planificate",
-      "Toate paginile păstrează același drum clar de contact și același ritm al răspunsului",
+      "Toate paginile pastreaza acelasi contact clar si pasii urmatori pentru client",
     ],
     servicesEyebrow: "Prezentare servicii",
     servicesTitle: "Subiectele electrice importante rămân ușor de scanat în fiecare limbă.",
@@ -346,7 +346,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Porneste Telegram",
     secondaryCtaLabel: "Urgenta 24h",
     leadTitle: "Trimite o solicitare structurată",
-    leadDescription: "Numele, orașul, serviciul și urgența sunt pregătite înainte de deschiderea Telegram, astfel încât răspunsul să pornească cu detaliile corecte.",
+    leadDescription: "Numele, orasul, serviciul si urgenta sunt pregatite inainte de deschiderea Telegram, astfel incat solicitarea sa porneasca cu detaliile corecte.",
     checklist: [
       "Precizează orașul și problema",
       "Marchează corect urgența",
@@ -355,21 +355,8 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
   },
 };
 
-function buildCards(title: string, detail: string, emphasis: string) {
-  return [
-    {
-      title,
-      description: detail,
-    },
-    {
-      title: emphasis,
-      description: detail,
-    },
-    {
-      title: "Telegram",
-      description: detail,
-    },
-  ];
+function buildCards(...cards: Array<{ title: string; description: string }>) {
+  return cards;
 }
 
 const localizedCoverageLabels: Record<Exclude<LocaleCode, "de">, { states: string; cities: string }> = {
@@ -393,7 +380,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.leistungen}`,
       points: home.points,
-      cards: buildCards(labels.leistungen, home.serviceCardDescription, labels.elektro),
+      cards: buildCards(
+        { title: labels.leistungen, description: home.serviceCardDescription },
+        { title: labels.elektro, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -408,7 +399,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.elektriker}`,
       points: home.points,
-      cards: buildCards(labels.elektriker, home.serviceCardDescription, labels.notdienst),
+      cards: buildCards(
+        { title: labels.elektriker, description: home.serviceCardDescription },
+        { title: labels.notdienst, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -423,7 +418,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.elektro}`,
       points: home.points,
-      cards: buildCards(labels.elektro, home.serviceCardDescription, labels.leistungen),
+      cards: buildCards(
+        { title: labels.elektro, description: home.serviceCardDescription },
+        { title: labels.leistungen, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -438,7 +437,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.notdienst}`,
       points: home.points,
-      cards: buildCards(labels.notdienst, home.serviceCardDescription, labels.preise),
+      cards: buildCards(
+        { title: labels.notdienst, description: home.serviceCardDescription },
+        { title: labels.preise, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -453,7 +456,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.einsatzgebiet}`,
       points: home.points,
-      cards: buildCards(labels.einsatzgebiet, home.serviceCardDescription, labels.kontakt),
+      cards: buildCards(
+        { title: labels.einsatzgebiet, description: home.serviceCardDescription },
+        { title: labels.kontakt, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -471,7 +478,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.preise}`,
       points: home.points,
-      cards: buildCards(labels.preise, home.serviceCardDescription, labels.notdienst),
+      cards: buildCards(
+        { title: labels.preise, description: home.serviceCardDescription },
+        { title: labels.notdienst, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -486,7 +497,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.kontakt}`,
       points: home.points,
-      cards: buildCards(labels.kontakt, home.serviceCardDescription, labels.notdienst),
+      cards: buildCards(
+        { title: labels.kontakt, description: home.serviceCardDescription },
+        { title: labels.notdienst, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -501,7 +516,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels["ueber-uns"]}`,
       points: home.points,
-      cards: buildCards(labels["ueber-uns"], home.serviceCardDescription, labels.leistungen),
+      cards: buildCards(
+        { title: labels["ueber-uns"], description: home.serviceCardDescription },
+        { title: labels.leistungen, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -516,7 +535,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.impressum}`,
       points: home.points,
-      cards: buildCards(labels.impressum, home.serviceCardDescription, labels.datenschutz),
+      cards: buildCards(
+        { title: labels.impressum, description: home.serviceCardDescription },
+        { title: labels.datenschutz, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,
@@ -531,7 +554,11 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.datenschutz}`,
       points: home.points,
-      cards: buildCards(labels.datenschutz, home.serviceCardDescription, labels.impressum),
+      cards: buildCards(
+        { title: labels.datenschutz, description: home.serviceCardDescription },
+        { title: labels.impressum, description: home.servicesDescription },
+        { title: home.primaryCtaLabel, description: home.leadDescription },
+      ),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,

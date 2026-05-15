@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import BrandLogo from "@/components/BrandLogo";
 import MascotHero from "@/components/MascotHero";
 
 type ShowcaseVariant = "home" | "emergency" | "coverage" | "services" | "pricing" | "contact";
@@ -104,7 +105,7 @@ const variantContent: Record<
 
 function PhotoTile({ image, priority = false }: { image: ShowcaseImage; priority?: boolean }) {
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-white/14 bg-white/12 shadow-[0_18px_48px_rgba(6,18,31,0.22)]">
+    <div className="overflow-hidden rounded-[1.5rem] border border-[color:var(--dark-surface-line)] bg-[color:var(--dark-surface-card)] shadow-[0_18px_48px_rgba(6,18,31,0.22)]">
       <div className="relative aspect-[4/5]">
         <Image src={image.src} alt={image.alt} fill priority={priority} className="object-cover" />
       </div>
@@ -116,15 +117,23 @@ export default function ElectricalPhotoShowcase({ variant }: { variant: Showcase
   const content = variantContent[variant];
 
   return (
-    <div className="rounded-[2.4rem] border border-white/12 bg-white/8 p-4 shadow-[0_28px_80px_rgba(6,18,31,0.24)] backdrop-blur">
+    <div className="rounded-[2.4rem] border border-[color:var(--dark-surface-line)] bg-[color:var(--dark-surface-card)] p-4 shadow-[0_28px_80px_rgba(6,18,31,0.24)] backdrop-blur">
       <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
         <PhotoTile image={content.primaryImage} priority={variant === "home"} />
 
         <div className="grid gap-4">
-          <div className="rounded-[1.75rem] border border-white/12 bg-slate-950/72 p-5 text-white shadow-[0_18px_50px_rgba(6,18,31,0.22)]">
-            <p className="section-eyebrow text-[#ffd15a]">{content.eyebrow}</p>
-            <h3 className="mt-3 text-xl font-semibold tracking-tight text-white">{content.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-white/78">{content.description}</p>
+          <div className="flex h-full flex-col justify-between rounded-[1.75rem] border border-[color:var(--dark-surface-line)] bg-slate-950/82 p-5 text-[color:var(--dark-surface-text)] shadow-[0_18px_50px_rgba(6,18,31,0.22)]">
+            <BrandLogo theme="light" size="header" className="h-10 w-auto" />
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["24h", "Telegram", "DE"].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[color:var(--dark-surface-line)] bg-white/8 px-3 py-2 text-xs font-semibold tracking-[0.18em] text-[color:var(--dark-surface-muted)]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -138,17 +147,6 @@ export default function ElectricalPhotoShowcase({ variant }: { variant: Showcase
             )}
           </div>
         </div>
-      </div>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {content.highlights.map((item) => (
-          <span
-            key={item}
-            className="rounded-full border border-white/14 bg-white/10 px-3 py-2 text-xs font-semibold tracking-[0.18em] text-white/82"
-          >
-            {item}
-          </span>
-        ))}
       </div>
     </div>
   );

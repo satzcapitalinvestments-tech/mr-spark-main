@@ -18,7 +18,6 @@ import {
   SectionHeading,
   StatsBand,
 } from "@/components/MarketingSections";
-import VisualDepthSection from "@/components/VisualDepthSection";
 import {
   getLocaleDirection,
   isLocale,
@@ -127,7 +126,7 @@ export default async function LocaleSlugPage({ params }: { params: SlugParams })
         title={content.title}
         description={content.description}
         points={content.points}
-        primaryCta={{ href: `/${locale}/kontakt`, label: content.primaryCtaLabel }}
+        primaryCta={{ href: "#lead-form", label: content.primaryCtaLabel }}
         secondaryCta={{ href: `/${locale}/notdienst`, label: content.secondaryCtaLabel, variant: "secondary" }}
         supportingCtas={[
           { href: `/${locale}/preise`, label: routeLabels.preise, variant: "ghost" },
@@ -157,13 +156,6 @@ export default async function LocaleSlugPage({ params }: { params: SlugParams })
         </PageSection>
       ) : null}
 
-      <VisualDepthSection
-        eyebrow={content.sectionEyebrow}
-        title={content.sectionTitle}
-        description={content.sectionDescription}
-        variant={showcaseVariantBySlug[slug]}
-      />
-
       {slug === "einsatzgebiet" ? (
         <PageSection surface>
           <SectionHeading
@@ -192,6 +184,7 @@ export default async function LocaleSlugPage({ params }: { params: SlugParams })
       ) : null}
 
       <LeadCaptureSection
+        id="lead-form"
         title={content.leadTitle}
         description={content.leadDescription}
         sourcePage={`/${locale}/${slug}`}

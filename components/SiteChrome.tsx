@@ -307,6 +307,25 @@ const shellCopy: Record<
   },
 };
 
+const contactActionCopy: Record<
+  LocaleCode,
+  {
+    contactPage: string;
+    call: string;
+    email: string;
+    hours: string;
+  }
+> = {
+  de: { contactPage: "Kontaktseite", call: "Anrufen", email: "E-Mail", hours: "Erreichbarkeit" },
+  en: { contactPage: "Contact page", call: "Call", email: "Email", hours: "Availability" },
+  tr: { contactPage: "Iletisim sayfasi", call: "Ara", email: "E-posta", hours: "Ulasilabilirlik" },
+  ar: { contactPage: "صفحة التواصل", call: "اتصال", email: "بريد إلكتروني", hours: "ساعات التوفر" },
+  ru: { contactPage: "Страница контакта", call: "Позвонить", email: "E-mail", hours: "Доступность" },
+  pl: { contactPage: "Strona kontaktowa", call: "Zadzwon", email: "E-mail", hours: "Dostepnosc" },
+  uk: { contactPage: "Сторінка контакту", call: "Зателефонувати", email: "E-mail", hours: "Доступність" },
+  ro: { contactPage: "Pagina de contact", call: "Sunati", email: "E-mail", hours: "Disponibilitate" },
+};
+
 function isActivePath(currentPath: string, href: string) {
   return currentPath === href;
 }
@@ -317,11 +336,13 @@ export function Header() {
   const localeSegment = pathname.split("/")[1];
   const currentLocale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
   const copy = shellCopy[currentLocale];
-  const telegramHref =
-    siteConfig.telegramUrl && siteConfig.telegramUrl !== "#"
-      ? siteConfig.telegramUrl
-      : buildLocalizedPath(currentLocale, "kontakt");
-  const telegramIsExternal = telegramHref.startsWith("http");
+  const actions = contactActionCopy[currentLocale];
+  const hasTelegram = Boolean(siteConfig.telegramUrl && siteConfig.telegramUrl !== "#");
+  const hasPhone = Boolean(siteConfig.phoneHref && siteConfig.phoneDisplay !== "+49 123 4567890");
+  const telegramHref = hasTelegram
+    ? siteConfig.telegramUrl
+    : buildLocalizedPath(currentLocale, "kontakt");
+  const telegramIsExternal = hasTelegram;
   const localizedLinks = links.map(([label, slug]) => ({
     label: copy.nav[label],
     href: buildLocalizedPath(currentLocale, slug || undefined),
@@ -332,7 +353,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface-overlay)] shadow-[0_16px_36px_rgba(7,26,51,0.08)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface)] shadow-[0_16px_36px_rgba(7,26,51,0.08)]">
       <div className="section flex min-h-24 items-center justify-between gap-4 py-4">
         <div className="flex items-center gap-4">
           <button
@@ -376,6 +397,14 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <LanguageSelector />
+          {hasPhone ? (
+            <a
+              href={siteConfig.phoneHref || undefined}
+              className="hidden xl:inline-flex rounded-full border border-[color:var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.08)] transition hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]"
+            >
+              {siteConfig.phoneDisplay}
+            </a>
+          ) : null}
           <Link
             href={buildLocalizedPath(currentLocale, "notdienst")}
             className="btn-base btn-small hidden md:inline-flex border border-[color:var(--brand)] bg-[color:var(--brand)] text-white shadow-[0_16px_36px_rgba(0,119,217,0.2)] hover:border-[color:var(--brand-strong)] hover:bg-[color:var(--brand-strong)]"
@@ -384,11 +413,15 @@ export function Header() {
           </Link>
           <a
             href={telegramHref}
-            className="btn-base btn-small border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] shadow-[0_16px_36px_rgba(255,212,0,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+            className={`btn-base btn-small ${
+              hasTelegram
+                ? "border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] shadow-[0_16px_36px_rgba(255,212,0,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+                : "border border-[color:var(--brand)] bg-white text-[color:var(--brand)] shadow-[0_14px_30px_rgba(7,26,51,0.12)] hover:border-[color:var(--brand-strong)] hover:text-[color:var(--brand-strong)]"
+            }`}
             target={telegramIsExternal ? "_blank" : undefined}
             rel={telegramIsExternal ? "noreferrer" : undefined}
           >
-            {copy.primaryCta}
+            {hasTelegram ? copy.primaryCta : actions.contactPage}
           </a>
         </div>
       </div>
@@ -424,11 +457,15 @@ export function Header() {
               </Link>
               <a
                 href={telegramHref}
-                className="btn-base btn-small justify-center border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+                className={`btn-base btn-small justify-center ${
+                  hasTelegram
+                    ? "border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+                    : "border border-[color:var(--brand)] bg-white text-[color:var(--brand)] hover:border-[color:var(--brand-strong)] hover:text-[color:var(--brand-strong)]"
+                }`}
                 target={telegramIsExternal ? "_blank" : undefined}
                 rel={telegramIsExternal ? "noreferrer" : undefined}
               >
-                {copy.primaryCta}
+                {hasTelegram ? copy.primaryCta : actions.contactPage}
               </a>
             </div>
           </nav>
@@ -443,6 +480,14 @@ export function Footer() {
   const localeSegment = pathname.split("/")[1];
   const currentLocale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
   const copy = shellCopy[currentLocale];
+  const actions = contactActionCopy[currentLocale];
+  const hasTelegram = Boolean(siteConfig.telegramUrl && siteConfig.telegramUrl !== "#");
+  const hasPhone = Boolean(siteConfig.phoneHref && siteConfig.phoneDisplay !== "+49 123 4567890");
+  const hasEmail = siteConfig.contactEmail !== "kontakt@mr-spark.de";
+  const telegramHref = hasTelegram
+    ? siteConfig.telegramUrl
+    : buildLocalizedPath(currentLocale, "kontakt");
+  const telegramIsExternal = hasTelegram;
 
   return (
     <footer className="border-t border-[color:var(--line)] bg-[color:var(--surface-strong)]">
@@ -452,14 +497,14 @@ export function Footer() {
           <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
             {copy.footerTitle}
           </h3>
-          <p className="mt-4 max-w-sm text-sm leading-7 text-white/68">
+          <p className="mt-4 max-w-sm text-sm leading-7 text-[color:var(--dark-surface-muted)]">
             {copy.footerDescription}
           </p>
         </div>
 
         <div>
           <h4 className="font-semibold text-white">{copy.footerServices}</h4>
-          <ul className="mt-3 space-y-2 text-sm text-white/66">
+          <ul className="mt-3 space-y-2 text-sm text-[color:var(--dark-surface-muted)]">
             {copy.footerServiceItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -468,7 +513,41 @@ export function Footer() {
 
         <div>
           <h4 className="font-semibold text-white">{copy.footerConversion}</h4>
-          <ul className="mt-3 space-y-2 text-sm text-white/66">
+          <div className="mt-3 flex flex-col gap-3">
+            <a
+              href={telegramHref}
+              className={`btn-base btn-small justify-center ${
+                hasTelegram
+                  ? "border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+                  : "border border-white/80 bg-white text-[color:var(--brand)] hover:border-[color:var(--brand)] hover:text-[color:var(--brand-strong)]"
+              }`}
+              target={telegramIsExternal ? "_blank" : undefined}
+              rel={telegramIsExternal ? "noreferrer" : undefined}
+            >
+              {hasTelegram ? copy.primaryCta : actions.contactPage}
+            </a>
+            {hasPhone ? (
+              <a
+                href={siteConfig.phoneHref || undefined}
+                className="rounded-2xl border border-[color:var(--dark-surface-line)] bg-white/10 px-4 py-3 text-sm font-medium text-[color:var(--dark-surface-text)] transition hover:border-white/40 hover:bg-white/14"
+              >
+                {actions.call}: {siteConfig.phoneDisplay}
+              </a>
+            ) : null}
+            {hasEmail ? (
+              <a
+                href={`mailto:${siteConfig.contactEmail}`}
+                className="rounded-2xl border border-[color:var(--dark-surface-line)] bg-white/10 px-4 py-3 text-sm font-medium text-[color:var(--dark-surface-text)] transition hover:border-white/40 hover:bg-white/14"
+              >
+                {actions.email}: {siteConfig.contactEmail}
+              </a>
+            ) : null}
+            <div className="rounded-2xl border border-[color:var(--dark-surface-line)] bg-white/10 px-4 py-3 text-sm text-[color:var(--dark-surface-muted)]">
+              <p className="font-semibold text-[color:var(--dark-surface-text)]">{actions.hours}</p>
+              <p className="mt-1">{siteConfig.emergencyHours}</p>
+            </div>
+          </div>
+          <ul className="mt-4 space-y-2 text-sm text-[color:var(--dark-surface-soft)]">
             {copy.footerConversionItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -477,7 +556,7 @@ export function Footer() {
 
         <div>
           <h4 className="font-semibold text-white">{copy.footerLegal}</h4>
-          <ul className="mt-3 space-y-2 text-sm text-white/66">
+          <ul className="mt-3 space-y-2 text-sm text-[color:var(--dark-surface-muted)]">
             <li>
               <Link href={buildLocalizedPath(currentLocale, "impressum")} className="transition hover:text-white">
                 {copy.legalNotice}
