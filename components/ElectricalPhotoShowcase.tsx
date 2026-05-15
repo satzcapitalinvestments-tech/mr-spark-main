@@ -81,40 +81,26 @@ const showcaseAltByLocale: Record<
 const variantContent: Record<
   ShowcaseVariant,
   {
-    primaryImage: ShowcaseImageKey;
-    secondaryImage: ShowcaseImageKey;
-    tertiaryImage: ShowcaseImageKey;
+    focusImage: ShowcaseImageKey;
   }
 > = {
   home: {
-    primaryImage: "panel",
-    secondaryImage: "meter",
-    tertiaryImage: "inspection",
+    focusImage: "inspection",
   },
   emergency: {
-    primaryImage: "meter",
-    secondaryImage: "inspection",
-    tertiaryImage: "panel",
+    focusImage: "panel",
   },
   coverage: {
-    primaryImage: "inspection",
-    secondaryImage: "panel",
-    tertiaryImage: "meter",
+    focusImage: "meter",
   },
   services: {
-    primaryImage: "panel",
-    secondaryImage: "inspection",
-    tertiaryImage: "meter",
+    focusImage: "meter",
   },
   pricing: {
-    primaryImage: "inspection",
-    secondaryImage: "meter",
-    tertiaryImage: "panel",
+    focusImage: "panel",
   },
   contact: {
-    primaryImage: "meter",
-    secondaryImage: "panel",
-    tertiaryImage: "inspection",
+    focusImage: "inspection",
   },
 };
 
@@ -163,49 +149,40 @@ export default function ElectricalPhotoShowcase({
     inspection: inspectionImage,
   };
   const showcaseChips = ["24h", "Telegram", "DE"];
+  const focusImage = imageByKey[content.focusImage];
 
   if (emphasis === "section") {
     return (
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)]">
-        <PhotoTile image={imageByKey[content.primaryImage]} ratio="16 / 10" />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-          <PhotoTile image={imageByKey[content.secondaryImage]} ratio="4 / 3" />
-          <PhotoTile image={imageByKey[content.tertiaryImage]} ratio="4 / 3" />
-        </div>
-      </div>
+      <PhotoTile image={focusImage} ratio="16 / 10" />
     );
   }
 
   return (
     <div className="rounded-[2.4rem] border border-[color:var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(234,248,255,0.94))] p-4 shadow-[0_28px_80px_rgba(7,26,51,0.14)]">
-      <div className="grid gap-4">
-        <div className="relative overflow-hidden rounded-[2rem] border border-[color:var(--line)] bg-white shadow-[0_20px_54px_rgba(7,26,51,0.14)]">
-          <div className="relative" style={{ aspectRatio: "16 / 11" }}>
-            <Image
-              src={imageByKey[content.primaryImage].src}
-              alt={imageByKey[content.primaryImage].alt}
-              fill
-              priority={variant === "home"}
-              className="object-cover object-center"
-            />
-          </div>
-          <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
-            {showcaseChips.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-white/80 bg-white/92 px-3 py-2 text-xs font-semibold tracking-[0.18em] text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.12)]"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <div className="absolute bottom-4 right-4 w-[8.75rem] max-w-[44%] rounded-[1.6rem] border border-white/85 bg-white/94 p-3 shadow-[0_18px_42px_rgba(7,26,51,0.18)]">
-            <MascotHero compact className="mx-auto max-w-[7rem]" />
-          </div>
+      <div className="relative overflow-hidden rounded-[2rem] border border-[color:var(--line)] bg-white shadow-[0_20px_54px_rgba(7,26,51,0.14)]">
+        <div className="relative" style={{ aspectRatio: "16 / 10" }}>
+          <Image
+            src={focusImage.src}
+            alt={focusImage.alt}
+            fill
+            priority={variant === "home"}
+            className="object-cover object-center"
+          />
+        </div>
+        <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
+          {showcaseChips.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-white/80 bg-white/92 px-3 py-2 text-xs font-semibold tracking-[0.18em] text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.12)]"
+            >
+              {item}
+            </span>
+          ))}
         </div>
 
-        <PhotoTile image={imageByKey[content.secondaryImage]} ratio="16 / 9" />
+        <div className="absolute bottom-4 right-4 w-[8.75rem] max-w-[44%] rounded-[1.6rem] border border-white/85 bg-white/94 p-3 shadow-[0_18px_42px_rgba(7,26,51,0.18)]">
+          <MascotHero compact className="mx-auto max-w-[7rem]" />
+        </div>
       </div>
     </div>
   );
