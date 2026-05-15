@@ -1,6 +1,6 @@
 import Faq from "@/components/Faq";
 import MascotHero from "@/components/MascotHero";
-import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
+import TelegramLeadForm from "@/components/TelegramLeadForm";
 
 export default function Page() {
   return (
@@ -56,7 +56,7 @@ export default function Page() {
       </section>
 
       <section className="section grid gap-6 py-12 md:grid-cols-2">
-        <WhatsAppLeadForm sourcePage="/de/notdienst" />
+        <TelegramLeadForm sourcePage="/de/notdienst" />
         <MascotHero compact />
       </section>
 

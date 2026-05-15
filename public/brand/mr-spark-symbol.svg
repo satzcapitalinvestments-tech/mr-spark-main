@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Mr Spark Symbol</title>
+  <desc id="desc">Blue circular plug cable with yellow lightning bolt.</desc>
+  <circle cx="64" cy="64" r="58" fill="#0b2a63"/>
+  <path d="M64 14 39 67h21l-8 47 37-56H67l11-44Z" fill="#facc15"/>
+  <path d="M88 79c10 2 17 7 23 16" stroke="#38bdf8" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>
