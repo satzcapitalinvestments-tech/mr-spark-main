@@ -81,26 +81,40 @@ const showcaseAltByLocale: Record<
 const variantContent: Record<
   ShowcaseVariant,
   {
-    focusImage: ShowcaseImageKey;
+    primaryImage: ShowcaseImageKey;
+    secondaryImage: ShowcaseImageKey;
+    chips: [string, string, string];
   }
 > = {
   home: {
-    focusImage: "inspection",
+    primaryImage: "inspection",
+    secondaryImage: "meter",
+    chips: ["24h", "Telegram", "DE"],
   },
   emergency: {
-    focusImage: "panel",
+    primaryImage: "panel",
+    secondaryImage: "inspection",
+    chips: ["24h", "Sofort", "DE"],
   },
   coverage: {
-    focusImage: "meter",
+    primaryImage: "inspection",
+    secondaryImage: "meter",
+    chips: ["Vor Ort", "DE", "Planbar"],
   },
   services: {
-    focusImage: "meter",
+    primaryImage: "meter",
+    secondaryImage: "panel",
+    chips: ["Messung", "Montage", "DE"],
   },
   pricing: {
-    focusImage: "panel",
+    primaryImage: "panel",
+    secondaryImage: "meter",
+    chips: ["Klar", "Diagnose", "DE"],
   },
   contact: {
-    focusImage: "inspection",
+    primaryImage: "inspection",
+    secondaryImage: "panel",
+    chips: ["Kontakt", "Telegram", "DE"],
   },
 };
 
@@ -148,40 +162,79 @@ export default function ElectricalPhotoShowcase({
     meter: meterImage,
     inspection: inspectionImage,
   };
-  const showcaseChips = ["24h", "Telegram", "DE"];
-  const focusImage = imageByKey[content.focusImage];
+  const primaryImage = imageByKey[content.primaryImage];
+  const secondaryImage = imageByKey[content.secondaryImage];
 
   if (emphasis === "section") {
     return (
-      <PhotoTile image={focusImage} ratio="16 / 10" />
+      <div className="relative overflow-hidden rounded-[2.2rem] border border-[color:var(--line-strong)] bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(236,248,255,0.96))] p-3 shadow-[0_28px_72px_rgba(7,26,51,0.14)]">
+        <div className="relative overflow-hidden rounded-[1.9rem] border border-[color:var(--line)] bg-white shadow-[0_18px_46px_rgba(7,26,51,0.12)]">
+          <div className="relative" style={{ aspectRatio: "7 / 4.6" }}>
+            <Image
+              src={primaryImage.src}
+              alt={primaryImage.alt}
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
+            {content.chips.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-[color:var(--line)] bg-white/94 px-3 py-2 text-[0.68rem] font-semibold tracking-[0.18em] text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.12)]"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+          <div className="absolute bottom-4 left-4 w-[42%] min-w-[8.25rem] max-w-[12.5rem] overflow-hidden rounded-[1.35rem] border border-white/85 bg-white shadow-[0_16px_40px_rgba(7,26,51,0.18)]">
+            <div className="relative" style={{ aspectRatio: "4 / 3" }}>
+              <Image
+                src={secondaryImage.src}
+                alt={secondaryImage.alt}
+                fill
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 
   return (
-    <div className="rounded-[2.4rem] border border-[color:var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(234,248,255,0.94))] p-4 shadow-[0_28px_80px_rgba(7,26,51,0.14)]">
-      <div className="relative overflow-hidden rounded-[2rem] border border-[color:var(--line)] bg-white shadow-[0_20px_54px_rgba(7,26,51,0.14)]">
-        <div className="relative" style={{ aspectRatio: "16 / 10" }}>
-          <Image
-            src={focusImage.src}
-            alt={focusImage.alt}
-            fill
-            priority={variant === "home"}
-            className="object-cover object-center"
-          />
-        </div>
-        <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
-          {showcaseChips.map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-white/80 bg-white/92 px-3 py-2 text-xs font-semibold tracking-[0.18em] text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.12)]"
-            >
-              {item}
-            </span>
-          ))}
+    <div className="rounded-[2.45rem] border border-[color:var(--line-strong)] bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(236,248,255,0.96))] p-4 shadow-[0_32px_86px_rgba(7,26,51,0.16)] md:p-5">
+      <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_minmax(9.75rem,11.75rem)]">
+        <div className="relative overflow-hidden rounded-[2rem] border border-[color:var(--line)] bg-white shadow-[0_20px_54px_rgba(7,26,51,0.14)]">
+          <div className="relative" style={{ aspectRatio: "5 / 6" }}>
+            <Image
+              src={primaryImage.src}
+              alt={primaryImage.alt}
+              fill
+              priority={variant === "home"}
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="absolute inset-x-4 top-4 flex flex-wrap gap-2">
+            {content.chips.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-[color:var(--line)] bg-white/94 px-3 py-2 text-[0.68rem] font-semibold tracking-[0.18em] text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.12)]"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <div className="absolute bottom-4 right-4 w-[8.75rem] max-w-[44%] rounded-[1.6rem] border border-white/85 bg-white/94 p-3 shadow-[0_18px_42px_rgba(7,26,51,0.18)]">
-          <MascotHero compact className="mx-auto max-w-[7rem]" />
+        <div className="flex flex-col gap-3">
+          <div className="rounded-[1.8rem] border border-white/12 bg-[linear-gradient(180deg,rgba(7,26,51,0.98),rgba(12,90,152,0.96))] px-3 pb-3 pt-1 shadow-[0_18px_42px_rgba(7,26,51,0.24)]">
+            <MascotHero compact surface="plain" className="mx-auto -mt-4 max-w-[7.6rem]" />
+            <p className="mt-1 text-center text-[0.68rem] font-semibold tracking-[0.24em] text-white/74">
+              MR SPARK
+            </p>
+          </div>
+          <PhotoTile image={secondaryImage} ratio="4 / 5" />
         </div>
       </div>
     </div>

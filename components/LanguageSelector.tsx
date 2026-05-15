@@ -30,7 +30,7 @@ export default function LanguageSelector() {
       <select
         id="language-selector"
         aria-label={selectorLabel}
-        className="rounded-full border border-[color:var(--line)] bg-white px-3.5 py-2 text-sm font-semibold text-[color:var(--ink)] shadow-[0_12px_28px_rgba(7,26,51,0.08)] outline-none transition focus:border-[color:var(--brand)]"
+        className="rounded-full border border-white/18 bg-white/10 px-3.5 py-2 text-sm font-semibold text-white shadow-[0_14px_32px_rgba(7,26,51,0.18)] outline-none transition focus:border-[color:var(--accent)]"
         value={currentLocale}
         onChange={(event) => {
           const nextPath = switchLocalePath(pathname, event.target.value as LocaleCode);

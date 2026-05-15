@@ -333,12 +333,12 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-white/96 shadow-[0_18px_42px_rgba(7,26,51,0.08)] backdrop-blur">
-      <div className="section flex min-h-[5.55rem] items-center justify-between gap-4 py-3">
+    <header className="sticky top-0 z-50 border-b border-white/14 bg-[linear-gradient(135deg,rgba(7,26,51,0.97),rgba(12,90,152,0.95))] shadow-[0_22px_54px_rgba(7,26,51,0.24)] backdrop-blur">
+      <div className="section flex min-h-[6rem] items-center justify-between gap-4 py-3">
         <div className="flex items-center gap-3">
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--line-strong)] bg-white text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.08)] lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/18 bg-white/10 text-white shadow-[0_12px_30px_rgba(7,26,51,0.18)] lg:hidden"
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
             aria-label={isOpen ? copy.toggleClose : copy.toggleOpen}
@@ -352,7 +352,11 @@ export function Header() {
           </button>
 
           <Link href={buildLocalizedPath(currentLocale)} className="flex shrink-0 items-center">
-            <BrandLogo size="header" className="h-[3.05rem] w-auto max-w-none md:h-[3.45rem]" />
+            <BrandLogo
+              theme="light"
+              size="header"
+              className="h-[3.45rem] w-auto max-w-none md:h-[3.95rem]"
+            />
           </Link>
         </div>
 
@@ -365,8 +369,8 @@ export function Header() {
                 key={href}
                 href={href}
                 aria-current={isActive ? "page" : undefined}
-                className={`text-sm font-semibold transition hover:text-[color:var(--brand)] ${
-                  isActive ? "text-[color:var(--brand)]" : "text-[color:var(--ink)]/82"
+                className={`text-sm font-semibold transition ${
+                  isActive ? "text-[color:var(--accent)]" : "text-white/82 hover:text-white"
                 }`}
               >
                 {label}
@@ -380,14 +384,14 @@ export function Header() {
           {hasPhone ? (
             <a
               href={siteConfig.phoneHref || undefined}
-              className="hidden xl:inline-flex rounded-full border border-[color:var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.08)] transition hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]"
+              className="hidden xl:inline-flex rounded-full border border-white/18 bg-white/10 px-4 py-2 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(7,26,51,0.18)] transition hover:border-white/32 hover:bg-white/14"
             >
               {siteConfig.phoneDisplay}
             </a>
           ) : null}
           <Link
             href={buildLocalizedPath(currentLocale, "notdienst")}
-            className="btn-base btn-small hidden md:inline-flex border border-[color:var(--brand)] bg-[color:var(--brand)] text-white shadow-[0_16px_36px_rgba(0,119,217,0.2)] hover:border-[color:var(--brand-strong)] hover:bg-[color:var(--brand-strong)]"
+            className="btn-base btn-small hidden md:inline-flex border border-white/18 bg-white/10 text-white shadow-[0_16px_36px_rgba(7,26,51,0.18)] hover:border-white/32 hover:bg-white/14"
           >
             {copy.emergencyCta}
           </Link>
@@ -404,7 +408,10 @@ export function Header() {
 
       {isOpen ? (
         <div id="mobile-navigation" className="section pb-5 lg:hidden">
-          <nav aria-label={copy.mobileNavLabel} className="panel-surface grid gap-2 p-4">
+          <nav
+            aria-label={copy.mobileNavLabel}
+            className="grid gap-2 rounded-[2rem] border border-white/14 bg-[linear-gradient(180deg,rgba(7,26,51,0.98),rgba(12,90,152,0.95))] p-4 shadow-[0_22px_54px_rgba(7,26,51,0.24)]"
+          >
             {localizedLinks.map(({ label, href }) => {
               const isActive = isActivePath(pathname, href);
 
@@ -413,10 +420,10 @@ export function Header() {
                   key={href}
                   href={href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`rounded-2xl px-4 py-3 text-sm font-medium hover:bg-[color:var(--brand-soft)] ${
+                  className={`rounded-2xl px-4 py-3 text-sm font-medium ${
                     isActive
-                      ? "bg-[color:var(--brand-soft)] text-[color:var(--brand)]"
-                      : "text-[color:var(--ink)]"
+                      ? "bg-white/14 text-white"
+                      : "text-white/82 hover:bg-white/10 hover:text-white"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -424,10 +431,10 @@ export function Header() {
                 </Link>
               );
             })}
-            <div className="mt-2 grid gap-2 border-t border-[color:var(--line)] pt-3 sm:grid-cols-2">
+            <div className="mt-2 grid gap-2 border-t border-white/12 pt-3 sm:grid-cols-2">
               <Link
                 href={buildLocalizedPath(currentLocale, "notdienst")}
-                className="btn-base btn-small justify-center border border-[color:var(--brand)] bg-[color:var(--brand)] text-white hover:border-[color:var(--brand-strong)] hover:bg-[color:var(--brand-strong)]"
+                className="btn-base btn-small justify-center border border-white/18 bg-white/10 text-white hover:border-white/32 hover:bg-white/14"
               >
                 {copy.emergencyCta}
               </Link>
@@ -461,21 +468,21 @@ export function Footer() {
   const telegramIsExternal = siteConfig.hasDirectTelegramContact;
 
   return (
-    <footer className="border-t border-[color:var(--line)] bg-[color:var(--surface-strong)]">
+    <footer className="border-t border-white/12 bg-[linear-gradient(180deg,rgba(7,26,51,0.99),rgba(12,90,152,0.98))]">
       <div className="section grid gap-8 py-14 md:grid-cols-[1.4fr_repeat(3,minmax(0,1fr))]">
         <div>
           <BrandLogo theme="light" size="footer" className="h-10 w-auto md:h-11" />
           <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
             {copy.footerTitle}
           </h3>
-          <p className="mt-4 max-w-sm text-sm leading-7 text-[color:var(--dark-surface-muted)]">
+          <p className="mt-4 max-w-sm text-sm leading-7 text-white/82">
             {copy.footerDescription}
           </p>
         </div>
 
         <div>
           <h4 className="font-semibold text-white">{copy.footerServices}</h4>
-          <ul className="mt-3 space-y-2 text-sm text-[color:var(--dark-surface-muted)]">
+          <ul className="mt-3 space-y-2 text-sm text-white/78">
             {copy.footerServiceItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -496,7 +503,7 @@ export function Footer() {
             {hasPhone ? (
               <a
                 href={siteConfig.phoneHref || undefined}
-                className="rounded-2xl border border-[color:var(--dark-surface-line)] bg-white/10 px-4 py-3 text-sm font-medium text-[color:var(--dark-surface-text)] transition hover:border-white/40 hover:bg-white/14"
+                className="rounded-2xl border border-white/18 bg-white/10 px-4 py-3 text-sm font-medium text-white transition hover:border-white/34 hover:bg-white/14"
               >
                 {actions.call}: {siteConfig.phoneDisplay}
               </a>
@@ -504,17 +511,17 @@ export function Footer() {
             {hasEmail ? (
               <a
                 href={`mailto:${siteConfig.contactEmail}`}
-                className="rounded-2xl border border-[color:var(--dark-surface-line)] bg-white/10 px-4 py-3 text-sm font-medium text-[color:var(--dark-surface-text)] transition hover:border-white/40 hover:bg-white/14"
+                className="rounded-2xl border border-white/18 bg-white/10 px-4 py-3 text-sm font-medium text-white transition hover:border-white/34 hover:bg-white/14"
               >
                 {actions.email}: {siteConfig.contactEmail}
               </a>
             ) : null}
-            <div className="rounded-2xl border border-[color:var(--dark-surface-line)] bg-white/10 px-4 py-3 text-sm text-[color:var(--dark-surface-muted)]">
-              <p className="font-semibold text-[color:var(--dark-surface-text)]">{actions.hours}</p>
+            <div className="rounded-2xl border border-white/18 bg-white/10 px-4 py-3 text-sm text-white/82">
+              <p className="font-semibold text-white">{actions.hours}</p>
               <p className="mt-1">{siteConfig.emergencyHours}</p>
             </div>
           </div>
-          <ul className="mt-4 space-y-2 text-sm text-[color:var(--dark-surface-soft)]">
+          <ul className="mt-4 space-y-2 text-sm text-white/74">
             {copy.footerConversionItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -523,7 +530,7 @@ export function Footer() {
 
         <div>
           <h4 className="font-semibold text-white">{copy.footerLegal}</h4>
-          <ul className="mt-3 space-y-2 text-sm text-[color:var(--dark-surface-muted)]">
+          <ul className="mt-3 space-y-2 text-sm text-white/78">
             <li>
               <Link href={buildLocalizedPath(currentLocale, "impressum")} className="transition hover:text-white">
                 {copy.legalNotice}

@@ -9,6 +9,7 @@ import { defaultLocale, isLocale } from "@/lib/i18n";
 type MascotHeroProps = {
   compact?: boolean;
   className?: string;
+  surface?: "card" | "plain";
 };
 
 const mascotAltByLocale: Record<LocaleCode, string> = {
@@ -22,25 +23,36 @@ const mascotAltByLocale: Record<LocaleCode, string> = {
   ro: "Mascota Mr Spark cu cască și unelte",
 };
 
-export default function MascotHero({ compact = false, className = "" }: MascotHeroProps) {
+export default function MascotHero({
+  compact = false,
+  className = "",
+  surface = "card",
+}: MascotHeroProps) {
   const [src, setSrc] = useState("/brand/mr-spark-mascot.png");
   const pathname = usePathname() || `/${defaultLocale}`;
   const localeSegment = pathname.split("/")[1];
   const locale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
+  const image = (
+    <Image
+      src={src}
+      onError={() => setSrc("/brand/mr-spark-mascot.svg")}
+      alt={mascotAltByLocale[locale]}
+      width={compact ? 180 : 360}
+      height={compact ? 180 : 360}
+      priority
+      className="h-auto w-full object-contain"
+    />
+  );
 
   return (
     <div className={`relative mx-auto w-full ${compact ? "max-w-[13rem]" : "max-w-[22rem]"} ${className}`}>
-      <div className="rounded-[1.75rem] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,245,249,0.96))] p-3 shadow-[var(--shadow-soft)]">
-        <Image
-          src={src}
-          onError={() => setSrc("/brand/mr-spark-mascot.svg")}
-          alt={mascotAltByLocale[locale]}
-          width={compact ? 180 : 360}
-          height={compact ? 180 : 360}
-          priority
-          className="h-auto w-full object-contain"
-        />
-      </div>
+      {surface === "card" ? (
+        <div className="rounded-[1.75rem] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,245,249,0.96))] p-3 shadow-[var(--shadow-soft)]">
+          {image}
+        </div>
+      ) : (
+        image
+      )}
     </div>
   );
 }
