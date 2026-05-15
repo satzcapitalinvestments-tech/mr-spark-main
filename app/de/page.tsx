@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import Faq from "@/components/Faq";
 import {
   FeatureGrid,
@@ -56,24 +57,25 @@ export default function Page() {
           { href: "/de/preise", label: "Preise verstehen" },
         ]}
         stats={homePageContent.hero.stats}
+        aside={<ElectricalPhotoShowcase variant="home" />}
       />
 
       <StatsBand items={homePageContent.trustBadges} />
 
       <PageSection>
         <SectionHeading
-          eyebrow="Leistungsarchitektur"
-          title="Die wichtigsten Services bleiben auffindbar und führen in denselben Anfragefluss."
-          description="Die Startseite priorisiert dringende Kontakte, ohne planbare Elektroarbeiten oder Transparenzthemen im Layout zu verstecken."
+          eyebrow="Leistungen im Überblick"
+          title="Von Notdienst bis Neuinstallation finden Sie schnell den passenden Elektroservice."
+          description="Die Startseite priorisiert dringende Kontakte, ohne planbare Elektroarbeiten, Sicherungskästen oder Preisfragen zu verstecken."
         />
         <FeatureGrid items={homePageContent.services} />
       </PageSection>
 
       <PageSection surface>
         <SectionHeading
-          eyebrow="Leadflow"
-          title="Ein konsistenter Seitenaufbau reduziert Reibung zwischen Klick und operativer Bearbeitung."
-          description="Die UI führt bewusst auf dieselbe servergestützte Intake-Strecke, damit CTA-Platzierung, Tracking und Lead-Inhalt nicht pro Route auseinanderlaufen."
+          eyebrow="So läuft die Anfrage ab"
+          title="Sie sehen sofort, was im Notfall wichtig ist und wie Ihre Anfrage weitergeht."
+          description="Der Ablauf bleibt auf Startseite, Kontakt und Notdienst gleich, damit Ihre Angaben vollständig und ohne Umwege ankommen."
         />
         <StepGrid steps={homePageContent.steps} />
       </PageSection>
@@ -81,16 +83,16 @@ export default function Page() {
       <PageSection>
         <NoticeCard
           tone="warning"
-          title="Akute Elektro-Probleme sichtbar priorisieren"
-          description="Brandgeruch, Funkenbildung, Stromausfall oder ein kritischer Sicherungskasten müssen in der Navigation, im Hero und im Kontaktbereich klar als Notfall erkennbar bleiben."
+          title="Bei Gefahr immer zuerst absichern"
+          description="Bei Brandgeruch, Funkenbildung, Stromausfall oder einem kritischen Sicherungskasten möglichst den betroffenen Stromkreis abschalten und Personen schützen. Danach den Notdienst anfragen."
         />
       </PageSection>
 
       <PageSection>
         <SectionHeading
-          eyebrow="Preisführung"
-          title="Transparenz entsteht durch saubere Preislogik statt durch aggressive Pauschalversprechen."
-          description="Die Startseite setzt nur die Preisstruktur, während die Detailseite die einzelnen Kostenblöcke vertieft."
+          eyebrow="Preise verständlich erklärt"
+          title="Transparenz entsteht durch klare Kostenblöcke statt durch unrealistische Lockpreise."
+          description="Auf der Startseite sehen Sie die Grundlogik. Die Detailseite erklärt Anfahrt, Diagnose, Arbeitszeit und Notdienstzuschläge genauer."
         />
         <FeatureGrid items={homePageContent.pricingCards} />
       </PageSection>
@@ -98,8 +100,8 @@ export default function Page() {
       <Faq items={homePageContent.faq} />
 
       <LeadCaptureSection
-        title="Kontakt direkt mit verwertbaren Einsatzdaten starten"
-        description="Der gleiche Flow bleibt auf Startseite, Notdienst und Kontakt erhalten. Das reduziert technische Reibung und vereinfacht die spätere Backend-Erweiterung."
+        title="Kontakt jetzt mit allen wichtigen Einsatzdaten starten"
+        description="Senden Sie Stadt, Problem oder gewünschte Arbeit und die passende Dringlichkeit direkt mit. So kann die Rückmeldung schneller und genauer erfolgen."
         sourcePage="/de"
         checklist={[
           "Stadt, Service und Dringlichkeit sofort angeben",

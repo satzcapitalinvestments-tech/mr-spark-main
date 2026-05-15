@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import { germanCities } from "@/data/germany/cities";
 import { germanStates } from "@/data/germany/states";
 import {
@@ -44,22 +45,23 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Einsatzgebiet und Verfügbarkeit"
-        title="Regionale Reichweite sichtbar machen, ohne operative Verfügbarkeit zu versprechen, die noch nicht bestätigt ist."
-        description="Die Gebietsseite übersetzt Suchintention nach Städten und Regionen in einen klaren Kontaktpfad. Sie hält die Conversion konsistent und schützt gleichzeitig vor unpräzisen Leistungsversprechen."
+        title="Elektriker-Anfragen aus Deutschland sauber aufnehmen und regional einordnen."
+        description="Ob Großstadt, Umland oder Gewerbestandort: Über diese Seite können Sie Ihren Einsatzort direkt angeben und die Anfrage für Rückruf oder Notdienst vorbereiten."
         points={[
-          "Bundesländer und Städte bleiben scanbar",
-          "Anfahrt und Termin werden immer vorab bestätigt",
-          "SEO-Landing und Lead-Intake laufen in dieselbe Architektur",
+          "Bundesländer und Städte bleiben schnell scanbar",
+          "Anfahrt und Termin werden vorab abgestimmt",
+          "Auch regionale Suchanfragen führen direkt in den Kontaktweg",
         ]}
         primaryCta={{ href: "/de/kontakt", label: "Einsatzgebiet anfragen" }}
         secondaryCta={{ href: "/de/notdienst", label: "Notdienst öffnen", variant: "ghost" }}
+        aside={<ElectricalPhotoShowcase variant="coverage" />}
       />
 
       <PageSection>
         <SectionHeading
-          eyebrow="Gebietslogik"
-          title="Die Route beantwortet zuerst Reichweite, dann Erreichbarkeit."
-          description="Für Nutzer, die nach Städten oder Regionen suchen, muss die Seite schnell zeigen, dass Anfragen angenommen werden, ohne eine operative Zusage zu fingieren."
+          eyebrow="Regionale Anfrage"
+          title="Erst den Einsatzort nennen, dann Verfügbarkeit und Termin abstimmen."
+          description="Wer nach einem Elektriker in einer Stadt oder Region sucht, soll sofort sehen, wie die Anfrage vorbereitet und regional eingeordnet wird."
         />
         <FeatureGrid items={coverageCards} />
       </PageSection>
@@ -67,8 +69,8 @@ export default function Page() {
       <PageSection surface>
         <SectionHeading
           eyebrow="Bundesländer"
-          title="Regionen, aus denen Anfragen strukturiert koordiniert werden."
-          description="Die finale Disposition hängt weiterhin von Verfügbarkeit, Anfahrt und Auftragslage ab. Genau diese Abhängigkeit bleibt in der UI bewusst sichtbar."
+          title="Aus diesen Regionen können Sie Ihre Anfrage direkt vorbereiten."
+          description="Die genaue Einsatzplanung hängt von Verfügbarkeit, Anfahrt und Auftragslage ab und wird im Rückruf oder in Telegram abgestimmt."
         />
         <div className="mt-8 flex flex-wrap gap-2">
           {germanStates.map((state) => (
@@ -82,8 +84,8 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Städte und Orte"
-          title="Die wichtigsten Suchorte bleiben direkt erfassbar."
-          description="Stadtbezogene Einstiege sollen nicht in einer losen Linkliste enden. Sie müssen auf dieselbe saubere Kontaktaufnahme zurückführen."
+          title="Wichtige Städte und Suchorte bleiben direkt erfassbar."
+          description="Wenn Sie über eine Stadt- oder Regionssuche kommen, können Sie den Einsatzort ohne Umwege direkt mitsenden."
         />
         <div className="mt-8 grid gap-3 md:grid-cols-3">
           {germanCities.map((city) => (
@@ -96,7 +98,7 @@ export default function Page() {
 
       <LeadCaptureSection
         title="Region und Einsatz jetzt strukturiert anfragen"
-        description="Wer über eine Stadt- oder Regionssuche einsteigt, kann den Einsatzort sofort mitsenden. Das reduziert Rückfragen und hält die Disposition sauber."
+        description="Teilen Sie Stadt, Region und Anliegen direkt mit. So lässt sich schneller klären, ob Rückruf, Termin oder Notdienst der richtige nächste Schritt ist."
         sourcePage="/de/einsatzgebiet"
         checklist={[
           "Ort oder Stadt direkt nennen",

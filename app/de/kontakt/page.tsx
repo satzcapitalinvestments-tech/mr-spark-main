@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import {
   FeatureGrid,
   HeroSection,
@@ -28,22 +29,23 @@ export default function Page() {
 
       <HeroSection
         eyebrow="Kontakt und Anfrage"
-        title="Eine Kontaktseite, die direkte Anfrageaufnahme priorisiert statt nur Erreichbarkeit aufzuzählen."
-        description="Die Kontaktseite nutzt denselben Leadflow wie Startseite und Notdienst, gibt dem Nutzer aber mehr Orientierung dazu, welche Informationen für eine schnelle Rueckmeldung wirklich gebraucht werden."
+        title="Kontakt aufnehmen, Rückruf vorbereiten und den passenden Elektroservice direkt anfragen."
+        description="Ob Störung, Notdienst oder planbare Arbeit: Über die Kontaktseite senden Sie die wichtigsten Einsatzdaten direkt mit und vermeiden unnötige Rückfragen."
         points={[
-          "Servergestuetzter Intake vor dem Telegram-Handoff",
-          "Eine klare Datenstruktur statt freiem Chat ohne Kontext",
-          "Akute Faelle bleiben auch hier sichtbar priorisiert",
+          "Telegram öffnet sich erst, wenn alle wichtigen Angaben vorbereitet sind",
+          "Name, Stadt, Service und Dringlichkeit gehen direkt mit",
+          "Akute Fälle bleiben auch hier klar priorisiert",
         ]}
         primaryCta={{ href: "#lead-form", label: "Anfrage starten" }}
         secondaryCta={{ href: "/de/notdienst", label: "Zum Notdienst", variant: "ghost" }}
+        aside={<ElectricalPhotoShowcase variant="home" />}
       />
 
       <PageSection>
         <SectionHeading
           eyebrow="Was Nutzer sofort verstehen sollten"
-          title="Die Kontaktseite erklärt den Kanal, ohne die Anfrage unnötig auszubremsen."
-          description="Statt langer Einleitungstexte zeigt sie, welche Informationen die operative Bearbeitung tatsächlich beschleunigen."
+          title="Die Kontaktseite zeigt, welche Angaben für eine schnelle Rückmeldung wirklich helfen."
+          description="Statt langer Einleitungstexte sehen Sie direkt, was für Rückruf, Termin oder Notdienst wichtig ist."
         />
         <FeatureGrid items={contactPageContent.cards} />
       </PageSection>
@@ -58,9 +60,9 @@ export default function Page() {
 
       <PageSection surface>
         <SectionHeading
-          eyebrow="CTO-Hinweis"
-          title="Die UI ist bereit für weitere Kanäle, die operative Rückführung noch nicht."
-          description="Die Kontaktseite kapselt CTA-Platzierung und Formstruktur bereits sauber. Für zusätzliche Kanäle wie E-Mail, CRM oder Dispatch-Dashboard fehlt aber noch die finale Backend- und Business-Entscheidung."
+          eyebrow="Nach Ihrer Anfrage"
+          title="So geht es nach dem Absenden weiter."
+          description="Ihre Angaben werden vorbereitet und direkt in Telegram geöffnet. Dort kann die weitere Abstimmung zu Rückruf, Termin, Notdienst oder nächsten Schritten ohne Informationsverlust starten."
         />
       </PageSection>
     </main>

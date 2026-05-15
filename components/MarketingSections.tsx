@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import MascotHero from "@/components/MascotHero";
 import TelegramLeadForm from "@/components/TelegramLeadForm";
+import { defaultLocale, isLocale } from "@/lib/i18n";
 
 type Cta = {
   href: string;
@@ -250,12 +251,25 @@ export function LeadCaptureSection({
   checklist?: string[];
   emergencyNote?: string;
 }) {
+  const localeSegment = sourcePage.split("/").filter(Boolean)[0];
+  const locale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
+  const eyebrowByLocale = {
+    de: "Kontakt aufnehmen",
+    en: "Get in touch",
+    tr: "İletişime geçin",
+    ar: "تواصل معنا",
+    ru: "Связаться",
+    pl: "Skontaktuj się",
+    uk: "Зв'яжіться",
+    ro: "Ia legătura",
+  } as const;
+
   return (
     <section id={id} className="section py-16 md:py-20">
       <div className="cta-shell">
         <div className="space-y-6">
           <div>
-            <p className="section-eyebrow text-white/74">Kontakt aufnehmen</p>
+            <p className="section-eyebrow text-white/74">{eyebrowByLocale[locale]}</p>
             <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-white md:text-4xl">
               {title}
             </h2>

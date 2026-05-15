@@ -82,8 +82,9 @@ export function buildLocalizedPageMetadata({
 
 export function buildLocalBusinessStructuredData() {
   const sameAs = [siteConfig.siteUrl];
+  const hasVerifiedPublicContactData = !siteConfig.usesPlaceholderContactData;
 
-  if (siteConfig.telegramUrl !== "#") {
+  if (hasVerifiedPublicContactData && siteConfig.telegramUrl !== "#") {
     sameAs.push(siteConfig.telegramUrl);
   }
 
@@ -93,10 +94,14 @@ export function buildLocalBusinessStructuredData() {
     name: siteConfig.brandName,
     url: siteConfig.siteUrl,
     areaServed: siteConfig.serviceAreas,
-    email: siteConfig.contactEmail,
-    telephone: siteConfig.phoneDisplay,
-    openingHours: siteConfig.emergencyHours,
     sameAs,
+    ...(hasVerifiedPublicContactData
+      ? {
+          email: siteConfig.contactEmail,
+          telephone: siteConfig.phoneDisplay,
+          openingHours: siteConfig.emergencyHours,
+        }
+      : {}),
     ...(siteConfig.legal.publishReady
       ? {
           legalName: siteConfig.legal.companyName,
@@ -113,6 +118,8 @@ export function buildLocalBusinessStructuredData() {
 }
 
 export function buildContactPageStructuredData() {
+  const hasVerifiedPublicContactData = !siteConfig.usesPlaceholderContactData;
+
   return {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -123,10 +130,14 @@ export function buildContactPageStructuredData() {
       contactType: "customer support",
       areaServed: "DE",
       availableLanguage: ["de", "en", "tr", "ar", "ru", "pl", "uk", "ro"],
-      telephone: siteConfig.phoneDisplay,
-      email: siteConfig.contactEmail,
-      hoursAvailable: siteConfig.emergencyHours,
-      url: siteConfig.telegramUrl,
+      ...(hasVerifiedPublicContactData
+        ? {
+            telephone: siteConfig.phoneDisplay,
+            email: siteConfig.contactEmail,
+            hoursAvailable: siteConfig.emergencyHours,
+            ...(siteConfig.telegramUrl !== "#" ? { url: siteConfig.telegramUrl } : {}),
+          }
+        : {}),
     },
   };
 }

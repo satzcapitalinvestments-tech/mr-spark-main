@@ -54,9 +54,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       className={`${headingFont.variable} ${bodyFont.variable}`}
     >
       <body>
+        <a href="#page-content" className="skip-link">
+          Zum Inhalt springen
+        </a>
         <StructuredData data={buildLocalBusinessStructuredData()} />
         <Header />
-        {children}
+        <div id="page-content" tabIndex={-1}>
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

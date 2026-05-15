@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import Faq from "@/components/Faq";
 import {
   FeatureGrid,
@@ -36,6 +37,7 @@ export default function Page() {
         points={emergencyPageContent.hero.points}
         primaryCta={{ href: "/de/kontakt", label: "Notfall jetzt melden" }}
         secondaryCta={{ href: "/de/preise", label: "Preislogik ansehen", variant: "ghost" }}
+        aside={<ElectricalPhotoShowcase variant="emergency" />}
       />
 
       <PageSection>
@@ -49,8 +51,8 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Typische Notfälle"
-          title="Diese Stoerungen sollten im Notdienstkontext sofort sichtbar einordenbar sein."
-          description="Die Seite reduziert kognitive Last und lässt Nutzer nicht erst durch generische Marketingblöcke suchen."
+          title="Diese Störungen sollten im Notdienst sofort erkennbar und benennbar sein."
+          description="Sie müssen bei einem Notfall nicht erst suchen, wie Sie das Problem beschreiben sollen. Die häufigsten Fälle sind hier direkt sichtbar."
         />
         <FeatureGrid items={emergencyPageContent.symptoms} columns={2} />
       </PageSection>
@@ -58,8 +60,8 @@ export default function Page() {
       <PageSection surface>
         <SectionHeading
           eyebrow="Ablauf"
-          title="Von der Gefahrensituation zur Rueckmeldung in vier klaren Schritten."
-          description="Die Seitensemantik spiegelt die operative Reihenfolge wider: absichern, beschreiben, Rueckmeldung vorbereiten, Einsatz koordinieren."
+          title="Von der Gefahrensituation bis zur Rückmeldung in vier klaren Schritten."
+          description="Erst absichern, dann kurz beschreiben, anschließend Rückmeldung vorbereiten und den Einsatz abstimmen."
         />
         <StepGrid steps={emergencyPageContent.steps} />
       </PageSection>
@@ -67,8 +69,8 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Preistransparenz"
-          title="Auch im Notfall bleibt die Kostenlogik nachvollziehbar."
-          description="Die UI vermeidet Billigsignale und erklärt stattdessen, welche Preisbausteine einen Soforteinsatz beeinflussen."
+          title="Auch im Notfall bleiben Anfahrt, Diagnose und Zuschläge nachvollziehbar."
+          description="Die Seite vermeidet Lockpreise und erklärt stattdessen, welche Faktoren einen Soforteinsatz beeinflussen."
         />
         <FeatureGrid items={emergencyPageContent.pricing} />
       </PageSection>
@@ -76,15 +78,15 @@ export default function Page() {
       <Faq items={emergencyPageContent.faq} />
 
       <LeadCaptureSection
-        title="Notdienstanfrage servergestützt vorbereiten"
-        description="Der Leadflow uebergibt Quellseite und Dringlichkeit an den bestehenden Backend-Endpoint, bevor Telegram geoeffnet wird."
+        title="Notdienstanfrage jetzt direkt vorbereiten"
+        description="Senden Sie Stadt, Fehlerbild und Dringlichkeit direkt mit. Danach öffnet sich Telegram für die schnelle weitere Abstimmung."
         sourcePage="/de/notdienst"
         checklist={[
           "Stadt und Fehlerbild angeben",
           "Dringlichkeit korrekt markieren",
           "Rueckruf möglich halten",
         ]}
-        emergencyNote="Technisches Risiko: Ohne bestätigte Rufnummern- und Bereitschaftslogik bleibt diese Seite conversion-stark, operativ aber weiter auf manuelle Bearbeitung angewiesen."
+        emergencyNote="Bei Rauch, Brandgeruch oder unmittelbarer Gefahr bitte zuerst absichern und im Ernstfall zusätzlich Feuerwehr oder Notruf kontaktieren."
       />
     </main>
   );

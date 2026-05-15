@@ -1,25 +1,25 @@
 export const homePageContent = {
   hero: {
-    eyebrow: "Elektriker · Installation · Notdienst",
-    title: "Elektriker-Seiten mit klarer Anfrageführung für Notdienst und planbare Elektroarbeiten.",
+    eyebrow: "Elektriker · Notdienst · Installation",
+    title: "Schnelle Hilfe bei Stromausfall, Elektroproblemen und neuen Installationen.",
     description:
-      "Mr Spark bündelt Elektroinstallation, Fehlersuche, Sicherungskasten-Themen und 24h Notdienst in einer Conversion-orientierten Nutzerführung für den deutschen Markt.",
+      "Mr Spark unterstützt bei akuten Störungen, Sicherungskästen, Fehlersuche und planbaren Elektroarbeiten in Deutschland mit einem klaren Kontaktweg.",
     points: [
-      "Priorisierte Notdienst-CTAs ohne das restliche Leistungsangebot zu verstecken",
-      "Leadanfrage mit strukturierter Übergabe an den vorhandenen Backend-Intake",
-      "Mobil optimierte Seitenarchitektur für Stadt, Service und Dringlichkeit",
+      "24h Notdienst für gefährliche Störungen und Stromausfälle",
+      "Klare Angaben zu Stadt, Problem und Dringlichkeit für schnellere Rückmeldung",
+      "Auch planbare Arbeiten wie Steckdosen, Licht und Sicherungskasten bleiben direkt anfragbar",
     ],
     stats: [
-      { value: "24h", label: "Erreichbarkeit für Notfälle" },
-      { value: "1 Flow", label: "Einheitliche Lead-Übergabe" },
-      { value: "DE + 7", label: "Sprachrouten auf derselben Architektur" },
+      { value: "24h", label: "Hilfe bei Notfällen" },
+      { value: "DE", label: "Fokus auf den deutschen Markt" },
+      { value: "1 Kontakt", label: "Telegram oder Rueckruf" },
     ],
   },
   trustBadges: [
     "24h erreichbar bei akuten Elektrostoerungen",
-    "Transparente Kostenlogik statt Lockpreis-Rhetorik",
-    "Strukturierte Anfrage mit Stadt, Service und Dringlichkeit",
-    "Mehrsprachige Route-Seams bleiben erhalten",
+    "Transparente Einordnung von Anfahrt, Diagnose und Arbeitszeit",
+    "Stadt, Service und Dringlichkeit direkt im ersten Kontakt nennen",
+    "Telegram ersetzt WhatsApp im gesamten Kontaktweg",
   ],
   services: [
     {
@@ -35,7 +35,7 @@ export const homePageContent = {
     {
       badge: "Notdienst",
       title: "Akute Elektroprobleme",
-      description: "Brandgeruch, Stromausfall und gefaehrliche Defekte werden in der Navigation und im Hero sichtbar priorisiert.",
+      description: "Brandgeruch, Stromausfall und gefährliche Defekte werden sofort sichtbar priorisiert.",
     },
     {
       badge: "Modernisierung",
@@ -49,50 +49,50 @@ export const homePageContent = {
     },
     {
       badge: "Planung",
-      title: "Rueckruf und Einsatzkoordination",
-      description: "Alle Kernseiten verweisen konsistent auf denselben Leadflow und dieselbe Rueckruflogik.",
+      title: "Rueckruf und Einsatzplanung",
+      description: "Jede Anfrage führt direkt zu einem klar vorbereiteten Kontakt mit Stadt, Service und Rückkanal.",
     },
   ],
   steps: [
     {
       title: "Anliegen einordnen",
-      description: "Nutzer nennen Stadt, Service und Dringlichkeit direkt im ersten Kontaktpunkt.",
+      description: "Sie nennen Stadt, Problem oder gewünschte Arbeit und die passende Dringlichkeit.",
     },
     {
       title: "Lead erfassen",
-      description: "Die Anfrage geht ueber den vorhandenen `/api/leads`-Pfad und kann zusaetzlich an ein Webhook-Ziel gesendet werden.",
+      description: "Ihre Angaben werden vollständig vorbereitet, damit beim Rückruf oder in Telegram nichts verloren geht.",
     },
     {
       title: "Rueckmeldung vorbereiten",
-      description: "Telegram wird mit einer strukturierten Nachricht oder dem konfigurierten Kontaktziel geoeffnet.",
+      description: "Telegram öffnet sich mit einer sauberen Nachricht für die schnelle weitere Abstimmung.",
     },
     {
       title: "Einsatz steuern",
-      description: "Das Team priorisiert Notfall- oder Standardanfragen anhand derselben Datenstruktur.",
+      description: "Notfälle und planbare Einsätze lassen sich dadurch schneller und sauberer koordinieren.",
     },
   ],
   pricingCards: [
     {
       title: "Anfahrt und Diagnose",
-      description: "Die erste Kostenebene wird als separater Block kommuniziert statt in unklare Pauschalen gepackt.",
+      description: "Anfahrt und erste Fehlersuche werden getrennt erklärt, statt in unklaren Pauschalen zu verschwinden.",
     },
     {
       title: "Arbeitszeit und Material",
-      description: "Leistungsumfang und benoetigte Teile werden nachvollziehbar in den Preistexten eingeordnet.",
+      description: "Arbeitszeit und benötigtes Material werden nachvollziehbar in den Preistexten eingeordnet.",
     },
     {
       title: "Notdienstzuschlaege",
-      description: "Nacht-, Wochenend- oder Feiertagseinsaetze sind als Sonderfall sichtbar und nicht versteckt.",
+      description: "Nacht-, Wochenend- oder Feiertagseinsätze bleiben als Sonderfall klar benannt.",
     },
   ],
   faq: [
     {
       q: "Wie schnell reagiert Mr Spark auf Notfaelle?",
-      a: "Der Leadflow markiert akute Elektroprobleme sichtbar, damit Rueckruf und Einsatzpriorisierung darauf reagieren koennen.",
+      a: "Akute Elektroprobleme werden klar markiert, damit Rückruf und Einsatzpriorisierung sofort darauf reagieren können.",
     },
     {
       q: "Ist das Kontaktformular schon serverseitig angebunden?",
-      a: "Ja. Die Seite nutzt bereits den bestehenden `/api/leads`-Endpoint und oeffnet danach Telegram oder den konfigurierten Kontaktlink.",
+      a: "Ja. Ihre Angaben werden vorbereitet und danach direkt in Telegram für die weitere Abstimmung geöffnet.",
     },
   ],
 };
@@ -100,13 +100,13 @@ export const homePageContent = {
 export const emergencyPageContent = {
   hero: {
     eyebrow: "24h Elektro-Notdienst",
-    title: "Akute Elektrostoerungen sofort einordnen und priorisiert weiterleiten.",
+    title: "Akute Elektrostörungen schnell melden und sicher einordnen.",
     description:
-      "Die Notdienstseite fuehrt auf Gefahrensignale, Sicherheitsverhalten und den vorhandenen Leadflow, ohne die Anfrage mit generischem Marketingtext zu überladen.",
+      "Die Notdienstseite hilft bei Stromausfall, Kurzschluss und gefährlichen Defekten mit klaren Sicherheitshinweisen und einem direkten Kontaktweg.",
     points: [
-      "Brandgeruch, Funkenbildung und gefaehrliche Defekte werden sofort sichtbar adressiert",
-      "Der Backend-Leadflow behaelt Dringlichkeit und Quellseite fuer die operative Triage",
-      "Preis- und Ablauftexte bleiben auch im Notfall nachvollziehbar",
+      "Brandgeruch, Funkenbildung und gefährliche Defekte werden sofort sichtbar adressiert",
+      "Dringlichkeit und Fehlerbild lassen sich direkt strukturiert übermitteln",
+      "Auch im Notfall bleiben Ablauf und Kosten nachvollziehbar erklärt",
     ],
   },
   symptoms: [
@@ -134,29 +134,29 @@ export const emergencyPageContent = {
     },
     {
       title: "Stoerung kurz beschreiben",
-      description: "Im Leadflow reichen Stadt, Symptom und Dringlichkeit fuer die erste operative Einordnung.",
+      description: "Stadt, Fehlerbild und Dringlichkeit reichen für die erste Einordnung Ihres Notfalls.",
     },
     {
       title: "Rueckruf vorbereiten",
-      description: "Die strukturierte Telegram-Nachricht dient als gemeinsame Basis fuer Rueckmeldung und Einsatz.",
+      description: "Telegram öffnet sich mit einer strukturierten Nachricht für die schnelle weitere Abstimmung.",
     },
     {
       title: "Elektriker koordinieren",
-      description: "Nach Rueckmeldung werden Verfuegbarkeit, Anfahrt und Sicherheitslage abgestimmt.",
+      description: "Nach Ihrer Meldung werden Verfügbarkeit, Anfahrt und Sicherheitslage abgestimmt.",
     },
   ],
   pricing: [
     {
       title: "Anfahrt",
-      description: "Die Einsatzanfahrt bleibt als eigener Preistreiber sichtbar und wird nicht mit Arbeitszeit vermischt.",
+      description: "Die Einsatzanfahrt bleibt als eigener Kostenblock sichtbar und wird nicht mit Arbeitszeit vermischt.",
     },
     {
       title: "Diagnose",
-      description: "Fehlersuche und erste Sicherheitspruefung werden transparent eingeordnet.",
+      description: "Fehlersuche und erste Sicherheitsprüfung werden transparent eingeordnet.",
     },
     {
       title: "Notdienstzuschlag",
-      description: "Nacht-, Feiertags- und Wochenendkosten werden vor Arbeitsbeginn angesprochen.",
+      description: "Nacht-, Feiertags- und Wochenendkosten werden vor Arbeitsbeginn offen angesprochen.",
     },
   ],
   faq: [
@@ -166,7 +166,7 @@ export const emergencyPageContent = {
     },
     {
       q: "Geht die Anfrage auch ausserhalb normaler Arbeitszeiten raus?",
-      a: "Ja. Die Seite priorisiert Notdiensteingaben und der Leadflow uebergibt die Dringlichkeit mit.",
+      a: "Ja. Ihre Meldung kann auch außerhalb normaler Arbeitszeiten mit Dringlichkeit vorbereitet und weitergegeben werden.",
     },
   ],
 };
@@ -175,15 +175,15 @@ export const contactPageContent = {
   cards: [
     {
       title: "Schneller Rueckkanal",
-      description: "Telegram bleibt der sichtbare Hauptkanal, der Lead wird aber zunaechst serverseitig vorbereitet.",
+      description: "Telegram bleibt der sichtbare Hauptkanal, damit Rückfragen und Terminabstimmung schnell starten können.",
     },
     {
       title: "Klare Einsatzdaten",
-      description: "Name, Kontakt, Stadt, Service und Dringlichkeit werden auf jeder Conversion-Seite einheitlich abgefragt.",
+      description: "Name, Kontakt, Stadt, Service und Dringlichkeit werden sauber abgefragt, damit nichts nachtelefoniert werden muss.",
     },
     {
       title: "Notfall priorisieren",
-      description: "Akute Anfragen werden bereits im Formular kenntlich gemacht und spaeter fuer die operative Triage nutzbar.",
+      description: "Akute Anfragen werden schon im Formular erkennbar gemacht, damit sie schneller eingeordnet werden können.",
     },
   ],
   checklist: [
