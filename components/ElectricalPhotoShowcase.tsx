@@ -3,7 +3,27 @@
 import Image from "next/image";
 import MascotHero from "@/components/MascotHero";
 
-type ShowcaseVariant = "home" | "emergency" | "coverage";
+type ShowcaseVariant = "home" | "emergency" | "coverage" | "services" | "pricing" | "contact";
+
+type ShowcaseImage = {
+  src: string;
+  alt: string;
+};
+
+const panelImage: ShowcaseImage = {
+  src: "/imagery/electrician-panel-drill.jpg",
+  alt: "Elektriker arbeitet mit Werkzeug an einem geoeffneten Schaltschrank.",
+};
+
+const meterImage: ShowcaseImage = {
+  src: "/imagery/electrician-multimeter.jpg",
+  alt: "Elektriker misst eine Elektroverteilung mit einem Multimeter.",
+};
+
+const inspectionImage: ShowcaseImage = {
+  src: "/imagery/electrician-inspection.jpg",
+  alt: "Techniker prueft eine elektrische Anlage vor Ort.",
+};
 
 const variantContent: Record<
   ShowcaseVariant,
@@ -11,103 +31,125 @@ const variantContent: Record<
     eyebrow: string;
     title: string;
     description: string;
-    primaryImage: {
-      src: string;
-      alt: string;
-    };
-    secondaryImage: {
-      src: string;
-      alt: string;
-    };
+    highlights: string[];
+    primaryImage: ShowcaseImage;
+    secondaryImage: ShowcaseImage;
+    tertiaryImage: ShowcaseImage;
+    showMascot?: boolean;
   }
 > = {
   home: {
     eyebrow: "Echte Elektroarbeit",
-    title: "Notdienst, Fehlersuche und Installationen mit sichtbarer Handwerksnähe.",
+    title: "Notdienst, Fehlersuche und Installationen bleiben sofort sichtbar.",
     description:
-      "Keine Symbolbilder ohne Bezug: Die Startseite zeigt echte Arbeit an Verteilungen, Messungen und Reparaturen.",
-    primaryImage: {
-      src: "/imagery/electrician-panel-drill.jpg",
-      alt: "Elektriker arbeitet mit Werkzeug an einem geöffneten Schaltschrank.",
-    },
-    secondaryImage: {
-      src: "/imagery/electrician-multimeter.jpg",
-      alt: "Elektriker misst eine Elektroverteilung mit einem Multimeter.",
-    },
+      "Die Startseite kombiniert echte Schaltschrank-, Diagnose- und Vor-Ort-Situationen mit einer klaren Kontaktmoeglichkeit.",
+    highlights: ["24h Notdienst", "Wohnung & Gewerbe", "Transparente Rueckmeldung"],
+    primaryImage: panelImage,
+    secondaryImage: meterImage,
+    tertiaryImage: inspectionImage,
+    showMascot: true,
   },
   emergency: {
     eyebrow: "Notdienst vor Ort",
-    title: "Schnelle Einordnung beginnt mit klar sichtbaren Gefahrensituationen.",
+    title: "Stromausfall, Kurzschluss und FI-Probleme muessen sofort erkennbar sein.",
     description:
-      "Die Notdienstseite zeigt echte Verteilungen und Diagnosesituationen statt abstrakter Icons oder generischer Werbebilder.",
-    primaryImage: {
-      src: "/imagery/electrician-multimeter.jpg",
-      alt: "Elektriker misst eine Elektroverteilung bei der Fehlersuche.",
-    },
-    secondaryImage: {
-      src: "/imagery/electrician-inspection.jpg",
-      alt: "Techniker prüft eine elektrische Anlage vor Ort.",
-    },
+      "Die Notdienstseite zeigt echte Stoerungs- und Diagnosesituationen statt abstrakter Werbegrafik.",
+    highlights: ["Stromausfall", "Kurzschluss", "Sicherungskasten"],
+    primaryImage: meterImage,
+    secondaryImage: inspectionImage,
+    tertiaryImage: panelImage,
   },
   coverage: {
-    eyebrow: "Einsatz in der Region",
-    title: "Für Anfragen aus Stadt, Umland und Gewerbe zählt eine saubere Vorbereitung.",
+    eyebrow: "Einsatz in Deutschland",
+    title: "Verfuegbarkeit, Anfahrt und Einsatzort werden sauber vorbereitet.",
     description:
-      "Die Einsatzgebietsseite verbindet regionale Suche mit echten Eindrücken aus Prüfung, Diagnose und Elektroservice.",
-    primaryImage: {
-      src: "/imagery/electrician-inspection.jpg",
-      alt: "Techniker prüft eine elektrische Anlage mit Tablet im Einsatzgebiet.",
-    },
-    secondaryImage: {
-      src: "/imagery/electrician-panel-drill.jpg",
-      alt: "Elektriker arbeitet an einer elektrischen Anlage im Innenbereich.",
-    },
+      "Die Einsatzgebietsseite verknuepft regionale Orientierung mit sichtbarer Elektroarbeit im Wohn- und Gewerbeumfeld.",
+    highlights: ["Bundeslaender", "Staedte", "Telegram Anfrage"],
+    primaryImage: inspectionImage,
+    secondaryImage: panelImage,
+    tertiaryImage: meterImage,
+  },
+  services: {
+    eyebrow: "Leistungen im Fokus",
+    title: "Von Steckdose bis Unterverteilung bleibt jede Leistung klar eingeordnet.",
+    description:
+      "Die Leistungsseiten nutzen echte Motive aus Diagnose, Installation und Sicherungstechnik fuer mehr Vertrauen.",
+    highlights: ["Installation", "Fehlersuche", "Modernisierung"],
+    primaryImage: panelImage,
+    secondaryImage: inspectionImage,
+    tertiaryImage: meterImage,
+  },
+  pricing: {
+    eyebrow: "Kosten mit Kontext",
+    title: "Anfahrt, Diagnose und Material werden als reale Arbeitsleistung verankert.",
+    description:
+      "Auch die Preisroute bleibt visuell geerdet und zeigt, worum es bei typischen Elektroeinsaetzen geht.",
+    highlights: ["Anfahrt", "Diagnose", "Material"],
+    primaryImage: inspectionImage,
+    secondaryImage: meterImage,
+    tertiaryImage: panelImage,
+  },
+  contact: {
+    eyebrow: "Direkter Kontakt",
+    title: "Die Anfrage bleibt persoenlich, schnell auffindbar und klar auf Elektrohilfe ausgerichtet.",
+    description:
+      "Kontaktseite und Telegram-Formular werden von echten Arbeitsmotiven und dem Maskottchen als Markenakzent begleitet.",
+    highlights: ["Telegram zuerst", "Schnelle Einordnung", "Klare Naechste Schritte"],
+    primaryImage: meterImage,
+    secondaryImage: panelImage,
+    tertiaryImage: inspectionImage,
+    showMascot: true,
   },
 };
+
+function PhotoTile({ image, priority = false }: { image: ShowcaseImage; priority?: boolean }) {
+  return (
+    <div className="overflow-hidden rounded-[1.5rem] border border-white/14 bg-white/12 shadow-[0_18px_48px_rgba(6,18,31,0.22)]">
+      <div className="relative aspect-[4/5]">
+        <Image src={image.src} alt={image.alt} fill priority={priority} className="object-cover" />
+      </div>
+    </div>
+  );
+}
 
 export default function ElectricalPhotoShowcase({ variant }: { variant: ShowcaseVariant }) {
   const content = variantContent[variant];
 
   return (
-    <div className="space-y-4">
-      <div className="overflow-hidden rounded-[2rem] border border-white/14 bg-white/10 shadow-[0_30px_80px_rgba(6,18,31,0.28)] backdrop-blur">
-        <div className="relative aspect-[4/5]">
-          <Image
-            src={content.primaryImage.src}
-            alt={content.primaryImage.alt}
-            fill
-            priority={variant === "home"}
-            className="object-cover"
-            sizes="(min-width: 768px) 28rem, 100vw"
-          />
-        </div>
-      </div>
+    <div className="rounded-[2.4rem] border border-white/12 bg-white/8 p-4 shadow-[0_28px_80px_rgba(6,18,31,0.24)] backdrop-blur">
+      <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+        <PhotoTile image={content.primaryImage} priority={variant === "home"} />
 
-      <div className="grid gap-4 md:grid-cols-[minmax(0,1.15fr)_minmax(11rem,0.85fr)]">
-        <div className="rounded-[1.75rem] border border-white/12 bg-white/8 p-5 text-white shadow-[0_18px_50px_rgba(6,18,31,0.2)] backdrop-blur">
-          <p className="section-eyebrow text-white/72">{content.eyebrow}</p>
-          <h3 className="mt-3 text-xl font-semibold tracking-tight text-white">{content.title}</h3>
-          <p className="mt-3 text-sm leading-7 text-white/78">{content.description}</p>
-        </div>
+        <div className="grid gap-4">
+          <div className="rounded-[1.75rem] border border-white/12 bg-slate-950/72 p-5 text-white shadow-[0_18px_50px_rgba(6,18,31,0.22)]">
+            <p className="section-eyebrow text-[#ffd15a]">{content.eyebrow}</p>
+            <h3 className="mt-3 text-xl font-semibold tracking-tight text-white">{content.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-white/78">{content.description}</p>
+          </div>
 
-        <div className="overflow-hidden rounded-[1.75rem] border border-white/14 bg-white/10 shadow-[0_18px_50px_rgba(6,18,31,0.24)] backdrop-blur">
-          <div className="relative aspect-[4/5]">
-            <Image
-              src={content.secondaryImage.src}
-              alt={content.secondaryImage.alt}
-              fill
-              className="object-cover"
-              sizes="(min-width: 768px) 16rem, 50vw"
-            />
+          <div className="grid gap-4 sm:grid-cols-2">
+            <PhotoTile image={content.secondaryImage} />
+            {content.showMascot ? (
+              <div className="flex min-h-full items-center justify-center rounded-[1.5rem] border border-white/14 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,250,252,0.9))] p-4 shadow-[0_18px_48px_rgba(6,18,31,0.16)]">
+                <MascotHero compact />
+              </div>
+            ) : (
+              <PhotoTile image={content.tertiaryImage} />
+            )}
           </div>
         </div>
       </div>
 
-      {variant === "home" ? (
-        <div className="rounded-[1.75rem] border border-white/12 bg-white/8 p-4 shadow-[0_18px_50px_rgba(6,18,31,0.2)] backdrop-blur">
-          <MascotHero compact />
-        </div>
-      ) : null}
+      <div className="mt-4 flex flex-wrap gap-2">
+        {content.highlights.map((item) => (
+          <span
+            key={item}
+            className="rounded-full border border-white/14 bg-white/10 px-3 py-2 text-xs font-semibold tracking-[0.18em] text-white/82"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

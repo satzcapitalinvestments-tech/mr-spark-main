@@ -157,7 +157,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     points: [
       "Emergency requests stay visible without hiding planned electrical work",
-      "Every route uses the same structured lead intake and follow-up flow",
+      "Every route keeps the same clear contact path and follow-up rhythm",
     ],
     servicesEyebrow: "Service overview",
     servicesTitle: "Relevant electrical topics remain easy to scan in every language.",
@@ -166,7 +166,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Request service",
     secondaryCtaLabel: "Open emergency page",
     leadTitle: "Send a structured request",
-    leadDescription: "Name, city, service and urgency still enter the same server-backed intake before Telegram opens.",
+    leadDescription: "Name, city, service and urgency are prepared before Telegram opens, so the follow-up starts with the right details.",
     checklist: [
       "State the city and issue",
       "Mark the urgency correctly",
@@ -187,7 +187,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     points: [
       "Acil talepler görünür kalır, planlı işler kaybolmaz",
-      "Tüm sayfalar aynı yapılandırılmış lead akışını kullanır",
+      "Tüm sayfalar aynı net iletişim ve geri dönüş düzenini korur",
     ],
     servicesEyebrow: "Hizmet özeti",
     servicesTitle: "Önemli elektrik konuları her dilde hızlıca taranabilir kalır.",
@@ -196,7 +196,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Hizmet talep et",
     secondaryCtaLabel: "Acil sayfasını aç",
     leadTitle: "Yapılandırılmış talep gönder",
-    leadDescription: "İsim, şehir, hizmet ve aciliyet Telegram açılmadan önce aynı sunucu destekli intake akışına girer.",
+    leadDescription: "İsim, şehir, hizmet ve aciliyet Telegram açılmadan önce hazırlanır, böylece geri dönüş doğru bilgilerle başlar.",
     checklist: [
       "Şehri ve sorunu yazın",
       "Aciliyeti doğru işaretleyin",
@@ -217,7 +217,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     points: [
       "تبقى طلبات الطوارئ واضحة من دون إخفاء الأعمال الكهربائية المخطط لها",
-      "تستخدم جميع الصفحات نفس مسار جمع الطلبات المنظم",
+      "تحافظ جميع الصفحات على نفس طريق التواصل الواضح ونفس أسلوب المتابعة",
     ],
     servicesEyebrow: "نظرة على الخدمات",
     servicesTitle: "تبقى موضوعات الكهرباء المهمة سهلة المسح في كل لغة.",
@@ -226,7 +226,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "اطلب الخدمة",
     secondaryCtaLabel: "افتح صفحة الطوارئ",
     leadTitle: "أرسل طلبًا منظمًا",
-    leadDescription: "يبقى الاسم والمدينة ونوع الخدمة ودرجة الاستعجال ضمن نفس مسار الإدخال المدعوم من الخادم قبل فتح تيليجرام.",
+    leadDescription: "يتم تجهيز الاسم والمدينة ونوع الخدمة ودرجة الاستعجال قبل فتح تيليجرام حتى تبدأ المتابعة بالمعلومات الصحيحة.",
     checklist: [
       "اذكر المدينة والمشكلة",
       "حدد درجة الاستعجال بدقة",
@@ -247,7 +247,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     points: [
       "Экстренные обращения заметны, но плановые работы не теряются",
-      "Все страницы используют один и тот же структурированный сценарий заявки",
+      "Все страницы сохраняют один и тот же понятный контактный путь и ритм обратной связи",
     ],
     servicesEyebrow: "Обзор услуг",
     servicesTitle: "Ключевые электротехнические темы легко просматривать на любом языке.",
@@ -256,7 +256,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Запросить услугу",
     secondaryCtaLabel: "Открыть аварийную страницу",
     leadTitle: "Отправить структурированный запрос",
-    leadDescription: "Имя, город, услуга и срочность попадают в тот же серверный intake-поток до открытия Telegram.",
+    leadDescription: "Имя, город, услуга и срочность подготавливаются до открытия Telegram, чтобы согласование начиналось с нужных деталей.",
     checklist: [
       "Укажите город и проблему",
       "Корректно отметьте срочность",
@@ -277,7 +277,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     points: [
       "Pilne zgłoszenia pozostają widoczne bez ukrywania prac planowanych",
-      "Każda trasa korzysta z tego samego uporządkowanego procesu zgłoszenia",
+      "Każda strona zachowuje ten sam czytelny kontakt i rytm dalszej obsługi",
     ],
     servicesEyebrow: "Przegląd usług",
     servicesTitle: "Najważniejsze tematy elektryczne pozostają czytelne w każdym języku.",
@@ -286,7 +286,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Zgłoś usługę",
     secondaryCtaLabel: "Otwórz stronę awaryjną",
     leadTitle: "Wyślij uporządkowane zgłoszenie",
-    leadDescription: "Imię, miasto, usługa i pilność trafiają do tego samego przepływu intake po stronie serwera przed otwarciem Telegrama.",
+    leadDescription: "Imię, miasto, usługa i pilność są przygotowywane przed otwarciem Telegrama, aby dalszy kontakt startował z właściwymi informacjami.",
     checklist: [
       "Podaj miasto i problem",
       "Oznacz właściwy poziom pilności",
@@ -307,7 +307,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     points: [
       "Термінові звернення залишаються видимими без приховування планових робіт",
-      "Усі сторінки використовують один і той самий структурований сценарій заявки",
+      "Усі сторінки зберігають один і той самий зрозумілий контактний шлях і ритм подальшої відповіді",
     ],
     servicesEyebrow: "Огляд послуг",
     servicesTitle: "Ключові електротехнічні теми легко переглядати будь-якою мовою.",
@@ -316,7 +316,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Запросити послугу",
     secondaryCtaLabel: "Відкрити аварійну сторінку",
     leadTitle: "Надіслати структурований запит",
-    leadDescription: "Ім'я, місто, послуга та терміновість надходять у той самий серверний intake-потік до відкриття Telegram.",
+    leadDescription: "Ім'я, місто, послуга та терміновість готуються до відкриття Telegram, щоб подальший контакт починався з правильними деталями.",
     checklist: [
       "Вкажіть місто та проблему",
       "Правильно позначте терміновість",
@@ -337,7 +337,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     points: [
       "Solicitările urgente rămân vizibile fără a ascunde lucrările planificate",
-      "Toate paginile folosesc același flux structurat de preluare a cererilor",
+      "Toate paginile păstrează același drum clar de contact și același ritm al răspunsului",
     ],
     servicesEyebrow: "Prezentare servicii",
     servicesTitle: "Subiectele electrice importante rămân ușor de scanat în fiecare limbă.",
@@ -346,7 +346,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     primaryCtaLabel: "Solicită serviciul",
     secondaryCtaLabel: "Deschide pagina de urgență",
     leadTitle: "Trimite o solicitare structurată",
-    leadDescription: "Numele, orașul, serviciul și urgența intră în același flux intake pe server înainte de deschiderea Telegram.",
+    leadDescription: "Numele, orașul, serviciul și urgența sunt pregătite înainte de deschiderea Telegram, astfel încât răspunsul să pornească cu detaliile corecte.",
     checklist: [
       "Precizează orașul și problema",
       "Marchează corect urgența",

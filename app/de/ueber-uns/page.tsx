@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import {
   FeatureGrid,
   HeroSection,
@@ -11,7 +12,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Über Mr Spark",
   description:
-    "Serviceverständnis, Qualitätsanspruch und strukturierte Anfrageführung von Mr Spark im Überblick.",
+    "Serviceverstaendnis, Qualitaetsanspruch und kundenfreundliche Elektrokommunikation von Mr Spark im Ueberblick.",
   pathname: "/de/ueber-uns",
   locale: "de",
   localizedSlug: "ueber-uns",
@@ -23,17 +24,17 @@ const cards = [
   {
     title: "Klare Service-Marke",
     description:
-      "Die Marke muss Verlässlichkeit und operative Klarheit vermitteln, nicht nur Freundlichkeit oder generische Handwerker-Sprache.",
+      "Mr Spark steht fuer verlaessliche Elektrohilfe, freundliche Kommunikation und einen klaren naechsten Schritt bei Notdienst und Planung.",
   },
   {
-    title: "Qualität und Transparenz",
+    title: "Qualitaet und Transparenz",
     description:
-      "Sorgfältige Ausführung, nachvollziehbare Preislogik und strukturierte Kommunikation sind auf dieser Route explizit benannt.",
+      "Sorgfaeltige Ausfuehrung, nachvollziehbare Preisbausteine und klare Absprachen bleiben sichtbar und vertrauenswuerdig.",
   },
   {
-    title: "Technische Anschlussfähigkeit",
+    title: "Wohnungen, Haeuser und Gewerbe",
     description:
-      "Die Seite bleibt mit denselben Kontakt- und CTA-Seams verbunden, damit Brand-Story und Lead-Infrastruktur nicht auseinanderlaufen.",
+      "Die Marke verbindet akute Hilfe, Reparaturen und planbare Elektroarbeiten fuer private und gewerbliche Anliegen in Deutschland.",
   },
 ];
 
@@ -42,29 +43,30 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Über Mr Spark"
-        title="Die About-Route soll Vertrauen aufbauen, ohne sich vom operativen Anfrageziel zu entfernen."
-        description="Diese Seite erklärt, wofür die Marke steht: klare Elektrokommunikation, saubere Preisführung und eine Nutzerführung, die Kontaktaufnahme nicht als Nebensache behandelt."
+        title="Mr Spark steht fuer klare Elektrohilfe, schnelle Rueckmeldung und ein professionelles Auftreten."
+        description="Ob Notdienst, Fehlersuche oder planbare Installation: Mr Spark verbindet handwerkliche Naehe, transparente Kommunikation und einen klaren Kontaktweg fuer Kunden in Deutschland."
         points={[
-          "Serviceverständnis statt Floskeln",
-          "Qualität und Transparenz explizit benannt",
-          "Brand-Erzählung bleibt an die Lead-Architektur gekoppelt",
+          "Serviceverstaendnis statt Floskeln",
+          "Qualitaet und Transparenz explizit benannt",
+          "Kontakt und Telegram bleiben direkt erreichbar",
         ]}
         primaryCta={{ href: "/de/kontakt", label: "Kontakt aufnehmen" }}
         secondaryCta={{ href: "/de/leistungen", label: "Leistungen ansehen", variant: "ghost" }}
+        aside={<ElectricalPhotoShowcase variant="contact" />}
       />
 
       <PageSection>
         <SectionHeading
           eyebrow="Markenkern"
-          title="Die Brand-Story muss die technische und operative Realität stützen."
-          description="Gerade auf der Über-uns-Seite darf das Messaging nicht von den tatsächlichen Conversion- und Servicepfaden entkoppelt werden."
+          title="Vertrauen entsteht durch klare Leistungen, saubere Kommunikation und sichtbare Qualitaet."
+          description="Auf der Ueber-uns-Seite geht es um den Eindruck, den Kunden von Mr Spark erwarten duerfen: professionell, freundlich und nachvollziehbar."
         />
         <FeatureGrid items={cards} />
       </PageSection>
 
       <LeadCaptureSection
-        title="Direkten Kontakt trotz Brand-Seite offenhalten"
-        description="Auch von der About-Route aus bleibt der Einstieg in denselben strukturierten Intake verfügbar. Das schützt vor toten Enden im Seitenfluss."
+        title="Direkten Kontakt jederzeit offenhalten"
+        description="Auch von dieser Seite aus koennen Sie Ihr Elektroproblem direkt beschreiben und die weitere Abstimmung ueber Telegram starten."
         sourcePage="/de/ueber-uns"
         checklist={[
           "Anliegen kurz benennen",

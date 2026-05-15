@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import type { LocaleCode } from "@/data/i18n/languages";
 import { defaultLocale, isLocale } from "@/lib/i18n";
@@ -13,214 +14,277 @@ type LeadFormState = {
   website: string;
 };
 
-const leadFormCopy: Record<
-  LocaleCode,
-  {
-    eyebrow: string;
-    title: string;
-    description: string;
-    nameLabel: string;
-    namePlaceholder: string;
-    contactLabel: string;
-    contactPlaceholder: string;
-    cityLabel: string;
-    cityPlaceholder: string;
-    serviceLabel: string;
-    servicePlaceholder: string;
-    urgencyLabel: string;
-    urgencyOptions: Record<LeadFormState["urgency"], string>;
-    messageLabel: string;
-    messagePlaceholder: string;
-    submitIdle: string;
-    submitBusy: string;
-    success: string;
-    genericError: string;
-    preparationError: string;
-  }
-> = {
+type LeadFormCopy = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  contactLabel: string;
+  contactPlaceholder: string;
+  cityLabel: string;
+  cityPlaceholder: string;
+  serviceLabel: string;
+  servicePlaceholder: string;
+  serviceOptions: Array<{ value: string; label: string }>;
+  urgencyLabel: string;
+  urgencyOptions: Record<LeadFormState["urgency"], string>;
+  messageLabel: string;
+  messagePlaceholder: string;
+  submitIdle: string;
+  submitBusy: string;
+  success: string;
+  genericError: string;
+  preparationError: string;
+};
+
+const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
   de: {
-    eyebrow: "Lead-Details",
-    title: "Direkt per Telegram senden",
+    eyebrow: "Telegram-Anfrage",
+    title: "Anfrage direkt an Mr Spark senden",
     description:
-      "Die Anfrage wird zuerst an den vorhandenen Lead-Endpoint uebergeben. Danach oeffnet sich Telegram mit einer strukturierten Nachricht fuer die operative Weiterbearbeitung.",
+      "Beschreiben Sie kurz Ihr Elektroproblem. Wir bereiten eine schnelle Rueckmeldung vor und leiten Ihre Anfrage ueber Telegram weiter.",
     nameLabel: "Name",
     namePlaceholder: "Ihr Name",
     contactLabel: "Telefon oder E-Mail",
-    contactPlaceholder: "Kontaktmöglichkeit",
+    contactPlaceholder: "Wie duerfen wir Sie erreichen?",
     cityLabel: "Stadt",
     cityPlaceholder: "z. B. Berlin",
     serviceLabel: "Service",
-    servicePlaceholder: "z. B. Notdienst",
+    servicePlaceholder: "Bitte Service waehlen",
+    serviceOptions: [
+      { value: "Elektro-Notdienst", label: "Elektro-Notdienst" },
+      { value: "Fehlersuche", label: "Fehlersuche" },
+      { value: "Sicherungskasten", label: "Sicherungskasten" },
+      { value: "Steckdosen & Licht", label: "Steckdosen & Licht" },
+      { value: "Elektroinstallation", label: "Elektroinstallation" },
+      { value: "Modernisierung", label: "Modernisierung" },
+    ],
     urgencyLabel: "Dringlichkeit",
     urgencyOptions: { Normal: "Normal", Heute: "Heute", Sofort: "Sofort" },
     messageLabel: "Nachricht",
-    messagePlaceholder: "Was ist passiert und wie schnell brauchen Sie Hilfe?",
-    submitIdle: "Telegram oeffnen",
+    messagePlaceholder: "Was ist passiert oder welche Elektroarbeit soll erledigt werden?",
+    submitIdle: "Ueber Telegram anfragen",
     submitBusy: "Anfrage wird vorbereitet...",
-    success: "Anfrage vorbereitet. Telegram wurde in einem neuen Tab geoeffnet.",
+    success: "Ihre Anfrage ist vorbereitet. Telegram wurde in einem neuen Tab geoeffnet.",
     genericError: "Bitte erneut versuchen.",
     preparationError: "Die Anfrage konnte nicht vorbereitet werden.",
   },
   en: {
-    eyebrow: "Lead details",
-    title: "Send directly via Telegram",
+    eyebrow: "Telegram request",
+    title: "Send your request directly to Mr Spark",
     description:
-      "The request is sent to the existing lead endpoint first. Telegram then opens with a structured message for operational follow-up.",
+      "Briefly describe your electrical issue. We prepare a quick reply and continue the conversation via Telegram.",
     nameLabel: "Name",
     namePlaceholder: "Your name",
     contactLabel: "Phone or email",
-    contactPlaceholder: "Best contact method",
+    contactPlaceholder: "How should we reach you?",
     cityLabel: "City",
     cityPlaceholder: "e.g. Berlin",
     serviceLabel: "Service",
-    servicePlaceholder: "e.g. emergency service",
+    servicePlaceholder: "Choose a service",
+    serviceOptions: [
+      { value: "Emergency service", label: "Emergency service" },
+      { value: "Fault diagnosis", label: "Fault diagnosis" },
+      { value: "Fuse box", label: "Fuse box" },
+      { value: "Sockets & lighting", label: "Sockets & lighting" },
+      { value: "Electrical installation", label: "Electrical installation" },
+      { value: "Modernisation", label: "Modernisation" },
+    ],
     urgencyLabel: "Urgency",
     urgencyOptions: { Normal: "Normal", Heute: "Today", Sofort: "Immediate" },
     messageLabel: "Message",
-    messagePlaceholder: "What happened and how quickly do you need help?",
-    submitIdle: "Open Telegram",
+    messagePlaceholder: "What happened or what electrical work do you need?",
+    submitIdle: "Request via Telegram",
     submitBusy: "Preparing request...",
-    success: "Request prepared. Telegram opened in a new tab.",
+    success: "Your request is ready. Telegram opened in a new tab.",
     genericError: "Please try again.",
     preparationError: "The request could not be prepared.",
   },
   tr: {
-    eyebrow: "Talep detayları",
-    title: "Doğrudan Telegram ile gönder",
+    eyebrow: "Telegram talebi",
+    title: "Talebinizi dogrudan Mr Spark'a gonderin",
     description:
-      "Talep önce mevcut lead endpoint'ine gönderilir. Ardından Telegram operasyonel takip için yapılandırılmış mesajla açılır.",
+      "Elektrik sorununuzu kisaca anlatin. Hizli bir geri donus hazirlar ve devamini Telegram uzerinden surdururuz.",
     nameLabel: "Ad",
-    namePlaceholder: "Adınız",
+    namePlaceholder: "Adiniz",
     contactLabel: "Telefon veya e-posta",
-    contactPlaceholder: "İletişim bilgisi",
-    cityLabel: "Şehir",
-    cityPlaceholder: "örn. Berlin",
+    contactPlaceholder: "Size nasil ulasabiliriz?",
+    cityLabel: "Sehir",
+    cityPlaceholder: "orn. Berlin",
     serviceLabel: "Hizmet",
-    servicePlaceholder: "örn. acil servis",
+    servicePlaceholder: "Bir hizmet secin",
+    serviceOptions: [
+      { value: "Acil servis", label: "Acil servis" },
+      { value: "Ariza tespiti", label: "Ariza tespiti" },
+      { value: "Sigorta kutusu", label: "Sigorta kutusu" },
+      { value: "Priz ve aydinlatma", label: "Priz ve aydinlatma" },
+      { value: "Elektrik tesisati", label: "Elektrik tesisati" },
+      { value: "Modernizasyon", label: "Modernizasyon" },
+    ],
     urgencyLabel: "Aciliyet",
-    urgencyOptions: { Normal: "Normal", Heute: "Bugün", Sofort: "Hemen" },
+    urgencyOptions: { Normal: "Normal", Heute: "Bugun", Sofort: "Hemen" },
     messageLabel: "Mesaj",
-    messagePlaceholder: "Ne oldu ve ne kadar hızlı yardıma ihtiyacınız var?",
-    submitIdle: "Telegram'ı aç",
-    submitBusy: "Talep hazırlanıyor...",
-    success: "Talep hazırlandı. Telegram yeni sekmede açıldı.",
-    genericError: "Lütfen tekrar deneyin.",
-    preparationError: "Talep hazırlanamadı.",
+    messagePlaceholder: "Ne oldu ya da hangi elektrik isine ihtiyaciniz var?",
+    submitIdle: "Telegram ile talep gonder",
+    submitBusy: "Talep hazirlaniyor...",
+    success: "Talebiniz hazir. Telegram yeni sekmede acildi.",
+    genericError: "Lutfen tekrar deneyin.",
+    preparationError: "Talep hazirlanamadi.",
   },
   ar: {
-    eyebrow: "تفاصيل الطلب",
-    title: "أرسل مباشرة عبر تيليجرام",
-    description:
-      "يتم إرسال الطلب أولاً إلى نقطة lead الحالية، ثم يفتح تيليجرام برسالة منظمة للمتابعة التشغيلية.",
+    eyebrow: "طلب تيليجرام",
+    title: "أرسل طلبك مباشرة إلى Mr Spark",
+    description: "اشرح مشكلة الكهرباء باختصار. نجهز رداً سريعاً ونتابع معك عبر تيليجرام.",
     nameLabel: "الاسم",
     namePlaceholder: "اسمك",
     contactLabel: "الهاتف أو البريد الإلكتروني",
-    contactPlaceholder: "وسيلة الاتصال",
+    contactPlaceholder: "كيف يمكننا التواصل معك؟",
     cityLabel: "المدينة",
     cityPlaceholder: "مثال: برلين",
     serviceLabel: "الخدمة",
-    servicePlaceholder: "مثال: خدمة الطوارئ",
+    servicePlaceholder: "اختر الخدمة",
+    serviceOptions: [
+      { value: "خدمة الطوارئ", label: "خدمة الطوارئ" },
+      { value: "تشخيص الأعطال", label: "تشخيص الأعطال" },
+      { value: "لوحة الكهرباء", label: "لوحة الكهرباء" },
+      { value: "المقابس والإنارة", label: "المقابس والإنارة" },
+      { value: "تمديدات كهربائية", label: "تمديدات كهربائية" },
+      { value: "تحديث وتجديد", label: "تحديث وتجديد" },
+    ],
     urgencyLabel: "درجة الاستعجال",
     urgencyOptions: { Normal: "عادي", Heute: "اليوم", Sofort: "فوري" },
     messageLabel: "الرسالة",
-    messagePlaceholder: "ماذا حدث وكم بسرعة تحتاج إلى المساعدة؟",
-    submitIdle: "افتح تيليجرام",
+    messagePlaceholder: "ماذا حدث أو ما العمل الكهربائي المطلوب؟",
+    submitIdle: "اطلب عبر تيليجرام",
     submitBusy: "يتم تجهيز الطلب...",
-    success: "تم تجهيز الطلب. فُتح تيليجرام في علامة تبويب جديدة.",
+    success: "تم تجهيز طلبك. فُتح تيليجرام في علامة تبويب جديدة.",
     genericError: "يرجى المحاولة مرة أخرى.",
     preparationError: "تعذر تجهيز الطلب.",
   },
   ru: {
-    eyebrow: "Детали заявки",
-    title: "Отправить через Telegram",
+    eyebrow: "Запрос в Telegram",
+    title: "Отправьте заявку напрямую в Mr Spark",
     description:
-      "Заявка сначала отправляется в существующий lead endpoint. Затем Telegram открывается со структурированным сообщением для дальнейшей обработки.",
+      "Кратко опишите электрическую проблему. Мы подготовим быстрый ответ и продолжим связь через Telegram.",
     nameLabel: "Имя",
     namePlaceholder: "Ваше имя",
     contactLabel: "Телефон или e-mail",
-    contactPlaceholder: "Контактные данные",
+    contactPlaceholder: "Как с вами связаться?",
     cityLabel: "Город",
     cityPlaceholder: "например, Берлин",
     serviceLabel: "Услуга",
-    servicePlaceholder: "например, аварийная служба",
+    servicePlaceholder: "Выберите услугу",
+    serviceOptions: [
+      { value: "Аварийная служба", label: "Аварийная служба" },
+      { value: "Диагностика", label: "Диагностика" },
+      { value: "Электрощит", label: "Электрощит" },
+      { value: "Розетки и свет", label: "Розетки и свет" },
+      { value: "Электромонтаж", label: "Электромонтаж" },
+      { value: "Модернизация", label: "Модернизация" },
+    ],
     urgencyLabel: "Срочность",
     urgencyOptions: { Normal: "Обычная", Heute: "Сегодня", Sofort: "Срочно" },
     messageLabel: "Сообщение",
-    messagePlaceholder: "Что произошло и как быстро вам нужна помощь?",
-    submitIdle: "Открыть Telegram",
+    messagePlaceholder: "Что произошло или какие работы нужны?",
+    submitIdle: "Запросить через Telegram",
     submitBusy: "Подготовка заявки...",
-    success: "Заявка подготовлена. Telegram открыт в новой вкладке.",
+    success: "Заявка готова. Telegram открыт в новой вкладке.",
     genericError: "Пожалуйста, попробуйте снова.",
     preparationError: "Не удалось подготовить заявку.",
   },
   pl: {
-    eyebrow: "Szczegóły zgłoszenia",
-    title: "Wyślij bezpośrednio przez Telegram",
+    eyebrow: "Zapytanie przez Telegram",
+    title: "Wyślij zgłoszenie bezpośrednio do Mr Spark",
     description:
-      "Zgłoszenie trafia najpierw do istniejącego endpointu leadów. Następnie Telegram otwiera się z uporządkowaną wiadomością do dalszej obsługi.",
+      "Krótko opisz problem elektryczny. Przygotujemy szybką odpowiedź i przejdziemy do rozmowy w Telegramie.",
     nameLabel: "Imię",
     namePlaceholder: "Twoje imię",
     contactLabel: "Telefon lub e-mail",
-    contactPlaceholder: "Dane kontaktowe",
+    contactPlaceholder: "Jak mamy się z Tobą skontaktować?",
     cityLabel: "Miasto",
     cityPlaceholder: "np. Berlin",
     serviceLabel: "Usługa",
-    servicePlaceholder: "np. pogotowie elektryczne",
+    servicePlaceholder: "Wybierz usługę",
+    serviceOptions: [
+      { value: "Pogotowie elektryczne", label: "Pogotowie elektryczne" },
+      { value: "Diagnostyka usterek", label: "Diagnostyka usterek" },
+      { value: "Rozdzielnia", label: "Rozdzielnia" },
+      { value: "Gniazdka i oswietlenie", label: "Gniazdka i oswietlenie" },
+      { value: "Instalacja elektryczna", label: "Instalacja elektryczna" },
+      { value: "Modernizacja", label: "Modernizacja" },
+    ],
     urgencyLabel: "Pilność",
     urgencyOptions: { Normal: "Normalna", Heute: "Dzisiaj", Sofort: "Natychmiast" },
     messageLabel: "Wiadomość",
-    messagePlaceholder: "Co się stało i jak szybko potrzebujesz pomocy?",
-    submitIdle: "Otwórz Telegram",
+    messagePlaceholder: "Co się stało lub jakiej pracy elektrycznej potrzebujesz?",
+    submitIdle: "Zapytaj przez Telegram",
     submitBusy: "Przygotowywanie zgłoszenia...",
-    success: "Zgłoszenie przygotowane. Telegram otwarto w nowej karcie.",
+    success: "Zgłoszenie jest gotowe. Telegram otwarto w nowej karcie.",
     genericError: "Spróbuj ponownie.",
     preparationError: "Nie udało się przygotować zgłoszenia.",
   },
   uk: {
-    eyebrow: "Деталі заявки",
-    title: "Надіслати через Telegram",
+    eyebrow: "Запит у Telegram",
+    title: "Надішліть заявку безпосередньо до Mr Spark",
     description:
-      "Заявка спочатку надсилається в наявний lead endpoint. Потім Telegram відкривається зі структурованим повідомленням для подальшої обробки.",
+      "Коротко опишіть електричну проблему. Ми підготуємо швидку відповідь і продовжимо спілкування в Telegram.",
     nameLabel: "Ім'я",
     namePlaceholder: "Ваше ім'я",
     contactLabel: "Телефон або e-mail",
-    contactPlaceholder: "Контактні дані",
+    contactPlaceholder: "Як із вами зв'язатися?",
     cityLabel: "Місто",
     cityPlaceholder: "наприклад, Берлін",
     serviceLabel: "Послуга",
-    servicePlaceholder: "наприклад, аварійна служба",
+    servicePlaceholder: "Оберіть послугу",
+    serviceOptions: [
+      { value: "Аварійна служба", label: "Аварійна служба" },
+      { value: "Діагностика", label: "Діагностика" },
+      { value: "Електрощит", label: "Електрощит" },
+      { value: "Розетки та світло", label: "Розетки та світло" },
+      { value: "Електромонтаж", label: "Електромонтаж" },
+      { value: "Модернізація", label: "Модернізація" },
+    ],
     urgencyLabel: "Терміновість",
     urgencyOptions: { Normal: "Звичайна", Heute: "Сьогодні", Sofort: "Терміново" },
     messageLabel: "Повідомлення",
-    messagePlaceholder: "Що сталося і як швидко вам потрібна допомога?",
-    submitIdle: "Відкрити Telegram",
+    messagePlaceholder: "Що сталося або які роботи вам потрібні?",
+    submitIdle: "Запросити через Telegram",
     submitBusy: "Підготовка заявки...",
-    success: "Заявку підготовлено. Telegram відкрито в новій вкладці.",
+    success: "Заявка готова. Telegram відкрито в новій вкладці.",
     genericError: "Будь ласка, спробуйте ще раз.",
     preparationError: "Не вдалося підготувати заявку.",
   },
   ro: {
-    eyebrow: "Detalii solicitare",
-    title: "Trimite direct prin Telegram",
+    eyebrow: "Cerere prin Telegram",
+    title: "Trimite cererea direct catre Mr Spark",
     description:
-      "Solicitarea este trimisă mai întâi către endpointul existent de leaduri. Apoi Telegram se deschide cu un mesaj structurat pentru urmărirea operațională.",
+      "Descrie pe scurt problema electrica. Pregatim un raspuns rapid si continuam discutia prin Telegram.",
     nameLabel: "Nume",
     namePlaceholder: "Numele dvs.",
     contactLabel: "Telefon sau e-mail",
-    contactPlaceholder: "Date de contact",
-    cityLabel: "Oraș",
+    contactPlaceholder: "Cum va putem contacta?",
+    cityLabel: "Oras",
     cityPlaceholder: "ex. Berlin",
     serviceLabel: "Serviciu",
-    servicePlaceholder: "ex. serviciu de urgență",
-    urgencyLabel: "Urgență",
-    urgencyOptions: { Normal: "Normal", Heute: "Astăzi", Sofort: "Imediat" },
+    servicePlaceholder: "Alegeti serviciul",
+    serviceOptions: [
+      { value: "Serviciu de urgenta", label: "Serviciu de urgenta" },
+      { value: "Diagnosticare", label: "Diagnosticare" },
+      { value: "Tablou electric", label: "Tablou electric" },
+      { value: "Prize si iluminat", label: "Prize si iluminat" },
+      { value: "Instalatie electrica", label: "Instalatie electrica" },
+      { value: "Modernizare", label: "Modernizare" },
+    ],
+    urgencyLabel: "Urgenta",
+    urgencyOptions: { Normal: "Normal", Heute: "Astazi", Sofort: "Imediat" },
     messageLabel: "Mesaj",
-    messagePlaceholder: "Ce s-a întâmplat și cât de repede aveți nevoie de ajutor?",
-    submitIdle: "Deschide Telegram",
-    submitBusy: "Se pregătește solicitarea...",
-    success: "Solicitarea a fost pregătită. Telegram s-a deschis într-o filă nouă.",
-    genericError: "Vă rugăm să încercați din nou.",
-    preparationError: "Solicitarea nu a putut fi pregătită.",
+    messagePlaceholder: "Ce s-a intamplat sau ce lucrare electrica aveti nevoie?",
+    submitIdle: "Solicita prin Telegram",
+    submitBusy: "Se pregateste solicitarea...",
+    success: "Solicitarea este pregatita. Telegram s-a deschis intr-o fila noua.",
+    genericError: "Va rugam sa incercati din nou.",
+    preparationError: "Solicitarea nu a putut fi pregatita.",
   },
 };
 
@@ -303,13 +367,11 @@ export default function TelegramLeadForm({ sourcePage }: { sourcePage: string })
   }
 
   return (
-    <form className="panel-surface grid gap-4 p-6 md:p-7" onSubmit={handleSubmit} aria-busy={isSubmitting}>
+    <form className="panel-surface grid gap-5 p-6 md:p-7" onSubmit={handleSubmit} aria-busy={isSubmitting}>
       <div>
         <p className="section-eyebrow">{copy.eyebrow}</p>
         <h3 className="mt-3 text-2xl font-semibold text-[color:var(--ink)]">{copy.title}</h3>
-        <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">
-          {copy.description}
-        </p>
+        <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">{copy.description}</p>
       </div>
 
       <label className="grid gap-2 text-sm font-medium text-[color:var(--ink)]">
@@ -359,17 +421,23 @@ export default function TelegramLeadForm({ sourcePage }: { sourcePage: string })
 
         <label className="grid gap-2 text-sm font-medium text-[color:var(--ink)]">
           {copy.serviceLabel}
-          <input
+          <select
             id="lead-service"
             name="service"
-            type="text"
-            autoComplete="off"
             className="form-input"
-            placeholder={copy.servicePlaceholder}
             required
             value={form.service}
             onChange={(event) => setForm({ ...form, service: event.target.value })}
-          />
+          >
+            <option value="" disabled>
+              {copy.servicePlaceholder}
+            </option>
+            {copy.serviceOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </label>
       </div>
 
@@ -413,6 +481,7 @@ export default function TelegramLeadForm({ sourcePage }: { sourcePage: string })
         value={form.website}
         onChange={(event) => setForm({ ...form, website: event.target.value })}
       />
+
       <button
         type="submit"
         disabled={isSubmitting}
@@ -421,6 +490,7 @@ export default function TelegramLeadForm({ sourcePage }: { sourcePage: string })
       >
         {isSubmitting ? copy.submitBusy : copy.submitIdle}
       </button>
+
       {feedback ? (
         <p role="status" aria-live="polite" className="text-sm text-[color:var(--muted)]">
           {feedback}

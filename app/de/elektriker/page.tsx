@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import {
   FeatureGrid,
   HeroSection,
@@ -11,7 +12,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Elektriker buchen",
   description:
-    "Elektriker für Fehlersuche, Reparatur, Sicherheitsprüfung und strukturierte Anfrageaufnahme in Deutschland.",
+    "Elektriker fuer Fehlersuche, Reparatur, Sicherheitspruefung und Elektroservice in Deutschland.",
   pathname: "/de/elektriker",
   locale: "de",
   localizedSlug: "elektriker",
@@ -23,17 +24,17 @@ const cards = [
   {
     title: "Fehlersuche und Reparatur",
     description:
-      "Ausfälle, FI-Probleme und unsichere Stromkreise werden als konkrete Diagnose- und Reparaturfälle formuliert statt nur als abstrakter Service.",
+      "Ausfaelle, FI-Probleme und unsichere Stromkreise werden als konkrete Diagnose- und Reparaturfaelle sichtbar gemacht.",
   },
   {
-    title: "Sicherheitsprüfung",
+    title: "Sicherheitspruefung",
     description:
-      "Die Seite hält Sichtprüfung, Messung und Handlungsempfehlung auffindbar, ohne die Lead-Architektur vom Rest der Website abzukoppeln.",
+      "Sichtpruefung, Messung und klare Handlungsempfehlungen bleiben fuer Wohnungen, Haeuser und Gewerbe gut auffindbar.",
   },
   {
-    title: "Koordinierte Terminierung",
+    title: "Steckdosen, Licht und Sicherungskasten",
     description:
-      "Auch Standardanfragen bleiben conversion-stark, weil Rückruf, Region und Dringlichkeit im selben Intake erfasst werden.",
+      "Auch klassische Elektriker-Arbeiten wie Steckdosen, Lichtinstallation oder Sicherungskasten bleiben direkt anfragbar.",
   },
 ];
 
@@ -42,34 +43,35 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Elektriker anfragen"
-        title="Die Elektriker-Route muss Kompetenz signalisieren, ohne in generische Handwerker-Rhetorik abzugleiten."
-        description="Die Seite richtet sich an Nutzer mit klarer Kaufabsicht. Sie verdichtet Reparatur, Prüfung und Terminlogik auf dieselben strukturierten Kontaktpunkte wie der Rest des Auftritts."
+        title="Elektriker fuer Reparatur, Fehlersuche und sichere Elektroarbeiten."
+        description="Mr Spark hilft bei Reparaturen, Diagnosen, Steckdosen, Schaltern, Lichtinstallation und pruefbaren Sicherheitsfragen fuer Wohnungen, Haeuser und Gewerbeobjekte."
         points={[
           "Fehlersuche und Sicherheit klar benannt",
-          "Region und Dringlichkeit bleiben Teil des Flows",
-          "Keine Trennung zwischen SEO-Seite und Lead-Aufnahme",
+          "Reparatur und Standardarbeiten gleich gut sichtbar",
+          "24h Notdienst bei dringenden Stoerungen direkt erreichbar",
         ]}
         primaryCta={{ href: "/de/kontakt", label: "Elektriker anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "Bei Notfall hier entlang", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
+        aside={<ElectricalPhotoShowcase variant="services" />}
       />
 
       <PageSection>
         <SectionHeading
           eyebrow="Leistungsfokus"
-          title="Die Route ordnet typische Elektriker-Anliegen sauber ein."
-          description="Sie hilft Nutzern mit konkreter Suchintention, ohne die Conversion mit überlangen Leistungslisten oder unscharfen Aussagen zu verwässern."
+          title="Typische Elektriker-Anliegen bleiben schnell einordenbar."
+          description="Die Seite hilft bei konkreter Suchintention, ohne sich in allgemeinen Handwerker-Floskeln zu verlieren."
         />
         <FeatureGrid items={cards} />
       </PageSection>
 
       <LeadCaptureSection
         title="Elektriker-Einsatz direkt vorbereiten"
-        description="Die Seite überführt Suchtraffic ohne Umwege in den bestehenden Leadflow. So bleiben Kontakt, Ort und Leistungsbild in derselben Datenstruktur."
+        description="Beschreiben Sie Aufgabe, Ort und Dringlichkeit direkt hier und starten Sie die weitere Abstimmung ueber Telegram."
         sourcePage="/de/elektriker"
         checklist={[
           "Ort oder Stadt nennen",
           "Fehler oder Aufgabe knapp beschreiben",
-          "Rückruf oder Telegram erreichbar halten",
+          "Rueckruf oder Telegram erreichbar halten",
         ]}
       />
     </main>

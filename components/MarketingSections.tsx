@@ -18,14 +18,14 @@ type Feature = {
 
 function getCtaClassName(variant: Cta["variant"] = "primary") {
   if (variant === "secondary") {
-    return "border border-[color:var(--line-strong)] bg-white text-[color:var(--ink)] hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]";
+    return "border border-white/18 bg-white text-[color:var(--ink)] shadow-[0_14px_38px_rgba(6,18,31,0.18)] hover:border-white hover:text-[color:var(--brand)]";
   }
 
   if (variant === "ghost") {
     return "border border-white/16 bg-white/8 text-white hover:bg-white/14";
   }
 
-  return "bg-[color:var(--brand)] text-white hover:bg-[color:var(--brand-strong)]";
+  return "bg-[color:var(--accent)] text-[color:var(--ink)] shadow-[0_16px_40px_rgba(255,197,51,0.24)] hover:bg-[#ffd36c]";
 }
 
 export function HeroSection({
@@ -51,71 +51,75 @@ export function HeroSection({
 }) {
   return (
     <section className="hero-shell">
-      <div className="hero-grid section">
-        <div className="hero-copy">
-          <p className="section-eyebrow text-white/76">{eyebrow}</p>
-          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-white md:text-6xl">
-            {title}
-          </h1>
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-white/78">{description}</p>
+      <div className="section">
+        <div className="hero-frame">
+          <div className="hero-grid">
+            <div className="hero-copy">
+              <p className="section-eyebrow text-[#ffd15a]">{eyebrow}</p>
+              <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-white md:text-6xl xl:text-[4.15rem]">
+                {title}
+              </h1>
+              <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-white/80">{description}</p>
 
-          {points.length > 0 ? (
-            <ul className="mt-8 grid gap-3 text-sm text-white/82 md:grid-cols-2">
-              {points.map((point) => (
-                <li
-                  key={point}
-                  className="rounded-2xl border border-white/12 bg-white/8 px-4 py-3 backdrop-blur"
-                >
-                  {point}
-                </li>
-              ))}
-            </ul>
-          ) : null}
+              {points.length > 0 ? (
+                <ul className="mt-8 grid gap-3 text-sm text-white/84 md:grid-cols-2">
+                  {points.map((point) => (
+                    <li
+                      key={point}
+                      className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 backdrop-blur"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={primaryCta.href} className={`btn-base ${getCtaClassName(primaryCta.variant)}`}>
-              {primaryCta.label}
-            </Link>
-            {secondaryCta ? (
-              <Link
-                href={secondaryCta.href}
-                className={`btn-base ${getCtaClassName(secondaryCta.variant ?? "ghost")}`}
-              >
-                {secondaryCta.label}
-              </Link>
-            ) : null}
-          </div>
-
-          {supportingCtas.length > 0 ? (
-            <div className="mt-4 flex flex-wrap gap-3">
-              {supportingCtas.map((cta) => (
-                <Link
-                  key={cta.href}
-                  href={cta.href}
-                  className={`btn-base btn-small ${getCtaClassName(cta.variant ?? "secondary")}`}
-                >
-                  {cta.label}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href={primaryCta.href} className={`btn-base ${getCtaClassName(primaryCta.variant)}`}>
+                  {primaryCta.label}
                 </Link>
-              ))}
-            </div>
-          ) : null}
+                {secondaryCta ? (
+                  <Link
+                    href={secondaryCta.href}
+                    className={`btn-base ${getCtaClassName(secondaryCta.variant ?? "ghost")}`}
+                  >
+                    {secondaryCta.label}
+                  </Link>
+                ) : null}
+              </div>
 
-          {stats.length > 0 ? (
-            <dl className="mt-10 grid gap-3 sm:grid-cols-3">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-3xl border border-white/12 bg-white/8 px-5 py-4 backdrop-blur"
-                >
-                  <dt className="text-sm text-white/60">{stat.label}</dt>
-                  <dd className="mt-1 text-2xl font-semibold text-white">{stat.value}</dd>
+              {supportingCtas.length > 0 ? (
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {supportingCtas.map((cta) => (
+                    <Link
+                      key={cta.href}
+                      href={cta.href}
+                      className={`btn-base btn-small ${getCtaClassName(cta.variant ?? "secondary")}`}
+                    >
+                      {cta.label}
+                    </Link>
+                  ))}
                 </div>
-              ))}
-            </dl>
-          ) : null}
-        </div>
+              ) : null}
 
-        <div className="hero-aside">{aside ?? <MascotHero />}</div>
+              {stats.length > 0 ? (
+                <dl className="mt-10 grid gap-3 sm:grid-cols-3">
+                  {stats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="rounded-3xl border border-white/10 bg-white/8 px-5 py-4 backdrop-blur"
+                    >
+                      <dt className="text-sm text-white/60">{stat.label}</dt>
+                      <dd className="mt-1 text-2xl font-semibold text-white">{stat.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+            </div>
+
+            <div className="hero-aside">{aside ?? <MascotHero />}</div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -165,10 +169,13 @@ export function PageSection({
 
 export function StatsBand({ items }: { items: string[] }) {
   return (
-    <section className="section -mt-8 pb-6 md:-mt-12">
+    <section className="section -mt-8 pb-6 md:-mt-10">
       <div className="grid gap-3 md:grid-cols-4">
         {items.map((item) => (
-          <div key={item} className="glass-card py-5 text-center text-sm font-medium text-[color:var(--ink)]">
+          <div
+            key={item}
+            className="glass-card border border-slate-200/80 py-5 text-center text-sm font-medium text-[color:var(--ink)]"
+          >
             {item}
           </div>
         ))}
@@ -254,14 +261,14 @@ export function LeadCaptureSection({
   const localeSegment = sourcePage.split("/").filter(Boolean)[0];
   const locale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
   const eyebrowByLocale = {
-    de: "Kontakt aufnehmen",
-    en: "Get in touch",
-    tr: "İletişime geçin",
-    ar: "تواصل معنا",
-    ru: "Связаться",
-    pl: "Skontaktuj się",
-    uk: "Зв'яжіться",
-    ro: "Ia legătura",
+    de: "Telegram & Kontakt",
+    en: "Telegram & contact",
+    tr: "Telegram ve iletisim",
+    ar: "تيليجرام والتواصل",
+    ru: "Telegram и контакт",
+    pl: "Telegram i kontakt",
+    uk: "Telegram і контакт",
+    ro: "Telegram si contact",
   } as const;
 
   return (
@@ -269,7 +276,7 @@ export function LeadCaptureSection({
       <div className="cta-shell">
         <div className="space-y-6">
           <div>
-            <p className="section-eyebrow text-white/74">{eyebrowByLocale[locale]}</p>
+            <p className="section-eyebrow text-[#ffd15a]">{eyebrowByLocale[locale]}</p>
             <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-white md:text-4xl">
               {title}
             </h2>
@@ -297,7 +304,9 @@ export function LeadCaptureSection({
             </div>
           ) : null}
 
-          <MascotHero compact className="hidden lg:block" />
+          <div className="hidden lg:block">
+            <MascotHero compact />
+          </div>
         </div>
 
         <TelegramLeadForm sourcePage={sourcePage} />

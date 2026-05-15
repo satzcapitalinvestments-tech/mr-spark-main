@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import {
   FeatureGrid,
   HeroSection,
@@ -12,7 +13,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Leistungen im Überblick",
   description:
-    "Elektroinstallation, Fehlersuche, Sicherungskasten, Steckdosen, Licht und Elektro-Notdienst in einer konsistenten Seitenarchitektur.",
+    "Elektroinstallation, Fehlersuche, Sicherungskasten, Steckdosen, Licht und Elektro-Notdienst auf einer klaren Leistungsseite fuer Kunden.",
   pathname: "/de/leistungen",
   locale: "de",
   localizedSlug: "leistungen",
@@ -25,29 +26,30 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Leistungsübersicht"
-        title="Die Leistungsseite ordnet das Angebot sauber und hält gleichzeitig die Conversion-Seams stabil."
-        description="Statt einer generischen Kartenwand zeigt die Seite, wie sich Installation, Diagnose, Notdienst und Modernisierung in eine gemeinsame Anfrageführung einordnen."
+        title="Leistungen fuer Notdienst, Reparatur und Elektroinstallation auf einen Blick."
+        description="Von Fehlersuche bis Modernisierung zeigt Mr Spark die wichtigsten Elektroarbeiten in einer klaren, kundenfreundlichen Struktur."
         points={[
-          "Kernleistungen bleiben präzise und scanbar",
-          "Kleinere Arbeiten verschwinden nicht hinter dem Notdienst-Fokus",
-          "Jede Kategorie führt in denselben Intake-Flow",
+          "Notdienst, Diagnose und planbare Leistungen bleiben gleich gut sichtbar",
+          "Steckdosen, Licht und Sicherungskasten werden konkret benannt",
+          "Telegram und Kontakt bleiben direkt anschlussfaehig",
         ]}
         primaryCta={{ href: "/de/kontakt", label: "Leistung anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "Notdienst öffnen", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
+        aside={<ElectricalPhotoShowcase variant="services" />}
       />
 
       <PageSection>
         <SectionHeading
           eyebrow="Leistungskategorien"
-          title="Elektroarbeiten, die Nutzer schnell einordnen können."
-          description="Die Kategorien sind so formuliert, dass sowohl Suchintention als auch operative Weiterleitung profitieren."
+          title="Elektroarbeiten, die Sie schnell einordnen koennen."
+          description="Die Kategorien sind bewusst so formuliert, dass Notfaelle, Reparaturen und geplante Arbeiten sofort klar werden."
         />
         <FeatureGrid items={servicesPageContent.categories} />
       </PageSection>
 
       <LeadCaptureSection
-        title="Anfrage direkt aus der Leistungsseite starten"
-        description="Nutzer müssen nicht erst zurück zur Startseite. Die Leistungsseite bietet denselben servergestützten Einstieg in die Anfrageaufnahme."
+        title="Leistung direkt anfragen"
+        description="Sie muessen nicht zur Startseite zurueck. Beschreiben Sie Ihre Elektroarbeit direkt hier und starten Sie die Anfrage ueber Telegram."
         sourcePage="/de/leistungen"
         checklist={[
           "Service konkret benennen",

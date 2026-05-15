@@ -12,9 +12,9 @@ import {
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Einsatzgebiet in Deutschland",
+  title: "Einsatzgebiet: Elektriker & Elektro-Notdienst in Deutschland",
   description:
-    "Bundesländer, Städte und regionale Einsatzabdeckung für Elektroanfragen, Rückruf und Notdienstkoordination.",
+    "Bundeslaender, Staedte und regionale Einsatzabdeckung fuer Elektroanfragen, Notdienst und planbare Arbeiten in Deutschland.",
   pathname: "/de/einsatzgebiet",
   locale: "de",
   localizedSlug: "einsatzgebiet",
@@ -24,19 +24,19 @@ export const metadata: Metadata = buildPageMetadata({
 
 const coverageCards = [
   {
-    title: "Deutschlandweite Anfrageannahme",
+    title: "Anfragen aus Deutschland",
     description:
-      "Die Route schafft Klarheit darüber, dass Mr Spark Anfragen aus vielen Regionen koordiniert, Verfügbarkeit und Anfahrt aber immer vorab bestätigt.",
+      "Wir nehmen Anfragen aus diesen Regionen entgegen und koordinieren passende Elektro-Hilfe je nach Verfuegbarkeit.",
   },
   {
-    title: "Saubere Erwartungssteuerung",
+    title: "Verfuegbarkeit vorab bestaetigt",
     description:
-      "Statt falscher Sofort-Zusagen priorisiert die Seite Transparenz zu Rückmeldung, Terminfenster und tatsächlicher Einsatzplanung.",
+      "Verfuegbarkeit, Anfahrt und Termin werden vorab bestaetigt, statt vorschnell zugesagt zu werden.",
   },
   {
-    title: "Gleicher Leadflow wie auf den Kernseiten",
+    title: "Telegram und Rueckmeldung",
     description:
-      "Auch die Gebietsseite führt in dieselbe servergestützte Intake-Strecke und verhindert damit Datenbrüche zwischen SEO-Einstieg und Kontakt.",
+      "Auch ueber die Einsatzgebietsseite bleiben Kontaktweg, Rueckmeldung und Terminabstimmung klar und gut sichtbar.",
   },
 ];
 
@@ -45,23 +45,23 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Einsatzgebiet und Verfügbarkeit"
-        title="Elektriker-Anfragen aus Deutschland sauber aufnehmen und regional einordnen."
-        description="Ob Großstadt, Umland oder Gewerbestandort: Über diese Seite können Sie Ihren Einsatzort direkt angeben und die Anfrage für Rückruf oder Notdienst vorbereiten."
+        title="Einsatzgebiet: Elektriker & Elektro-Notdienst in Deutschland"
+        description="Wir nehmen Anfragen aus diesen Regionen entgegen und koordinieren passende Elektro-Hilfe je nach Verfuegbarkeit. Verfuegbarkeit, Anfahrt und Termin werden vorab bestaetigt."
         points={[
-          "Bundesländer und Städte bleiben schnell scanbar",
+          "Bundeslaender und Staedte bleiben schnell scanbar",
           "Anfahrt und Termin werden vorab abgestimmt",
-          "Auch regionale Suchanfragen führen direkt in den Kontaktweg",
+          "Telegram und Kontakt bleiben direkt verfuegbar",
         ]}
         primaryCta={{ href: "/de/kontakt", label: "Einsatzgebiet anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "Notdienst öffnen", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
         aside={<ElectricalPhotoShowcase variant="coverage" />}
       />
 
       <PageSection>
         <SectionHeading
           eyebrow="Regionale Anfrage"
-          title="Erst den Einsatzort nennen, dann Verfügbarkeit und Termin abstimmen."
-          description="Wer nach einem Elektriker in einer Stadt oder Region sucht, soll sofort sehen, wie die Anfrage vorbereitet und regional eingeordnet wird."
+          title="Erst den Einsatzort nennen, dann Verfuegbarkeit und Termin abstimmen."
+          description="Wer nach einem Elektriker in einer Stadt oder Region sucht, soll sofort sehen, wie die Anfrage regional eingeordnet wird."
         />
         <FeatureGrid items={coverageCards} />
       </PageSection>
@@ -69,8 +69,8 @@ export default function Page() {
       <PageSection surface>
         <SectionHeading
           eyebrow="Bundesländer"
-          title="Aus diesen Regionen können Sie Ihre Anfrage direkt vorbereiten."
-          description="Die genaue Einsatzplanung hängt von Verfügbarkeit, Anfahrt und Auftragslage ab und wird im Rückruf oder in Telegram abgestimmt."
+          title="Aus diesen Regionen koennen Sie Ihre Anfrage direkt vorbereiten."
+          description="Die genaue Einsatzplanung haengt von Verfuegbarkeit, Anfahrt und Auftragslage ab und wird im Kontakt abgestimmt."
         />
         <div className="mt-8 flex flex-wrap gap-2">
           {germanStates.map((state) => (
@@ -84,8 +84,8 @@ export default function Page() {
       <PageSection>
         <SectionHeading
           eyebrow="Städte und Orte"
-          title="Wichtige Städte und Suchorte bleiben direkt erfassbar."
-          description="Wenn Sie über eine Stadt- oder Regionssuche kommen, können Sie den Einsatzort ohne Umwege direkt mitsenden."
+          title="Wichtige Staedte und Suchorte bleiben direkt erfassbar."
+          description="Wenn Sie ueber eine Stadt- oder Regionssuche kommen, koennen Sie den Einsatzort ohne Umwege direkt mitsenden."
         />
         <div className="mt-8 grid gap-3 md:grid-cols-3">
           {germanCities.map((city) => (
@@ -97,8 +97,8 @@ export default function Page() {
       </PageSection>
 
       <LeadCaptureSection
-        title="Region und Einsatz jetzt strukturiert anfragen"
-        description="Teilen Sie Stadt, Region und Anliegen direkt mit. So lässt sich schneller klären, ob Rückruf, Termin oder Notdienst der richtige nächste Schritt ist."
+        title="Region und Einsatz jetzt direkt anfragen"
+        description="Teilen Sie Stadt, Region und Anliegen direkt mit. So laesst sich schneller klaeren, ob Rueckruf, Termin oder Notdienst der richtige naechste Schritt ist."
         sourcePage="/de/einsatzgebiet"
         checklist={[
           "Ort oder Stadt direkt nennen",

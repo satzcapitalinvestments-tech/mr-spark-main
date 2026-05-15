@@ -14,7 +14,7 @@ import { buildContactPageStructuredData, buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Kontakt und Anfrage",
   description:
-    "Kontakt fuer Elektroanfragen, Rueckrufwunsch und Notdienstkoordination ueber den servergestuetzten Telegram-Leadflow.",
+    "Kontakt fuer Elektroanfragen, Rueckrufwunsch und Notdienst mit Telegram-first CTA und kundenfreundlicher Anfragefuehrung.",
   pathname: "/de/kontakt",
   locale: "de",
   localizedSlug: "kontakt",
@@ -29,31 +29,31 @@ export default function Page() {
 
       <HeroSection
         eyebrow="Kontakt und Anfrage"
-        title="Kontakt aufnehmen, Rückruf vorbereiten und den passenden Elektroservice direkt anfragen."
-        description="Ob Störung, Notdienst oder planbare Arbeit: Über die Kontaktseite senden Sie die wichtigsten Einsatzdaten direkt mit und vermeiden unnötige Rückfragen."
+        title="Anfrage direkt an Mr Spark senden"
+        description="Ob Stoerung, Notdienst oder planbare Elektroarbeit: Auf der Kontaktseite senden Sie die wichtigsten Angaben sofort mit und starten den Telegram-Kontakt ohne Umwege."
         points={[
-          "Telegram öffnet sich erst, wenn alle wichtigen Angaben vorbereitet sind",
-          "Name, Stadt, Service und Dringlichkeit gehen direkt mit",
-          "Akute Fälle bleiben auch hier klar priorisiert",
+          "Telegram-first CTA fuer schnelle Rueckmeldung",
+          "Name, Kontaktmethode, Stadt, Service und Dringlichkeit direkt erfassen",
+          "Akute Faelle bleiben sichtbar priorisiert",
         ]}
-        primaryCta={{ href: "#lead-form", label: "Anfrage starten" }}
+        primaryCta={{ href: "#lead-form", label: "Ueber Telegram anfragen" }}
         secondaryCta={{ href: "/de/notdienst", label: "Zum Notdienst", variant: "ghost" }}
-        aside={<ElectricalPhotoShowcase variant="home" />}
+        aside={<ElectricalPhotoShowcase variant="contact" />}
       />
 
       <PageSection>
         <SectionHeading
-          eyebrow="Was Nutzer sofort verstehen sollten"
-          title="Die Kontaktseite zeigt, welche Angaben für eine schnelle Rückmeldung wirklich helfen."
-          description="Statt langer Einleitungstexte sehen Sie direkt, was für Rückruf, Termin oder Notdienst wichtig ist."
+          eyebrow="Kontakt mit Klarheit"
+          title="Die Kontaktseite zeigt sofort, welche Angaben fuer eine schnelle Rueckmeldung wirklich helfen."
+          description="Statt langer Einleitungstexte sehen Sie direkt, was fuer Rueckruf, Termin oder Notdienst wichtig ist."
         />
         <FeatureGrid items={contactPageContent.cards} />
       </PageSection>
 
       <LeadCaptureSection
         id="lead-form"
-        title="Elektroanfrage jetzt vorbereiten"
-        description="Die Formulardaten laufen in den bestehenden Lead-Endpoint und anschliessend in einen strukturierten Telegram-Kontakt."
+        title="Anfrage direkt an Mr Spark senden"
+        description="Beschreiben Sie kurz Ihr Elektroproblem. Wir bereiten eine schnelle Rueckmeldung vor und leiten Ihre Anfrage ueber Telegram weiter."
         sourcePage="/de/kontakt"
         checklist={contactPageContent.checklist}
       />
@@ -62,7 +62,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Nach Ihrer Anfrage"
           title="So geht es nach dem Absenden weiter."
-          description="Ihre Angaben werden vorbereitet und direkt in Telegram geöffnet. Dort kann die weitere Abstimmung zu Rückruf, Termin, Notdienst oder nächsten Schritten ohne Informationsverlust starten."
+          description="Nach dem Absenden starten Telegram oder Rueckmeldung mit den wichtigsten Angaben, damit Termin, Notdienst oder weitere Fragen schneller abgestimmt werden koennen."
         />
       </PageSection>
     </main>

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import LanguageSelector from "@/components/LanguageSelector";
 import type { LocaleCode } from "@/data/i18n/languages";
 import { buildLocalizedPath, defaultLocale, isLocale } from "@/lib/i18n";
+import { siteConfig } from "@/lib/site-config";
 
 const links = [
   ["home", ""],
@@ -53,20 +54,20 @@ const shellCopy: Record<
     },
     toggleOpen: "Navigation öffnen",
     toggleClose: "Navigation schließen",
-    primaryCta: "Kontakt",
+    primaryCta: "Telegram starten",
     emergencyCta: "24h Notdienst",
-    brandEyebrow: "Elektriker Deutschland",
-    footerTitle: "Elektriker, Notdienst und planbare Elektroarbeiten mit klarem Kontaktweg.",
+    brandEyebrow: "Elektriker & Notdienst",
+    footerTitle: "Schnelle Elektrohilfe, klare Preise und ein direkter Kontaktweg.",
     footerDescription:
-      "Mr Spark verbindet schnelle Hilfe bei Störungen mit sauber vorbereiteten Anfragen für Reparaturen, Sicherungskästen und neue Installationen.",
+      "Mr Spark begleitet Stromausfall, Fehlersuche, Sicherungskasten, Steckdosen, Lichtinstallation und planbare Elektroarbeiten fuer Kunden in Deutschland.",
     footerServices: "Leistungen",
-    footerConversion: "Kontakt & Ablauf",
+    footerConversion: "Kontakt",
     footerLegal: "Rechtliches",
     footerServiceItems: ["Elektroinstallation", "Notdienst", "Sicherungskasten & Fehlersuche"],
     footerConversionItems: [
-      "Telegram oder Rueckruf direkt vorbereiten",
-      "Stadt, Service und Dringlichkeit sauber uebermitteln",
-      "Schnelle Rueckmeldung fuer Notfall und Standardauftrag",
+      "Telegram direkt aus dem Header oder Formular starten",
+      "Notdienst und planbare Arbeiten klar unterscheiden",
+      "Rueckmeldung, Anfahrt und naechste Schritte transparent abstimmen",
     ],
     legalNotice: "Impressum",
     privacyNotice: "Datenschutz",
@@ -86,20 +87,20 @@ const shellCopy: Record<
     },
     toggleOpen: "Open navigation",
     toggleClose: "Close navigation",
-    primaryCta: "Contact",
+    primaryCta: "Start Telegram",
     emergencyCta: "24h Emergency",
-    brandEyebrow: "Electrician Germany",
-    footerTitle: "Electrician and emergency pages with a clear request flow.",
+    brandEyebrow: "Electrician & emergency",
+    footerTitle: "Fast electrical help, clear pricing, and a direct contact path.",
     footerDescription:
-      "Built for fast lead capture, transparent communication, and cleaner operational handoff.",
+      "Mr Spark handles emergency work, diagnostics, fuse boxes, sockets, lighting, and planned electrical jobs for customers across Germany.",
     footerServices: "Services",
-    footerConversion: "Conversion",
+    footerConversion: "Contact",
     footerLegal: "Legal",
     footerServiceItems: ["Electrical installation", "Emergency service", "Fuse box and diagnostics"],
     footerConversionItems: [
-      "Server-backed Telegram lead flow",
-      "Mobile-first CTA placement",
-      "Multilingual route seams preserved",
+      "Start Telegram directly from the header or form",
+      "Keep emergency and planned work clearly separated",
+      "Clarify response time, travel, and next steps upfront",
     ],
     legalNotice: "Legal notice",
     privacyNotice: "Privacy",
@@ -119,20 +120,20 @@ const shellCopy: Record<
     },
     toggleOpen: "Menüyü aç",
     toggleClose: "Menüyü kapat",
-    primaryCta: "İletişim",
+    primaryCta: "Telegram başlat",
     emergencyCta: "7/24 Acil",
-    brandEyebrow: "Almanya Elektrikçi",
-    footerTitle: "Net talep akışına sahip elektrikçi ve acil servis sayfaları.",
+    brandEyebrow: "Elektrikçi ve acil servis",
+    footerTitle: "Hızlı elektrik yardımı, net fiyatlar ve doğrudan iletişim.",
     footerDescription:
-      "Hızlı lead toplama, şeffaf iletişim ve temiz operasyon devri için kurgulandı.",
+      "Mr Spark, Almanya genelinde acil elektrik işleri, arıza tespiti, sigorta kutusu, priz, aydınlatma ve planlı elektrik hizmetleri sunar.",
     footerServices: "Hizmetler",
-    footerConversion: "Dönüşüm",
+    footerConversion: "İletişim",
     footerLegal: "Yasal",
     footerServiceItems: ["Elektrik tesisatı", "Acil servis", "Sigorta kutusu ve arıza tespiti"],
     footerConversionItems: [
-      "Sunucu destekli Telegram lead akışı",
-      "Mobil öncelikli CTA yerleşimi",
-      "Çok dilli rota yapısı korunur",
+      "Telegram'ı doğrudan başlıktan veya formdan başlatın",
+      "Acil ve planlı işleri net şekilde ayırın",
+      "Geri dönüş, ulaşım ve sonraki adımları baştan netleştirin",
     ],
     legalNotice: "Yasal bildirim",
     privacyNotice: "Gizlilik",
@@ -152,19 +153,19 @@ const shellCopy: Record<
     },
     toggleOpen: "فتح التنقل",
     toggleClose: "إغلاق التنقل",
-    primaryCta: "اتصال",
+    primaryCta: "ابدأ تيليجرام",
     emergencyCta: "طوارئ 24 ساعة",
-    brandEyebrow: "كهربائي ألمانيا",
-    footerTitle: "صفحات كهربائي وطوارئ بمسار طلب واضح.",
-    footerDescription: "مصممة لالتقاط الطلبات بسرعة وتواصل أوضح وتسليم تشغيلي أنظف.",
+    brandEyebrow: "كهربائي وطوارئ",
+    footerTitle: "مساعدة كهربائية سريعة وأسعار واضحة وطريق اتصال مباشر.",
+    footerDescription: "يقدم Mr Spark خدمات الطوارئ والتشخيص ولوحات الكهرباء والمقابس والإنارة والأعمال الكهربائية المخطط لها في ألمانيا.",
     footerServices: "الخدمات",
-    footerConversion: "التحويل",
+    footerConversion: "التواصل",
     footerLegal: "قانوني",
     footerServiceItems: ["تمديدات كهربائية", "خدمة طوارئ", "لوحة كهرباء وتشخيص الأعطال"],
     footerConversionItems: [
-      "مسار Telegram مدعوم من الخادم",
-      "مواضع CTA مهيأة للموبايل",
-      "الحفاظ على بنية المسارات متعددة اللغات",
+      "ابدأ تيليجرام مباشرة من الرأس أو النموذج",
+      "فرّق بوضوح بين الطوارئ والأعمال المخطط لها",
+      "وضّح وقت الرد والتنقل والخطوات التالية مسبقًا",
     ],
     legalNotice: "إشعار قانوني",
     privacyNotice: "الخصوصية",
@@ -184,20 +185,20 @@ const shellCopy: Record<
     },
     toggleOpen: "Открыть навигацию",
     toggleClose: "Закрыть навигацию",
-    primaryCta: "Контакты",
+    primaryCta: "Открыть Telegram",
     emergencyCta: "24ч аварийно",
-    brandEyebrow: "Электрик Германия",
-    footerTitle: "Страницы электрика и аварийной службы с понятным сценарием заявки.",
+    brandEyebrow: "Электрик и аварийная помощь",
+    footerTitle: "Быстрая электрическая помощь, прозрачные цены и прямой контакт.",
     footerDescription:
-      "Фокус на быстром захвате лида, прозрачной коммуникации и чистой передаче в операционную работу.",
+      "Mr Spark помогает с авариями, диагностикой, щитками, розетками, освещением и плановыми электрическими работами по всей Германии.",
     footerServices: "Услуги",
-    footerConversion: "Конверсия",
+    footerConversion: "Контакт",
     footerLegal: "Правовая информация",
     footerServiceItems: ["Электромонтаж", "Аварийная служба", "Щиток и диагностика"],
     footerConversionItems: [
-      "Серверный Telegram-поток заявок",
-      "Мобильный приоритет CTA",
-      "Сохранены швы мультиязычных маршрутов",
+      "Запускайте Telegram прямо из шапки или формы",
+      "Четко разделяйте аварийные и плановые работы",
+      "Заранее поясняйте отклик, выезд и следующие шаги",
     ],
     legalNotice: "Юридическая информация",
     privacyNotice: "Конфиденциальность",
@@ -217,20 +218,20 @@ const shellCopy: Record<
     },
     toggleOpen: "Otwórz nawigację",
     toggleClose: "Zamknij nawigację",
-    primaryCta: "Kontakt",
+    primaryCta: "Uruchom Telegram",
     emergencyCta: "Pogotowie 24h",
-    brandEyebrow: "Elektryk Niemcy",
-    footerTitle: "Strony elektryka i pogotowia z czytelnym przepływem zgłoszeń.",
+    brandEyebrow: "Elektryk i pogotowie",
+    footerTitle: "Szybka pomoc elektryczna, jasne ceny i bezpośredni kontakt.",
     footerDescription:
-      "Nastawione na szybkie przechwycenie leadu, przejrzystą komunikację i czystsze przekazanie do operacji.",
+      "Mr Spark pomaga przy awariach, diagnostyce, rozdzielniach, gniazdkach, oświetleniu i planowych pracach elektrycznych w Niemczech.",
     footerServices: "Usługi",
-    footerConversion: "Konwersja",
+    footerConversion: "Kontakt",
     footerLegal: "Informacje prawne",
     footerServiceItems: ["Instalacja elektryczna", "Pogotowie", "Rozdzielnia i diagnostyka"],
     footerConversionItems: [
-      "Serwerowy przepływ leadów Telegram",
-      "Mobilnie priorytetyzowane CTA",
-      "Zachowane wielojęzyczne połączenia tras",
+      "Uruchom Telegram bezpośrednio z nagłówka lub formularza",
+      "Wyraźnie oddziel nagłe i planowane prace",
+      "Z góry wyjaśnij czas odpowiedzi, dojazd i kolejne kroki",
     ],
     legalNotice: "Nota prawna",
     privacyNotice: "Prywatność",
@@ -250,20 +251,20 @@ const shellCopy: Record<
     },
     toggleOpen: "Відкрити навігацію",
     toggleClose: "Закрити навігацію",
-    primaryCta: "Контакти",
+    primaryCta: "Відкрити Telegram",
     emergencyCta: "24г аварійно",
-    brandEyebrow: "Електрик Німеччина",
-    footerTitle: "Сторінки електрика й аварійної служби з чітким сценарієм заявки.",
+    brandEyebrow: "Електрик і аварійна допомога",
+    footerTitle: "Швидка електродопомога, прозорі ціни та прямий контакт.",
     footerDescription:
-      "Фокус на швидкому захопленні ліда, прозорій комунікації та чистішій передачі в операційну роботу.",
+      "Mr Spark допомагає з аваріями, діагностикою, щитками, розетками, освітленням і плановими електророботами по всій Німеччині.",
     footerServices: "Послуги",
-    footerConversion: "Конверсія",
+    footerConversion: "Контакт",
     footerLegal: "Правова інформація",
     footerServiceItems: ["Електромонтаж", "Аварійна служба", "Щиток і діагностика"],
     footerConversionItems: [
-      "Серверний Telegram-потік заявок",
-      "CTA з мобільним пріоритетом",
-      "Збережені стики багатомовних маршрутів",
+      "Запускайте Telegram прямо з шапки або форми",
+      "Чітко розділяйте аварійні та планові роботи",
+      "Заздалегідь пояснюйте відгук, виїзд і наступні кроки",
     ],
     legalNotice: "Юридична інформація",
     privacyNotice: "Конфіденційність",
@@ -283,20 +284,20 @@ const shellCopy: Record<
     },
     toggleOpen: "Deschide navigarea",
     toggleClose: "Închide navigarea",
-    primaryCta: "Contact",
+    primaryCta: "Pornește Telegram",
     emergencyCta: "Urgență 24h",
-    brandEyebrow: "Electrician Germania",
-    footerTitle: "Pagini de electrician și urgențe cu un flux clar de solicitare.",
+    brandEyebrow: "Electrician și urgență",
+    footerTitle: "Ajutor electric rapid, prețuri clare și contact direct.",
     footerDescription:
-      "Concepute pentru captare rapidă de leaduri, comunicare transparentă și predare operațională mai curată.",
+      "Mr Spark ajută cu urgențe, diagnoză, tablouri electrice, prize, iluminat și lucrări electrice planificate în Germania.",
     footerServices: "Servicii",
-    footerConversion: "Conversie",
+    footerConversion: "Contact",
     footerLegal: "Legal",
     footerServiceItems: ["Instalații electrice", "Serviciu de urgență", "Tablou și diagnosticare"],
     footerConversionItems: [
-      "Flux Telegram susținut de server",
-      "CTA prioritizate pentru mobil",
-      "Structura rutelor multilingve păstrată",
+      "Porniți Telegram direct din antet sau formular",
+      "Separați clar lucrările urgente de cele planificate",
+      "Explicați din timp răspunsul, deplasarea și pașii următori",
     ],
     legalNotice: "Notificare legală",
     privacyNotice: "Confidențialitate",
@@ -325,12 +326,12 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-[color:var(--surface-overlay)]/86 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface-overlay)] shadow-[0_10px_30px_rgba(17,32,51,0.08)] backdrop-blur-xl">
       <div className="section flex min-h-20 items-center justify-between gap-4 py-4">
         <div className="flex items-center gap-4">
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/6 text-white lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--line-strong)] bg-white text-[color:var(--ink)] lg:hidden"
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
             aria-label={isOpen ? copy.toggleClose : copy.toggleOpen}
@@ -344,10 +345,10 @@ export function Header() {
           </button>
 
           <Link href={buildLocalizedPath(currentLocale)} className="flex flex-col">
-            <span className="text-[0.7rem] uppercase tracking-[0.28em] text-white/52">
+            <span className="text-[0.7rem] uppercase tracking-[0.28em] text-[color:var(--brand)]/72">
               {copy.brandEyebrow}
             </span>
-            <span className="text-2xl font-semibold tracking-tight text-white">Mr Spark</span>
+            <span className="text-2xl font-semibold tracking-tight text-[color:var(--ink)]">Mr Spark</span>
           </Link>
         </div>
 
@@ -360,8 +361,8 @@ export function Header() {
                 key={href}
                 href={href}
                 aria-current={isActive ? "page" : undefined}
-                className={`text-sm font-medium transition hover:text-white ${
-                  isActive ? "text-white" : "text-white/78"
+                className={`text-sm font-medium transition hover:text-[color:var(--brand)] ${
+                  isActive ? "text-[color:var(--brand)]" : "text-[color:var(--ink)]/76"
                 }`}
               >
                 {label}
@@ -374,12 +375,12 @@ export function Header() {
           <LanguageSelector />
           <Link
             href={buildLocalizedPath(currentLocale, "notdienst")}
-            className="btn-base btn-small hidden md:inline-flex bg-white text-[color:var(--ink)] hover:bg-white/92"
+            className="btn-base btn-small hidden md:inline-flex border border-[color:var(--line-strong)] bg-white text-[color:var(--ink)] hover:bg-[color:var(--brand-soft)]"
           >
             {copy.emergencyCta}
           </Link>
           <Link
-            href={buildLocalizedPath(currentLocale, "kontakt")}
+            href={siteConfig.telegramUrl}
             className="btn-base btn-small bg-[color:var(--accent)] text-[color:var(--ink)] hover:bg-[#ffd36c]"
           >
             {copy.primaryCta}

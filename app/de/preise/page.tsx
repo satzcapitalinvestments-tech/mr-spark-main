@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import {
   FeatureGrid,
   HeroSection,
@@ -25,22 +26,23 @@ export default function Page() {
     <main className="gradient">
       <HeroSection
         eyebrow="Preise und Transparenz"
-        title="Eine Preis-Seite, die Erwartungssteuerung leistet statt mit fiktiven Pauschalen zu arbeiten."
-        description="Die Seite schafft Vertrauen über Kostenlogik, Beispielkontexte und sichtbare Sonderfälle wie Notdienstzuschläge."
+        title="Preise und transparente Abrechnung fuer Elektroarbeiten."
+        description="Die Preis-Seite erklaert Anfahrt, Diagnose, Arbeitszeit, Material und Notdienstzuschlaege nachvollziehbar, ohne mit fiktiven Festpreisen zu werben."
         points={[
-          "Preisblöcke bleiben voneinander getrennt",
-          "Notdienstkosten werden nicht versteckt",
-          "Die Conversion bleibt auch auf der Preisroute präsent",
+          "Preisbloecke bleiben sauber voneinander getrennt",
+          "Notdienstkosten werden offen benannt",
+          "Rueckfragen zu Aufwand und Einsatzart lassen sich besser vorbereiten",
         ]}
         primaryCta={{ href: "/de/kontakt", label: "Preisrelevante Anfrage stellen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "Notdienst anfragen", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
+        aside={<ElectricalPhotoShowcase variant="pricing" />}
       />
 
       <PageSection>
         <SectionHeading
           eyebrow="Kostenbausteine"
-          title="Die Preisarchitektur erklärt, wofür Nutzer tatsächlich bezahlen."
-          description="Das senkt Rückfragen und verhindert, dass der Leadflow mit Preisunsicherheit abbricht."
+          title="Diese Kostenpunkte beeinflussen die Elektrorechnung."
+          description="So sehen Sie direkt, welche Bausteine bei Notdienst, Diagnose, Arbeitszeit und Material fuer die Preisabsprache relevant sind."
         />
         <FeatureGrid items={pricingPageContent.pillars} columns={2} />
       </PageSection>
@@ -48,15 +50,15 @@ export default function Page() {
       <PageSection surface>
         <SectionHeading
           eyebrow="Einordnung"
-          title="Beispielszenarien helfen bei der Erwartungsbildung, ohne falsche Preisgarantien auszusprechen."
-          description="Die Inhalte bleiben bewusst qualitativ, bis das Unternehmen belastbare Preisspannen freigibt."
+          title="Beispielszenarien helfen bei der Einordnung, ohne falsche Preisgarantien zu geben."
+          description="Die Inhalte bleiben bewusst qualitativ, bis belastbare Preisspannen fuer einzelne Leistungen freigegeben sind."
         />
         <FeatureGrid items={pricingPageContent.examples} columns={3} />
       </PageSection>
 
       <LeadCaptureSection
-        title="Kostenrelevante Anfrage mit Kontext starten"
-        description="Wer die Preisroute besucht, kann direkt mit Stadt, Leistungsbild und Dringlichkeit in den bestehenden Leadflow einsteigen."
+        title="Preisrelevante Anfrage mit Kontext starten"
+        description="Wenn Sie Preisfragen haben, beschreiben Sie Einsatzort, Leistung und Dringlichkeit direkt hier und starten Sie die weitere Abstimmung ueber Telegram."
         sourcePage="/de/preise"
         checklist={[
           "Leistungsart nennen",
