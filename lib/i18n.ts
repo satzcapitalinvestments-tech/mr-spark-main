@@ -4,8 +4,6 @@ export const localeCodes = languages.map((l) => l.code);
 export const defaultLocale: LocaleCode = "de";
 export const localizedRouteSlugs = [
   "leistungen",
-  "elektriker",
-  "elektro",
   "notdienst",
   "einsatzgebiet",
   "preise",
@@ -16,8 +14,89 @@ export const localizedRouteSlugs = [
 ] as const;
 export type LocalizedRouteSlug = (typeof localizedRouteSlugs)[number];
 
-const localeSwitchAliases: Record<string, LocalizedRouteSlug> = {
-  standorte: "einsatzgebiet",
+const defaultRouteSegments: Record<LocalizedRouteSlug, string> = {
+  leistungen: "leistungen",
+  notdienst: "notdienst",
+  einsatzgebiet: "einsatzgebiet",
+  preise: "preise",
+  kontakt: "kontakt",
+  "ueber-uns": "ueber-uns",
+  impressum: "impressum",
+  datenschutz: "datenschutz",
+};
+
+const localizedRouteSegments: Record<LocaleCode, Record<LocalizedRouteSlug, string>> = {
+  de: defaultRouteSegments,
+  en: {
+    ...defaultRouteSegments,
+    leistungen: "services",
+    notdienst: "emergency",
+    einsatzgebiet: "coverage",
+    preise: "pricing",
+    kontakt: "contact",
+    "ueber-uns": "about-us",
+    impressum: "legal-notice",
+    datenschutz: "privacy",
+  },
+  tr: defaultRouteSegments,
+  ar: defaultRouteSegments,
+  ru: defaultRouteSegments,
+  pl: defaultRouteSegments,
+  uk: defaultRouteSegments,
+  ro: defaultRouteSegments,
+};
+
+const legacyRouteAliases: Record<LocaleCode, Record<string, LocalizedRouteSlug>> = {
+  de: {
+    elektriker: "leistungen",
+    elektro: "leistungen",
+    standorte: "einsatzgebiet",
+  },
+  en: {
+    leistungen: "leistungen",
+    elektriker: "leistungen",
+    elektro: "leistungen",
+    electrician: "leistungen",
+    electrical: "leistungen",
+    notdienst: "notdienst",
+    einsatzgebiet: "einsatzgebiet",
+    preise: "preise",
+    kontakt: "kontakt",
+    "ueber-uns": "ueber-uns",
+    impressum: "impressum",
+    datenschutz: "datenschutz",
+    standorte: "einsatzgebiet",
+  },
+  tr: {
+    elektriker: "leistungen",
+    elektro: "leistungen",
+    standorte: "einsatzgebiet",
+  },
+  ar: {
+    elektriker: "leistungen",
+    elektro: "leistungen",
+    standorte: "einsatzgebiet",
+  },
+  ru: {
+    elektriker: "leistungen",
+    elektro: "leistungen",
+    standorte: "einsatzgebiet",
+  },
+  pl: {
+    elektriker: "leistungen",
+    elektro: "leistungen",
+    standorte: "einsatzgebiet",
+  },
+  uk: {
+    elektriker: "leistungen",
+    elektro: "leistungen",
+    standorte: "einsatzgebiet",
+  },
+  ro: {
+    elektriker: "leistungen",
+    elektro: "leistungen",
+    standorte: "einsatzgebiet",
+  },
 };
 
 export const isLocale = (v: string): v is LocaleCode => localeCodes.includes(v as LocaleCode);
@@ -57,8 +136,50 @@ export function isLocalizedRouteSlug(slug: string): slug is LocalizedRouteSlug {
   return localizedRouteSlugs.includes(slug as LocalizedRouteSlug);
 }
 
+export function getLocalizedRouteSegment(locale: LocaleCode, slug: LocalizedRouteSlug) {
+  return localizedRouteSegments[locale][slug];
+}
+
+export function getLocalizedStaticParams(locale: LocaleCode) {
+  return localizedRouteSlugs.map((slug) => ({
+    locale,
+    slug: getLocalizedRouteSegment(locale, slug),
+  }));
+}
+
+export function resolveLocalizedRouteSlug(locale: LocaleCode, segment: string) {
+  const canonicalMatch = (
+    Object.entries(localizedRouteSegments[locale]) as Array<[LocalizedRouteSlug, string]>
+  ).find(([, localizedSegment]) => localizedSegment === segment);
+
+  if (canonicalMatch) {
+    return canonicalMatch[0];
+  }
+
+  return legacyRouteAliases[locale][segment] ?? null;
+}
+
+export function resolveLocalizedRoute(locale: LocaleCode, segment: string) {
+  const slug = resolveLocalizedRouteSlug(locale, segment);
+  if (!slug) {
+    return null;
+  }
+
+  const canonicalSegment = getLocalizedRouteSegment(locale, slug);
+
+  return {
+    slug,
+    canonicalPath: buildLocalizedPath(locale, slug),
+    isCanonical: segment === canonicalSegment,
+  };
+}
+
 export function buildLocalizedPath(locale: LocaleCode, slug?: string) {
-  const normalizedSlug = slug ? `/${slug.replace(/^\/+/, "")}` : "";
+  const normalizedSlug = slug && isLocalizedRouteSlug(slug)
+    ? `/${getLocalizedRouteSegment(locale, slug)}`
+    : slug
+      ? `/${slug.replace(/^\/+/, "")}`
+      : "";
   return `/${locale}${normalizedSlug}`;
 }
 
@@ -78,6 +199,7 @@ export function resolvePathForLocale(pathname: string, nextLocale: LocaleCode) {
     return buildLocalizedPath(nextLocale);
   }
 
+  const currentLocale = isLocale(parts[0]) ? parts[0] : defaultLocale;
   const [, ...rest] = isLocale(parts[0]) ? parts : [defaultLocale, ...parts];
   const [firstSegment] = rest;
 
@@ -85,8 +207,8 @@ export function resolvePathForLocale(pathname: string, nextLocale: LocaleCode) {
     return buildLocalizedPath(nextLocale);
   }
 
-  const normalizedSlug = localeSwitchAliases[firstSegment] ?? firstSegment;
-  if (!isLocalizedRouteSlug(normalizedSlug)) {
+  const normalizedSlug = resolveLocalizedRouteSlug(currentLocale, firstSegment);
+  if (!normalizedSlug) {
     return buildLocalizedPath(nextLocale);
   }
 

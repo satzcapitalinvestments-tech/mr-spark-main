@@ -7,8 +7,8 @@ type BrandLogoProps = {
 };
 
 const logoSizeByVariant = {
-  header: { width: 184, height: 42 },
-  footer: { width: 212, height: 48 },
+  header: { width: 258, height: 60 },
+  footer: { width: 224, height: 50 },
   mark: { width: 46, height: 46 },
 } as const;
 

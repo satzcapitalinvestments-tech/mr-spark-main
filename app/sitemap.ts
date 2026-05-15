@@ -1,31 +1,23 @@
 import type { MetadataRoute } from "next";
 import { languages } from "@/data/i18n/languages";
+import { buildLocalizedPath, localizedRouteSlugs } from "@/lib/i18n";
 import { hasPublishedLegalDetails, siteConfig } from "@/lib/site-config";
-
-const legalRoutes = ["/impressum", "/datenschutz"];
-const coreRoutes = [
-  "",
-  "/leistungen",
-  "/elektriker",
-  "/elektro",
-  "/notdienst",
-  "/einsatzgebiet",
-  "/preise",
-  "/kontakt",
-  "/ueber-uns",
-  ...(hasPublishedLegalDetails() ? legalRoutes : []),
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!siteConfig.indexingEnabled) {
     return [];
   }
 
+  const publicSlugs = hasPublishedLegalDetails()
+    ? localizedRouteSlugs
+    : localizedRouteSlugs.filter((slug) => slug !== "impressum" && slug !== "datenschutz");
   const routes = ["/"];
 
   for (const lang of languages) {
-    for (const route of coreRoutes) {
-      routes.push(`/${lang.code}${route}`);
+    routes.push(buildLocalizedPath(lang.code));
+
+    for (const slug of publicSlugs) {
+      routes.push(buildLocalizedPath(lang.code, slug));
     }
   }
 

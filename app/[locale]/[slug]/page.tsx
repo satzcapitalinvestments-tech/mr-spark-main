@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import {
   getLocalizedRouteContent,
   getLocalizedSlugTitle,
@@ -19,14 +19,17 @@ import {
   StatsBand,
 } from "@/components/MarketingSections";
 import {
+  buildLocalizedPath,
+  getLocalizedRouteSegment,
   getLocaleDirection,
   getLocaleLanguageTag,
   isLocale,
-  isLocalizedRouteSlug,
   localeCodes,
   localizedRouteSlugs,
+  resolveLocalizedRouteSlug,
 } from "@/lib/i18n";
 import { buildLocalizedPageMetadata } from "@/lib/seo";
+import VisualDepthSection from "@/components/VisualDepthSection";
 
 type SlugParams = Promise<{ locale: string; slug: string }>;
 
@@ -35,8 +38,6 @@ const showcaseVariantBySlug: Record<
   "services" | "emergency" | "coverage" | "pricing" | "contact"
 > = {
   leistungen: "services",
-  elektriker: "services",
-  elektro: "services",
   notdienst: "emergency",
   einsatzgebiet: "coverage",
   preise: "pricing",
@@ -87,7 +88,12 @@ const emergencyWarningByLocale = {
 export function generateStaticParams() {
   return localeCodes
     .filter((locale) => locale !== "de")
-    .flatMap((locale) => localizedRouteSlugs.map((slug) => ({ locale, slug })));
+    .flatMap((locale) =>
+      localizedRouteSlugs.map((slug) => ({
+        locale,
+        slug: getLocalizedRouteSegment(locale, slug),
+      })),
+    );
 }
 
 export async function generateMetadata({
@@ -97,16 +103,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params;
 
-  if (!isLocale(locale) || locale === "de" || !isLocalizedRouteSlug(slug)) {
+  if (!isLocale(locale) || locale === "de") {
     return {};
   }
 
-  const title = getLocalizedSlugTitle(locale, slug);
-  const content = getLocalizedRouteContent(locale, slug);
+  const resolvedSlug = resolveLocalizedRouteSlug(locale, slug);
+  if (!resolvedSlug) {
+    return {};
+  }
+
+  const title = getLocalizedSlugTitle(locale, resolvedSlug);
+  const content = getLocalizedRouteContent(locale, resolvedSlug);
 
   return buildLocalizedPageMetadata({
     locale,
-    slug,
+    slug: resolvedSlug,
     title: `${title} | Mr Spark`,
     description: content.description,
     keywords: [title, ...localizedPageCopy[locale].home.services],
@@ -115,10 +126,20 @@ export async function generateMetadata({
 
 export default async function LocaleSlugPage({ params }: { params: SlugParams }) {
   const { locale, slug } = await params;
-  if (!isLocale(locale) || locale === "de" || !isLocalizedRouteSlug(slug)) return notFound();
-  const content = getLocalizedRouteContent(locale, slug);
+  if (!isLocale(locale) || locale === "de") return notFound();
+
+  const resolvedSlug = resolveLocalizedRouteSlug(locale, slug);
+  if (!resolvedSlug) return notFound();
+
+  const canonicalPath = buildLocalizedPath(locale, resolvedSlug);
+  if (`/${locale}/${slug}` !== canonicalPath) {
+    redirect(canonicalPath);
+  }
+
+  const content = getLocalizedRouteContent(locale, resolvedSlug);
   const trustItems = [...content.points, ...content.checklist].slice(0, 4);
   const routeLabels = localizedSlugLabels[locale];
+  const showcaseVariant = showcaseVariantBySlug[resolvedSlug];
 
   return (
     <main
@@ -132,12 +153,20 @@ export default async function LocaleSlugPage({ params }: { params: SlugParams })
         description={content.description}
         points={content.points}
         primaryCta={{ href: "#lead-form", label: content.primaryCtaLabel }}
-        secondaryCta={{ href: `/${locale}/notdienst`, label: content.secondaryCtaLabel, variant: "secondary" }}
+        secondaryCta={{
+          href: buildLocalizedPath(locale, "notdienst"),
+          label: content.secondaryCtaLabel,
+          variant: "secondary",
+        }}
         supportingCtas={[
-          { href: `/${locale}/preise`, label: routeLabels.preise, variant: "ghost" },
-          { href: `/${locale}/einsatzgebiet`, label: routeLabels.einsatzgebiet, variant: "ghost" },
+          { href: buildLocalizedPath(locale, "preise"), label: routeLabels.preise, variant: "ghost" },
+          {
+            href: buildLocalizedPath(locale, "einsatzgebiet"),
+            label: routeLabels.einsatzgebiet,
+            variant: "ghost",
+          },
         ]}
-        aside={<ElectricalPhotoShowcase variant={showcaseVariantBySlug[slug]} />}
+        aside={<ElectricalPhotoShowcase variant={showcaseVariant} />}
       />
 
       <StatsBand items={trustItems} />
@@ -148,10 +177,19 @@ export default async function LocaleSlugPage({ params }: { params: SlugParams })
           title={content.sectionTitle}
           description={content.sectionDescription}
         />
-        <FeatureGrid items={content.cards} columns={slug === "einsatzgebiet" ? 2 : 3} />
+        <FeatureGrid items={content.cards} columns={resolvedSlug === "einsatzgebiet" ? 2 : 3} />
       </PageSection>
 
-      {slug === "notdienst" ? (
+      {resolvedSlug !== "impressum" && resolvedSlug !== "datenschutz" ? (
+        <VisualDepthSection
+          eyebrow={content.sectionEyebrow}
+          title={content.sectionTitle}
+          description={content.sectionDescription}
+          variant={showcaseVariant}
+        />
+      ) : null}
+
+      {resolvedSlug === "notdienst" ? (
         <PageSection>
           <NoticeCard
             tone="warning"
@@ -161,7 +199,7 @@ export default async function LocaleSlugPage({ params }: { params: SlugParams })
         </PageSection>
       ) : null}
 
-      {slug === "einsatzgebiet" ? (
+      {resolvedSlug === "einsatzgebiet" ? (
         <PageSection surface>
           <SectionHeading
             eyebrow={content.serviceAreaStatesLabel}
@@ -192,9 +230,9 @@ export default async function LocaleSlugPage({ params }: { params: SlugParams })
         id="lead-form"
         title={content.leadTitle}
         description={content.leadDescription}
-        sourcePage={`/${locale}/${slug}`}
+        sourcePage={canonicalPath}
         checklist={content.checklist}
-        emergencyNote={slug === "notdienst" ? emergencyWarningByLocale[locale].description : undefined}
+        emergencyNote={resolvedSlug === "notdienst" ? emergencyWarningByLocale[locale].description : undefined}
       />
     </main>
   );

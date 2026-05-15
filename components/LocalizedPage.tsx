@@ -1,4 +1,5 @@
 import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import {
   FeatureGrid,
   HeroSection,
@@ -9,7 +10,7 @@ import {
 } from "@/components/MarketingSections";
 import type { LocaleCode } from "@/data/i18n/languages";
 import { localizedSlugLabels } from "@/data/i18n/localized-pages";
-import { getLocaleLanguageTag } from "@/lib/i18n";
+import { buildLocalizedPath, getLocaleLanguageTag } from "@/lib/i18n";
 
 type T = {
   title: string;
@@ -49,12 +50,20 @@ export function LocalizedPage({
         description={t.lead}
         points={t.points}
         primaryCta={{ href: "#lead-form", label: t.primaryCtaLabel }}
-        secondaryCta={{ href: `/${locale}/notdienst`, label: t.secondaryCtaLabel, variant: "secondary" }}
+        secondaryCta={{
+          href: buildLocalizedPath(locale, "notdienst"),
+          label: t.secondaryCtaLabel,
+          variant: "secondary",
+        }}
         supportingCtas={
           routeLabels
             ? [
-                { href: `/${locale}/preise`, label: routeLabels.preise, variant: "ghost" },
-                { href: `/${locale}/einsatzgebiet`, label: routeLabels.einsatzgebiet, variant: "ghost" },
+                { href: buildLocalizedPath(locale, "preise"), label: routeLabels.preise, variant: "ghost" },
+                {
+                  href: buildLocalizedPath(locale, "einsatzgebiet"),
+                  label: routeLabels.einsatzgebiet,
+                  variant: "ghost",
+                },
               ]
             : []
         }
@@ -77,11 +86,18 @@ export function LocalizedPage({
         />
       </PageSection>
 
+      <VisualDepthSection
+        eyebrow={t.servicesEyebrow}
+        title={t.servicesTitle}
+        description={t.servicesDescription}
+        variant="home"
+      />
+
       <LeadCaptureSection
         id="lead-form"
         title={t.leadTitle}
         description={t.leadDescription}
-        sourcePage={`/${locale}`}
+        sourcePage={buildLocalizedPath(locale)}
         checklist={t.checklist}
       />
     </main>

@@ -219,29 +219,49 @@ export const servicesPageContent = {
       description: "Neue Stromkreise, Erweiterungen, Licht, Steckdosen und klassische Elektroarbeiten für Wohn- und Gewerbeobjekte.",
     },
     {
-      badge: "Kernleistung",
+      badge: "Verteilung",
+      title: "Sicherungskasten",
+      description: "Prüfung, Erweiterung und Erneuerung von Verteilungen, Automaten, FI-Schutz und Unterverteilungen.",
+    },
+    {
+      badge: "Innenraum",
+      title: "Steckdosen & Schalter",
+      description: "Nachrüstung, Austausch und Reparatur von Steckdosen, Schaltern und einzelnen Strompunkten.",
+    },
+    {
+      badge: "Innenraum",
+      title: "Lichtinstallation",
+      description: "Montage, Austausch und Erweiterung von Innen- und Außenbeleuchtung mit sauberer Elektroplanung.",
+    },
+    {
+      badge: "Diagnose",
       title: "Fehlersuche",
       description: "Analyse wiederkehrender Ausfälle, FI-Probleme, flackernder Beleuchtung und unklarer Defekte.",
     },
     {
-      badge: "Kernleistung",
-      title: "Elektro-Notdienst",
-      description: "Akute Störungen wie Stromausfall, Brandgeruch oder Kurzschluss schnell einordnen und melden.",
+      badge: "Sicherheit",
+      title: "FI-Schalter",
+      description: "Prüfung von RCD- und FI-Auslösungen, Schutzorganen und wiederkehrenden Sicherheitsabschaltungen.",
     },
     {
-      badge: "Anlage",
-      title: "Sicherungskasten & Verteilung",
-      description: "Einordnung, Austausch und Erweiterung von Unterverteilungen, Automaten und Schutzorganen.",
-    },
-    {
-      badge: "Innenraum",
-      title: "Schalter, Steckdosen & Licht",
-      description: "Kleinere Arbeiten im Wohn- oder Gewerbebereich klar und ohne Umwege anfragen.",
+      badge: "Notfall",
+      title: "Stromausfall",
+      description: "Teil- oder Komplettausfälle schnell einordnen, absichern und für den nächsten Schritt vorbereiten.",
     },
     {
       badge: "Modernisierung",
-      title: "Smart Home & Nachrüstung",
-      description: "Vorbereitung für moderne Elektrolösungen, zusätzliche Anschlüsse und Bestandsmodernisierung.",
+      title: "Smart Home",
+      description: "Vorbereitung für moderne Elektrolösungen, zusätzliche Steuerungen und sinnvolle Nachrüstungen.",
+    },
+    {
+      badge: "Objekte",
+      title: "Gewerbe & Wohnungen",
+      description: "Elektroarbeiten für private Wohnungen, Häuser, Büros und gewerbliche Flächen klar abgestimmt anfragen.",
+    },
+    {
+      badge: "Notdienst",
+      title: "Notdienst",
+      description: "Akute Störungen wie Brandgeruch, Kurzschluss oder gefährliche Steckdosen priorisiert melden.",
     },
   ],
 };

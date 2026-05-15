@@ -12,8 +12,6 @@ import { siteConfig } from "@/lib/site-config";
 const links = [
   ["home", ""],
   ["services", "leistungen"],
-  ["electrician", "elektriker"],
-  ["electrical", "elektro"],
   ["emergency", "notdienst"],
   ["coverage", "einsatzgebiet"],
   ["pricing", "preise"],
@@ -46,8 +44,6 @@ const shellCopy: Record<
     nav: {
       home: "Startseite",
       services: "Leistungen",
-      electrician: "Elektriker",
-      electrical: "Elektro",
       emergency: "Notdienst",
       coverage: "Einsatzgebiet",
       pricing: "Preise",
@@ -79,8 +75,6 @@ const shellCopy: Record<
     nav: {
       home: "Home",
       services: "Services",
-      electrician: "Electrician",
-      electrical: "Electrical",
       emergency: "Emergency",
       coverage: "Coverage",
       pricing: "Pricing",
@@ -88,7 +82,7 @@ const shellCopy: Record<
     },
     toggleOpen: "Open navigation",
     toggleClose: "Close navigation",
-    primaryCta: "Open Telegram",
+    primaryCta: "Start Telegram",
     emergencyCta: "24h Emergency",
     brandEyebrow: "Electrician & emergency",
     footerTitle: "Fast electrical help, clear pricing, and a direct contact path.",
@@ -112,8 +106,6 @@ const shellCopy: Record<
     nav: {
       home: "Ana sayfa",
       services: "Hizmetler",
-      electrician: "Elektrikçi",
-      electrical: "Elektrik",
       emergency: "Acil servis",
       coverage: "Hizmet bölgesi",
       pricing: "Fiyatlar",
@@ -145,8 +137,6 @@ const shellCopy: Record<
     nav: {
       home: "الرئيسية",
       services: "الخدمات",
-      electrician: "كهربائي",
-      electrical: "الكهرباء",
       emergency: "الطوارئ",
       coverage: "نطاق الخدمة",
       pricing: "الأسعار",
@@ -177,8 +167,6 @@ const shellCopy: Record<
     nav: {
       home: "Главная",
       services: "Услуги",
-      electrician: "Электрик",
-      electrical: "Электрика",
       emergency: "Аварийная служба",
       coverage: "Зона обслуживания",
       pricing: "Цены",
@@ -210,8 +198,6 @@ const shellCopy: Record<
     nav: {
       home: "Start",
       services: "Usługi",
-      electrician: "Elektryk",
-      electrical: "Elektryka",
       emergency: "Pogotowie",
       coverage: "Obszar działania",
       pricing: "Ceny",
@@ -243,8 +229,6 @@ const shellCopy: Record<
     nav: {
       home: "Головна",
       services: "Послуги",
-      electrician: "Електрик",
-      electrical: "Електрика",
       emergency: "Аварійна служба",
       coverage: "Зона обслуговування",
       pricing: "Ціни",
@@ -276,8 +260,6 @@ const shellCopy: Record<
     nav: {
       home: "Acasă",
       services: "Servicii",
-      electrician: "Electrician",
-      electrical: "Electric",
       emergency: "Urgență",
       coverage: "Zona de serviciu",
       pricing: "Prețuri",
@@ -351,9 +333,9 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface)] shadow-[0_16px_36px_rgba(7,26,51,0.08)]">
-      <div className="section flex min-h-24 items-center justify-between gap-4 py-4">
-        <div className="flex items-center gap-4">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-white/96 shadow-[0_18px_42px_rgba(7,26,51,0.08)] backdrop-blur">
+      <div className="section flex min-h-[5.55rem] items-center justify-between gap-4 py-3">
+        <div className="flex items-center gap-3">
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--line-strong)] bg-white text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.08)] lg:hidden"
@@ -369,12 +351,12 @@ export function Header() {
             </span>
           </button>
 
-          <Link href={buildLocalizedPath(currentLocale)} className="flex items-center">
-            <BrandLogo size="header" className="h-11 w-auto md:h-[2.9rem]" />
+          <Link href={buildLocalizedPath(currentLocale)} className="flex shrink-0 items-center">
+            <BrandLogo size="header" className="h-[3.05rem] w-auto max-w-none md:h-[3.45rem]" />
           </Link>
         </div>
 
-        <nav aria-label={copy.desktopNavLabel} className="hidden items-center gap-5 lg:flex">
+        <nav aria-label={copy.desktopNavLabel} className="hidden items-center gap-4 xl:gap-5 lg:flex">
           {localizedLinks.map(({ label, href }) => {
             const isActive = isActivePath(pathname, href);
 

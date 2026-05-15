@@ -259,6 +259,6 @@ h4 {
 
   .hero-grid,
   .cta-shell {
-    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 28rem);
+    grid-template-columns: minmax(0, 1.04fr) minmax(22rem, 34rem);
   }
 }

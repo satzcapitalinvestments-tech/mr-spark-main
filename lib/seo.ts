@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import type { LocaleCode } from "@/data/i18n/languages";
-import { buildLocaleAlternates, defaultLocale, getOpenGraphLocale } from "@/lib/i18n";
+import {
+  buildLocaleAlternates,
+  buildLocalizedPath,
+  defaultLocale,
+  getOpenGraphLocale,
+} from "@/lib/i18n";
 import { buildSiteUrl, siteConfig } from "@/lib/site-config";
 
 type PageMetadataInput = {
@@ -67,7 +72,7 @@ export function buildLocalizedPageMetadata({
   slug?: string;
   keywords?: string[];
 }) {
-  const pathname = slug ? `/${locale}/${slug}` : `/${locale}`;
+  const pathname = buildLocalizedPath(locale, slug);
 
   return buildPageMetadata({
     title,

@@ -6,6 +6,7 @@ type LocalizedHomePageContent = {
   lead: string;
   eyebrow: string;
   services: string[];
+  servicePageItems?: string[];
   points: string[];
   servicesEyebrow: string;
   servicesTitle: string;
@@ -44,8 +45,6 @@ type LocaleUiCopy = {
 
 const slugKeys: LocalizedRouteSlug[] = [
   "leistungen",
-  "elektriker",
-  "elektro",
   "notdienst",
   "einsatzgebiet",
   "preise",
@@ -58,8 +57,6 @@ const slugKeys: LocalizedRouteSlug[] = [
 const localizedSlugLabels: Record<Exclude<LocaleCode, "de">, Record<LocalizedRouteSlug, string>> = {
   en: {
     leistungen: "Services",
-    elektriker: "Electrician",
-    elektro: "Electrical work",
     notdienst: "Emergency service",
     einsatzgebiet: "Service area",
     preise: "Pricing",
@@ -70,8 +67,6 @@ const localizedSlugLabels: Record<Exclude<LocaleCode, "de">, Record<LocalizedRou
   },
   tr: {
     leistungen: "Hizmetler",
-    elektriker: "Elektrikçi",
-    elektro: "Elektrik işleri",
     notdienst: "Acil servis",
     einsatzgebiet: "Hizmet bölgesi",
     preise: "Fiyatlar",
@@ -82,8 +77,6 @@ const localizedSlugLabels: Record<Exclude<LocaleCode, "de">, Record<LocalizedRou
   },
   ar: {
     leistungen: "الخدمات",
-    elektriker: "كهربائي",
-    elektro: "الأعمال الكهربائية",
     notdienst: "خدمة الطوارئ",
     einsatzgebiet: "منطقة الخدمة",
     preise: "الأسعار",
@@ -94,8 +87,6 @@ const localizedSlugLabels: Record<Exclude<LocaleCode, "de">, Record<LocalizedRou
   },
   ru: {
     leistungen: "Услуги",
-    elektriker: "Электрик",
-    elektro: "Электромонтаж",
     notdienst: "Аварийная служба",
     einsatzgebiet: "Зона обслуживания",
     preise: "Цены",
@@ -106,8 +97,6 @@ const localizedSlugLabels: Record<Exclude<LocaleCode, "de">, Record<LocalizedRou
   },
   pl: {
     leistungen: "Usługi",
-    elektriker: "Elektryk",
-    elektro: "Prace elektryczne",
     notdienst: "Pogotowie elektryczne",
     einsatzgebiet: "Obszar działania",
     preise: "Ceny",
@@ -118,8 +107,6 @@ const localizedSlugLabels: Record<Exclude<LocaleCode, "de">, Record<LocalizedRou
   },
   uk: {
     leistungen: "Послуги",
-    elektriker: "Електрик",
-    elektro: "Електромонтажні роботи",
     notdienst: "Аварійна служба",
     einsatzgebiet: "Зона обслуговування",
     preise: "Ціни",
@@ -130,8 +117,6 @@ const localizedSlugLabels: Record<Exclude<LocaleCode, "de">, Record<LocalizedRou
   },
   ro: {
     leistungen: "Servicii",
-    elektriker: "Electrician autorizat",
-    elektro: "Lucrări electrice",
     notdienst: "Serviciu de urgență",
     einsatzgebiet: "Zona de serviciu",
     preise: "Prețuri",
@@ -155,6 +140,18 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "Sockets, switches and lighting",
       "Telegram contact and fast follow-up",
     ],
+    servicePageItems: [
+      "Electrical installation",
+      "Fuse box",
+      "Sockets & switches",
+      "Lighting",
+      "Fault finding",
+      "RCD / safety switch",
+      "Power outage",
+      "Smart home",
+      "Commercial & residential work",
+      "Emergency service",
+    ],
     points: [
       "Emergency callouts and planned electrical work are both easy to request",
       "Telegram, pricing, and contact details stay clear from first click to callback",
@@ -163,7 +160,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     servicesTitle: "Electrical help stays clear, urgent and easy to compare.",
     servicesDescription: "Installation, diagnostics, pricing, and contact options are presented in a direct service-first format.",
     serviceCardDescription: "Mr Spark coordinates suitable electrical support depending on the issue, urgency and region.",
-    primaryCtaLabel: "Open Telegram",
+    primaryCtaLabel: "Start Telegram",
     secondaryCtaLabel: "24h Emergency",
     leadTitle: "Send a structured request",
     leadDescription: "Name, city, service and urgency are prepared before Telegram opens, so the request starts with the right details.",
@@ -380,49 +377,10 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       description: home.lead,
       eyebrow: `${home.eyebrow} · ${labels.leistungen}`,
       points: home.points,
-      cards: buildCards(
-        { title: labels.leistungen, description: home.serviceCardDescription },
-        { title: labels.elektro, description: home.servicesDescription },
-        { title: home.primaryCtaLabel, description: home.leadDescription },
-      ),
-      sectionEyebrow: home.servicesEyebrow,
-      sectionTitle: home.servicesTitle,
-      sectionDescription: home.servicesDescription,
-      primaryCtaLabel: home.primaryCtaLabel,
-      secondaryCtaLabel: home.secondaryCtaLabel,
-      leadTitle: home.leadTitle,
-      leadDescription: home.leadDescription,
-      checklist: home.checklist,
-    },
-    elektriker: {
-      title: labels.elektriker,
-      description: home.lead,
-      eyebrow: `${home.eyebrow} · ${labels.elektriker}`,
-      points: home.points,
-      cards: buildCards(
-        { title: labels.elektriker, description: home.serviceCardDescription },
-        { title: labels.notdienst, description: home.servicesDescription },
-        { title: home.primaryCtaLabel, description: home.leadDescription },
-      ),
-      sectionEyebrow: home.servicesEyebrow,
-      sectionTitle: home.servicesTitle,
-      sectionDescription: home.servicesDescription,
-      primaryCtaLabel: home.primaryCtaLabel,
-      secondaryCtaLabel: home.secondaryCtaLabel,
-      leadTitle: home.leadTitle,
-      leadDescription: home.leadDescription,
-      checklist: home.checklist,
-    },
-    elektro: {
-      title: labels.elektro,
-      description: home.lead,
-      eyebrow: `${home.eyebrow} · ${labels.elektro}`,
-      points: home.points,
-      cards: buildCards(
-        { title: labels.elektro, description: home.serviceCardDescription },
-        { title: labels.leistungen, description: home.servicesDescription },
-        { title: home.primaryCtaLabel, description: home.leadDescription },
-      ),
+      cards: (home.servicePageItems ?? home.services).map((service) => ({
+        title: service,
+        description: home.serviceCardDescription,
+      })),
       sectionEyebrow: home.servicesEyebrow,
       sectionTitle: home.servicesTitle,
       sectionDescription: home.servicesDescription,

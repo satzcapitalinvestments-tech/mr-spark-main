@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import Faq from "@/components/Faq";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import {
   FeatureGrid,
   HeroSection,
@@ -119,6 +120,13 @@ export default function Page() {
         />
         <FeatureGrid items={homePageContent.services} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Echte Elektroarbeit"
+        title="Sicherungskasten, Messung und Montage bleiben auch mitten auf der Seite sichtbar."
+        description="Breitere Elektro-Motive geben dem Auftritt mehr Tiefe und zeigen schon im Scrollverlauf, dass es um echte Einsätze, Diagnose und saubere Ausführung geht."
+        variant="home"
+      />
 
       <PageSection surface>
         <SectionHeading
