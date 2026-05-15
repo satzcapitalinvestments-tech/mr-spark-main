@@ -116,7 +116,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Leistungen im Ueberblick"
           title="Von Notdienst bis Neuinstallation finden Sie schnell die passende Elektrohilfe."
-          description="Die Startseite bleibt klar, hell und sofort verstaendlich: Was macht Mr Spark, fuer wen ist der Service gedacht und wie starten Sie die Anfrage?"
+          description="Alle wichtigen Leistungen, Kontaktwege und Preisinfos bleiben auf einen Blick erreichbar."
         />
         <FeatureGrid items={homePageContent.services} />
       </PageSection>
@@ -124,7 +124,7 @@ export default function Page() {
       <VisualDepthSection
         eyebrow="Elektrische Eindruecke"
         title="Mehr echte Elektroarbeit in den mittleren Bereichen schafft Vertrauen und Orientierung."
-        description="Schaltschrank, Messung, Vor-Ort-Pruefung und Kontaktweg bleiben nicht nur oben im Hero sichtbar, sondern tragen den gesamten Seitenfluss."
+        description="Schaltschrank, Messung und Vor-Ort-Pruefung bleiben ueber den gesamten Seitenverlauf sichtbar und greifbar."
         variant="services"
       />
 
@@ -132,7 +132,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Schnelle Orientierung"
           title="Akute Stoerungen, Kontaktweg und wichtige Leistungen sind ohne langes Scrollen sichtbar."
-          description="So wirkt die Startseite wie eine starke Service-Landingpage statt wie ein interner Projektentwurf."
+          description="So bleibt der Einstieg stark, vertrauenswuerdig und sofort auf echte Elektrohilfe ausgerichtet."
         />
         <FeatureGrid items={emergencyHighlights} columns={2} />
       </PageSection>

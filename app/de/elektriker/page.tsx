@@ -63,15 +63,15 @@ export default function Page() {
         <SectionHeading
           eyebrow="Leistungsfokus"
           title="Typische Elektriker-Anliegen schnell einordnen."
-          description="So bleibt die Route klar, hilfreich und konkret fuer Nutzer mit direkter Kaufabsicht."
+          description="Kunden finden Reparatur, Pruefung und kleinere Elektroarbeiten schnell in der passenden Einordnung."
         />
         <FeatureGrid items={cards} />
       </PageSection>
 
       <VisualDepthSection
         eyebrow="Vor-Ort-Eindruck"
-        title="Elektriker-Seiten brauchen sichtbare Reparatur- und Diagnosesituationen."
-        description="So bleibt der Nutzen fuer Reparatur, Pruefung und Notdienst auch zwischen den Textabschnitten praesent."
+        title="Reparatur, Diagnose und Vor-Ort-Arbeit muessen sofort Vertrauen schaffen."
+        description="Echte Arbeitsbilder halten Reparatur, Pruefung und Notdienst auch zwischen den Textabschnitten praesent."
         variant="services"
       />
 

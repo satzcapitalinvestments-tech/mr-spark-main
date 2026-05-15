@@ -60,7 +60,7 @@ export default function Page() {
 
       <VisualDepthSection
         eyebrow="Vor Ort sichtbar"
-        title="Notdienst, Diagnose und Absicherung muessen auf der Seite wie echte Elektrohilfe wirken."
+        title="Notdienst, Diagnose und Absicherung muessen sofort glaubwuerdig wirken."
         description="Die Bildsprache staerkt das Vertrauen, ohne den Sicherheitsfokus oder die direkte Kontaktmoeglichkeit zu verlieren."
         variant="emergency"
       />

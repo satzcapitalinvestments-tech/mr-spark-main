@@ -43,7 +43,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Leistungskategorien"
           title="Elektroarbeiten, die Nutzer schnell einordnen koennen."
-          description="So wirkt die Leistungsseite wie ein starkes Serviceangebot und nicht wie eine technische Projektbeschreibung."
+          description="So bleibt das Leistungsangebot klar, vertrauenswuerdig und leicht vergleichbar."
         />
         <FeatureGrid items={servicesPageContent.categories} />
       </PageSection>
@@ -51,7 +51,7 @@ export default function Page() {
       <VisualDepthSection
         eyebrow="Bildsprache"
         title="Leistungen brauchen sichtbare Elektro-Motive statt nur ruhige Textflaechen."
-        description="Messung, Verteilung und Montage bleiben in der Mitte der Seite praesent und geben dem Leistungsangebot mehr Tiefe."
+        description="Messung, Verteilung und Montage bleiben ueber die ganze Seite sichtbar und staerken den Serviceeindruck."
         variant="services"
       />
 

@@ -63,15 +63,15 @@ export default function Page() {
         <SectionHeading
           eyebrow="Leistungseinordnung"
           title="Diese Elektroarbeiten koennen Sie direkt vorbereiten."
-          description="Die Route bleibt konkret, modern und auf echte Kundenanfragen ausgerichtet."
+          description="Leistungen fuer Installation, Erweiterung und Nachruestung bleiben schnell erfassbar."
         />
         <FeatureGrid items={cards} />
       </PageSection>
 
       <VisualDepthSection
         eyebrow="Modernisierung sichtbar"
-        title="Installation und Nachruestung sollten auch im Seitenmittelpunkt wie echte Elektroprojekte wirken."
-        description="Die Bildflaechen bringen Schaltschrank, Messung und Montage sichtbar zusammen und geben der Route mehr Premium-Tiefe."
+        title="Installation und Nachruestung sollen sofort wie saubere Elektroarbeit wirken."
+        description="Schaltschrank, Messung und Montage bleiben sichtbar und geben der Seite mehr Vertrauen und Tiefe."
         variant="services"
       />
 

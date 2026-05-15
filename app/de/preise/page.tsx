@@ -43,7 +43,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Kostenbausteine"
           title="So setzt sich ein Angebot fuer Elektroarbeiten zusammen."
-          description="Die Preisroute schafft Vertrauen, weil sie nicht mit Fantasiepreisen arbeitet, sondern mit nachvollziehbaren Leistungsbausteinen."
+          description="Nachvollziehbare Kostenbausteine schaffen Vertrauen schon vor dem ersten Termin."
         />
         <FeatureGrid items={pricingPageContent.pillars} columns={2} />
       </PageSection>
@@ -51,7 +51,7 @@ export default function Page() {
       <VisualDepthSection
         eyebrow="Preisbild"
         title="Preise wirken vertrauenswuerdiger, wenn reale Elektroarbeit und saubere Markenflaechen zusammenkommen."
-        description="Die Preisroute bleibt klar und kundenfreundlich, ohne in blasse Tabellen oder textlastige SEO-Abschnitte zu kippen."
+        description="Die Preisuebersicht bleibt klar, gut lesbar und nah an echten Elektroeinsaetzen."
         variant="pricing"
       />
 

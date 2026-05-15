@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components/SiteChrome";
+import LocaleRuntime from "@/components/LocaleRuntime";
 import StructuredData from "@/components/StructuredData";
-import { defaultLocale, getLocaleDirection, isLocale } from "@/lib/i18n";
+import { defaultLocale, getLocaleDirection, getLocaleLanguageTag } from "@/lib/i18n";
 import { buildLocalBusinessStructuredData } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
@@ -42,21 +42,15 @@ export const metadata: Metadata = {
     : undefined,
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const requestHeaders = await headers();
-  const localeHeader = requestHeaders.get("x-locale");
-  const locale = localeHeader && isLocale(localeHeader) ? localeHeader : defaultLocale;
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang={locale}
-      dir={getLocaleDirection(locale)}
+      lang={getLocaleLanguageTag(defaultLocale)}
+      dir={getLocaleDirection(defaultLocale)}
       className={`${headingFont.variable} ${bodyFont.variable}`}
     >
       <body>
-        <a href="#page-content" className="skip-link">
-          Zum Inhalt springen
-        </a>
+        <LocaleRuntime />
         <StructuredData data={buildLocalBusinessStructuredData()} />
         <Header />
         <div id="page-content" tabIndex={-1}>

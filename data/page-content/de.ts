@@ -19,7 +19,7 @@ export const homePageContent = {
     "Schnelle Einordnung bei Stromausfall, Kurzschluss und FI-Problemen",
     "Transparente Hinweise zu Anfahrt, Diagnose, Arbeitszeit und Material",
     "Saubere Elektroarbeiten fuer Wohnungen, Haeuser und Gewerbe",
-    "Telegram-Anfrage und Kontaktaufnahme klar sichtbar auf jeder Kernseite",
+    "Direkter Telegram-Kontakt und klare Rueckmeldung ohne Umwege",
   ],
   services: [
     {

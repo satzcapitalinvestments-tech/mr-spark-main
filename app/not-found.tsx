@@ -1,7 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import { headers } from "next/headers";
+import { usePathname } from "next/navigation";
 import type { LocaleCode } from "@/data/i18n/languages";
-import { buildLocalizedPath, defaultLocale, isLocale } from "@/lib/i18n";
+import {
+  buildLocalizedPath,
+  defaultLocale,
+  getLocaleDirection,
+  getLocaleLanguageTag,
+  isLocale,
+} from "@/lib/i18n";
 
 const notFoundCopy: Record<
   LocaleCode,
@@ -70,14 +78,18 @@ const notFoundCopy: Record<
   },
 };
 
-export default async function NotFound() {
-  const requestHeaders = await headers();
-  const localeHeader = requestHeaders.get("x-locale");
-  const locale = localeHeader && isLocale(localeHeader) ? localeHeader : defaultLocale;
+export default function NotFound() {
+  const pathname = usePathname() || `/${defaultLocale}`;
+  const localeSegment = pathname.split("/")[1];
+  const locale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
   const copy = notFoundCopy[locale];
 
   return (
-    <main className="section py-24">
+    <main
+      className="section py-24"
+      lang={getLocaleLanguageTag(locale)}
+      dir={getLocaleDirection(locale)}
+    >
       <div className="panel-surface max-w-3xl p-8 md:p-10">
         <p className="section-eyebrow">404</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[color:var(--ink)] md:text-5xl">

@@ -9,6 +9,7 @@ import {
 } from "@/components/MarketingSections";
 import type { LocaleCode } from "@/data/i18n/languages";
 import { localizedSlugLabels } from "@/data/i18n/localized-pages";
+import { getLocaleLanguageTag } from "@/lib/i18n";
 
 type T = {
   title: string;
@@ -33,7 +34,7 @@ export function LocalizedPage({
   dir,
 }: {
   t: T;
-  locale: string;
+  locale: LocaleCode;
   dir?: "ltr" | "rtl";
 }) {
   const routeLabels =
@@ -41,9 +42,9 @@ export function LocalizedPage({
   const trustItems = [...t.points, ...t.checklist].slice(0, 4);
 
   return (
-    <main dir={dir}>
+    <main className="gradient" lang={getLocaleLanguageTag(locale)} dir={dir}>
       <HeroSection
-        eyebrow={`${t.eyebrow} · ${locale.toUpperCase()}`}
+        eyebrow={t.eyebrow}
         title={t.title}
         description={t.lead}
         points={t.points}

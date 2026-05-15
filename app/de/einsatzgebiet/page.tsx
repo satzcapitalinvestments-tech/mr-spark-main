@@ -65,7 +65,7 @@ export default function Page() {
         <SectionHeading
           eyebrow="Regionale Orientierung"
           title="So wird Ihr Einsatzort fuer Elektrohilfe klar eingeordnet."
-          description="Die Seite erklaert das Einsatzgebiet ohne falsche Standortversprechen und ohne ueberladene SEO-Texte."
+          description="Das Einsatzgebiet bleibt klar erklaert, ohne falsche Standortversprechen oder ueberladene Texte."
         />
         <FeatureGrid items={coverageCards} />
       </PageSection>
@@ -73,7 +73,7 @@ export default function Page() {
       <VisualDepthSection
         eyebrow="Region und Einsatz"
         title="Einsatzgebiet braucht neben Kartenlogik auch sichtbare Elektroarbeit und Markenpraesenz."
-        description="So wirkt die Route wie eine echte Serviceseite statt wie eine blasse Ortsliste mit losem Kontaktformular."
+        description="So wirkt die Seite wie ein echter Elektroservice mit Reichweite und klarer Kontaktmoeglichkeit."
         variant="coverage"
       />
 

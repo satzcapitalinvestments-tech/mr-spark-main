@@ -20,6 +20,7 @@ import {
 } from "@/components/MarketingSections";
 import {
   getLocaleDirection,
+  getLocaleLanguageTag,
   isLocale,
   isLocalizedRouteSlug,
   localeCodes,
@@ -120,7 +121,11 @@ export default async function LocaleSlugPage({ params }: { params: SlugParams })
   const routeLabels = localizedSlugLabels[locale];
 
   return (
-    <main className="gradient" dir={getLocaleDirection(locale)}>
+    <main
+      className="gradient"
+      lang={getLocaleLanguageTag(locale)}
+      dir={getLocaleDirection(locale)}
+    >
       <HeroSection
         eyebrow={content.eyebrow}
         title={content.title}
