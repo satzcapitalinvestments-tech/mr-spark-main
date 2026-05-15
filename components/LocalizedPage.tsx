@@ -1,5 +1,89 @@
-import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
-import MascotHero from "@/components/MascotHero";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
+import {
+  FeatureGrid,
+  HeroSection,
+  LeadCaptureSection,
+  PageSection,
+  SectionHeading,
+  StatsBand,
+} from "@/components/MarketingSections";
+import type { LocaleCode } from "@/data/i18n/languages";
+import { localizedSlugLabels } from "@/data/i18n/localized-pages";
+import { getLocaleLanguageTag } from "@/lib/i18n";
 
-type T={title:string;lead:string;services:string[]};
-export function LocalizedPage({t, locale, dir}:{t:T;locale:string;dir?:"ltr"|"rtl"}){return <main className="section py-14" dir={dir}><h1 className="text-4xl font-black">{t.title}</h1><p className="mt-3 text-slate-700">{t.lead}</p><div className="mt-6 grid gap-4 md:grid-cols-3">{t.services.map(s=><article className="card" key={s}><h2 className="text-xl font-semibold">{s}</h2><p className="mt-2 text-slate-600">Mr Spark</p></article>)}</div><section className="mt-8 grid gap-6 md:grid-cols-2"><WhatsAppLeadForm sourcePage={`/${locale}`} /><MascotHero compact /></section></main>}
+type T = {
+  title: string;
+  lead: string;
+  eyebrow: string;
+  services: string[];
+  points: string[];
+  servicesEyebrow: string;
+  servicesTitle: string;
+  servicesDescription: string;
+  serviceCardDescription: string;
+  primaryCtaLabel: string;
+  secondaryCtaLabel: string;
+  leadTitle: string;
+  leadDescription: string;
+  checklist: string[];
+};
+
+export function LocalizedPage({
+  t,
+  locale,
+  dir,
+}: {
+  t: T;
+  locale: LocaleCode;
+  dir?: "ltr" | "rtl";
+}) {
+  const routeLabels =
+    locale !== "de" ? localizedSlugLabels[locale as Exclude<LocaleCode, "de">] : null;
+  const trustItems = [...t.points, ...t.checklist].slice(0, 4);
+
+  return (
+    <main className="gradient" lang={getLocaleLanguageTag(locale)} dir={dir}>
+      <HeroSection
+        eyebrow={t.eyebrow}
+        title={t.title}
+        description={t.lead}
+        points={t.points}
+        primaryCta={{ href: "#lead-form", label: t.primaryCtaLabel }}
+        secondaryCta={{ href: `/${locale}/notdienst`, label: t.secondaryCtaLabel, variant: "secondary" }}
+        supportingCtas={
+          routeLabels
+            ? [
+                { href: `/${locale}/preise`, label: routeLabels.preise, variant: "ghost" },
+                { href: `/${locale}/einsatzgebiet`, label: routeLabels.einsatzgebiet, variant: "ghost" },
+              ]
+            : []
+        }
+        aside={<ElectricalPhotoShowcase variant="home" />}
+      />
+
+      <StatsBand items={trustItems} />
+
+      <PageSection>
+        <SectionHeading
+          eyebrow={t.servicesEyebrow}
+          title={t.servicesTitle}
+          description={t.servicesDescription}
+        />
+        <FeatureGrid
+          items={t.services.map((service) => ({
+            title: service,
+            description: t.serviceCardDescription,
+          }))}
+        />
+      </PageSection>
+
+      <LeadCaptureSection
+        id="lead-form"
+        title={t.leadTitle}
+        description={t.leadDescription}
+        sourcePage={`/${locale}`}
+        checklist={t.checklist}
+      />
+    </main>
+  );
+}

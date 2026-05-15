@@ -1,70 +1,101 @@
+import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import Faq from "@/components/Faq";
-import MascotHero from "@/components/MascotHero";
-import WhatsAppLeadForm from "@/components/WhatsAppLeadForm";
+import {
+  FeatureGrid,
+  HeroSection,
+  LeadCaptureSection,
+  NoticeCard,
+  PageSection,
+  SectionHeading,
+  StepGrid,
+} from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
+import { emergencyPageContent } from "@/data/page-content/de";
+import { buildEmergencyServiceStructuredData, buildPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Elektro-Notdienst rund um die Uhr",
+  description:
+    "Soforthilfe bei Stromausfall, Kurzschluss, FI-Problemen, gefaehrlichen Steckdosen und defekten Sicherungskasten-Komponenten.",
+  pathname: "/de/notdienst",
+  locale: "de",
+  localizedSlug: "notdienst",
+  includeLocaleAlternates: true,
+  keywords: ["24h Elektro-Notdienst", "Stromausfall Hilfe", "Kurzschluss Elektriker"],
+});
 
 export default function Page() {
   return (
     <main className="gradient">
-      <section className="section grid gap-8 py-14 md:grid-cols-2">
-        <div>
-          <h1 className="text-4xl font-black">Elektro-Notdienst rund um die Uhr</h1>
-          <p className="mt-4 text-slate-700">
-            Hilfe bei Stromausfall, Kurzschluss, FI-Schalter löst aus, Sicherungskasten defekt,
-            Steckdose gefährlich, Lichtausfall und Brandgeruch / verschmorte Leitung.
-          </p>
-          <p className="mt-4 rounded-2xl bg-amber-50 p-4 font-medium">
-            Bei Brandgeruch, Funkenbildung oder akuter Gefahr sofort den Stromkreis abschalten und bei Gefahr Feuerwehr/Notruf kontaktieren.
-          </p>
-        </div>
-        <MascotHero compact />
-      </section>
+      <StructuredData data={buildEmergencyServiceStructuredData()} />
 
-      <section className="section py-10">
-        <div className="grid gap-3 md:grid-cols-3">
-          {[
-            "Stromausfall",
-            "Kurzschluss",
-            "FI-Schalter löst aus",
-            "Sicherungskasten defekt",
-            "Steckdose gefährlich",
-            "Lichtausfall",
-            "Brandgeruch / verschmorte Leitung",
-          ].map((item) => (
-            <div key={item} className="card">
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
+      <HeroSection
+        eyebrow={emergencyPageContent.hero.eyebrow}
+        title={emergencyPageContent.hero.title}
+        description={emergencyPageContent.hero.description}
+        points={emergencyPageContent.hero.points}
+        primaryCta={{ href: "/de/kontakt#lead-form", label: "Notdienst anfragen" }}
+        secondaryCta={{ href: "/de/preise", label: "Preise ansehen", variant: "secondary" }}
+        aside={<ElectricalPhotoShowcase variant="emergency" />}
+      />
 
-      <section className="section py-10">
-        <h2 className="text-3xl font-bold">Ablauf im Notfall</h2>
-        <ol className="mt-4 grid gap-3 md:grid-cols-4">
-          {["Anfrage", "Sicherheitscheck", "Rückruf / Termin", "Elektriker kommt"].map((step) => (
-            <li key={step} className="card">
-              {step}
-            </li>
-          ))}
-        </ol>
-      </section>
+      <PageSection>
+        <NoticeCard
+          tone="warning"
+          title="Sicherheitswarnung"
+          description="Bei Brandgeruch, Funkenbildung oder akuter Gefahr sofort den Stromkreis abschalten und bei Gefahr Feuerwehr/Notruf kontaktieren."
+        />
+      </PageSection>
 
-      <section className="section py-10">
-        <h2 className="text-3xl font-bold">Preis-Transparenz</h2>
-        <p className="mt-3 text-slate-700">
-          Wir erklären vorab Anfahrt, Diagnose, Arbeitszeit und Material. Keine verdeckten Positionen.
-        </p>
-      </section>
+      <PageSection>
+        <SectionHeading
+          eyebrow="Typische Notfaelle"
+          title="Diese Situationen sollten Sie im Elektro-Notdienst direkt benennen."
+          description="Je klarer das Fehlerbild, desto schneller laesst sich der naechste Schritt fuer Rueckmeldung und Einsatz abstimmen."
+        />
+        <FeatureGrid items={emergencyPageContent.symptoms} columns={2} />
+      </PageSection>
 
-      <section className="section grid gap-6 py-12 md:grid-cols-2">
-        <WhatsAppLeadForm sourcePage="/de/notdienst" />
-        <MascotHero compact />
-      </section>
+      <VisualDepthSection
+        eyebrow="Vor Ort sichtbar"
+        title="Notdienst, Diagnose und Absicherung muessen sofort glaubwuerdig wirken."
+        description="Die Bildsprache staerkt das Vertrauen, ohne den Sicherheitsfokus oder die direkte Kontaktmoeglichkeit zu verlieren."
+        variant="emergency"
+      />
 
-      <Faq
-        items={[
-          { q: "Ist nachts Hilfe möglich?", a: "Ja, unser Notdienst ist 24h erreichbar." },
-          { q: "Was soll ich zuerst tun?", a: "Bei Gefahr absichern, Stromkreis abschalten und uns sofort kontaktieren." },
+      <PageSection surface>
+        <SectionHeading
+          eyebrow="Ablauf im Notfall"
+          title="Von der Gefahrensituation bis zur abgestimmten Hilfe in vier klaren Schritten."
+          description="Der Kontaktweg bleibt auch in dringlichen Situationen einfach, direkt und gut erklaert."
+        />
+        <StepGrid steps={emergencyPageContent.steps} />
+      </PageSection>
+
+      <PageSection>
+        <SectionHeading
+          eyebrow="Preistransparenz"
+          title="Auch im Notdienst bleiben Kostenbausteine nachvollziehbar."
+          description="Anfahrt, Diagnose, Arbeitszeit und moegliche Zuschlaege werden offen erklaert, bevor Arbeiten starten."
+        />
+        <FeatureGrid items={emergencyPageContent.pricing} />
+      </PageSection>
+
+      <Faq items={emergencyPageContent.faq} />
+
+      <LeadCaptureSection
+        id="lead-form"
+        title="Notdienstanfrage direkt an Mr Spark senden"
+        description="Beschreiben Sie kurz, wo das Problem liegt und wie dringend Hilfe benoetigt wird. Wir bereiten die schnelle Rueckmeldung ueber Telegram vor."
+        sourcePage="/de/notdienst"
+        checklist={[
+          "Stadt und Fehlerbild angeben",
+          "Dringlichkeit korrekt markieren",
+          "Telefon oder Telegram erreichbar halten",
         ]}
+        emergencyNote="Bei Brandgeruch, Funkenbildung oder akuter Gefahr sofort den Stromkreis abschalten und bei Gefahr Feuerwehr/Notruf kontaktieren."
       />
     </main>
   );

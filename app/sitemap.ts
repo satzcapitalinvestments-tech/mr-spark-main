@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { languages } from "@/data/i18n/languages";
+import { hasPublishedLegalDetails, siteConfig } from "@/lib/site-config";
 
-const base = "https://mr-spark.de";
+const legalRoutes = ["/impressum", "/datenschutz"];
 const coreRoutes = [
   "",
   "/leistungen",
@@ -12,11 +13,14 @@ const coreRoutes = [
   "/preise",
   "/kontakt",
   "/ueber-uns",
-  "/impressum",
-  "/datenschutz",
+  ...(hasPublishedLegalDetails() ? legalRoutes : []),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (!siteConfig.indexingEnabled) {
+    return [];
+  }
+
   const routes = ["/"];
 
   for (const lang of languages) {
@@ -26,6 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   return routes.map((url) => ({
-    url: `${base}${url}`,
+    url: `${siteConfig.siteUrl}${url}`,
   }));
 }

@@ -1,0 +1,8 @@
+<svg width="360" height="88" viewBox="0 0 360 88" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mr Spark wordmark">
+  <rect x="0" y="12" width="48" height="24" rx="12" fill="#0A84E3"/>
+  <text x="24" y="29" text-anchor="middle" fill="#F7FBFF" font-family="'Avenir Next', 'Montserrat', 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2.8">MR</text>
+  <text x="0" y="68" fill="#081D38" font-family="'Avenir Next', 'Montserrat', 'Segoe UI', Arial, sans-serif" font-size="46" font-weight="800" letter-spacing="1.6">SPARK</text>
+  <path d="M289 26H340" stroke="#0A84E3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M333 18L341 26L333 34" stroke="#0A84E3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M287 57L301 40H297.5C295.84 40 294.5 38.66 294.5 37C294.5 35.34 295.84 34 297.5 34H313.15C315.7 34 317.14 36.9 315.6 38.95L302 57H306.25C307.91 57 309.25 58.34 309.25 60C309.25 61.66 307.91 63 306.25 63H289.35C286.86 63 285.47 60.2 287 57Z" fill="#FFD338"/>
+</svg>

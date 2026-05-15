@@ -1,0 +1,14 @@
+<svg width="420" height="96" viewBox="0 0 420 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mr Spark logo dark">
+  <rect x="8" y="8" width="80" height="80" rx="22" fill="#081D38"/>
+  <rect x="11" y="11" width="74" height="74" rx="19" stroke="#0A84E3" stroke-width="2"/>
+  <path d="M61 22V30" stroke="#F7FBFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M69 26V34" stroke="#F7FBFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M31 58C31 52.48 35.48 48 41 48H45V58.6C45 61.25 48.27 62.53 50.09 60.57L56 54.19V58C56 63.52 51.52 68 46 68H41C35.48 68 31 63.52 31 58Z" fill="#0A84E3"/>
+  <path d="M45.84 22.51C47.77 20.39 51.34 21.76 51.34 24.63V35H58.11C60.92 35 62.43 38.33 60.56 40.44L47.16 55.49C45.24 57.64 41.64 56.28 41.64 53.4V43H34.93C32.13 43 30.62 39.71 32.46 37.61L45.84 22.51Z" fill="#FFD338"/>
+  <rect x="116" y="18" width="52" height="24" rx="12" fill="#0A84E3"/>
+  <text x="142" y="35" text-anchor="middle" fill="#F7FBFF" font-family="'Avenir Next', 'Montserrat', 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2.8">MR</text>
+  <text x="116" y="74" fill="#081D38" font-family="'Avenir Next', 'Montserrat', 'Segoe UI', Arial, sans-serif" font-size="46" font-weight="800" letter-spacing="1.6">SPARK</text>
+  <path d="M340 31H390" stroke="#0A84E3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M382 23L390 31L382 39" stroke="#0A84E3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M336 62L350 45H346.5C344.84 45 343.5 43.66 343.5 42C343.5 40.34 344.84 39 346.5 39H362.15C364.7 39 366.14 41.9 364.6 43.95L351 62H355.25C356.91 62 358.25 63.34 358.25 65C358.25 66.66 356.91 68 355.25 68H338.35C335.86 68 334.47 65.2 336 62Z" fill="#FFD338"/>
+</svg>

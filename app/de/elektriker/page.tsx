@@ -1,1 +1,90 @@
-export default function Page(){return <main className="section py-14 space-y-8"><h1 className="text-4xl font-black">Elektriker buchen in Ihrer Region</h1><section className="card"><h2 className="text-2xl font-bold">Reparatur & Fehlerdiagnose</h2><p className="mt-2">Wir analysieren Ausfälle, prüfen Stromkreise und beheben elektrische Störungen sicher.</p></section><section className="card"><h2 className="text-2xl font-bold">Prüfung & Sicherheit</h2><p className="mt-2">Sichtprüfung, Messung und klare Handlungsempfehlungen für sichere Anlagen.</p></section><section className="card"><h2 className="text-2xl font-bold">Terminservice</h2><p className="mt-2">Flexible Terminvergabe, transparente Kommunikation und saubere Ausführung.</p></section><section className="card"><h2 className="text-2xl font-bold">Kontakt</h2><p className="mt-2">Jetzt Anfrage senden und Rückruf erhalten.</p></section></main>}
+import type { Metadata } from "next";
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
+import {
+  FeatureGrid,
+  HeroSection,
+  LeadCaptureSection,
+  PageSection,
+  SectionHeading,
+} from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Elektriker anfragen",
+  description:
+    "Elektriker fuer Reparaturen, Fehlersuche, Steckdosen, Licht, Sicherungskasten und schnelle Hilfe bei Stoerungen.",
+  pathname: "/de/elektriker",
+  locale: "de",
+  localizedSlug: "elektriker",
+  includeLocaleAlternates: true,
+  keywords: ["Elektriker buchen", "Elektriker Deutschland", "Elektro Reparatur"],
+});
+
+const cards = [
+  {
+    badge: "Reparatur",
+    title: "Fehlersuche und Reparatur",
+    description:
+      "Ausfaelle, FI-Probleme und unsichere Stromkreise koennen direkt als Diagnose- und Reparaturfall beschrieben werden.",
+  },
+  {
+    badge: "Pruefung",
+    title: "Sicherheitspruefung",
+    description:
+      "Sichtpruefung, Messung und technische Einordnung helfen dabei, Risiken im Sicherungskasten oder an Leitungen frueh zu erkennen.",
+  },
+  {
+    badge: "Service",
+    title: "Steckdosen, Schalter und Licht",
+    description:
+      "Kleinere Elektroarbeiten bleiben auffindbar und lassen sich genauso einfach anfragen wie groessere Reparaturen.",
+  },
+];
+
+export default function Page() {
+  return (
+    <main className="gradient">
+      <HeroSection
+        eyebrow="Elektriker anfragen"
+        title="Elektriker fuer Reparaturen, Fehlersuche und sichere Elektroarbeiten."
+        description="Diese Seite richtet sich an Kunden, die schnell einen Elektriker fuer Reparatur, Pruefung, Steckdosen, Schalter oder einen defekten Sicherungskasten anfragen moechten."
+        points={[
+          "Fehlersuche und Sicherheit klar benannt",
+          "Wohnungen, Haeuser und Gewerbe im selben Servicebild",
+          "Bei dringenden Faellen ist der Weg zum Notdienst sofort sichtbar",
+        ]}
+        primaryCta={{ href: "/de/kontakt#lead-form", label: "Elektriker anfragen" }}
+        secondaryCta={{ href: "/de/notdienst", label: "Zum Notdienst", variant: "secondary" }}
+        aside={<ElectricalPhotoShowcase variant="services" />}
+      />
+
+      <PageSection>
+        <SectionHeading
+          eyebrow="Leistungsfokus"
+          title="Typische Elektriker-Anliegen schnell einordnen."
+          description="Kunden finden Reparatur, Pruefung und kleinere Elektroarbeiten schnell in der passenden Einordnung."
+        />
+        <FeatureGrid items={cards} />
+      </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Vor-Ort-Eindruck"
+        title="Reparatur, Diagnose und Vor-Ort-Arbeit muessen sofort Vertrauen schaffen."
+        description="Echte Arbeitsbilder halten Reparatur, Pruefung und Notdienst auch zwischen den Textabschnitten praesent."
+        variant="services"
+      />
+
+      <LeadCaptureSection
+        title="Elektriker-Einsatz direkt vorbereiten"
+        description="Nennen Sie Ort, Aufgabe oder Fehlerbild und die passende Dringlichkeit. So kann die Anfrage schneller zur richtigen Rueckmeldung fuehren."
+        sourcePage="/de/elektriker"
+        checklist={[
+          "Ort oder Stadt nennen",
+          "Fehler oder Aufgabe knapp beschreiben",
+          "Telefon oder Telegram erreichbar halten",
+        ]}
+      />
+    </main>
+  );
+}
