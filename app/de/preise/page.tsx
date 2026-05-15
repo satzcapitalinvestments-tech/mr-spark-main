@@ -7,6 +7,7 @@ import {
   PageSection,
   SectionHeading,
 } from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import { pricingPageContent } from "@/data/page-content/de";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -34,7 +35,7 @@ export default function Page() {
           "Notdienstzuschlaege werden offen benannt",
         ]}
         primaryCta={{ href: "/de/kontakt#lead-form", label: "Preisrelevante Anfrage senden" }}
-        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "secondary" }}
         aside={<ElectricalPhotoShowcase variant="pricing" />}
       />
 
@@ -46,6 +47,13 @@ export default function Page() {
         />
         <FeatureGrid items={pricingPageContent.pillars} columns={2} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Preisbild"
+        title="Preise wirken vertrauenswuerdiger, wenn reale Elektroarbeit und saubere Markenflaechen zusammenkommen."
+        description="Die Preisroute bleibt klar und kundenfreundlich, ohne in blasse Tabellen oder textlastige SEO-Abschnitte zu kippen."
+        variant="pricing"
+      />
 
       <PageSection surface>
         <SectionHeading

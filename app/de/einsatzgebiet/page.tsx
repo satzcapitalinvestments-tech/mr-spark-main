@@ -9,6 +9,7 @@ import {
   PageSection,
   SectionHeading,
 } from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -56,7 +57,7 @@ export default function Page() {
           "Telegram-Kontakt startet ohne Umwege zur passenden Rueckmeldung",
         ]}
         primaryCta={{ href: "/de/kontakt#lead-form", label: "Verfuegbarkeit anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "Notdienst starten", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "Notdienst starten", variant: "secondary" }}
         aside={<ElectricalPhotoShowcase variant="coverage" />}
       />
 
@@ -68,6 +69,13 @@ export default function Page() {
         />
         <FeatureGrid items={coverageCards} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Region und Einsatz"
+        title="Einsatzgebiet braucht neben Kartenlogik auch sichtbare Elektroarbeit und Markenpraesenz."
+        description="So wirkt die Route wie eine echte Serviceseite statt wie eine blasse Ortsliste mit losem Kontaktformular."
+        variant="coverage"
+      />
 
       <PageSection surface>
         <SectionHeading

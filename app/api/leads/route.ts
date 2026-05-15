@@ -16,6 +16,7 @@ export async function POST(request: Request) {
       {
         ok: true,
         ...result,
+        contactConfigured: result.contactUrl !== "#",
         tracking: {
           event: "lead_submitted",
           method: "telegram",

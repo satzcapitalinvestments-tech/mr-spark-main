@@ -1,10 +1,15 @@
+import ElectricalPhotoShowcase from "@/components/ElectricalPhotoShowcase";
 import {
   FeatureGrid,
   HeroSection,
   LeadCaptureSection,
   PageSection,
   SectionHeading,
+  StatsBand,
 } from "@/components/MarketingSections";
+import type { LocaleCode } from "@/data/i18n/languages";
+import { localizedSlugLabels } from "@/data/i18n/localized-pages";
+import VisualDepthSection from "@/components/VisualDepthSection";
 
 type T = {
   title: string;
@@ -32,6 +37,10 @@ export function LocalizedPage({
   locale: string;
   dir?: "ltr" | "rtl";
 }) {
+  const routeLabels =
+    locale !== "de" ? localizedSlugLabels[locale as Exclude<LocaleCode, "de">] : null;
+  const trustItems = [...t.points, ...t.checklist].slice(0, 4);
+
   return (
     <main dir={dir}>
       <HeroSection
@@ -40,8 +49,19 @@ export function LocalizedPage({
         description={t.lead}
         points={t.points}
         primaryCta={{ href: `/${locale}/kontakt`, label: t.primaryCtaLabel }}
-        secondaryCta={{ href: `/${locale}/notdienst`, label: t.secondaryCtaLabel, variant: "ghost" }}
+        secondaryCta={{ href: `/${locale}/notdienst`, label: t.secondaryCtaLabel, variant: "secondary" }}
+        supportingCtas={
+          routeLabels
+            ? [
+                { href: `/${locale}/preise`, label: routeLabels.preise, variant: "ghost" },
+                { href: `/${locale}/einsatzgebiet`, label: routeLabels.einsatzgebiet, variant: "ghost" },
+              ]
+            : []
+        }
+        aside={<ElectricalPhotoShowcase variant="home" />}
       />
+
+      <StatsBand items={trustItems} />
 
       <PageSection>
         <SectionHeading
@@ -56,6 +76,13 @@ export function LocalizedPage({
           }))}
         />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow={t.servicesEyebrow}
+        title={t.servicesTitle}
+        description={t.servicesDescription}
+        variant="services"
+      />
 
       <LeadCaptureSection
         title={t.leadTitle}

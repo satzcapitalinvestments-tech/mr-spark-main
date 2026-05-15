@@ -7,6 +7,7 @@ import {
   PageSection,
   SectionHeading,
 } from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -54,7 +55,7 @@ export default function Page() {
           "Bei dringenden Faellen ist der Weg zum Notdienst sofort sichtbar",
         ]}
         primaryCta={{ href: "/de/kontakt#lead-form", label: "Elektriker anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "Zum Notdienst", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "Zum Notdienst", variant: "secondary" }}
         aside={<ElectricalPhotoShowcase variant="services" />}
       />
 
@@ -66,6 +67,13 @@ export default function Page() {
         />
         <FeatureGrid items={cards} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Vor-Ort-Eindruck"
+        title="Elektriker-Seiten brauchen sichtbare Reparatur- und Diagnosesituationen."
+        description="So bleibt der Nutzen fuer Reparatur, Pruefung und Notdienst auch zwischen den Textabschnitten praesent."
+        variant="services"
+      />
 
       <LeadCaptureSection
         title="Elektriker-Einsatz direkt vorbereiten"

@@ -7,6 +7,7 @@ import {
   PageSection,
   SectionHeading,
 } from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import { servicesPageContent } from "@/data/page-content/de";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -34,7 +35,7 @@ export default function Page() {
           "Telegram-Kontakt ist direkt von der Leistungsseite aus erreichbar",
         ]}
         primaryCta={{ href: "/de/kontakt#lead-form", label: "Leistung anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "secondary" }}
         aside={<ElectricalPhotoShowcase variant="services" />}
       />
 
@@ -46,6 +47,13 @@ export default function Page() {
         />
         <FeatureGrid items={servicesPageContent.categories} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Bildsprache"
+        title="Leistungen brauchen sichtbare Elektro-Motive statt nur ruhige Textflaechen."
+        description="Messung, Verteilung und Montage bleiben in der Mitte der Seite praesent und geben dem Leistungsangebot mehr Tiefe."
+        variant="services"
+      />
 
       <LeadCaptureSection
         title="Passende Elektrohilfe direkt anfragen"

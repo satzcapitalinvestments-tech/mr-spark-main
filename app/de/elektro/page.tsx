@@ -7,6 +7,7 @@ import {
   PageSection,
   SectionHeading,
 } from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -54,7 +55,7 @@ export default function Page() {
           "Telegram-Kontakt fuehrt ohne Umwege zur passenden Rueckmeldung",
         ]}
         primaryCta={{ href: "/de/kontakt#lead-form", label: "Elektroarbeit anfragen" }}
-        secondaryCta={{ href: "/de/preise", label: "Preise ansehen", variant: "ghost" }}
+        secondaryCta={{ href: "/de/preise", label: "Preise ansehen", variant: "secondary" }}
         aside={<ElectricalPhotoShowcase variant="services" />}
       />
 
@@ -66,6 +67,13 @@ export default function Page() {
         />
         <FeatureGrid items={cards} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Modernisierung sichtbar"
+        title="Installation und Nachruestung sollten auch im Seitenmittelpunkt wie echte Elektroprojekte wirken."
+        description="Die Bildflaechen bringen Schaltschrank, Messung und Montage sichtbar zusammen und geben der Route mehr Premium-Tiefe."
+        variant="services"
+      />
 
       <LeadCaptureSection
         title="Geplante Elektroarbeit jetzt anfragen"

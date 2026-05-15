@@ -18,14 +18,14 @@ type Feature = {
 
 function getCtaClassName(variant: Cta["variant"] = "primary") {
   if (variant === "secondary") {
-    return "border border-white/18 bg-white text-[color:var(--ink)] shadow-[0_14px_38px_rgba(6,18,31,0.18)] hover:border-white hover:text-[color:var(--brand)]";
+    return "border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] shadow-[0_16px_40px_rgba(255,212,0,0.22)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]";
   }
 
   if (variant === "ghost") {
-    return "border border-white/16 bg-white/8 text-white hover:bg-white/14";
+    return "border border-white/72 bg-white text-[color:var(--ink)] shadow-[0_14px_30px_rgba(7,26,51,0.12)] hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]";
   }
 
-  return "bg-[color:var(--accent)] text-[color:var(--ink)] shadow-[0_16px_40px_rgba(255,197,51,0.24)] hover:bg-[#ffd36c]";
+  return "border border-[color:var(--brand)] bg-[color:var(--brand)] text-white shadow-[0_18px_42px_rgba(0,119,217,0.24)] hover:border-[color:var(--brand-strong)] hover:bg-[color:var(--brand-strong)]";
 }
 
 export function HeroSection({
@@ -59,14 +59,14 @@ export function HeroSection({
               <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold tracking-tight text-white md:text-6xl xl:text-[4.15rem]">
                 {title}
               </h1>
-              <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-white/80">{description}</p>
+              <p className="mt-5 max-w-2xl text-pretty text-lg leading-8 text-white/86">{description}</p>
 
               {points.length > 0 ? (
                 <ul className="mt-8 grid gap-3 text-sm text-white/84 md:grid-cols-2">
                   {points.map((point) => (
                     <li
                       key={point}
-                      className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 backdrop-blur"
+                    className="rounded-2xl border border-white/12 bg-white/10 px-4 py-3 backdrop-blur"
                     >
                       {point}
                     </li>
@@ -83,9 +83,9 @@ export function HeroSection({
                     href={secondaryCta.href}
                     className={`btn-base ${getCtaClassName(secondaryCta.variant ?? "ghost")}`}
                   >
-                    {secondaryCta.label}
-                  </Link>
-                ) : null}
+                  {secondaryCta.label}
+                </Link>
+              ) : null}
               </div>
 
               {supportingCtas.length > 0 ? (
@@ -107,7 +107,7 @@ export function HeroSection({
                   {stats.map((stat) => (
                     <div
                       key={stat.label}
-                      className="rounded-3xl border border-white/10 bg-white/8 px-5 py-4 backdrop-blur"
+                      className="rounded-3xl border border-white/12 bg-white/10 px-5 py-4 backdrop-blur"
                     >
                       <dt className="text-sm text-white/60">{stat.label}</dt>
                       <dd className="mt-1 text-2xl font-semibold text-white">{stat.value}</dd>
@@ -162,8 +162,8 @@ export function PageSection({
 }) {
   return (
     <section className="section py-16 md:py-20">
-      <div className={surface ? "panel-surface p-8 md:p-10" : ""}>{children}</div>
-    </section>
+          <div className={surface ? "panel-surface p-8 md:p-10" : ""}>{children}</div>
+      </section>
   );
 }
 
@@ -174,7 +174,7 @@ export function StatsBand({ items }: { items: string[] }) {
         {items.map((item) => (
           <div
             key={item}
-            className="glass-card border border-slate-200/80 py-5 text-center text-sm font-medium text-[color:var(--ink)]"
+            className="glass-card border border-[color:var(--line)] py-5 text-center text-sm font-medium text-[color:var(--ink)]"
           >
             {item}
           </div>
@@ -232,7 +232,7 @@ export function NoticeCard({
 }) {
   const toneClass =
     tone === "warning"
-      ? "border-amber-300/80 bg-amber-50 text-amber-950"
+      ? "border-amber-300/90 bg-[color:var(--accent-soft)] text-amber-950"
       : "border-[color:var(--line-strong)] bg-white text-[color:var(--ink)]";
 
   return (

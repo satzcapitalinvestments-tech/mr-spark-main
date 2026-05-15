@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import BrandLogo from "@/components/BrandLogo";
 import LanguageSelector from "@/components/LanguageSelector";
 import type { LocaleCode } from "@/data/i18n/languages";
 import { buildLocalizedPath, defaultLocale, isLocale } from "@/lib/i18n";
@@ -316,6 +317,11 @@ export function Header() {
   const localeSegment = pathname.split("/")[1];
   const currentLocale = localeSegment && isLocale(localeSegment) ? localeSegment : defaultLocale;
   const copy = shellCopy[currentLocale];
+  const telegramHref =
+    siteConfig.telegramUrl && siteConfig.telegramUrl !== "#"
+      ? siteConfig.telegramUrl
+      : buildLocalizedPath(currentLocale, "kontakt");
+  const telegramIsExternal = telegramHref.startsWith("http");
   const localizedLinks = links.map(([label, slug]) => ({
     label: copy.nav[label],
     href: buildLocalizedPath(currentLocale, slug || undefined),
@@ -326,12 +332,12 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface-overlay)] shadow-[0_10px_30px_rgba(17,32,51,0.08)] backdrop-blur-xl">
-      <div className="section flex min-h-20 items-center justify-between gap-4 py-4">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--surface-overlay)] shadow-[0_16px_36px_rgba(7,26,51,0.08)] backdrop-blur-xl">
+      <div className="section flex min-h-24 items-center justify-between gap-4 py-4">
         <div className="flex items-center gap-4">
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--line-strong)] bg-white text-[color:var(--ink)] lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--line-strong)] bg-white text-[color:var(--ink)] shadow-[0_10px_24px_rgba(7,26,51,0.08)] lg:hidden"
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
             aria-label={isOpen ? copy.toggleClose : copy.toggleOpen}
@@ -344,11 +350,8 @@ export function Header() {
             </span>
           </button>
 
-          <Link href={buildLocalizedPath(currentLocale)} className="flex flex-col">
-            <span className="text-[0.7rem] uppercase tracking-[0.28em] text-[color:var(--brand)]/72">
-              {copy.brandEyebrow}
-            </span>
-            <span className="text-2xl font-semibold tracking-tight text-[color:var(--ink)]">Mr Spark</span>
+          <Link href={buildLocalizedPath(currentLocale)} className="flex items-center">
+            <BrandLogo size="header" className="h-11 w-auto md:h-[2.9rem]" />
           </Link>
         </div>
 
@@ -361,8 +364,8 @@ export function Header() {
                 key={href}
                 href={href}
                 aria-current={isActive ? "page" : undefined}
-                className={`text-sm font-medium transition hover:text-[color:var(--brand)] ${
-                  isActive ? "text-[color:var(--brand)]" : "text-[color:var(--ink)]/76"
+                className={`text-sm font-semibold transition hover:text-[color:var(--brand)] ${
+                  isActive ? "text-[color:var(--brand)]" : "text-[color:var(--ink)]/82"
                 }`}
               >
                 {label}
@@ -375,16 +378,18 @@ export function Header() {
           <LanguageSelector />
           <Link
             href={buildLocalizedPath(currentLocale, "notdienst")}
-            className="btn-base btn-small hidden md:inline-flex border border-[color:var(--line-strong)] bg-white text-[color:var(--ink)] hover:bg-[color:var(--brand-soft)]"
+            className="btn-base btn-small hidden md:inline-flex border border-[color:var(--brand)] bg-[color:var(--brand)] text-white shadow-[0_16px_36px_rgba(0,119,217,0.2)] hover:border-[color:var(--brand-strong)] hover:bg-[color:var(--brand-strong)]"
           >
             {copy.emergencyCta}
           </Link>
-          <Link
-            href={siteConfig.telegramUrl}
-            className="btn-base btn-small bg-[color:var(--accent)] text-[color:var(--ink)] hover:bg-[#ffd36c]"
+          <a
+            href={telegramHref}
+            className="btn-base btn-small border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] shadow-[0_16px_36px_rgba(255,212,0,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+            target={telegramIsExternal ? "_blank" : undefined}
+            rel={telegramIsExternal ? "noreferrer" : undefined}
           >
             {copy.primaryCta}
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -410,6 +415,22 @@ export function Header() {
                 </Link>
               );
             })}
+            <div className="mt-2 grid gap-2 border-t border-[color:var(--line)] pt-3 sm:grid-cols-2">
+              <Link
+                href={buildLocalizedPath(currentLocale, "notdienst")}
+                className="btn-base btn-small justify-center border border-[color:var(--brand)] bg-[color:var(--brand)] text-white hover:border-[color:var(--brand-strong)] hover:bg-[color:var(--brand-strong)]"
+              >
+                {copy.emergencyCta}
+              </Link>
+              <a
+                href={telegramHref}
+                className="btn-base btn-small justify-center border border-[color:var(--accent)] bg-[color:var(--accent)] text-[color:var(--ink)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+                target={telegramIsExternal ? "_blank" : undefined}
+                rel={telegramIsExternal ? "noreferrer" : undefined}
+              >
+                {copy.primaryCta}
+              </a>
+            </div>
           </nav>
         </div>
       ) : null}
@@ -427,7 +448,7 @@ export function Footer() {
     <footer className="border-t border-[color:var(--line)] bg-[color:var(--surface-strong)]">
       <div className="section grid gap-8 py-14 md:grid-cols-[1.4fr_repeat(3,minmax(0,1fr))]">
         <div>
-          <p className="section-eyebrow text-white/54">Mr Spark</p>
+          <BrandLogo theme="light" size="footer" className="h-10 w-auto md:h-11" />
           <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
             {copy.footerTitle}
           </h3>
@@ -458,10 +479,14 @@ export function Footer() {
           <h4 className="font-semibold text-white">{copy.footerLegal}</h4>
           <ul className="mt-3 space-y-2 text-sm text-white/66">
             <li>
-              <Link href={buildLocalizedPath(currentLocale, "impressum")}>{copy.legalNotice}</Link>
+              <Link href={buildLocalizedPath(currentLocale, "impressum")} className="transition hover:text-white">
+                {copy.legalNotice}
+              </Link>
             </li>
             <li>
-              <Link href={buildLocalizedPath(currentLocale, "datenschutz")}>{copy.privacyNotice}</Link>
+              <Link href={buildLocalizedPath(currentLocale, "datenschutz")} className="transition hover:text-white">
+                {copy.privacyNotice}
+              </Link>
             </li>
           </ul>
         </div>

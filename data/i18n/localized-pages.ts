@@ -130,12 +130,12 @@ const localizedSlugLabels: Record<Exclude<LocaleCode, "de">, Record<LocalizedRou
   },
   ro: {
     leistungen: "Servicii",
-    elektriker: "Electrician",
+    elektriker: "Electrician autorizat",
     elektro: "Lucrări electrice",
     notdienst: "Serviciu de urgență",
     einsatzgebiet: "Zona de serviciu",
     preise: "Prețuri",
-    kontakt: "Contact",
+    kontakt: "Contact direct",
     "ueber-uns": "Despre noi",
     impressum: "Notificare legală",
     datenschutz: "Politica de confidențialitate",
@@ -153,20 +153,20 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "Emergency electrical service",
       "Fuse box and distribution board work",
       "Sockets, switches and lighting",
-      "Call coordination and follow-up",
+      "Telegram contact and clear next steps",
     ],
     points: [
       "Emergency requests stay visible without hiding planned electrical work",
-      "Every route keeps the same clear contact path and follow-up rhythm",
+      "Every route keeps the same clear contact path and customer-facing next steps",
     ],
     servicesEyebrow: "Service overview",
     servicesTitle: "Relevant electrical topics remain easy to scan in every language.",
-    servicesDescription: "The localized pages stay intentionally compact, but they keep the same CTA rhythm and information hierarchy as the German primary routes.",
+    servicesDescription: "Electrical help, pricing clarity, and contact options stay direct and customer-facing on every route.",
     serviceCardDescription: "Mr Spark coordinates suitable electrical support depending on the issue, urgency and region.",
-    primaryCtaLabel: "Request service",
-    secondaryCtaLabel: "Open emergency page",
+    primaryCtaLabel: "Start Telegram",
+    secondaryCtaLabel: "24h Emergency",
     leadTitle: "Send a structured request",
-    leadDescription: "Name, city, service and urgency are prepared before Telegram opens, so the follow-up starts with the right details.",
+    leadDescription: "Name, city, service and urgency are prepared before Telegram opens, so the request starts with the right details.",
     checklist: [
       "State the city and issue",
       "Mark the urgency correctly",
@@ -191,10 +191,10 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     servicesEyebrow: "Hizmet özeti",
     servicesTitle: "Önemli elektrik konuları her dilde hızlıca taranabilir kalır.",
-    servicesDescription: "Yerelleştirilmiş sayfalar daha kompakt tutulur, ancak Almanca ana rotalarla aynı CTA düzenini ve bilgi mimarisini kullanır.",
+    servicesDescription: "Elektrik yardimi, fiyat seffafligi ve iletisim adimlari her rotada net ve musteri odakli kalir.",
     serviceCardDescription: "Mr Spark, soruna, aciliyete ve bölgeye göre uygun elektrik desteğini koordine eder.",
-    primaryCtaLabel: "Hizmet talep et",
-    secondaryCtaLabel: "Acil sayfasını aç",
+    primaryCtaLabel: "Telegram baslat",
+    secondaryCtaLabel: "7/24 Acil",
     leadTitle: "Yapılandırılmış talep gönder",
     leadDescription: "İsim, şehir, hizmet ve aciliyet Telegram açılmadan önce hazırlanır, böylece geri dönüş doğru bilgilerle başlar.",
     checklist: [
@@ -221,10 +221,10 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     servicesEyebrow: "نظرة على الخدمات",
     servicesTitle: "تبقى موضوعات الكهرباء المهمة سهلة المسح في كل لغة.",
-    servicesDescription: "الصفحات المترجمة أكثر اختصارًا، لكنها تحافظ على نفس إيقاع الدعوات ونفس بنية المعلومات الموجودة في الصفحات الألمانية الرئيسية.",
+    servicesDescription: "تبقى المساعدة الكهربائية والأسعار الواضحة وخيارات التواصل مباشرة وواضحة للعميل في كل صفحة.",
     serviceCardDescription: "ينسق Mr Spark الدعم الكهربائي المناسب حسب نوع المشكلة ومستوى الاستعجال والمنطقة.",
-    primaryCtaLabel: "اطلب الخدمة",
-    secondaryCtaLabel: "افتح صفحة الطوارئ",
+    primaryCtaLabel: "ابدأ تيليجرام",
+    secondaryCtaLabel: "طوارئ 24 ساعة",
     leadTitle: "أرسل طلبًا منظمًا",
     leadDescription: "يتم تجهيز الاسم والمدينة ونوع الخدمة ودرجة الاستعجال قبل فتح تيليجرام حتى تبدأ المتابعة بالمعلومات الصحيحة.",
     checklist: [
@@ -251,10 +251,10 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     servicesEyebrow: "Обзор услуг",
     servicesTitle: "Ключевые электротехнические темы легко просматривать на любом языке.",
-    servicesDescription: "Локализованные страницы намеренно компактнее, но сохраняют ту же иерархию контента и те же CTA, что и немецкие основные маршруты.",
+    servicesDescription: "Электротехническая помощь, понятные цены и контактные шаги остаются прямыми и клиентскими на каждой странице.",
     serviceCardDescription: "Mr Spark координирует подходящую электротехническую помощь в зависимости от проблемы, срочности и региона.",
-    primaryCtaLabel: "Запросить услугу",
-    secondaryCtaLabel: "Открыть аварийную страницу",
+    primaryCtaLabel: "Открыть Telegram",
+    secondaryCtaLabel: "24ч аварийно",
     leadTitle: "Отправить структурированный запрос",
     leadDescription: "Имя, город, услуга и срочность подготавливаются до открытия Telegram, чтобы согласование начиналось с нужных деталей.",
     checklist: [
@@ -281,10 +281,10 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     servicesEyebrow: "Przegląd usług",
     servicesTitle: "Najważniejsze tematy elektryczne pozostają czytelne w każdym języku.",
-    servicesDescription: "Zlokalizowane strony są celowo krótsze, ale zachowują tę samą hierarchię informacji i rytm CTA co główne strony niemieckie.",
+    servicesDescription: "Pomoc elektryczna, przejrzyste ceny i kontakt pozostają bezpośrednie oraz czytelne na każdej stronie.",
     serviceCardDescription: "Mr Spark koordynuje odpowiednie wsparcie elektryczne w zależności od problemu, pilności i regionu.",
-    primaryCtaLabel: "Zgłoś usługę",
-    secondaryCtaLabel: "Otwórz stronę awaryjną",
+    primaryCtaLabel: "Uruchom Telegram",
+    secondaryCtaLabel: "Pogotowie 24h",
     leadTitle: "Wyślij uporządkowane zgłoszenie",
     leadDescription: "Imię, miasto, usługa i pilność są przygotowywane przed otwarciem Telegrama, aby dalszy kontakt startował z właściwymi informacjami.",
     checklist: [
@@ -311,10 +311,10 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     servicesEyebrow: "Огляд послуг",
     servicesTitle: "Ключові електротехнічні теми легко переглядати будь-якою мовою.",
-    servicesDescription: "Локалізовані сторінки свідомо компактніші, але зберігають ту саму ієрархію контенту та той самий ритм CTA, що й німецькі основні маршрути.",
+    servicesDescription: "Електрична допомога, зрозумілі ціни та контактні кроки залишаються прямими й клієнтськими на кожному маршруті.",
     serviceCardDescription: "Mr Spark координує відповідну електротехнічну допомогу залежно від проблеми, терміновості та регіону.",
-    primaryCtaLabel: "Запросити послугу",
-    secondaryCtaLabel: "Відкрити аварійну сторінку",
+    primaryCtaLabel: "Відкрити Telegram",
+    secondaryCtaLabel: "24г аварійно",
     leadTitle: "Надіслати структурований запит",
     leadDescription: "Ім'я, місто, послуга та терміновість готуються до відкриття Telegram, щоб подальший контакт починався з правильними деталями.",
     checklist: [
@@ -333,7 +333,7 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
       "Serviciu electric de urgență",
       "Tablouri și distribuție",
       "Prize, întrerupătoare și iluminat",
-      "Coordonarea solicitării și follow-up",
+      "Coordonarea solicitarii si raspuns rapid",
     ],
     points: [
       "Solicitările urgente rămân vizibile fără a ascunde lucrările planificate",
@@ -341,10 +341,10 @@ const localizedHomePageCopy: Record<Exclude<LocaleCode, "de">, LocalizedHomePage
     ],
     servicesEyebrow: "Prezentare servicii",
     servicesTitle: "Subiectele electrice importante rămân ușor de scanat în fiecare limbă.",
-    servicesDescription: "Paginile localizate rămân intenționat mai compacte, dar păstrează aceeași ierarhie a informației și același ritm al CTA-urilor ca rutele germane principale.",
+    servicesDescription: "Ajutorul electric, preturile clare si pasii de contact raman directi si orientati spre client pe fiecare pagina.",
     serviceCardDescription: "Mr Spark coordonează sprijinul electric potrivit în funcție de problemă, urgență și regiune.",
-    primaryCtaLabel: "Solicită serviciul",
-    secondaryCtaLabel: "Deschide pagina de urgență",
+    primaryCtaLabel: "Porneste Telegram",
+    secondaryCtaLabel: "Urgenta 24h",
     leadTitle: "Trimite o solicitare structurată",
     leadDescription: "Numele, orașul, serviciul și urgența sunt pregătite înainte de deschiderea Telegram, astfel încât răspunsul să pornească cu detaliile corecte.",
     checklist: [
@@ -366,15 +366,26 @@ function buildCards(title: string, detail: string, emphasis: string) {
       description: detail,
     },
     {
-      title: `${title} · Mr Spark`,
+      title: "Telegram",
       description: detail,
     },
   ];
 }
 
+const localizedCoverageLabels: Record<Exclude<LocaleCode, "de">, { states: string; cities: string }> = {
+  en: { states: "States / regions", cities: "Cities" },
+  tr: { states: "Eyaletler / bolgeler", cities: "Sehirler" },
+  ar: { states: "الولايات / المناطق", cities: "المدن" },
+  ru: { states: "Регионы / земли", cities: "Города" },
+  pl: { states: "Kraje / regiony", cities: "Miasta" },
+  uk: { states: "Землі / регіони", cities: "Міста" },
+  ro: { states: "Regiuni / landuri", cities: "Orase" },
+};
+
 function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRouteSlug, LocalizedRoutePageContent> {
   const home = localizedHomePageCopy[locale];
   const labels = localizedSlugLabels[locale];
+  const coverageLabels = localizedCoverageLabels[locale];
 
   return {
     leistungen: {
@@ -452,8 +463,8 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
       leadDescription: home.leadDescription,
       checklist: home.checklist,
       serviceAreaIntro: home.lead,
-      serviceAreaStatesLabel: "States / regions",
-      serviceAreaCitiesLabel: "Cities",
+      serviceAreaStatesLabel: coverageLabels.states,
+      serviceAreaCitiesLabel: coverageLabels.cities,
     },
     preise: {
       title: labels.preise,
@@ -536,80 +547,31 @@ function buildRouteCopy(locale: Exclude<LocaleCode, "de">): Record<LocalizedRout
 export const localizedPageCopy: Record<Exclude<LocaleCode, "de">, LocaleUiCopy> = {
   en: {
     home: localizedHomePageCopy.en,
-    slugs: {
-      ...buildRouteCopy("en"),
-      einsatzgebiet: {
-        ...buildRouteCopy("en").einsatzgebiet,
-        serviceAreaStatesLabel: "States / regions",
-        serviceAreaCitiesLabel: "Cities",
-      },
-    },
+    slugs: buildRouteCopy("en"),
   },
   tr: {
     home: localizedHomePageCopy.tr,
-    slugs: {
-      ...buildRouteCopy("tr"),
-      einsatzgebiet: {
-        ...buildRouteCopy("tr").einsatzgebiet,
-        serviceAreaStatesLabel: "Eyaletler / bölgeler",
-        serviceAreaCitiesLabel: "Şehirler",
-      },
-    },
+    slugs: buildRouteCopy("tr"),
   },
   ar: {
     home: localizedHomePageCopy.ar,
-    slugs: {
-      ...buildRouteCopy("ar"),
-      einsatzgebiet: {
-        ...buildRouteCopy("ar").einsatzgebiet,
-        serviceAreaStatesLabel: "الولايات / المناطق",
-        serviceAreaCitiesLabel: "المدن",
-      },
-    },
+    slugs: buildRouteCopy("ar"),
   },
   ru: {
     home: localizedHomePageCopy.ru,
-    slugs: {
-      ...buildRouteCopy("ru"),
-      einsatzgebiet: {
-        ...buildRouteCopy("ru").einsatzgebiet,
-        serviceAreaStatesLabel: "Регионы / земли",
-        serviceAreaCitiesLabel: "Города",
-      },
-    },
+    slugs: buildRouteCopy("ru"),
   },
   pl: {
     home: localizedHomePageCopy.pl,
-    slugs: {
-      ...buildRouteCopy("pl"),
-      einsatzgebiet: {
-        ...buildRouteCopy("pl").einsatzgebiet,
-        serviceAreaStatesLabel: "Kraje / regiony",
-        serviceAreaCitiesLabel: "Miasta",
-      },
-    },
+    slugs: buildRouteCopy("pl"),
   },
   uk: {
     home: localizedHomePageCopy.uk,
-    slugs: {
-      ...buildRouteCopy("uk"),
-      einsatzgebiet: {
-        ...buildRouteCopy("uk").einsatzgebiet,
-        serviceAreaStatesLabel: "Землі / регіони",
-        serviceAreaCitiesLabel: "Міста",
-      },
-    },
+    slugs: buildRouteCopy("uk"),
   },
   ro: {
     home: localizedHomePageCopy.ro,
-    slugs: {
-      ...buildRouteCopy("ro"),
-      einsatzgebiet: {
-        ...buildRouteCopy("ro").einsatzgebiet,
-        serviceAreaStatesLabel: "Landuri / regiuni",
-        serviceAreaCitiesLabel: "Orașe",
-      },
-    },
+    slugs: buildRouteCopy("ro"),
   },
 };
 

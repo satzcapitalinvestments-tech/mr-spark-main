@@ -12,6 +12,7 @@ import {
   StatsBand,
   StepGrid,
 } from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import { germanStates } from "@/data/germany/states";
 import { homePageContent } from "@/data/page-content/de";
 import { buildPageMetadata } from "@/lib/seo";
@@ -100,10 +101,10 @@ export default function Page() {
         description={homePageContent.hero.description}
         points={homePageContent.hero.points}
         primaryCta={{ href: "/de/notdienst", label: "Notdienst anfragen" }}
-        secondaryCta={{ href: "/de/kontakt#lead-form", label: "Telegram starten", variant: "ghost" }}
+        secondaryCta={{ href: "/de/kontakt#lead-form", label: "Telegram starten", variant: "secondary" }}
         supportingCtas={[
-          { href: "/de/preise", label: "Preise ansehen", variant: "secondary" },
-          { href: "/de/einsatzgebiet", label: "Einsatzgebiet pruefen", variant: "secondary" },
+          { href: "/de/preise", label: "Preise ansehen", variant: "ghost" },
+          { href: "/de/einsatzgebiet", label: "Einsatzgebiet pruefen", variant: "ghost" },
         ]}
         stats={homePageContent.hero.stats}
         aside={<ElectricalPhotoShowcase variant="home" />}
@@ -119,6 +120,13 @@ export default function Page() {
         />
         <FeatureGrid items={homePageContent.services} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Elektrische Eindruecke"
+        title="Mehr echte Elektroarbeit in den mittleren Bereichen schafft Vertrauen und Orientierung."
+        description="Schaltschrank, Messung, Vor-Ort-Pruefung und Kontaktweg bleiben nicht nur oben im Hero sichtbar, sondern tragen den gesamten Seitenfluss."
+        variant="services"
+      />
 
       <PageSection surface>
         <SectionHeading

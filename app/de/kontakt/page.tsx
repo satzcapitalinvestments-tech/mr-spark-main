@@ -9,6 +9,7 @@ import {
   PageSection,
   SectionHeading,
 } from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import { contactPageContent } from "@/data/page-content/de";
 import { buildContactPageStructuredData, buildPageMetadata } from "@/lib/seo";
 
@@ -38,7 +39,7 @@ export default function Page() {
           "Akute Faelle und planbare Arbeiten nutzen denselben klaren Einstieg",
         ]}
         primaryCta={{ href: "#lead-form", label: "Jetzt ueber Telegram anfragen" }}
-        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "ghost" }}
+        secondaryCta={{ href: "/de/notdienst", label: "24h Notdienst", variant: "secondary" }}
         aside={<ElectricalPhotoShowcase variant="contact" />}
       />
 
@@ -50,6 +51,13 @@ export default function Page() {
         />
         <FeatureGrid items={contactPageContent.cards} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Kontakt mit Substanz"
+        title="Kontakt, Telegram und Vor-Ort-Eindruck sollen sich wie eine echte Marke anfuehlen."
+        description="Der Formularbereich wird von echten Elektro-Motiven getragen, damit der Kontaktweg nicht wie eine isolierte Technikbox wirkt."
+        variant="contact"
+      />
 
       <LeadCaptureSection
         id="lead-form"

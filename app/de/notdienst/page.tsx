@@ -11,6 +11,7 @@ import {
   SectionHeading,
   StepGrid,
 } from "@/components/MarketingSections";
+import VisualDepthSection from "@/components/VisualDepthSection";
 import { emergencyPageContent } from "@/data/page-content/de";
 import { buildEmergencyServiceStructuredData, buildPageMetadata } from "@/lib/seo";
 
@@ -36,7 +37,7 @@ export default function Page() {
         description={emergencyPageContent.hero.description}
         points={emergencyPageContent.hero.points}
         primaryCta={{ href: "/de/kontakt#lead-form", label: "Notdienst anfragen" }}
-        secondaryCta={{ href: "/de/preise", label: "Preise ansehen", variant: "ghost" }}
+        secondaryCta={{ href: "/de/preise", label: "Preise ansehen", variant: "secondary" }}
         aside={<ElectricalPhotoShowcase variant="emergency" />}
       />
 
@@ -56,6 +57,13 @@ export default function Page() {
         />
         <FeatureGrid items={emergencyPageContent.symptoms} columns={2} />
       </PageSection>
+
+      <VisualDepthSection
+        eyebrow="Vor Ort sichtbar"
+        title="Notdienst, Diagnose und Absicherung muessen auf der Seite wie echte Elektrohilfe wirken."
+        description="Die Bildsprache staerkt das Vertrauen, ohne den Sicherheitsfokus oder die direkte Kontaktmoeglichkeit zu verlieren."
+        variant="emergency"
+      />
 
       <PageSection surface>
         <SectionHeading

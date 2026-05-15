@@ -34,8 +34,12 @@ type LeadFormCopy = {
   submitIdle: string;
   submitBusy: string;
   success: string;
+  fallbackInfo: string;
   genericError: string;
   preparationError: string;
+  backendErrorTranslations: Record<string, string>;
+  tooLongLabels: Record<"Name" | "Kontakt" | "Stadt" | "Service" | "Nachricht", string>;
+  tooLongSuffix: string;
 };
 
 const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
@@ -67,8 +71,19 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     submitIdle: "Ueber Telegram anfragen",
     submitBusy: "Anfrage wird vorbereitet...",
     success: "Ihre Anfrage ist vorbereitet. Telegram wurde in einem neuen Tab geoeffnet.",
+    fallbackInfo:
+      "Ihre Anfrage ist vorbereitet. Telegram ist fuer diese Umgebung noch nicht konfiguriert, deshalb wurde kein externer Kontakt geoeffnet.",
     genericError: "Bitte erneut versuchen.",
     preparationError: "Die Anfrage konnte nicht vorbereitet werden.",
+    backendErrorTranslations: {},
+    tooLongLabels: {
+      Name: "Name",
+      Kontakt: "Kontakt",
+      Stadt: "Stadt",
+      Service: "Service",
+      Nachricht: "Nachricht",
+    },
+    tooLongSuffix: "ist zu lang.",
   },
   en: {
     eyebrow: "Telegram request",
@@ -84,12 +99,12 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     serviceLabel: "Service",
     servicePlaceholder: "Choose a service",
     serviceOptions: [
-      { value: "Emergency service", label: "Emergency service" },
-      { value: "Fault diagnosis", label: "Fault diagnosis" },
-      { value: "Fuse box", label: "Fuse box" },
-      { value: "Sockets & lighting", label: "Sockets & lighting" },
-      { value: "Electrical installation", label: "Electrical installation" },
-      { value: "Modernisation", label: "Modernisation" },
+      { value: "Elektro-Notdienst", label: "Emergency service" },
+      { value: "Fehlersuche", label: "Fault diagnosis" },
+      { value: "Sicherungskasten", label: "Fuse box" },
+      { value: "Steckdosen & Licht", label: "Sockets & lighting" },
+      { value: "Elektroinstallation", label: "Electrical installation" },
+      { value: "Modernisierung", label: "Modernisation" },
     ],
     urgencyLabel: "Urgency",
     urgencyOptions: { Normal: "Normal", Heute: "Today", Sofort: "Immediate" },
@@ -98,8 +113,32 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     submitIdle: "Request via Telegram",
     submitBusy: "Preparing request...",
     success: "Your request is ready. Telegram opened in a new tab.",
+    fallbackInfo:
+      "Your request is ready. Telegram is not configured for this environment yet, so no external contact was opened.",
     genericError: "Please try again.",
     preparationError: "The request could not be prepared.",
+    backendErrorTranslations: {
+      "Ungueltige Quellseite.": "Invalid source page.",
+      "Bitte eine gueltige Telefonnummer oder E-Mail angeben.": "Please enter a valid phone number or email address.",
+      "Anfrage zu schnell gesendet. Bitte Formular kurz pruefen und erneut senden.":
+        "Request sent too quickly. Please review the form briefly and try again.",
+      "Sitzung abgelaufen. Bitte Formular erneut senden.": "Session expired. Please submit the form again.",
+      "Zu viele Anfragen in kurzer Zeit. Bitte in einigen Minuten erneut versuchen.":
+        "Too many requests in a short time. Please try again in a few minutes.",
+      "Ungueltige Anfrage.": "Invalid request.",
+      "Spam erkannt.": "Spam detected.",
+      "Bitte Name, Stadt, Service und Seite angeben.": "Please provide your name, city, service, and page.",
+      "Ungueltige Dringlichkeit.": "Invalid urgency.",
+      "Unbekannter Fehler.": "Unknown error.",
+    },
+    tooLongLabels: {
+      Name: "Name",
+      Kontakt: "Contact",
+      Stadt: "City",
+      Service: "Service",
+      Nachricht: "Message",
+    },
+    tooLongSuffix: "is too long.",
   },
   tr: {
     eyebrow: "Telegram talebi",
@@ -115,12 +154,12 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     serviceLabel: "Hizmet",
     servicePlaceholder: "Bir hizmet secin",
     serviceOptions: [
-      { value: "Acil servis", label: "Acil servis" },
-      { value: "Ariza tespiti", label: "Ariza tespiti" },
-      { value: "Sigorta kutusu", label: "Sigorta kutusu" },
-      { value: "Priz ve aydinlatma", label: "Priz ve aydinlatma" },
-      { value: "Elektrik tesisati", label: "Elektrik tesisati" },
-      { value: "Modernizasyon", label: "Modernizasyon" },
+      { value: "Elektro-Notdienst", label: "Acil servis" },
+      { value: "Fehlersuche", label: "Ariza tespiti" },
+      { value: "Sicherungskasten", label: "Sigorta kutusu" },
+      { value: "Steckdosen & Licht", label: "Priz ve aydinlatma" },
+      { value: "Elektroinstallation", label: "Elektrik tesisati" },
+      { value: "Modernisierung", label: "Modernizasyon" },
     ],
     urgencyLabel: "Aciliyet",
     urgencyOptions: { Normal: "Normal", Heute: "Bugun", Sofort: "Hemen" },
@@ -129,8 +168,32 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     submitIdle: "Telegram ile talep gonder",
     submitBusy: "Talep hazirlaniyor...",
     success: "Talebiniz hazir. Telegram yeni sekmede acildi.",
+    fallbackInfo:
+      "Talebiniz hazir. Bu ortam icin Telegram henuz ayarlanmadigi icin harici bir iletisim acilmadi.",
     genericError: "Lutfen tekrar deneyin.",
     preparationError: "Talep hazirlanamadi.",
+    backendErrorTranslations: {
+      "Ungueltige Quellseite.": "Gecersiz kaynak sayfa.",
+      "Bitte eine gueltige Telefonnummer oder E-Mail angeben.": "Lutfen gecerli bir telefon numarasi veya e-posta girin.",
+      "Anfrage zu schnell gesendet. Bitte Formular kurz pruefen und erneut senden.":
+        "Talep cok hizli gonderildi. Lutfen formu kisaca kontrol edip tekrar deneyin.",
+      "Sitzung abgelaufen. Bitte Formular erneut senden.": "Oturum suresi doldu. Lutfen formu yeniden gonderin.",
+      "Zu viele Anfragen in kurzer Zeit. Bitte in einigen Minuten erneut versuchen.":
+        "Kisa surede cok fazla talep gonderildi. Lutfen birkac dakika sonra tekrar deneyin.",
+      "Ungueltige Anfrage.": "Gecersiz talep.",
+      "Spam erkannt.": "Spam algilandi.",
+      "Bitte Name, Stadt, Service und Seite angeben.": "Lutfen ad, sehir, hizmet ve sayfayi belirtin.",
+      "Ungueltige Dringlichkeit.": "Gecersiz aciliyet.",
+      "Unbekannter Fehler.": "Bilinmeyen hata.",
+    },
+    tooLongLabels: {
+      Name: "Ad",
+      Kontakt: "Iletisim",
+      Stadt: "Sehir",
+      Service: "Hizmet",
+      Nachricht: "Mesaj",
+    },
+    tooLongSuffix: "cok uzun.",
   },
   ar: {
     eyebrow: "طلب تيليجرام",
@@ -145,12 +208,12 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     serviceLabel: "الخدمة",
     servicePlaceholder: "اختر الخدمة",
     serviceOptions: [
-      { value: "خدمة الطوارئ", label: "خدمة الطوارئ" },
-      { value: "تشخيص الأعطال", label: "تشخيص الأعطال" },
-      { value: "لوحة الكهرباء", label: "لوحة الكهرباء" },
-      { value: "المقابس والإنارة", label: "المقابس والإنارة" },
-      { value: "تمديدات كهربائية", label: "تمديدات كهربائية" },
-      { value: "تحديث وتجديد", label: "تحديث وتجديد" },
+      { value: "Elektro-Notdienst", label: "خدمة الطوارئ" },
+      { value: "Fehlersuche", label: "تشخيص الأعطال" },
+      { value: "Sicherungskasten", label: "لوحة الكهرباء" },
+      { value: "Steckdosen & Licht", label: "المقابس والإنارة" },
+      { value: "Elektroinstallation", label: "تمديدات كهربائية" },
+      { value: "Modernisierung", label: "تحديث وتجديد" },
     ],
     urgencyLabel: "درجة الاستعجال",
     urgencyOptions: { Normal: "عادي", Heute: "اليوم", Sofort: "فوري" },
@@ -159,8 +222,31 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     submitIdle: "اطلب عبر تيليجرام",
     submitBusy: "يتم تجهيز الطلب...",
     success: "تم تجهيز طلبك. فُتح تيليجرام في علامة تبويب جديدة.",
+    fallbackInfo: "تم تجهيز طلبك. تيليجرام غير مُعدّ لهذه البيئة بعد، لذلك لم يتم فتح جهة اتصال خارجية.",
     genericError: "يرجى المحاولة مرة أخرى.",
     preparationError: "تعذر تجهيز الطلب.",
+    backendErrorTranslations: {
+      "Ungueltige Quellseite.": "صفحة المصدر غير صالحة.",
+      "Bitte eine gueltige Telefonnummer oder E-Mail angeben.": "يرجى إدخال رقم هاتف أو بريد إلكتروني صالح.",
+      "Anfrage zu schnell gesendet. Bitte Formular kurz pruefen und erneut senden.":
+        "تم إرسال الطلب بسرعة كبيرة. يرجى مراجعة النموذج سريعاً والمحاولة مرة أخرى.",
+      "Sitzung abgelaufen. Bitte Formular erneut senden.": "انتهت الجلسة. يرجى إرسال النموذج مرة أخرى.",
+      "Zu viele Anfragen in kurzer Zeit. Bitte in einigen Minuten erneut versuchen.":
+        "تم إرسال عدد كبير من الطلبات خلال وقت قصير. يرجى المحاولة مرة أخرى بعد بضع دقائق.",
+      "Ungueltige Anfrage.": "طلب غير صالح.",
+      "Spam erkannt.": "تم اكتشاف رسائل مزعجة.",
+      "Bitte Name, Stadt, Service und Seite angeben.": "يرجى إدخال الاسم والمدينة والخدمة والصفحة.",
+      "Ungueltige Dringlichkeit.": "درجة الاستعجال غير صالحة.",
+      "Unbekannter Fehler.": "خطأ غير معروف.",
+    },
+    tooLongLabels: {
+      Name: "الاسم",
+      Kontakt: "وسيلة الاتصال",
+      Stadt: "المدينة",
+      Service: "الخدمة",
+      Nachricht: "الرسالة",
+    },
+    tooLongSuffix: "طويل جدًا.",
   },
   ru: {
     eyebrow: "Запрос в Telegram",
@@ -176,12 +262,12 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     serviceLabel: "Услуга",
     servicePlaceholder: "Выберите услугу",
     serviceOptions: [
-      { value: "Аварийная служба", label: "Аварийная служба" },
-      { value: "Диагностика", label: "Диагностика" },
-      { value: "Электрощит", label: "Электрощит" },
-      { value: "Розетки и свет", label: "Розетки и свет" },
-      { value: "Электромонтаж", label: "Электромонтаж" },
-      { value: "Модернизация", label: "Модернизация" },
+      { value: "Elektro-Notdienst", label: "Аварийная служба" },
+      { value: "Fehlersuche", label: "Диагностика" },
+      { value: "Sicherungskasten", label: "Электрощит" },
+      { value: "Steckdosen & Licht", label: "Розетки и свет" },
+      { value: "Elektroinstallation", label: "Электромонтаж" },
+      { value: "Modernisierung", label: "Модернизация" },
     ],
     urgencyLabel: "Срочность",
     urgencyOptions: { Normal: "Обычная", Heute: "Сегодня", Sofort: "Срочно" },
@@ -190,8 +276,32 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     submitIdle: "Запросить через Telegram",
     submitBusy: "Подготовка заявки...",
     success: "Заявка готова. Telegram открыт в новой вкладке.",
+    fallbackInfo:
+      "Заявка подготовлена. Telegram для этой среды пока не настроен, поэтому внешний контакт не был открыт.",
     genericError: "Пожалуйста, попробуйте снова.",
     preparationError: "Не удалось подготовить заявку.",
+    backendErrorTranslations: {
+      "Ungueltige Quellseite.": "Недопустимая исходная страница.",
+      "Bitte eine gueltige Telefonnummer oder E-Mail angeben.": "Укажите корректный номер телефона или e-mail.",
+      "Anfrage zu schnell gesendet. Bitte Formular kurz pruefen und erneut senden.":
+        "Заявка отправлена слишком быстро. Пожалуйста, кратко проверьте форму и попробуйте снова.",
+      "Sitzung abgelaufen. Bitte Formular erneut senden.": "Сессия истекла. Пожалуйста, отправьте форму снова.",
+      "Zu viele Anfragen in kurzer Zeit. Bitte in einigen Minuten erneut versuchen.":
+        "Слишком много заявок за короткое время. Пожалуйста, попробуйте снова через несколько минут.",
+      "Ungueltige Anfrage.": "Недопустимый запрос.",
+      "Spam erkannt.": "Обнаружен спам.",
+      "Bitte Name, Stadt, Service und Seite angeben.": "Укажите имя, город, услугу и страницу.",
+      "Ungueltige Dringlichkeit.": "Недопустимая срочность.",
+      "Unbekannter Fehler.": "Неизвестная ошибка.",
+    },
+    tooLongLabels: {
+      Name: "Имя",
+      Kontakt: "Контакт",
+      Stadt: "Город",
+      Service: "Услуга",
+      Nachricht: "Сообщение",
+    },
+    tooLongSuffix: "слишком длинное.",
   },
   pl: {
     eyebrow: "Zapytanie przez Telegram",
@@ -207,12 +317,12 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     serviceLabel: "Usługa",
     servicePlaceholder: "Wybierz usługę",
     serviceOptions: [
-      { value: "Pogotowie elektryczne", label: "Pogotowie elektryczne" },
-      { value: "Diagnostyka usterek", label: "Diagnostyka usterek" },
-      { value: "Rozdzielnia", label: "Rozdzielnia" },
-      { value: "Gniazdka i oswietlenie", label: "Gniazdka i oswietlenie" },
-      { value: "Instalacja elektryczna", label: "Instalacja elektryczna" },
-      { value: "Modernizacja", label: "Modernizacja" },
+      { value: "Elektro-Notdienst", label: "Pogotowie elektryczne" },
+      { value: "Fehlersuche", label: "Diagnostyka usterek" },
+      { value: "Sicherungskasten", label: "Rozdzielnia" },
+      { value: "Steckdosen & Licht", label: "Gniazdka i oswietlenie" },
+      { value: "Elektroinstallation", label: "Instalacja elektryczna" },
+      { value: "Modernisierung", label: "Modernizacja" },
     ],
     urgencyLabel: "Pilność",
     urgencyOptions: { Normal: "Normalna", Heute: "Dzisiaj", Sofort: "Natychmiast" },
@@ -221,8 +331,32 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     submitIdle: "Zapytaj przez Telegram",
     submitBusy: "Przygotowywanie zgłoszenia...",
     success: "Zgłoszenie jest gotowe. Telegram otwarto w nowej karcie.",
+    fallbackInfo:
+      "Zgłoszenie jest gotowe. Telegram nie jest jeszcze skonfigurowany dla tego środowiska, więc nie otwarto zewnętrznego kontaktu.",
     genericError: "Spróbuj ponownie.",
     preparationError: "Nie udało się przygotować zgłoszenia.",
+    backendErrorTranslations: {
+      "Ungueltige Quellseite.": "Nieprawidłowa strona źródłowa.",
+      "Bitte eine gueltige Telefonnummer oder E-Mail angeben.": "Podaj prawidłowy numer telefonu lub adres e-mail.",
+      "Anfrage zu schnell gesendet. Bitte Formular kurz pruefen und erneut senden.":
+        "Zgłoszenie wysłano zbyt szybko. Krótko sprawdź formularz i spróbuj ponownie.",
+      "Sitzung abgelaufen. Bitte Formular erneut senden.": "Sesja wygasła. Prześlij formularz ponownie.",
+      "Zu viele Anfragen in kurzer Zeit. Bitte in einigen Minuten erneut versuchen.":
+        "Zbyt wiele zgłoszeń w krótkim czasie. Spróbuj ponownie za kilka minut.",
+      "Ungueltige Anfrage.": "Nieprawidłowe zgłoszenie.",
+      "Spam erkannt.": "Wykryto spam.",
+      "Bitte Name, Stadt, Service und Seite angeben.": "Podaj imię, miasto, usługę i stronę.",
+      "Ungueltige Dringlichkeit.": "Nieprawidłowy poziom pilności.",
+      "Unbekannter Fehler.": "Nieznany błąd.",
+    },
+    tooLongLabels: {
+      Name: "Imię",
+      Kontakt: "Kontakt",
+      Stadt: "Miasto",
+      Service: "Usługa",
+      Nachricht: "Wiadomość",
+    },
+    tooLongSuffix: "jest za długie.",
   },
   uk: {
     eyebrow: "Запит у Telegram",
@@ -238,12 +372,12 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     serviceLabel: "Послуга",
     servicePlaceholder: "Оберіть послугу",
     serviceOptions: [
-      { value: "Аварійна служба", label: "Аварійна служба" },
-      { value: "Діагностика", label: "Діагностика" },
-      { value: "Електрощит", label: "Електрощит" },
-      { value: "Розетки та світло", label: "Розетки та світло" },
-      { value: "Електромонтаж", label: "Електромонтаж" },
-      { value: "Модернізація", label: "Модернізація" },
+      { value: "Elektro-Notdienst", label: "Аварійна служба" },
+      { value: "Fehlersuche", label: "Діагностика" },
+      { value: "Sicherungskasten", label: "Електрощит" },
+      { value: "Steckdosen & Licht", label: "Розетки та світло" },
+      { value: "Elektroinstallation", label: "Електромонтаж" },
+      { value: "Modernisierung", label: "Модернізація" },
     ],
     urgencyLabel: "Терміновість",
     urgencyOptions: { Normal: "Звичайна", Heute: "Сьогодні", Sofort: "Терміново" },
@@ -252,8 +386,32 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     submitIdle: "Запросити через Telegram",
     submitBusy: "Підготовка заявки...",
     success: "Заявка готова. Telegram відкрито в новій вкладці.",
+    fallbackInfo:
+      "Заявку підготовлено. Telegram для цього середовища ще не налаштовано, тому зовнішній контакт не було відкрито.",
     genericError: "Будь ласка, спробуйте ще раз.",
     preparationError: "Не вдалося підготувати заявку.",
+    backendErrorTranslations: {
+      "Ungueltige Quellseite.": "Недійсна вихідна сторінка.",
+      "Bitte eine gueltige Telefonnummer oder E-Mail angeben.": "Вкажіть дійсний номер телефону або e-mail.",
+      "Anfrage zu schnell gesendet. Bitte Formular kurz pruefen und erneut senden.":
+        "Заявку надіслано надто швидко. Коротко перевірте форму та спробуйте ще раз.",
+      "Sitzung abgelaufen. Bitte Formular erneut senden.": "Сесію завершено. Будь ласка, надішліть форму ще раз.",
+      "Zu viele Anfragen in kurzer Zeit. Bitte in einigen Minuten erneut versuchen.":
+        "Забагато заявок за короткий час. Спробуйте ще раз за кілька хвилин.",
+      "Ungueltige Anfrage.": "Недійсний запит.",
+      "Spam erkannt.": "Виявлено спам.",
+      "Bitte Name, Stadt, Service und Seite angeben.": "Вкажіть ім'я, місто, послугу та сторінку.",
+      "Ungueltige Dringlichkeit.": "Недійсний рівень терміновості.",
+      "Unbekannter Fehler.": "Невідома помилка.",
+    },
+    tooLongLabels: {
+      Name: "Ім'я",
+      Kontakt: "Контакт",
+      Stadt: "Місто",
+      Service: "Послуга",
+      Nachricht: "Повідомлення",
+    },
+    tooLongSuffix: "занадто довге.",
   },
   ro: {
     eyebrow: "Cerere prin Telegram",
@@ -269,12 +427,12 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     serviceLabel: "Serviciu",
     servicePlaceholder: "Alegeti serviciul",
     serviceOptions: [
-      { value: "Serviciu de urgenta", label: "Serviciu de urgenta" },
-      { value: "Diagnosticare", label: "Diagnosticare" },
-      { value: "Tablou electric", label: "Tablou electric" },
-      { value: "Prize si iluminat", label: "Prize si iluminat" },
-      { value: "Instalatie electrica", label: "Instalatie electrica" },
-      { value: "Modernizare", label: "Modernizare" },
+      { value: "Elektro-Notdienst", label: "Serviciu de urgenta" },
+      { value: "Fehlersuche", label: "Diagnosticare" },
+      { value: "Sicherungskasten", label: "Tablou electric" },
+      { value: "Steckdosen & Licht", label: "Prize si iluminat" },
+      { value: "Elektroinstallation", label: "Instalatie electrica" },
+      { value: "Modernisierung", label: "Modernizare" },
     ],
     urgencyLabel: "Urgenta",
     urgencyOptions: { Normal: "Normal", Heute: "Astazi", Sofort: "Imediat" },
@@ -283,10 +441,49 @@ const leadFormCopy: Record<LocaleCode, LeadFormCopy> = {
     submitIdle: "Solicita prin Telegram",
     submitBusy: "Se pregateste solicitarea...",
     success: "Solicitarea este pregatita. Telegram s-a deschis intr-o fila noua.",
+    fallbackInfo:
+      "Solicitarea este pregatita. Telegram nu este inca configurat pentru acest mediu, asa ca nu s-a deschis niciun contact extern.",
     genericError: "Va rugam sa incercati din nou.",
     preparationError: "Solicitarea nu a putut fi pregatita.",
+    backendErrorTranslations: {
+      "Ungueltige Quellseite.": "Pagină sursă invalidă.",
+      "Bitte eine gueltige Telefonnummer oder E-Mail angeben.": "Introduceți un număr de telefon sau un e-mail valid.",
+      "Anfrage zu schnell gesendet. Bitte Formular kurz pruefen und erneut senden.":
+        "Solicitarea a fost trimisă prea repede. Verificați rapid formularul și încercați din nou.",
+      "Sitzung abgelaufen. Bitte Formular erneut senden.": "Sesiunea a expirat. Vă rugăm să retrimiteți formularul.",
+      "Zu viele Anfragen in kurzer Zeit. Bitte in einigen Minuten erneut versuchen.":
+        "Prea multe solicitări într-un timp scurt. Încercați din nou peste câteva minute.",
+      "Ungueltige Anfrage.": "Solicitare invalidă.",
+      "Spam erkannt.": "Spam detectat.",
+      "Bitte Name, Stadt, Service und Seite angeben.": "Introduceți numele, orașul, serviciul și pagina.",
+      "Ungueltige Dringlichkeit.": "Nivel de urgență invalid.",
+      "Unbekannter Fehler.": "Eroare necunoscută.",
+    },
+    tooLongLabels: {
+      Name: "Nume",
+      Kontakt: "Contact",
+      Stadt: "Oraș",
+      Service: "Serviciu",
+      Nachricht: "Mesaj",
+    },
+    tooLongSuffix: "este prea lung.",
   },
 };
+
+function translateBackendError(message: string, copy: LeadFormCopy) {
+  const directMatch = copy.backendErrorTranslations[message];
+  if (directMatch) {
+    return directMatch;
+  }
+
+  const tooLongMatch = message.match(/^(Name|Kontakt|Stadt|Service|Nachricht) ist zu lang\.$/);
+  if (tooLongMatch) {
+    const field = tooLongMatch[1] as keyof LeadFormCopy["tooLongLabels"];
+    return `${copy.tooLongLabels[field]} ${copy.tooLongSuffix}`;
+  }
+
+  return message;
+}
 
 export default function TelegramLeadForm({ sourcePage }: { sourcePage: string }) {
   const localeSegment = sourcePage.split("/").filter(Boolean)[0];
@@ -329,6 +526,7 @@ export default function TelegramLeadForm({ sourcePage }: { sourcePage: string })
         ok: boolean;
         error?: string;
         contactUrl?: string;
+        contactConfigured?: boolean;
         tracking?: {
           event: string;
           method: string;
@@ -337,7 +535,7 @@ export default function TelegramLeadForm({ sourcePage }: { sourcePage: string })
       };
 
       if (!response.ok || !payload.ok || !payload.contactUrl) {
-        throw new Error(payload.error || copy.preparationError);
+        throw new Error(translateBackendError(payload.error || copy.preparationError, copy));
       }
 
       if (typeof window !== "undefined") {
@@ -347,20 +545,22 @@ export default function TelegramLeadForm({ sourcePage }: { sourcePage: string })
           sourcePage: payload.tracking?.sourcePage || sourcePage,
         });
 
-        if (telegramWindow) {
-          telegramWindow.opener = null;
-          telegramWindow.location.href = payload.contactUrl;
-        } else {
-          window.location.assign(payload.contactUrl);
+        if (payload.contactConfigured !== false) {
+          if (telegramWindow) {
+            telegramWindow.opener = null;
+            telegramWindow.location.href = payload.contactUrl;
+          } else {
+            window.location.assign(payload.contactUrl);
+          }
         }
       }
 
-      setFeedback(copy.success);
+      setFeedback(payload.contactConfigured === false ? copy.fallbackInfo : copy.success);
       setForm(initialFormState);
       setStartedAt(Date.now());
     } catch (error) {
       telegramWindow?.close();
-      setFeedback(error instanceof Error ? error.message : copy.genericError);
+      setFeedback(error instanceof Error ? translateBackendError(error.message, copy) : copy.genericError);
     } finally {
       setIsSubmitting(false);
     }
@@ -486,13 +686,13 @@ export default function TelegramLeadForm({ sourcePage }: { sourcePage: string })
         type="submit"
         disabled={isSubmitting}
         aria-disabled={isSubmitting}
-        className="btn-base justify-center bg-[color:var(--accent)] text-[color:var(--ink)] disabled:cursor-not-allowed disabled:opacity-70 hover:bg-[#ffd36c]"
+        className="btn-base justify-center border border-[color:var(--brand)] bg-[color:var(--brand)] text-white shadow-[0_18px_42px_rgba(0,119,217,0.24)] disabled:cursor-not-allowed disabled:opacity-70 hover:border-[color:var(--brand-strong)] hover:bg-[color:var(--brand-strong)]"
       >
         {isSubmitting ? copy.submitBusy : copy.submitIdle}
       </button>
 
       {feedback ? (
-        <p role="status" aria-live="polite" className="text-sm text-[color:var(--muted)]">
+        <p role="status" aria-live="polite" className="text-sm text-[color:var(--ink)]/76">
           {feedback}
         </p>
       ) : null}
